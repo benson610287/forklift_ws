@@ -8,7 +8,7 @@ $ git clone https://github.com/benson610287/forklift_ws.git --recursive
 #進入工作區
 $ cd forklift_ws/
 #創建並進入分支
-$ git branch -b $your_brenchname
+$ git checkout -b $your_brenchname
 #加入新創的檔案
 $ git add .
 #提交檔案
