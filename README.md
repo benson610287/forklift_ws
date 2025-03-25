@@ -1,19 +1,30 @@
 # github使用教學
 ### 第一次使用
 ```base
+#回到根目錄
 $ cd $HOME
+#clone工作區
 $ git clone https://github.com/benson610287/forklift_ws.git --recursive
+#進入工作區
 $ cd forklift_ws/
+#創建並進入分支
 $ git branch -b $your_brenchname
+#加入新創的檔案
 $ git add .
+#提交檔案
 $ git commit -m "version info"
+#上傳至該分支的雲端
 $ git push -u origin $your_brenchname
 ```
 ### 之後使用
 ```base
-$ git branch $your_brenchname
+#進入分支
+$ git chechout $your_brenchname
+#加入新創的檔案
 $ git add .
+#提交檔案
 $ git commit -m "version info"
+#上傳至該分支的雲端
 $ git push -u origin $your_brenchname
 ```
 
