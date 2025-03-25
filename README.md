@@ -2,8 +2,7 @@
 ### 第一次使用
 ```base
 $ cd $HOME
-$ mkdir -p timda_mobile_ws/src && cd timda_mobile_ws
-$ git clone https://github.com/benson610287/timda_mobile_noetic.git src/ --recursive
+$ git clone https://github.com/benson610287/forklift_ws.git --recursive
 $ cd forklift_ws/
 $ git branch -b $your_brenchname
 $ git add .
