@@ -1,4 +1,23 @@
 # github使用教學
+### 第一次使用
+```base
+$ cd $HOME
+$ mkdir -p timda_mobile_ws/src && cd timda_mobile_ws
+$ git clone https://github.com/benson610287/timda_mobile_noetic.git src/ --recursive
+$ cd forklift_ws/
+$ git branch -b $your_brenchname
+$ git add .
+$ git commit -m "version info"
+$ git push -u origin $your_brenchname
+```
+### 之後使用
+```base
+$ git branch $your_brenchname
+$ git add .
+$ git commit -m "version info"
+$ git push -u origin $your_brenchname
+```
+
 
 
 
