@@ -1,1 +1,0 @@
-Invoking command in '/home/iclab/work/build/linear_move': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/iclab/work/src/linear_move -DCMAKE_INSTALL_PREFIX=/home/iclab/work/install/linear_move
