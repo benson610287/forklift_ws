@@ -1,1 +1,0 @@
-Invoking command in '/home/iclab/work/build/keyboard_control': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/iclab/work/src/keyboard_control -DCMAKE_INSTALL_PREFIX=/home/iclab/work/install/keyboard_control
