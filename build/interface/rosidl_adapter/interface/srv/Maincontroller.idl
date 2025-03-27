@@ -1,0 +1,15 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from interface/srv/Maincontroller.srv
+// generated code does not contain a copyright notice
+
+
+module interface {
+  module srv {
+    struct Maincontroller_Request {
+      boolean a;
+    };
+    struct Maincontroller_Response {
+      int64 sum;
+    };
+  };
+};
