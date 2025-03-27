@@ -1,0 +1,30 @@
+[0.020s] Invoking command in '/home/iclab/work/build/mecanum': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/iclab/work/build/mecanum -- -j8 -l8
+[0.081s] [ 25%] [32mBuilding CXX object CMakeFiles/mobile_node.dir/src/mobile_node.cpp.o[0m
+[0.083s] [ 50%] [32mBuilding CXX object CMakeFiles/mobile_node.dir/src/TimdaModbus.cpp.o[0m
+[0.084s] [ 75%] [32mBuilding CXX object CMakeFiles/mobile_node.dir/src/Mecanum.cpp.o[0m
+[13.162s] [100%] [32m[1mLinking CXX executable mobile_node[0m
+[13.836s] [100%] Built target mobile_node
+[13.849s] Invoked command in '/home/iclab/work/build/mecanum' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/iclab/work/build/mecanum -- -j8 -l8
+[13.851s] Invoking command in '/home/iclab/work/build/mecanum': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/iclab/work/build/mecanum
+[13.860s] -- Install configuration: ""
+[13.860s] -- Installing: /home/iclab/work/install/mecanum/include/mecanum
+[13.860s] -- Installing: /home/iclab/work/install/mecanum/include/mecanum/TimdaModbus.h
+[13.860s] -- Installing: /home/iclab/work/install/mecanum/include/mecanum/Mecanum.h
+[13.861s] -- Installing: /home/iclab/work/install/mecanum/lib/mecanum/mobile_node
+[13.867s] -- Set runtime path of "/home/iclab/work/install/mecanum/lib/mecanum/mobile_node" to ""
+[13.867s] -- Installing: /home/iclab/work/install/mecanum/share/ament_index/resource_index/package_run_dependencies/mecanum
+[13.867s] -- Installing: /home/iclab/work/install/mecanum/share/ament_index/resource_index/parent_prefix_path/mecanum
+[13.868s] -- Installing: /home/iclab/work/install/mecanum/share/mecanum/environment/ament_prefix_path.sh
+[13.868s] -- Installing: /home/iclab/work/install/mecanum/share/mecanum/environment/ament_prefix_path.dsv
+[13.868s] -- Installing: /home/iclab/work/install/mecanum/share/mecanum/environment/path.sh
+[13.868s] -- Installing: /home/iclab/work/install/mecanum/share/mecanum/environment/path.dsv
+[13.869s] -- Installing: /home/iclab/work/install/mecanum/share/mecanum/local_setup.bash
+[13.869s] -- Installing: /home/iclab/work/install/mecanum/share/mecanum/local_setup.sh
+[13.869s] -- Installing: /home/iclab/work/install/mecanum/share/mecanum/local_setup.zsh
+[13.869s] -- Installing: /home/iclab/work/install/mecanum/share/mecanum/local_setup.dsv
+[13.870s] -- Installing: /home/iclab/work/install/mecanum/share/mecanum/package.dsv
+[13.870s] -- Installing: /home/iclab/work/install/mecanum/share/ament_index/resource_index/packages/mecanum
+[13.870s] -- Installing: /home/iclab/work/install/mecanum/share/mecanum/cmake/mecanumConfig.cmake
+[13.870s] -- Installing: /home/iclab/work/install/mecanum/share/mecanum/cmake/mecanumConfig-version.cmake
+[13.871s] -- Installing: /home/iclab/work/install/mecanum/share/mecanum/package.xml
+[13.873s] Invoked command in '/home/iclab/work/build/mecanum' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/iclab/work/build/mecanum

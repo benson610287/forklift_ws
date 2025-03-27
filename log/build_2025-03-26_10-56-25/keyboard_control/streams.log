@@ -1,0 +1,23 @@
+[0.024s] Invoking command in '/home/iclab/work/build/keyboard_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/iclab/work/build/keyboard_control -- -j8 -l8
+[0.074s] [35m[1mConsolidate compiler generated dependencies of target main[0m
+[0.109s] [100%] Built target main
+[0.127s] Invoked command in '/home/iclab/work/build/keyboard_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/iclab/work/build/keyboard_control -- -j8 -l8
+[0.138s] Invoking command in '/home/iclab/work/build/keyboard_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/iclab/work/build/keyboard_control
+[0.147s] -- Install configuration: ""
+[0.148s] -- Up-to-date: /home/iclab/work/install/keyboard_control/lib/keyboard_control/main
+[0.148s] -- Up-to-date: /home/iclab/work/install/keyboard_control/share/ament_index/resource_index/package_run_dependencies/keyboard_control
+[0.148s] -- Up-to-date: /home/iclab/work/install/keyboard_control/share/ament_index/resource_index/parent_prefix_path/keyboard_control
+[0.149s] -- Up-to-date: /home/iclab/work/install/keyboard_control/share/keyboard_control/environment/ament_prefix_path.sh
+[0.149s] -- Up-to-date: /home/iclab/work/install/keyboard_control/share/keyboard_control/environment/ament_prefix_path.dsv
+[0.149s] -- Up-to-date: /home/iclab/work/install/keyboard_control/share/keyboard_control/environment/path.sh
+[0.149s] -- Up-to-date: /home/iclab/work/install/keyboard_control/share/keyboard_control/environment/path.dsv
+[0.149s] -- Up-to-date: /home/iclab/work/install/keyboard_control/share/keyboard_control/local_setup.bash
+[0.149s] -- Up-to-date: /home/iclab/work/install/keyboard_control/share/keyboard_control/local_setup.sh
+[0.150s] -- Up-to-date: /home/iclab/work/install/keyboard_control/share/keyboard_control/local_setup.zsh
+[0.150s] -- Up-to-date: /home/iclab/work/install/keyboard_control/share/keyboard_control/local_setup.dsv
+[0.150s] -- Installing: /home/iclab/work/install/keyboard_control/share/keyboard_control/package.dsv
+[0.150s] -- Up-to-date: /home/iclab/work/install/keyboard_control/share/ament_index/resource_index/packages/keyboard_control
+[0.150s] -- Up-to-date: /home/iclab/work/install/keyboard_control/share/keyboard_control/cmake/keyboard_controlConfig.cmake
+[0.150s] -- Up-to-date: /home/iclab/work/install/keyboard_control/share/keyboard_control/cmake/keyboard_controlConfig-version.cmake
+[0.150s] -- Up-to-date: /home/iclab/work/install/keyboard_control/share/keyboard_control/package.xml
+[0.152s] Invoked command in '/home/iclab/work/build/keyboard_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/iclab/work/build/keyboard_control
