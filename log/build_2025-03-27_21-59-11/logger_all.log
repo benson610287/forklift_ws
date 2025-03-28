@@ -1,0 +1,826 @@
+[0.074s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.075s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=16, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7b4095693340>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7b4095850700>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7b4095850700>>)
+[0.202s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.203s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.203s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.203s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.203s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.203s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.203s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/fxck/work'
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.203s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2) by extensions ['ignore', 'ignore_ament_install']
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2) by extension 'ignore'
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2) by extension 'ignore_ament_install'
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2) by extensions ['colcon_pkg']
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2) by extension 'colcon_pkg'
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2) by extensions ['colcon_meta']
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2) by extension 'colcon_meta'
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2) by extensions ['ros']
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2) by extension 'ros'
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2) by extensions ['cmake', 'python']
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2) by extension 'cmake'
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2) by extension 'python'
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2) by extensions ['python_setup_py']
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2) by extension 'python_setup_py'
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose) by extensions ['ignore', 'ignore_ament_install']
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose) by extension 'ignore'
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose) by extension 'ignore_ament_install'
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose) by extensions ['colcon_pkg']
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose) by extension 'colcon_pkg'
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose) by extensions ['colcon_meta']
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose) by extension 'colcon_meta'
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose) by extensions ['ros']
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose) by extension 'ros'
+[0.212s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose) by extensions ['cmake', 'python']
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose) by extension 'cmake'
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose) by extension 'python'
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose) by extensions ['python_setup_py']
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose) by extension 'python_setup_py'
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config) by extensions ['ignore', 'ignore_ament_install']
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config) by extension 'ignore'
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config) by extension 'ignore_ament_install'
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config) by extensions ['colcon_pkg']
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config) by extension 'colcon_pkg'
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config) by extensions ['colcon_meta']
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config) by extension 'colcon_meta'
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config) by extensions ['ros']
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config) by extension 'ros'
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config) by extensions ['cmake', 'python']
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config) by extension 'cmake'
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config) by extension 'python'
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config) by extensions ['python_setup_py']
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config) by extension 'python_setup_py'
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/pip) by extensions ['ignore', 'ignore_ament_install']
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/pip) by extension 'ignore'
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/pip) by extension 'ignore_ament_install'
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/pip) by extensions ['colcon_pkg']
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/pip) by extension 'colcon_pkg'
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/pip) by extensions ['colcon_meta']
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/pip) by extension 'colcon_meta'
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/pip) by extensions ['ros']
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/pip) by extension 'ros'
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/pip) by extensions ['cmake', 'python']
+[0.213s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/pip) by extension 'cmake'
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/pip) by extension 'python'
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/pip) by extensions ['python_setup_py']
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/pip) by extension 'python_setup_py'
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell) by extensions ['ignore', 'ignore_ament_install']
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell) by extension 'ignore'
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell) by extension 'ignore_ament_install'
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell) by extensions ['colcon_pkg']
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell) by extension 'colcon_pkg'
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell) by extensions ['colcon_meta']
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell) by extension 'colcon_meta'
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell) by extensions ['ros']
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell) by extension 'ros'
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell) by extensions ['cmake', 'python']
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell) by extension 'cmake'
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell) by extension 'python'
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell) by extensions ['python_setup_py']
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell) by extension 'python_setup_py'
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell/terminator) by extensions ['ignore', 'ignore_ament_install']
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell/terminator) by extension 'ignore'
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell/terminator) by extension 'ignore_ament_install'
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell/terminator) by extensions ['colcon_pkg']
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell/terminator) by extension 'colcon_pkg'
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell/terminator) by extensions ['colcon_meta']
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell/terminator) by extension 'colcon_meta'
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell/terminator) by extensions ['ros']
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell/terminator) by extension 'ros'
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell/terminator) by extensions ['cmake', 'python']
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell/terminator) by extension 'cmake'
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell/terminator) by extension 'python'
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell/terminator) by extensions ['python_setup_py']
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell/terminator) by extension 'python_setup_py'
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell/tmux) by extensions ['ignore', 'ignore_ament_install']
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell/tmux) by extension 'ignore'
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell/tmux) by extension 'ignore_ament_install'
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell/tmux) by extensions ['colcon_pkg']
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell/tmux) by extension 'colcon_pkg'
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell/tmux) by extensions ['colcon_meta']
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell/tmux) by extension 'colcon_meta'
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell/tmux) by extensions ['ros']
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell/tmux) by extension 'ros'
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell/tmux) by extensions ['cmake', 'python']
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell/tmux) by extension 'cmake'
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell/tmux) by extension 'python'
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell/tmux) by extensions ['python_setup_py']
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/compose/config/shell/tmux) by extension 'python_setup_py'
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config) by extensions ['ignore', 'ignore_ament_install']
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config) by extension 'ignore'
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config) by extension 'ignore_ament_install'
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config) by extensions ['colcon_pkg']
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config) by extension 'colcon_pkg'
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config) by extensions ['colcon_meta']
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config) by extension 'colcon_meta'
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config) by extensions ['ros']
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config) by extension 'ros'
+[0.215s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config) by extensions ['cmake', 'python']
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config) by extension 'cmake'
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config) by extension 'python'
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config) by extensions ['python_setup_py']
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config) by extension 'python_setup_py'
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/pip) by extensions ['ignore', 'ignore_ament_install']
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/pip) by extension 'ignore'
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/pip) by extension 'ignore_ament_install'
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/pip) by extensions ['colcon_pkg']
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/pip) by extension 'colcon_pkg'
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/pip) by extensions ['colcon_meta']
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/pip) by extension 'colcon_meta'
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/pip) by extensions ['ros']
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/pip) by extension 'ros'
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/pip) by extensions ['cmake', 'python']
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/pip) by extension 'cmake'
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/pip) by extension 'python'
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/pip) by extensions ['python_setup_py']
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/pip) by extension 'python_setup_py'
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell) by extensions ['ignore', 'ignore_ament_install']
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell) by extension 'ignore'
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell) by extension 'ignore_ament_install'
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell) by extensions ['colcon_pkg']
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell) by extension 'colcon_pkg'
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell) by extensions ['colcon_meta']
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell) by extension 'colcon_meta'
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell) by extensions ['ros']
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell) by extension 'ros'
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell) by extensions ['cmake', 'python']
+[0.216s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell) by extension 'cmake'
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell) by extension 'python'
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell) by extensions ['python_setup_py']
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell) by extension 'python_setup_py'
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell/terminator) by extensions ['ignore', 'ignore_ament_install']
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell/terminator) by extension 'ignore'
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell/terminator) by extension 'ignore_ament_install'
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell/terminator) by extensions ['colcon_pkg']
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell/terminator) by extension 'colcon_pkg'
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell/terminator) by extensions ['colcon_meta']
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell/terminator) by extension 'colcon_meta'
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell/terminator) by extensions ['ros']
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell/terminator) by extension 'ros'
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell/terminator) by extensions ['cmake', 'python']
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell/terminator) by extension 'cmake'
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell/terminator) by extension 'python'
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell/terminator) by extensions ['python_setup_py']
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell/terminator) by extension 'python_setup_py'
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell/tmux) by extensions ['ignore', 'ignore_ament_install']
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell/tmux) by extension 'ignore'
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell/tmux) by extension 'ignore_ament_install'
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell/tmux) by extensions ['colcon_pkg']
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell/tmux) by extension 'colcon_pkg'
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell/tmux) by extensions ['colcon_meta']
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell/tmux) by extension 'colcon_meta'
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell/tmux) by extensions ['ros']
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell/tmux) by extension 'ros'
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell/tmux) by extensions ['cmake', 'python']
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell/tmux) by extension 'cmake'
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell/tmux) by extension 'python'
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell/tmux) by extensions ['python_setup_py']
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(docker_ros2/config/shell/tmux) by extension 'python_setup_py'
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus) by extensions ['ignore', 'ignore_ament_install']
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus) by extension 'ignore'
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus) by extension 'ignore_ament_install'
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus) by extensions ['colcon_pkg']
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus) by extension 'colcon_pkg'
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus) by extensions ['colcon_meta']
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus) by extension 'colcon_meta'
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus) by extensions ['ros']
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus) by extension 'ros'
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus) by extensions ['cmake', 'python']
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus) by extension 'cmake'
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus) by extension 'python'
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus) by extensions ['python_setup_py']
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus) by extension 'python_setup_py'
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/build) by extensions ['ignore', 'ignore_ament_install']
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/build) by extension 'ignore'
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/build) ignored
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/doc) by extensions ['ignore', 'ignore_ament_install']
+[0.218s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/doc) by extension 'ignore'
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/doc) by extension 'ignore_ament_install'
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/doc) by extensions ['colcon_pkg']
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/doc) by extension 'colcon_pkg'
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/doc) by extensions ['colcon_meta']
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/doc) by extension 'colcon_meta'
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/doc) by extensions ['ros']
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/doc) by extension 'ros'
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/doc) by extensions ['cmake', 'python']
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/doc) by extension 'cmake'
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/doc) by extension 'python'
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/doc) by extensions ['python_setup_py']
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/doc) by extension 'python_setup_py'
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/install) by extensions ['ignore', 'ignore_ament_install']
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/install) by extension 'ignore'
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/install) ignored
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/log) by extensions ['ignore', 'ignore_ament_install']
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/log) by extension 'ignore'
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/log) ignored
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/m4) by extensions ['ignore', 'ignore_ament_install']
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/m4) by extension 'ignore'
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/m4) by extension 'ignore_ament_install'
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/m4) by extensions ['colcon_pkg']
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/m4) by extension 'colcon_pkg'
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/m4) by extensions ['colcon_meta']
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/m4) by extension 'colcon_meta'
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/m4) by extensions ['ros']
+[0.219s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/m4) by extension 'ros'
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/m4) by extensions ['cmake', 'python']
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/m4) by extension 'cmake'
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/m4) by extension 'python'
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/m4) by extensions ['python_setup_py']
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/m4) by extension 'python_setup_py'
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/src) by extensions ['ignore', 'ignore_ament_install']
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/src) by extension 'ignore'
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/src) by extension 'ignore_ament_install'
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/src) by extensions ['colcon_pkg']
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/src) by extension 'colcon_pkg'
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/src) by extensions ['colcon_meta']
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/src) by extension 'colcon_meta'
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/src) by extensions ['ros']
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/src) by extension 'ros'
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/src) by extensions ['cmake', 'python']
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/src) by extension 'cmake'
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/src) by extension 'python'
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/src) by extensions ['python_setup_py']
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/src) by extension 'python_setup_py'
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/src/win32) by extensions ['ignore', 'ignore_ament_install']
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/src/win32) by extension 'ignore'
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/src/win32) by extension 'ignore_ament_install'
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/src/win32) by extensions ['colcon_pkg']
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/src/win32) by extension 'colcon_pkg'
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/src/win32) by extensions ['colcon_meta']
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/src/win32) by extension 'colcon_meta'
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/src/win32) by extensions ['ros']
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/src/win32) by extension 'ros'
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/src/win32) by extensions ['cmake', 'python']
+[0.220s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/src/win32) by extension 'cmake'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/src/win32) by extension 'python'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/src/win32) by extensions ['python_setup_py']
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/src/win32) by extension 'python_setup_py'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/tests) by extensions ['ignore', 'ignore_ament_install']
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/tests) by extension 'ignore'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/tests) by extension 'ignore_ament_install'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/tests) by extensions ['colcon_pkg']
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/tests) by extension 'colcon_pkg'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/tests) by extensions ['colcon_meta']
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/tests) by extension 'colcon_meta'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/tests) by extensions ['ros']
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/tests) by extension 'ros'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/tests) by extensions ['cmake', 'python']
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/tests) by extension 'cmake'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/tests) by extension 'python'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/tests) by extensions ['python_setup_py']
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(libmodbus/tests) by extension 'python_setup_py'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.221s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(src/GUI) by extensions ['ignore', 'ignore_ament_install']
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(src/GUI) by extension 'ignore'
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(src/GUI) by extension 'ignore_ament_install'
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(src/GUI) by extensions ['colcon_pkg']
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(src/GUI) by extension 'colcon_pkg'
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(src/GUI) by extensions ['colcon_meta']
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(src/GUI) by extension 'colcon_meta'
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(src/GUI) by extensions ['ros']
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(src/GUI) by extension 'ros'
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(src/GUI) by extensions ['cmake', 'python']
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(src/GUI) by extension 'cmake'
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(src/GUI) by extension 'python'
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(src/GUI) by extensions ['python_setup_py']
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(src/GUI) by extension 'python_setup_py'
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(src/GUI/gui) by extensions ['ignore', 'ignore_ament_install']
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(src/GUI/gui) by extension 'ignore'
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(src/GUI/gui) by extension 'ignore_ament_install'
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(src/GUI/gui) by extensions ['colcon_pkg']
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(src/GUI/gui) by extension 'colcon_pkg'
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(src/GUI/gui) by extensions ['colcon_meta']
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(src/GUI/gui) by extension 'colcon_meta'
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(src/GUI/gui) by extensions ['ros']
+[0.222s] Level 1:colcon.colcon_core.package_identification:_identify(src/GUI/gui) by extension 'ros'
+[0.224s] DEBUG:colcon.colcon_core.package_identification:Package 'src/GUI/gui' with type 'ros.ament_python' and name 'gui'
+[0.224s] Level 1:colcon.colcon_core.package_identification:_identify(src/GUI/gui_interface) by extensions ['ignore', 'ignore_ament_install']
+[0.224s] Level 1:colcon.colcon_core.package_identification:_identify(src/GUI/gui_interface) by extension 'ignore'
+[0.224s] Level 1:colcon.colcon_core.package_identification:_identify(src/GUI/gui_interface) by extension 'ignore_ament_install'
+[0.224s] Level 1:colcon.colcon_core.package_identification:_identify(src/GUI/gui_interface) by extensions ['colcon_pkg']
+[0.224s] Level 1:colcon.colcon_core.package_identification:_identify(src/GUI/gui_interface) by extension 'colcon_pkg'
+[0.224s] Level 1:colcon.colcon_core.package_identification:_identify(src/GUI/gui_interface) by extensions ['colcon_meta']
+[0.224s] Level 1:colcon.colcon_core.package_identification:_identify(src/GUI/gui_interface) by extension 'colcon_meta'
+[0.224s] Level 1:colcon.colcon_core.package_identification:_identify(src/GUI/gui_interface) by extensions ['ros']
+[0.224s] Level 1:colcon.colcon_core.package_identification:_identify(src/GUI/gui_interface) by extension 'ros'
+[0.225s] DEBUG:colcon.colcon_core.package_identification:Package 'src/GUI/gui_interface' with type 'ros.ament_cmake' and name 'gui_interface'
+[0.225s] Level 1:colcon.colcon_core.package_identification:_identify(src/interface) by extensions ['ignore', 'ignore_ament_install']
+[0.225s] Level 1:colcon.colcon_core.package_identification:_identify(src/interface) by extension 'ignore'
+[0.225s] Level 1:colcon.colcon_core.package_identification:_identify(src/interface) by extension 'ignore_ament_install'
+[0.225s] Level 1:colcon.colcon_core.package_identification:_identify(src/interface) by extensions ['colcon_pkg']
+[0.225s] Level 1:colcon.colcon_core.package_identification:_identify(src/interface) by extension 'colcon_pkg'
+[0.225s] Level 1:colcon.colcon_core.package_identification:_identify(src/interface) by extensions ['colcon_meta']
+[0.225s] Level 1:colcon.colcon_core.package_identification:_identify(src/interface) by extension 'colcon_meta'
+[0.225s] Level 1:colcon.colcon_core.package_identification:_identify(src/interface) by extensions ['ros']
+[0.225s] Level 1:colcon.colcon_core.package_identification:_identify(src/interface) by extension 'ros'
+[0.225s] DEBUG:colcon.colcon_core.package_identification:Package 'src/interface' with type 'ros.ament_cmake' and name 'interface'
+[0.225s] Level 1:colcon.colcon_core.package_identification:_identify(src/keyboard_control) by extensions ['ignore', 'ignore_ament_install']
+[0.226s] Level 1:colcon.colcon_core.package_identification:_identify(src/keyboard_control) by extension 'ignore'
+[0.226s] Level 1:colcon.colcon_core.package_identification:_identify(src/keyboard_control) by extension 'ignore_ament_install'
+[0.226s] Level 1:colcon.colcon_core.package_identification:_identify(src/keyboard_control) by extensions ['colcon_pkg']
+[0.226s] Level 1:colcon.colcon_core.package_identification:_identify(src/keyboard_control) by extension 'colcon_pkg'
+[0.226s] Level 1:colcon.colcon_core.package_identification:_identify(src/keyboard_control) by extensions ['colcon_meta']
+[0.226s] Level 1:colcon.colcon_core.package_identification:_identify(src/keyboard_control) by extension 'colcon_meta'
+[0.226s] Level 1:colcon.colcon_core.package_identification:_identify(src/keyboard_control) by extensions ['ros']
+[0.226s] Level 1:colcon.colcon_core.package_identification:_identify(src/keyboard_control) by extension 'ros'
+[0.226s] DEBUG:colcon.colcon_core.package_identification:Package 'src/keyboard_control' with type 'ros.ament_cmake' and name 'keyboard_control'
+[0.226s] Level 1:colcon.colcon_core.package_identification:_identify(src/linear_move) by extensions ['ignore', 'ignore_ament_install']
+[0.226s] Level 1:colcon.colcon_core.package_identification:_identify(src/linear_move) by extension 'ignore'
+[0.226s] Level 1:colcon.colcon_core.package_identification:_identify(src/linear_move) by extension 'ignore_ament_install'
+[0.226s] Level 1:colcon.colcon_core.package_identification:_identify(src/linear_move) by extensions ['colcon_pkg']
+[0.226s] Level 1:colcon.colcon_core.package_identification:_identify(src/linear_move) by extension 'colcon_pkg'
+[0.226s] Level 1:colcon.colcon_core.package_identification:_identify(src/linear_move) by extensions ['colcon_meta']
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(src/linear_move) by extension 'colcon_meta'
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(src/linear_move) by extensions ['ros']
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(src/linear_move) by extension 'ros'
+[0.227s] DEBUG:colcon.colcon_core.package_identification:Package 'src/linear_move' with type 'ros.ament_cmake' and name 'linear_move'
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(src/main_control) by extensions ['ignore', 'ignore_ament_install']
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(src/main_control) by extension 'ignore'
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(src/main_control) by extension 'ignore_ament_install'
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(src/main_control) by extensions ['colcon_pkg']
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(src/main_control) by extension 'colcon_pkg'
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(src/main_control) by extensions ['colcon_meta']
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(src/main_control) by extension 'colcon_meta'
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(src/main_control) by extensions ['ros']
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(src/main_control) by extension 'ros'
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(src/main_control) by extensions ['cmake', 'python']
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(src/main_control) by extension 'cmake'
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(src/main_control) by extension 'python'
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(src/main_control) by extensions ['python_setup_py']
+[0.227s] Level 1:colcon.colcon_core.package_identification:_identify(src/main_control) by extension 'python_setup_py'
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(src/main_control/main_control) by extensions ['ignore', 'ignore_ament_install']
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(src/main_control/main_control) by extension 'ignore'
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(src/main_control/main_control) by extension 'ignore_ament_install'
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(src/main_control/main_control) by extensions ['colcon_pkg']
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(src/main_control/main_control) by extension 'colcon_pkg'
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(src/main_control/main_control) by extensions ['colcon_meta']
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(src/main_control/main_control) by extension 'colcon_meta'
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(src/main_control/main_control) by extensions ['ros']
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(src/main_control/main_control) by extension 'ros'
+[0.228s] DEBUG:colcon.colcon_core.package_identification:Package 'src/main_control/main_control' with type 'ros.ament_python' and name 'main_control'
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(src/mecanum) by extensions ['ignore', 'ignore_ament_install']
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(src/mecanum) by extension 'ignore'
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(src/mecanum) by extension 'ignore_ament_install'
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(src/mecanum) by extensions ['colcon_pkg']
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(src/mecanum) by extension 'colcon_pkg'
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(src/mecanum) by extensions ['colcon_meta']
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(src/mecanum) by extension 'colcon_meta'
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(src/mecanum) by extensions ['ros']
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(src/mecanum) by extension 'ros'
+[0.229s] DEBUG:colcon.colcon_core.package_identification:Package 'src/mecanum' with type 'ros.ament_cmake' and name 'mecanum'
+[0.229s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.229s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.229s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.229s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.229s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.251s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.251s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.251s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/fxck/work/install/mecanum' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.251s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/fxck/work/install/main_control' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.252s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/fxck/work/install/linear_move' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.252s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/fxck/work/install/keyboard_control' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.252s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/fxck/work/install/interface' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.252s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/fxck/work/install/gui_interface' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.252s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/fxck/work/install/gui' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.252s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/fxck/work/install/mecanum' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.252s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/fxck/work/install/linear_move' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.252s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/fxck/work/install/keyboard_control' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.252s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/fxck/work/install/interface' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.252s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/fxck/work/install/gui_interface' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.252s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 0 installed packages in /home/fxck/work/install
+[0.254s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 272 installed packages in /opt/ros/humble
+[0.255s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'gui_interface' build argument 'cmake_args' from command line to 'None'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'gui_interface' build argument 'cmake_target' from command line to 'None'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'gui_interface' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'gui_interface' build argument 'cmake_clean_cache' from command line to 'False'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'gui_interface' build argument 'cmake_clean_first' from command line to 'False'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'gui_interface' build argument 'cmake_force_configure' from command line to 'False'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'gui_interface' build argument 'ament_cmake_args' from command line to 'None'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'gui_interface' build argument 'catkin_cmake_args' from command line to 'None'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'gui_interface' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.284s] DEBUG:colcon.colcon_core.verb:Building package 'gui_interface' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/fxck/work/build/gui_interface', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/fxck/work/install/gui_interface', 'merge_install': False, 'path': '/home/fxck/work/src/GUI/gui_interface', 'symlink_install': False, 'test_result_base': None}
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'interface' build argument 'cmake_args' from command line to 'None'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'interface' build argument 'cmake_target' from command line to 'None'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'interface' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'interface' build argument 'cmake_clean_cache' from command line to 'False'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'interface' build argument 'cmake_clean_first' from command line to 'False'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'interface' build argument 'cmake_force_configure' from command line to 'False'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'interface' build argument 'ament_cmake_args' from command line to 'None'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'interface' build argument 'catkin_cmake_args' from command line to 'None'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'interface' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.284s] DEBUG:colcon.colcon_core.verb:Building package 'interface' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/fxck/work/build/interface', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/fxck/work/install/interface', 'merge_install': False, 'path': '/home/fxck/work/src/interface', 'symlink_install': False, 'test_result_base': None}
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'keyboard_control' build argument 'cmake_args' from command line to 'None'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'keyboard_control' build argument 'cmake_target' from command line to 'None'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'keyboard_control' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'keyboard_control' build argument 'cmake_clean_cache' from command line to 'False'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'keyboard_control' build argument 'cmake_clean_first' from command line to 'False'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'keyboard_control' build argument 'cmake_force_configure' from command line to 'False'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'keyboard_control' build argument 'ament_cmake_args' from command line to 'None'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'keyboard_control' build argument 'catkin_cmake_args' from command line to 'None'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'keyboard_control' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.285s] DEBUG:colcon.colcon_core.verb:Building package 'keyboard_control' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/fxck/work/build/keyboard_control', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/fxck/work/install/keyboard_control', 'merge_install': False, 'path': '/home/fxck/work/src/keyboard_control', 'symlink_install': False, 'test_result_base': None}
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'linear_move' build argument 'cmake_args' from command line to 'None'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'linear_move' build argument 'cmake_target' from command line to 'None'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'linear_move' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'linear_move' build argument 'cmake_clean_cache' from command line to 'False'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'linear_move' build argument 'cmake_clean_first' from command line to 'False'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'linear_move' build argument 'cmake_force_configure' from command line to 'False'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'linear_move' build argument 'ament_cmake_args' from command line to 'None'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'linear_move' build argument 'catkin_cmake_args' from command line to 'None'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'linear_move' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.285s] DEBUG:colcon.colcon_core.verb:Building package 'linear_move' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/fxck/work/build/linear_move', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/fxck/work/install/linear_move', 'merge_install': False, 'path': '/home/fxck/work/src/linear_move', 'symlink_install': False, 'test_result_base': None}
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'mecanum' build argument 'cmake_args' from command line to 'None'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'mecanum' build argument 'cmake_target' from command line to 'None'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'mecanum' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'mecanum' build argument 'cmake_clean_cache' from command line to 'False'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'mecanum' build argument 'cmake_clean_first' from command line to 'False'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'mecanum' build argument 'cmake_force_configure' from command line to 'False'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'mecanum' build argument 'ament_cmake_args' from command line to 'None'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'mecanum' build argument 'catkin_cmake_args' from command line to 'None'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'mecanum' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.285s] DEBUG:colcon.colcon_core.verb:Building package 'mecanum' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/fxck/work/build/mecanum', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/fxck/work/install/mecanum', 'merge_install': False, 'path': '/home/fxck/work/src/mecanum', 'symlink_install': False, 'test_result_base': None}
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'gui' build argument 'cmake_args' from command line to 'None'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'gui' build argument 'cmake_target' from command line to 'None'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'gui' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'gui' build argument 'cmake_clean_cache' from command line to 'False'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'gui' build argument 'cmake_clean_first' from command line to 'False'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'gui' build argument 'cmake_force_configure' from command line to 'False'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'gui' build argument 'ament_cmake_args' from command line to 'None'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'gui' build argument 'catkin_cmake_args' from command line to 'None'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'gui' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.286s] DEBUG:colcon.colcon_core.verb:Building package 'gui' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/fxck/work/build/gui', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/fxck/work/install/gui', 'merge_install': False, 'path': '/home/fxck/work/src/GUI/gui', 'symlink_install': False, 'test_result_base': None}
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'main_control' build argument 'cmake_args' from command line to 'None'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'main_control' build argument 'cmake_target' from command line to 'None'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'main_control' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'main_control' build argument 'cmake_clean_cache' from command line to 'False'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'main_control' build argument 'cmake_clean_first' from command line to 'False'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'main_control' build argument 'cmake_force_configure' from command line to 'False'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'main_control' build argument 'ament_cmake_args' from command line to 'None'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'main_control' build argument 'catkin_cmake_args' from command line to 'None'
+[0.286s] Level 5:colcon.colcon_core.verb:set package 'main_control' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.286s] DEBUG:colcon.colcon_core.verb:Building package 'main_control' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/fxck/work/build/main_control', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/fxck/work/install/main_control', 'merge_install': False, 'path': '/home/fxck/work/src/main_control/main_control', 'symlink_install': False, 'test_result_base': None}
+[0.286s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.288s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.288s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/fxck/work/src/GUI/gui_interface' with build type 'ament_cmake'
+[0.288s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/fxck/work/src/GUI/gui_interface'
+[0.290s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.290s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.290s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.293s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/fxck/work/src/interface' with build type 'ament_cmake'
+[0.293s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/fxck/work/src/interface'
+[0.293s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.293s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.295s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/fxck/work/src/keyboard_control' with build type 'ament_cmake'
+[0.296s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/fxck/work/src/keyboard_control'
+[0.296s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.296s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.298s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/fxck/work/src/linear_move' with build type 'ament_cmake'
+[0.298s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/fxck/work/src/linear_move'
+[0.298s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.298s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.301s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/fxck/work/src/mecanum' with build type 'ament_cmake'
+[0.301s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/fxck/work/src/mecanum'
+[0.301s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.301s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.307s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/fxck/work/build/gui_interface': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble /usr/bin/cmake /home/fxck/work/src/GUI/gui_interface -DCMAKE_INSTALL_PREFIX=/home/fxck/work/install/gui_interface
+[0.308s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/fxck/work/build/interface': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble /usr/bin/cmake /home/fxck/work/src/interface -DCMAKE_INSTALL_PREFIX=/home/fxck/work/install/interface
+[0.310s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/fxck/work/build/keyboard_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble /usr/bin/cmake /home/fxck/work/src/keyboard_control -DCMAKE_INSTALL_PREFIX=/home/fxck/work/install/keyboard_control
+[0.313s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/fxck/work/build/linear_move': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble /usr/bin/cmake /home/fxck/work/src/linear_move -DCMAKE_INSTALL_PREFIX=/home/fxck/work/install/linear_move
+[0.316s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/fxck/work/build/mecanum': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble /usr/bin/cmake /home/fxck/work/src/mecanum -DCMAKE_INSTALL_PREFIX=/home/fxck/work/install/mecanum
+[1.356s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/fxck/work/build/linear_move' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble /usr/bin/cmake /home/fxck/work/src/linear_move -DCMAKE_INSTALL_PREFIX=/home/fxck/work/install/linear_move
+[1.357s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/fxck/work/build/linear_move': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble /usr/bin/cmake --build /home/fxck/work/build/linear_move -- -j16 -l16
+[1.362s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/fxck/work/build/keyboard_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble /usr/bin/cmake /home/fxck/work/src/keyboard_control -DCMAKE_INSTALL_PREFIX=/home/fxck/work/install/keyboard_control
+[1.363s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/fxck/work/build/keyboard_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble /usr/bin/cmake --build /home/fxck/work/build/keyboard_control -- -j16 -l16
+[1.541s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/fxck/work/build/mecanum' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble /usr/bin/cmake /home/fxck/work/src/mecanum -DCMAKE_INSTALL_PREFIX=/home/fxck/work/install/mecanum
+[1.543s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/fxck/work/build/mecanum': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble /usr/bin/cmake --build /home/fxck/work/build/mecanum -- -j16 -l16
+[2.031s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/fxck/work/build/gui_interface' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble /usr/bin/cmake /home/fxck/work/src/GUI/gui_interface -DCMAKE_INSTALL_PREFIX=/home/fxck/work/install/gui_interface
+[2.033s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/fxck/work/build/gui_interface': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble /usr/bin/cmake --build /home/fxck/work/build/gui_interface -- -j16 -l16
+[2.052s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/fxck/work/build/interface' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble /usr/bin/cmake /home/fxck/work/src/interface -DCMAKE_INSTALL_PREFIX=/home/fxck/work/install/interface
+[2.054s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/fxck/work/build/interface': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble /usr/bin/cmake --build /home/fxck/work/build/interface -- -j16 -l16
+[3.938s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/fxck/work/build/gui_interface' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble /usr/bin/cmake --build /home/fxck/work/build/gui_interface -- -j16 -l16
+[3.949s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/fxck/work/build/gui_interface': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble /usr/bin/cmake --install /home/fxck/work/build/gui_interface
+[4.016s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(gui_interface)
+[4.016s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/fxck/work/build/gui_interface' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble /usr/bin/cmake --install /home/fxck/work/build/gui_interface
+[4.018s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/gui_interface' for CMake module files
+[4.019s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/gui_interface' for CMake config files
+[4.019s] Level 1:colcon.colcon_core.shell:create_environment_hook('gui_interface', 'cmake_prefix_path')
+[4.019s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fxck/work/install/gui_interface/share/gui_interface/hook/cmake_prefix_path.ps1'
+[4.020s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/fxck/work/install/gui_interface/share/gui_interface/hook/cmake_prefix_path.dsv'
+[4.020s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fxck/work/install/gui_interface/share/gui_interface/hook/cmake_prefix_path.sh'
+[4.021s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/gui_interface/lib'
+[4.021s] Level 1:colcon.colcon_core.shell:create_environment_hook('gui_interface', 'ld_library_path_lib')
+[4.021s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fxck/work/install/gui_interface/share/gui_interface/hook/ld_library_path_lib.ps1'
+[4.022s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/fxck/work/install/gui_interface/share/gui_interface/hook/ld_library_path_lib.dsv'
+[4.022s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fxck/work/install/gui_interface/share/gui_interface/hook/ld_library_path_lib.sh'
+[4.022s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/gui_interface/bin'
+[4.022s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/gui_interface/lib/pkgconfig/gui_interface.pc'
+[4.022s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/gui_interface/lib/python3.10/site-packages'
+[4.022s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/gui_interface/bin'
+[4.023s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/gui_interface/share/gui_interface/package.ps1'
+[4.024s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/fxck/work/install/gui_interface/share/gui_interface/package.dsv'
+[4.024s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/gui_interface/share/gui_interface/package.sh'
+[4.025s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/gui_interface/share/gui_interface/package.bash'
+[4.025s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/gui_interface/share/gui_interface/package.zsh'
+[4.026s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/fxck/work/install/gui_interface/share/colcon-core/packages/gui_interface)
+[4.026s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(gui_interface)
+[4.026s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/gui_interface' for CMake module files
+[4.027s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/gui_interface' for CMake config files
+[4.027s] Level 1:colcon.colcon_core.shell:create_environment_hook('gui_interface', 'cmake_prefix_path')
+[4.027s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fxck/work/install/gui_interface/share/gui_interface/hook/cmake_prefix_path.ps1'
+[4.028s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/fxck/work/install/gui_interface/share/gui_interface/hook/cmake_prefix_path.dsv'
+[4.028s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fxck/work/install/gui_interface/share/gui_interface/hook/cmake_prefix_path.sh'
+[4.028s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/gui_interface/lib'
+[4.028s] Level 1:colcon.colcon_core.shell:create_environment_hook('gui_interface', 'ld_library_path_lib')
+[4.029s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fxck/work/install/gui_interface/share/gui_interface/hook/ld_library_path_lib.ps1'
+[4.029s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/fxck/work/install/gui_interface/share/gui_interface/hook/ld_library_path_lib.dsv'
+[4.029s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fxck/work/install/gui_interface/share/gui_interface/hook/ld_library_path_lib.sh'
+[4.029s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/gui_interface/bin'
+[4.029s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/gui_interface/lib/pkgconfig/gui_interface.pc'
+[4.030s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/gui_interface/lib/python3.10/site-packages'
+[4.030s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/gui_interface/bin'
+[4.030s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/gui_interface/share/gui_interface/package.ps1'
+[4.030s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/fxck/work/install/gui_interface/share/gui_interface/package.dsv'
+[4.031s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/gui_interface/share/gui_interface/package.sh'
+[4.031s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/gui_interface/share/gui_interface/package.bash'
+[4.031s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/gui_interface/share/gui_interface/package.zsh'
+[4.032s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/fxck/work/install/gui_interface/share/colcon-core/packages/gui_interface)
+[4.032s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/fxck/work/src/GUI/gui' with build type 'ament_python'
+[4.032s] Level 1:colcon.colcon_core.shell:create_environment_hook('gui', 'ament_prefix_path')
+[4.032s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fxck/work/install/gui/share/gui/hook/ament_prefix_path.ps1'
+[4.033s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/fxck/work/install/gui/share/gui/hook/ament_prefix_path.dsv'
+[4.033s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fxck/work/install/gui/share/gui/hook/ament_prefix_path.sh'
+[4.033s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.033s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[4.037s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/fxck/work/build/interface' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble /usr/bin/cmake --build /home/fxck/work/build/interface -- -j16 -l16
+[4.038s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/fxck/work/build/interface': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble /usr/bin/cmake --install /home/fxck/work/build/interface
+[4.245s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/fxck/work/src/GUI/gui'
+[4.245s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.245s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[4.252s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(interface)
+[4.252s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/interface' for CMake module files
+[4.253s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/fxck/work/build/interface' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble /usr/bin/cmake --install /home/fxck/work/build/interface
+[4.253s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/interface' for CMake config files
+[4.253s] Level 1:colcon.colcon_core.shell:create_environment_hook('interface', 'cmake_prefix_path')
+[4.254s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fxck/work/install/interface/share/interface/hook/cmake_prefix_path.ps1'
+[4.254s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/fxck/work/install/interface/share/interface/hook/cmake_prefix_path.dsv'
+[4.254s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fxck/work/install/interface/share/interface/hook/cmake_prefix_path.sh'
+[4.255s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/interface/lib'
+[4.255s] Level 1:colcon.colcon_core.shell:create_environment_hook('interface', 'ld_library_path_lib')
+[4.255s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fxck/work/install/interface/share/interface/hook/ld_library_path_lib.ps1'
+[4.255s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/fxck/work/install/interface/share/interface/hook/ld_library_path_lib.dsv'
+[4.255s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fxck/work/install/interface/share/interface/hook/ld_library_path_lib.sh'
+[4.255s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/interface/bin'
+[4.256s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/interface/lib/pkgconfig/interface.pc'
+[4.256s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/interface/lib/python3.10/site-packages'
+[4.256s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/interface/bin'
+[4.256s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/interface/share/interface/package.ps1'
+[4.256s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/fxck/work/install/interface/share/interface/package.dsv'
+[4.257s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/interface/share/interface/package.sh'
+[4.257s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/interface/share/interface/package.bash'
+[4.257s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/interface/share/interface/package.zsh'
+[4.257s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/fxck/work/install/interface/share/colcon-core/packages/interface)
+[4.258s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(interface)
+[4.258s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/interface' for CMake module files
+[4.259s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/interface' for CMake config files
+[4.259s] Level 1:colcon.colcon_core.shell:create_environment_hook('interface', 'cmake_prefix_path')
+[4.259s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fxck/work/install/interface/share/interface/hook/cmake_prefix_path.ps1'
+[4.259s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/fxck/work/install/interface/share/interface/hook/cmake_prefix_path.dsv'
+[4.260s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fxck/work/install/interface/share/interface/hook/cmake_prefix_path.sh'
+[4.260s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/interface/lib'
+[4.260s] Level 1:colcon.colcon_core.shell:create_environment_hook('interface', 'ld_library_path_lib')
+[4.260s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fxck/work/install/interface/share/interface/hook/ld_library_path_lib.ps1'
+[4.260s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/fxck/work/install/interface/share/interface/hook/ld_library_path_lib.dsv'
+[4.261s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fxck/work/install/interface/share/interface/hook/ld_library_path_lib.sh'
+[4.261s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/interface/bin'
+[4.261s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/interface/lib/pkgconfig/interface.pc'
+[4.261s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/interface/lib/python3.10/site-packages'
+[4.261s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/interface/bin'
+[4.261s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/interface/share/interface/package.ps1'
+[4.262s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/fxck/work/install/interface/share/interface/package.dsv'
+[4.262s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/interface/share/interface/package.sh'
+[4.262s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/interface/share/interface/package.bash'
+[4.263s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/interface/share/interface/package.zsh'
+[4.263s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/fxck/work/install/interface/share/colcon-core/packages/interface)
+[4.264s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/fxck/work/src/main_control/main_control' with build type 'ament_python'
+[4.264s] Level 1:colcon.colcon_core.shell:create_environment_hook('main_control', 'ament_prefix_path')
+[4.264s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fxck/work/install/main_control/share/main_control/hook/ament_prefix_path.ps1'
+[4.265s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/fxck/work/install/main_control/share/main_control/hook/ament_prefix_path.dsv'
+[4.265s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fxck/work/install/main_control/share/main_control/hook/ament_prefix_path.sh'
+[4.265s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.265s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[4.486s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/fxck/work/src/main_control/main_control'
+[4.487s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.487s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[4.546s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/fxck/work/src/GUI/gui': CMAKE_PREFIX_PATH=/home/fxck/work/install/gui_interface:/home/fxck/work/install/mecanum:/home/fxck/work/install/linear_move:/home/fxck/work/install/keyboard_control:/home/fxck/work/install/interface LD_LIBRARY_PATH=/home/fxck/work/install/gui_interface/lib:/home/fxck/work/install/interface/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib PYTHONPATH=/home/fxck/work/build/gui/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fxck/work/install/gui/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/gui build --build-base /home/fxck/work/build/gui/build install --record /home/fxck/work/build/gui/install.log --single-version-externally-managed install_data
+[4.782s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/fxck/work/src/main_control/main_control': CMAKE_PREFIX_PATH=/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface:/home/fxck/work/install/mecanum:/home/fxck/work/install/linear_move:/home/fxck/work/install/keyboard_control PYTHONPATH=/home/fxck/work/build/main_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fxck/work/install/main_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/main_control build --build-base /home/fxck/work/build/main_control/build install --record /home/fxck/work/build/main_control/install.log --single-version-externally-managed install_data
+[4.798s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/gui' for CMake module files
+[4.798s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/fxck/work/src/GUI/gui' returned '0': CMAKE_PREFIX_PATH=/home/fxck/work/install/gui_interface:/home/fxck/work/install/mecanum:/home/fxck/work/install/linear_move:/home/fxck/work/install/keyboard_control:/home/fxck/work/install/interface LD_LIBRARY_PATH=/home/fxck/work/install/gui_interface/lib:/home/fxck/work/install/interface/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib PYTHONPATH=/home/fxck/work/build/gui/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fxck/work/install/gui/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/gui build --build-base /home/fxck/work/build/gui/build install --record /home/fxck/work/build/gui/install.log --single-version-externally-managed install_data
+[4.798s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/gui' for CMake config files
+[4.799s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/gui/lib'
+[4.799s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/gui/bin'
+[4.799s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/gui/lib/pkgconfig/gui.pc'
+[4.799s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/gui/lib/python3.10/site-packages'
+[4.799s] Level 1:colcon.colcon_core.shell:create_environment_hook('gui', 'pythonpath')
+[4.800s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fxck/work/install/gui/share/gui/hook/pythonpath.ps1'
+[4.800s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/fxck/work/install/gui/share/gui/hook/pythonpath.dsv'
+[4.801s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fxck/work/install/gui/share/gui/hook/pythonpath.sh'
+[4.801s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/gui/bin'
+[4.801s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(gui)
+[4.801s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/gui/share/gui/package.ps1'
+[4.802s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/fxck/work/install/gui/share/gui/package.dsv'
+[4.802s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/gui/share/gui/package.sh'
+[4.803s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/gui/share/gui/package.bash'
+[4.803s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/gui/share/gui/package.zsh'
+[4.803s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/fxck/work/install/gui/share/colcon-core/packages/gui)
+[5.024s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/main_control' for CMake module files
+[5.024s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/fxck/work/src/main_control/main_control' returned '0': CMAKE_PREFIX_PATH=/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface:/home/fxck/work/install/mecanum:/home/fxck/work/install/linear_move:/home/fxck/work/install/keyboard_control PYTHONPATH=/home/fxck/work/build/main_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fxck/work/install/main_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/main_control build --build-base /home/fxck/work/build/main_control/build install --record /home/fxck/work/build/main_control/install.log --single-version-externally-managed install_data
+[5.025s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/main_control' for CMake config files
+[5.025s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/main_control/lib'
+[5.025s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/main_control/bin'
+[5.025s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/main_control/lib/pkgconfig/main_control.pc'
+[5.026s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/main_control/lib/python3.10/site-packages'
+[5.026s] Level 1:colcon.colcon_core.shell:create_environment_hook('main_control', 'pythonpath')
+[5.026s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fxck/work/install/main_control/share/main_control/hook/pythonpath.ps1'
+[5.026s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/fxck/work/install/main_control/share/main_control/hook/pythonpath.dsv'
+[5.027s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fxck/work/install/main_control/share/main_control/hook/pythonpath.sh'
+[5.027s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/main_control/bin'
+[5.027s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(main_control)
+[5.027s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/main_control/share/main_control/package.ps1'
+[5.028s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/fxck/work/install/main_control/share/main_control/package.dsv'
+[5.028s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/main_control/share/main_control/package.sh'
+[5.028s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/main_control/share/main_control/package.bash'
+[5.029s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/main_control/share/main_control/package.zsh'
+[5.029s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/fxck/work/install/main_control/share/colcon-core/packages/main_control)
+[5.633s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/fxck/work/build/keyboard_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble /usr/bin/cmake --build /home/fxck/work/build/keyboard_control -- -j16 -l16
+[5.634s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/fxck/work/build/keyboard_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble /usr/bin/cmake --install /home/fxck/work/build/keyboard_control
+[5.648s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(keyboard_control)
+[5.649s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/fxck/work/build/keyboard_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble /usr/bin/cmake --install /home/fxck/work/build/keyboard_control
+[5.649s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/keyboard_control' for CMake module files
+[5.649s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/keyboard_control' for CMake config files
+[5.650s] Level 1:colcon.colcon_core.shell:create_environment_hook('keyboard_control', 'cmake_prefix_path')
+[5.650s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fxck/work/install/keyboard_control/share/keyboard_control/hook/cmake_prefix_path.ps1'
+[5.651s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/fxck/work/install/keyboard_control/share/keyboard_control/hook/cmake_prefix_path.dsv'
+[5.651s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fxck/work/install/keyboard_control/share/keyboard_control/hook/cmake_prefix_path.sh'
+[5.651s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/keyboard_control/lib'
+[5.651s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/keyboard_control/bin'
+[5.652s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/keyboard_control/lib/pkgconfig/keyboard_control.pc'
+[5.652s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/keyboard_control/lib/python3.10/site-packages'
+[5.652s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/keyboard_control/bin'
+[5.652s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/keyboard_control/share/keyboard_control/package.ps1'
+[5.653s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/fxck/work/install/keyboard_control/share/keyboard_control/package.dsv'
+[5.653s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/keyboard_control/share/keyboard_control/package.sh'
+[5.654s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/keyboard_control/share/keyboard_control/package.bash'
+[5.654s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/keyboard_control/share/keyboard_control/package.zsh'
+[5.654s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/fxck/work/install/keyboard_control/share/colcon-core/packages/keyboard_control)
+[5.655s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(keyboard_control)
+[5.655s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/keyboard_control' for CMake module files
+[5.656s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/keyboard_control' for CMake config files
+[5.656s] Level 1:colcon.colcon_core.shell:create_environment_hook('keyboard_control', 'cmake_prefix_path')
+[5.656s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fxck/work/install/keyboard_control/share/keyboard_control/hook/cmake_prefix_path.ps1'
+[5.657s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/fxck/work/install/keyboard_control/share/keyboard_control/hook/cmake_prefix_path.dsv'
+[5.657s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fxck/work/install/keyboard_control/share/keyboard_control/hook/cmake_prefix_path.sh'
+[5.657s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/keyboard_control/lib'
+[5.658s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/keyboard_control/bin'
+[5.658s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/keyboard_control/lib/pkgconfig/keyboard_control.pc'
+[5.658s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/keyboard_control/lib/python3.10/site-packages'
+[5.658s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/keyboard_control/bin'
+[5.658s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/keyboard_control/share/keyboard_control/package.ps1'
+[5.659s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/fxck/work/install/keyboard_control/share/keyboard_control/package.dsv'
+[5.659s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/keyboard_control/share/keyboard_control/package.sh'
+[5.660s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/keyboard_control/share/keyboard_control/package.bash'
+[5.660s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/keyboard_control/share/keyboard_control/package.zsh'
+[5.661s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/fxck/work/install/keyboard_control/share/colcon-core/packages/keyboard_control)
+[9.639s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/fxck/work/build/mecanum' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble /usr/bin/cmake --build /home/fxck/work/build/mecanum -- -j16 -l16
+[9.640s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/fxck/work/build/mecanum': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble /usr/bin/cmake --install /home/fxck/work/build/mecanum
+[9.657s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(mecanum)
+[9.657s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/fxck/work/build/mecanum' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble /usr/bin/cmake --install /home/fxck/work/build/mecanum
+[9.658s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/mecanum' for CMake module files
+[9.658s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/mecanum' for CMake config files
+[9.659s] Level 1:colcon.colcon_core.shell:create_environment_hook('mecanum', 'cmake_prefix_path')
+[9.659s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fxck/work/install/mecanum/share/mecanum/hook/cmake_prefix_path.ps1'
+[9.660s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/fxck/work/install/mecanum/share/mecanum/hook/cmake_prefix_path.dsv'
+[9.660s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fxck/work/install/mecanum/share/mecanum/hook/cmake_prefix_path.sh'
+[9.661s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/mecanum/lib'
+[9.661s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/mecanum/bin'
+[9.661s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/mecanum/lib/pkgconfig/mecanum.pc'
+[9.661s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/mecanum/lib/python3.10/site-packages'
+[9.661s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/mecanum/bin'
+[9.662s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/mecanum/share/mecanum/package.ps1'
+[9.662s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/fxck/work/install/mecanum/share/mecanum/package.dsv'
+[9.663s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/mecanum/share/mecanum/package.sh'
+[9.663s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/mecanum/share/mecanum/package.bash'
+[9.664s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/mecanum/share/mecanum/package.zsh'
+[9.664s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/fxck/work/install/mecanum/share/colcon-core/packages/mecanum)
+[9.665s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(mecanum)
+[9.665s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/mecanum' for CMake module files
+[9.666s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/mecanum' for CMake config files
+[9.666s] Level 1:colcon.colcon_core.shell:create_environment_hook('mecanum', 'cmake_prefix_path')
+[9.667s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fxck/work/install/mecanum/share/mecanum/hook/cmake_prefix_path.ps1'
+[9.667s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/fxck/work/install/mecanum/share/mecanum/hook/cmake_prefix_path.dsv'
+[9.668s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fxck/work/install/mecanum/share/mecanum/hook/cmake_prefix_path.sh'
+[9.668s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/mecanum/lib'
+[9.668s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/mecanum/bin'
+[9.668s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/mecanum/lib/pkgconfig/mecanum.pc'
+[9.669s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/mecanum/lib/python3.10/site-packages'
+[9.669s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/mecanum/bin'
+[9.669s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/mecanum/share/mecanum/package.ps1'
+[9.670s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/fxck/work/install/mecanum/share/mecanum/package.dsv'
+[9.671s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/mecanum/share/mecanum/package.sh'
+[9.671s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/mecanum/share/mecanum/package.bash'
+[9.672s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/mecanum/share/mecanum/package.zsh'
+[9.672s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/fxck/work/install/mecanum/share/colcon-core/packages/mecanum)
+[9.934s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/fxck/work/build/linear_move' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble /usr/bin/cmake --build /home/fxck/work/build/linear_move -- -j16 -l16
+[9.935s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/fxck/work/build/linear_move': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble /usr/bin/cmake --install /home/fxck/work/build/linear_move
+[9.950s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(linear_move)
+[9.950s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/linear_move' for CMake module files
+[9.951s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/fxck/work/build/linear_move' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble /usr/bin/cmake --install /home/fxck/work/build/linear_move
+[9.951s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/linear_move' for CMake config files
+[9.951s] Level 1:colcon.colcon_core.shell:create_environment_hook('linear_move', 'cmake_prefix_path')
+[9.952s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fxck/work/install/linear_move/share/linear_move/hook/cmake_prefix_path.ps1'
+[9.952s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/fxck/work/install/linear_move/share/linear_move/hook/cmake_prefix_path.dsv'
+[9.953s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fxck/work/install/linear_move/share/linear_move/hook/cmake_prefix_path.sh'
+[9.953s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/linear_move/lib'
+[9.953s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/linear_move/bin'
+[9.953s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/linear_move/lib/pkgconfig/linear_move.pc'
+[9.954s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/linear_move/lib/python3.10/site-packages'
+[9.954s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/linear_move/bin'
+[9.954s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/linear_move/share/linear_move/package.ps1'
+[9.955s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/fxck/work/install/linear_move/share/linear_move/package.dsv'
+[9.955s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/linear_move/share/linear_move/package.sh'
+[9.956s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/linear_move/share/linear_move/package.bash'
+[9.956s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/linear_move/share/linear_move/package.zsh'
+[9.956s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/fxck/work/install/linear_move/share/colcon-core/packages/linear_move)
+[9.957s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(linear_move)
+[9.957s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/linear_move' for CMake module files
+[9.958s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/linear_move' for CMake config files
+[9.958s] Level 1:colcon.colcon_core.shell:create_environment_hook('linear_move', 'cmake_prefix_path')
+[9.958s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fxck/work/install/linear_move/share/linear_move/hook/cmake_prefix_path.ps1'
+[9.959s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/fxck/work/install/linear_move/share/linear_move/hook/cmake_prefix_path.dsv'
+[9.959s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/fxck/work/install/linear_move/share/linear_move/hook/cmake_prefix_path.sh'
+[9.960s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/linear_move/lib'
+[9.960s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/linear_move/bin'
+[9.960s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/linear_move/lib/pkgconfig/linear_move.pc'
+[9.960s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/linear_move/lib/python3.10/site-packages'
+[9.960s] Level 1:colcon.colcon_core.environment:checking '/home/fxck/work/install/linear_move/bin'
+[9.961s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/linear_move/share/linear_move/package.ps1'
+[9.961s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/fxck/work/install/linear_move/share/linear_move/package.dsv'
+[9.962s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/linear_move/share/linear_move/package.sh'
+[9.962s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/linear_move/share/linear_move/package.bash'
+[9.963s] INFO:colcon.colcon_core.shell:Creating package script '/home/fxck/work/install/linear_move/share/linear_move/package.zsh'
+[9.963s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/fxck/work/install/linear_move/share/colcon-core/packages/linear_move)
+[9.964s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[9.964s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[9.964s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[9.964s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[9.970s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.notify_send': Could not find 'notify-send'
+[9.971s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[9.971s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[9.971s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[9.975s] DEBUG:colcon.colcon_notification.desktop_notification.notify2:Failed to initialize notify2: org.freedesktop.DBus.Error.Spawn.ExecFailed: /usr/bin/dbus-launch terminated abnormally without any error message
+[9.975s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[9.976s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/fxck/work/install/local_setup.ps1'
+[9.977s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/fxck/work/install/_local_setup_util_ps1.py'
+[9.979s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/fxck/work/install/setup.ps1'
+[9.980s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/fxck/work/install/local_setup.sh'
+[9.981s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/fxck/work/install/_local_setup_util_sh.py'
+[9.982s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/fxck/work/install/setup.sh'
+[9.983s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/fxck/work/install/local_setup.bash'
+[9.984s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/fxck/work/install/setup.bash'
+[9.985s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/fxck/work/install/local_setup.zsh'
+[9.986s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/fxck/work/install/setup.zsh'

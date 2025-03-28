@@ -1,0 +1,928 @@
+[0.000000] (-) TimerEvent: {}
+[0.000630] (gui_interface) JobQueued: {'identifier': 'gui_interface', 'dependencies': OrderedDict()}
+[0.000687] (interface) JobQueued: {'identifier': 'interface', 'dependencies': OrderedDict()}
+[0.000710] (keyboard_control) JobQueued: {'identifier': 'keyboard_control', 'dependencies': OrderedDict()}
+[0.000730] (linear_move) JobQueued: {'identifier': 'linear_move', 'dependencies': OrderedDict()}
+[0.000748] (mecanum) JobQueued: {'identifier': 'mecanum', 'dependencies': OrderedDict()}
+[0.000766] (gui) JobQueued: {'identifier': 'gui', 'dependencies': OrderedDict([('gui_interface', '/home/fxck/work/install/gui_interface')])}
+[0.000788] (main_control) JobQueued: {'identifier': 'main_control', 'dependencies': OrderedDict([('gui_interface', '/home/fxck/work/install/gui_interface'), ('interface', '/home/fxck/work/install/interface')])}
+[0.000811] (gui_interface) JobStarted: {'identifier': 'gui_interface'}
+[0.005209] (interface) JobStarted: {'identifier': 'interface'}
+[0.008366] (keyboard_control) JobStarted: {'identifier': 'keyboard_control'}
+[0.011126] (linear_move) JobStarted: {'identifier': 'linear_move'}
+[0.013607] (mecanum) JobStarted: {'identifier': 'mecanum'}
+[0.017024] (gui_interface) JobProgress: {'identifier': 'gui_interface', 'progress': 'cmake'}
+[0.017540] (gui_interface) Command: {'cmd': ['/usr/bin/cmake', '/home/fxck/work/src/GUI/gui_interface', '-DCMAKE_INSTALL_PREFIX=/home/fxck/work/install/gui_interface'], 'cwd': '/home/fxck/work/build/gui_interface', 'env': OrderedDict([('HOSTNAME', 'fxck-X570-AORUS-ELITE-WIFI'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/fxck/work/install/interface/lib:/home/fxck/work/install/gui_interface/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/fxck'), ('OLDPWD', '/home/fxck/work/src'), ('ROS_PYTHON_VERSION', '3'), ('LC_CTYPE', 'C.UTF-8'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/fxck/work/install'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('XAUTHORITY', '/home/fxck/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/fxck/work/install/mecanum:/home/fxck/work/install/main_control:/home/fxck/work/install/linear_move:/home/fxck/work/install/keyboard_control:/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface:/home/fxck/work/install/gui:/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('TERMINATOR_UUID', 'urn:uuid:477dfc6c-02f7-4ef7-81e1-9574e65e8d86'), ('PWD', '/home/fxck/work/build/gui_interface'), ('PYTHONPATH', '/home/fxck/work/install/main_control/lib/python3.10/site-packages:/home/fxck/work/install/interface/local/lib/python3.10/dist-packages:/home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages:/home/fxck/work/install/gui/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('NVIDIA_VISIBLE_DEVICES', 'all'), ('TZ', 'Asia/Taipei'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/fxck/work/install/mecanum:/home/fxck/work/install/linear_move:/home/fxck/work/install/keyboard_control:/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble')]), 'shell': False}
+[0.019349] (interface) JobProgress: {'identifier': 'interface', 'progress': 'cmake'}
+[0.019812] (interface) Command: {'cmd': ['/usr/bin/cmake', '/home/fxck/work/src/interface', '-DCMAKE_INSTALL_PREFIX=/home/fxck/work/install/interface'], 'cwd': '/home/fxck/work/build/interface', 'env': OrderedDict([('HOSTNAME', 'fxck-X570-AORUS-ELITE-WIFI'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/fxck/work/install/interface/lib:/home/fxck/work/install/gui_interface/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/fxck'), ('OLDPWD', '/home/fxck/work/src'), ('ROS_PYTHON_VERSION', '3'), ('LC_CTYPE', 'C.UTF-8'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/fxck/work/install'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('XAUTHORITY', '/home/fxck/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/fxck/work/install/mecanum:/home/fxck/work/install/main_control:/home/fxck/work/install/linear_move:/home/fxck/work/install/keyboard_control:/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface:/home/fxck/work/install/gui:/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('TERMINATOR_UUID', 'urn:uuid:477dfc6c-02f7-4ef7-81e1-9574e65e8d86'), ('PWD', '/home/fxck/work/build/interface'), ('PYTHONPATH', '/home/fxck/work/install/main_control/lib/python3.10/site-packages:/home/fxck/work/install/interface/local/lib/python3.10/dist-packages:/home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages:/home/fxck/work/install/gui/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('NVIDIA_VISIBLE_DEVICES', 'all'), ('TZ', 'Asia/Taipei'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/fxck/work/install/mecanum:/home/fxck/work/install/linear_move:/home/fxck/work/install/keyboard_control:/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble')]), 'shell': False}
+[0.021038] (keyboard_control) JobProgress: {'identifier': 'keyboard_control', 'progress': 'cmake'}
+[0.021235] (keyboard_control) Command: {'cmd': ['/usr/bin/cmake', '/home/fxck/work/src/keyboard_control', '-DCMAKE_INSTALL_PREFIX=/home/fxck/work/install/keyboard_control'], 'cwd': '/home/fxck/work/build/keyboard_control', 'env': OrderedDict([('HOSTNAME', 'fxck-X570-AORUS-ELITE-WIFI'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/fxck/work/install/interface/lib:/home/fxck/work/install/gui_interface/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/fxck'), ('OLDPWD', '/home/fxck/work/src'), ('ROS_PYTHON_VERSION', '3'), ('LC_CTYPE', 'C.UTF-8'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/fxck/work/install'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('XAUTHORITY', '/home/fxck/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/fxck/work/install/mecanum:/home/fxck/work/install/main_control:/home/fxck/work/install/linear_move:/home/fxck/work/install/keyboard_control:/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface:/home/fxck/work/install/gui:/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('TERMINATOR_UUID', 'urn:uuid:477dfc6c-02f7-4ef7-81e1-9574e65e8d86'), ('PWD', '/home/fxck/work/build/keyboard_control'), ('PYTHONPATH', '/home/fxck/work/install/main_control/lib/python3.10/site-packages:/home/fxck/work/install/interface/local/lib/python3.10/dist-packages:/home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages:/home/fxck/work/install/gui/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('NVIDIA_VISIBLE_DEVICES', 'all'), ('TZ', 'Asia/Taipei'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/fxck/work/install/mecanum:/home/fxck/work/install/linear_move:/home/fxck/work/install/keyboard_control:/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble')]), 'shell': False}
+[0.022756] (linear_move) JobProgress: {'identifier': 'linear_move', 'progress': 'cmake'}
+[0.023015] (linear_move) Command: {'cmd': ['/usr/bin/cmake', '/home/fxck/work/src/linear_move', '-DCMAKE_INSTALL_PREFIX=/home/fxck/work/install/linear_move'], 'cwd': '/home/fxck/work/build/linear_move', 'env': OrderedDict([('HOSTNAME', 'fxck-X570-AORUS-ELITE-WIFI'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/fxck/work/install/interface/lib:/home/fxck/work/install/gui_interface/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/fxck'), ('OLDPWD', '/home/fxck/work/src'), ('ROS_PYTHON_VERSION', '3'), ('LC_CTYPE', 'C.UTF-8'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/fxck/work/install'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('XAUTHORITY', '/home/fxck/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/fxck/work/install/mecanum:/home/fxck/work/install/main_control:/home/fxck/work/install/linear_move:/home/fxck/work/install/keyboard_control:/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface:/home/fxck/work/install/gui:/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('TERMINATOR_UUID', 'urn:uuid:477dfc6c-02f7-4ef7-81e1-9574e65e8d86'), ('PWD', '/home/fxck/work/build/linear_move'), ('PYTHONPATH', '/home/fxck/work/install/main_control/lib/python3.10/site-packages:/home/fxck/work/install/interface/local/lib/python3.10/dist-packages:/home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages:/home/fxck/work/install/gui/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('NVIDIA_VISIBLE_DEVICES', 'all'), ('TZ', 'Asia/Taipei'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/fxck/work/install/mecanum:/home/fxck/work/install/linear_move:/home/fxck/work/install/keyboard_control:/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble')]), 'shell': False}
+[0.026324] (mecanum) JobProgress: {'identifier': 'mecanum', 'progress': 'cmake'}
+[0.027206] (mecanum) Command: {'cmd': ['/usr/bin/cmake', '/home/fxck/work/src/mecanum', '-DCMAKE_INSTALL_PREFIX=/home/fxck/work/install/mecanum'], 'cwd': '/home/fxck/work/build/mecanum', 'env': OrderedDict([('HOSTNAME', 'fxck-X570-AORUS-ELITE-WIFI'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/fxck/work/install/interface/lib:/home/fxck/work/install/gui_interface/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/fxck'), ('OLDPWD', '/home/fxck/work/src'), ('ROS_PYTHON_VERSION', '3'), ('LC_CTYPE', 'C.UTF-8'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/fxck/work/install'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('XAUTHORITY', '/home/fxck/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/fxck/work/install/mecanum:/home/fxck/work/install/main_control:/home/fxck/work/install/linear_move:/home/fxck/work/install/keyboard_control:/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface:/home/fxck/work/install/gui:/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('TERMINATOR_UUID', 'urn:uuid:477dfc6c-02f7-4ef7-81e1-9574e65e8d86'), ('PWD', '/home/fxck/work/build/mecanum'), ('PYTHONPATH', '/home/fxck/work/install/main_control/lib/python3.10/site-packages:/home/fxck/work/install/interface/local/lib/python3.10/dist-packages:/home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages:/home/fxck/work/install/gui/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('NVIDIA_VISIBLE_DEVICES', 'all'), ('TZ', 'Asia/Taipei'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/fxck/work/install/mecanum:/home/fxck/work/install/linear_move:/home/fxck/work/install/keyboard_control:/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble')]), 'shell': False}
+[0.099767] (-) TimerEvent: {}
+[0.108806] (linear_move) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.109003] (mecanum) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.109090] (keyboard_control) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.109209] (gui_interface) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.109298] (interface) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.162446] (linear_move) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.162630] (interface) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.163118] (mecanum) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.163857] (keyboard_control) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.164228] (gui_interface) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.169702] (interface) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.169847] (mecanum) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.169915] (linear_move) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.172409] (keyboard_control) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.172753] (gui_interface) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.199886] (-) TimerEvent: {}
+[0.238765] (gui_interface) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.239105] (mecanum) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.239230] (interface) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.239305] (linear_move) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.239379] (keyboard_control) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.245039] (linear_move) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.245251] (mecanum) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.245464] (interface) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.245541] (mecanum) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.245603] (linear_move) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.245760] (gui_interface) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.245862] (interface) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.245919] (gui_interface) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.245967] (linear_move) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.246016] (mecanum) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.246063] (interface) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.246147] (gui_interface) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.248398] (keyboard_control) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.248540] (linear_move) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.248645] (gui_interface) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.248748] (mecanum) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.248843] (keyboard_control) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.248927] (interface) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.249124] (keyboard_control) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.252790] (keyboard_control) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.299993] (-) TimerEvent: {}
+[0.326653] (interface) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.326926] (mecanum) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.327932] (keyboard_control) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.328598] (gui_interface) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.328722] (linear_move) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.333238] (interface) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.333485] (interface) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.333878] (interface) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.335101] (gui_interface) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.335361] (gui_interface) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.335459] (linear_move) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.335661] (linear_move) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.335765] (gui_interface) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.336097] (linear_move) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.336567] (mecanum) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.336901] (mecanum) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.337454] (mecanum) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.337876] (keyboard_control) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.338206] (keyboard_control) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.338671] (keyboard_control) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.343177] (interface) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.343345] (linear_move) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.343399] (gui_interface) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.343447] (mecanum) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.343493] (keyboard_control) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.400097] (-) TimerEvent: {}
+[0.477315] (interface) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[0.477656] (mecanum) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[0.477888] (keyboard_control) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[0.477962] (linear_move) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[0.478028] (gui_interface) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[0.500206] (-) TimerEvent: {}
+[0.572151] (keyboard_control) StdoutLine: {'line': b'-- Found rclcpp: 16.0.11 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.572894] (linear_move) StdoutLine: {'line': b'-- Found rclcpp: 16.0.11 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.577282] (gui_interface) StdoutLine: {'line': b'-- Found geometry_msgs: 4.2.4 (/opt/ros/humble/share/geometry_msgs/cmake)\n'}
+[0.580218] (mecanum) StdoutLine: {'line': b'-- Found rclcpp: 16.0.11 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.581109] (interface) StdoutLine: {'line': b'-- Found geometry_msgs: 4.2.4 (/opt/ros/humble/share/geometry_msgs/cmake)\n'}
+[0.600258] (-) TimerEvent: {}
+[0.625777] (gui_interface) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.626007] (linear_move) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.626091] (interface) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.626160] (keyboard_control) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.632537] (linear_move) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.632690] (gui_interface) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.632827] (keyboard_control) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.632945] (interface) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.640855] (mecanum) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.642958] (interface) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.643124] (linear_move) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.643211] (keyboard_control) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.643335] (gui_interface) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.645876] (mecanum) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.653605] (mecanum) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.659138] (gui_interface) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.659423] (keyboard_control) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.659507] (interface) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.659582] (linear_move) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.665172] (mecanum) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.678287] (gui_interface) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.678450] (interface) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.680237] (mecanum) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.680536] (linear_move) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.680653] (keyboard_control) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.700343] (-) TimerEvent: {}
+[0.722096] (gui_interface) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)\n'}
+[0.722315] (interface) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)\n'}
+[0.730990] (mecanum) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.731162] (linear_move) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.731246] (keyboard_control) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.734442] (linear_move) StdoutLine: {'line': b'-- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)\n'}
+[0.734583] (keyboard_control) StdoutLine: {'line': b'-- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)\n'}
+[0.734696] (mecanum) StdoutLine: {'line': b'-- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)\n'}
+[0.758293] (keyboard_control) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_cyclonedds_cpp' as default\n"}
+[0.758474] (linear_move) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_cyclonedds_cpp' as default\n"}
+[0.758549] (mecanum) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_cyclonedds_cpp' as default\n"}
+[0.769272] (keyboard_control) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[0.769523] (mecanum) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[0.769682] (linear_move) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[0.800459] (-) TimerEvent: {}
+[0.839954] (linear_move) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[0.840173] (linear_move) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[0.840288] (keyboard_control) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[0.840564] (keyboard_control) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[0.842132] (mecanum) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[0.842330] (mecanum) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[0.900555] (-) TimerEvent: {}
+[0.914991] (keyboard_control) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[0.915803] (keyboard_control) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[0.915973] (linear_move) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[0.916754] (linear_move) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[0.919141] (mecanum) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[0.920114] (mecanum) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[0.969532] (mecanum) StdoutLine: {'line': b'-- Found geometry_msgs: 4.2.4 (/opt/ros/humble/share/geometry_msgs/cmake)\n'}
+[0.969685] (keyboard_control) StdoutLine: {'line': b'-- Found geometry_msgs: 4.2.4 (/opt/ros/humble/share/geometry_msgs/cmake)\n'}
+[0.970664] (gui_interface) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)\n'}
+[0.971422] (linear_move) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[0.981954] (mecanum) StdoutLine: {'line': b'-- Found tf2_ros: 0.25.12 (/opt/ros/humble/share/tf2_ros/cmake)\n'}
+[0.982665] (keyboard_control) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[0.992856] (interface) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)\n'}
+[1.000649] (-) TimerEvent: {}
+[1.043335] (linear_move) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[1.043569] (linear_move) StdoutLine: {'line': b'-- Configured cppcheck include dirs: /home/fxck/work/src/linear_move/include\n'}
+[1.043667] (linear_move) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[1.044415] (linear_move) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[1.045791] (linear_move) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[1.045914] (linear_move) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[1.046486] (linear_move) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[1.048097] (linear_move) StdoutLine: {'line': b'-- Configuring done\n'}
+[1.049376] (keyboard_control) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[1.049523] (keyboard_control) StdoutLine: {'line': b'-- Configured cppcheck include dirs: /home/fxck/work/src/keyboard_control/include\n'}
+[1.049600] (keyboard_control) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[1.050284] (keyboard_control) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[1.051397] (keyboard_control) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[1.051465] (keyboard_control) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[1.051924] (keyboard_control) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[1.053395] (keyboard_control) StdoutLine: {'line': b'-- Configuring done\n'}
+[1.058330] (linear_move) StdoutLine: {'line': b'-- Generating done\n'}
+[1.061448] (linear_move) StdoutLine: {'line': b'-- Build files have been written to: /home/fxck/work/build/linear_move\n'}
+[1.063522] (keyboard_control) StdoutLine: {'line': b'-- Generating done\n'}
+[1.066975] (keyboard_control) StdoutLine: {'line': b'-- Build files have been written to: /home/fxck/work/build/keyboard_control\n'}
+[1.067985] (linear_move) CommandEnded: {'returncode': 0}
+[1.068376] (linear_move) JobProgress: {'identifier': 'linear_move', 'progress': 'build'}
+[1.069209] (linear_move) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/fxck/work/build/linear_move', '--', '-j16', '-l16'], 'cwd': '/home/fxck/work/build/linear_move', 'env': OrderedDict([('HOSTNAME', 'fxck-X570-AORUS-ELITE-WIFI'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/fxck/work/install/interface/lib:/home/fxck/work/install/gui_interface/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/fxck'), ('OLDPWD', '/home/fxck/work/src'), ('ROS_PYTHON_VERSION', '3'), ('LC_CTYPE', 'C.UTF-8'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/fxck/work/install'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('XAUTHORITY', '/home/fxck/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/fxck/work/install/mecanum:/home/fxck/work/install/main_control:/home/fxck/work/install/linear_move:/home/fxck/work/install/keyboard_control:/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface:/home/fxck/work/install/gui:/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('TERMINATOR_UUID', 'urn:uuid:477dfc6c-02f7-4ef7-81e1-9574e65e8d86'), ('PWD', '/home/fxck/work/build/linear_move'), ('PYTHONPATH', '/home/fxck/work/install/main_control/lib/python3.10/site-packages:/home/fxck/work/install/interface/local/lib/python3.10/dist-packages:/home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages:/home/fxck/work/install/gui/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('NVIDIA_VISIBLE_DEVICES', 'all'), ('TZ', 'Asia/Taipei'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/fxck/work/install/mecanum:/home/fxck/work/install/linear_move:/home/fxck/work/install/keyboard_control:/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble')]), 'shell': False}
+[1.074256] (keyboard_control) CommandEnded: {'returncode': 0}
+[1.074568] (keyboard_control) JobProgress: {'identifier': 'keyboard_control', 'progress': 'build'}
+[1.074862] (keyboard_control) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/fxck/work/build/keyboard_control', '--', '-j16', '-l16'], 'cwd': '/home/fxck/work/build/keyboard_control', 'env': OrderedDict([('HOSTNAME', 'fxck-X570-AORUS-ELITE-WIFI'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/fxck/work/install/interface/lib:/home/fxck/work/install/gui_interface/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/fxck'), ('OLDPWD', '/home/fxck/work/src'), ('ROS_PYTHON_VERSION', '3'), ('LC_CTYPE', 'C.UTF-8'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/fxck/work/install'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('XAUTHORITY', '/home/fxck/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/fxck/work/install/mecanum:/home/fxck/work/install/main_control:/home/fxck/work/install/linear_move:/home/fxck/work/install/keyboard_control:/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface:/home/fxck/work/install/gui:/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('TERMINATOR_UUID', 'urn:uuid:477dfc6c-02f7-4ef7-81e1-9574e65e8d86'), ('PWD', '/home/fxck/work/build/keyboard_control'), ('PYTHONPATH', '/home/fxck/work/install/main_control/lib/python3.10/site-packages:/home/fxck/work/install/interface/local/lib/python3.10/dist-packages:/home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages:/home/fxck/work/install/gui/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('NVIDIA_VISIBLE_DEVICES', 'all'), ('TZ', 'Asia/Taipei'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/fxck/work/install/mecanum:/home/fxck/work/install/linear_move:/home/fxck/work/install/keyboard_control:/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble')]), 'shell': False}
+[1.095150] (mecanum) StdoutLine: {'line': b'-- Found tf2_geometry_msgs: 0.25.12 (/opt/ros/humble/share/tf2_geometry_msgs/cmake)\n'}
+[1.100735] (-) TimerEvent: {}
+[1.112556] (mecanum) StdoutLine: {'line': b'-- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)\n'}
+[1.113934] (mecanum) StdoutLine: {'line': b'-- Found Eigen3: TRUE (found version "3.4.0") \n'}
+[1.114051] (mecanum) StdoutLine: {'line': b'-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target\n'}
+[1.116791] (mecanum) StdoutLine: {'line': b'-- Found nav_msgs: 4.2.4 (/opt/ros/humble/share/nav_msgs/cmake)\n'}
+[1.117451] (linear_move) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/slide.dir/src/slide.cpp.o\x1b[0m\n'}
+[1.124635] (keyboard_control) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/main.dir/src/t.cpp.o\x1b[0m\n'}
+[1.136258] (mecanum) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[1.200845] (-) TimerEvent: {}
+[1.209359] (mecanum) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[1.209545] (mecanum) StdoutLine: {'line': b'-- Configured cppcheck include dirs: /home/fxck/work/src/mecanum/include\n'}
+[1.209618] (mecanum) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[1.212794] (mecanum) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[1.221058] (mecanum) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[1.221213] (mecanum) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[1.222550] (mecanum) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[1.224303] (mecanum) StdoutLine: {'line': b'-- Configuring done\n'}
+[1.240720] (mecanum) StdoutLine: {'line': b'-- Generating done\n'}
+[1.245707] (mecanum) StdoutLine: {'line': b'-- Build files have been written to: /home/fxck/work/build/mecanum\n'}
+[1.253493] (mecanum) CommandEnded: {'returncode': 0}
+[1.254022] (mecanum) JobProgress: {'identifier': 'mecanum', 'progress': 'build'}
+[1.254556] (mecanum) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/fxck/work/build/mecanum', '--', '-j16', '-l16'], 'cwd': '/home/fxck/work/build/mecanum', 'env': OrderedDict([('HOSTNAME', 'fxck-X570-AORUS-ELITE-WIFI'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/fxck/work/install/interface/lib:/home/fxck/work/install/gui_interface/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/fxck'), ('OLDPWD', '/home/fxck/work/src'), ('ROS_PYTHON_VERSION', '3'), ('LC_CTYPE', 'C.UTF-8'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/fxck/work/install'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('XAUTHORITY', '/home/fxck/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/fxck/work/install/mecanum:/home/fxck/work/install/main_control:/home/fxck/work/install/linear_move:/home/fxck/work/install/keyboard_control:/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface:/home/fxck/work/install/gui:/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('TERMINATOR_UUID', 'urn:uuid:477dfc6c-02f7-4ef7-81e1-9574e65e8d86'), ('PWD', '/home/fxck/work/build/mecanum'), ('PYTHONPATH', '/home/fxck/work/install/main_control/lib/python3.10/site-packages:/home/fxck/work/install/interface/local/lib/python3.10/dist-packages:/home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages:/home/fxck/work/install/gui/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('NVIDIA_VISIBLE_DEVICES', 'all'), ('TZ', 'Asia/Taipei'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/fxck/work/install/mecanum:/home/fxck/work/install/linear_move:/home/fxck/work/install/keyboard_control:/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble')]), 'shell': False}
+[1.300934] (-) TimerEvent: {}
+[1.309715] (mecanum) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/mobile_node.dir/src/TimdaModbus.cpp.o\x1b[0m\n'}
+[1.309907] (mecanum) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/mobile_node.dir/src/mobile_node.cpp.o\x1b[0m\n'}
+[1.310315] (mecanum) StdoutLine: {'line': b'[ 75%] \x1b[32mBuilding CXX object CMakeFiles/mobile_node.dir/src/Mecanum.cpp.o\x1b[0m\n'}
+[1.349589] (gui_interface) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.373110] (interface) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.401045] (-) TimerEvent: {}
+[1.501349] (-) TimerEvent: {}
+[1.517977] (gui_interface) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.532769] (interface) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.538438] (gui_interface) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") \n'}
+[1.540442] (gui_interface) StdoutLine: {'line': b'-- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)\n'}
+[1.554663] (interface) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") \n'}
+[1.556877] (interface) StdoutLine: {'line': b'-- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)\n'}
+[1.565486] (gui_interface) StdoutLine: {'line': b'-- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") \n'}
+[1.565662] (gui_interface) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[1.565711] (gui_interface) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10\n'}
+[1.565754] (gui_interface) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so\n'}
+[1.582200] (interface) StdoutLine: {'line': b'-- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") \n'}
+[1.582399] (interface) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[1.582448] (interface) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10\n'}
+[1.582491] (interface) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so\n'}
+[1.591591] (gui_interface) StdoutLine: {'line': b'-- Found PythonExtra: .so  \n'}
+[1.601467] (-) TimerEvent: {}
+[1.601764] (interface) StdoutLine: {'line': b'-- Found PythonExtra: .so  \n'}
+[1.656281] (gui_interface) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[1.667243] (interface) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[1.682779] (gui_interface) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[1.684208] (gui_interface) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[1.687270] (gui_interface) StdoutLine: {'line': b'-- Configuring done\n'}
+[1.694126] (interface) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[1.695618] (interface) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[1.700253] (interface) StdoutLine: {'line': b'-- Configuring done\n'}
+[1.701524] (-) TimerEvent: {}
+[1.725028] (gui_interface) StdoutLine: {'line': b'-- Generating done\n'}
+[1.736239] (gui_interface) StdoutLine: {'line': b'-- Build files have been written to: /home/fxck/work/build/gui_interface\n'}
+[1.743513] (gui_interface) CommandEnded: {'returncode': 0}
+[1.744244] (gui_interface) JobProgress: {'identifier': 'gui_interface', 'progress': 'build'}
+[1.744547] (gui_interface) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/fxck/work/build/gui_interface', '--', '-j16', '-l16'], 'cwd': '/home/fxck/work/build/gui_interface', 'env': OrderedDict([('HOSTNAME', 'fxck-X570-AORUS-ELITE-WIFI'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/fxck/work/install/interface/lib:/home/fxck/work/install/gui_interface/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/fxck'), ('OLDPWD', '/home/fxck/work/src'), ('ROS_PYTHON_VERSION', '3'), ('LC_CTYPE', 'C.UTF-8'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/fxck/work/install'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('XAUTHORITY', '/home/fxck/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/fxck/work/install/mecanum:/home/fxck/work/install/main_control:/home/fxck/work/install/linear_move:/home/fxck/work/install/keyboard_control:/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface:/home/fxck/work/install/gui:/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('TERMINATOR_UUID', 'urn:uuid:477dfc6c-02f7-4ef7-81e1-9574e65e8d86'), ('PWD', '/home/fxck/work/build/gui_interface'), ('PYTHONPATH', '/home/fxck/work/install/main_control/lib/python3.10/site-packages:/home/fxck/work/install/interface/local/lib/python3.10/dist-packages:/home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages:/home/fxck/work/install/gui/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('NVIDIA_VISIBLE_DEVICES', 'all'), ('TZ', 'Asia/Taipei'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/fxck/work/install/mecanum:/home/fxck/work/install/linear_move:/home/fxck/work/install/keyboard_control:/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble')]), 'shell': False}
+[1.746123] (interface) StdoutLine: {'line': b'-- Generating done\n'}
+[1.756176] (interface) StdoutLine: {'line': b'-- Build files have been written to: /home/fxck/work/build/interface\n'}
+[1.764213] (interface) CommandEnded: {'returncode': 0}
+[1.764757] (interface) JobProgress: {'identifier': 'interface', 'progress': 'build'}
+[1.764954] (interface) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/fxck/work/build/interface', '--', '-j16', '-l16'], 'cwd': '/home/fxck/work/build/interface', 'env': OrderedDict([('HOSTNAME', 'fxck-X570-AORUS-ELITE-WIFI'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/fxck/work/install/interface/lib:/home/fxck/work/install/gui_interface/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/fxck'), ('OLDPWD', '/home/fxck/work/src'), ('ROS_PYTHON_VERSION', '3'), ('LC_CTYPE', 'C.UTF-8'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/fxck/work/install'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('XAUTHORITY', '/home/fxck/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/fxck/work/install/mecanum:/home/fxck/work/install/main_control:/home/fxck/work/install/linear_move:/home/fxck/work/install/keyboard_control:/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface:/home/fxck/work/install/gui:/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('TERMINATOR_UUID', 'urn:uuid:477dfc6c-02f7-4ef7-81e1-9574e65e8d86'), ('PWD', '/home/fxck/work/build/interface'), ('PYTHONPATH', '/home/fxck/work/install/main_control/lib/python3.10/site-packages:/home/fxck/work/install/interface/local/lib/python3.10/dist-packages:/home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages:/home/fxck/work/install/gui/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('NVIDIA_VISIBLE_DEVICES', 'all'), ('TZ', 'Asia/Taipei'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/fxck/work/install/mecanum:/home/fxck/work/install/linear_move:/home/fxck/work/install/keyboard_control:/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble')]), 'shell': False}
+[1.785451] (gui_interface) StdoutLine: {'line': b'[  3%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[1.797476] (gui_interface) StdoutLine: {'line': b'[  6%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[1.801629] (-) TimerEvent: {}
+[1.804867] (gui_interface) StdoutLine: {'line': b'[  6%] Built target ament_cmake_python_copy_gui_interface\n'}
+[1.809821] (interface) StdoutLine: {'line': b'[  3%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[1.823316] (interface) StdoutLine: {'line': b'[  6%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[1.830014] (interface) StdoutLine: {'line': b'[  6%] Built target ament_cmake_python_copy_interface\n'}
+[1.901737] (-) TimerEvent: {}
+[2.002054] (-) TimerEvent: {}
+[2.032787] (gui_interface) StdoutLine: {'line': b'[  9%] \x1b[32mBuilding C object CMakeFiles/gui_interface__rosidl_generator_c.dir/rosidl_generator_c/gui_interface/srv/detail/taskcmd__functions.c.o\x1b[0m\n'}
+[2.057733] (gui_interface) StdoutLine: {'line': b'[  9%] Built target gui_interface__cpp\n'}
+[2.058246] (interface) StdoutLine: {'line': b'[  9%] \x1b[32mBuilding C object CMakeFiles/interface__rosidl_generator_c.dir/rosidl_generator_c/interface/srv/detail/maincontroller__functions.c.o\x1b[0m\n'}
+[2.069973] (gui_interface) StdoutLine: {'line': b'[ 12%] \x1b[34m\x1b[1mGenerating C++ type support dispatch for ROS interfaces\x1b[0m\n'}
+[2.071432] (gui_interface) StdoutLine: {'line': b'[ 19%] \x1b[34m\x1b[1mGenerating C++ introspection for ROS interfaces\x1b[0m\n'}
+[2.071548] (gui_interface) StdoutLine: {'line': b'[ 19%] \x1b[34m\x1b[1mGenerating C++ type support for eProsima Fast-RTPS\x1b[0m\n'}
+[2.095295] (gui_interface) StdoutLine: {'line': b'running egg_info\n'}
+[2.095548] (gui_interface) StdoutLine: {'line': b'creating gui_interface.egg-info\n'}
+[2.095830] (gui_interface) StdoutLine: {'line': b'writing gui_interface.egg-info/PKG-INFO\n'}
+[2.096217] (gui_interface) StdoutLine: {'line': b'writing dependency_links to gui_interface.egg-info/dependency_links.txt\n'}
+[2.096378] (gui_interface) StdoutLine: {'line': b'writing top-level names to gui_interface.egg-info/top_level.txt\n'}
+[2.096630] (gui_interface) StdoutLine: {'line': b"writing manifest file 'gui_interface.egg-info/SOURCES.txt'\n"}
+[2.099074] (gui_interface) StdoutLine: {'line': b"reading manifest file 'gui_interface.egg-info/SOURCES.txt'\n"}
+[2.099430] (gui_interface) StdoutLine: {'line': b"writing manifest file 'gui_interface.egg-info/SOURCES.txt'\n"}
+[2.102569] (-) TimerEvent: {}
+[2.108096] (gui_interface) StdoutLine: {'line': b'[ 22%] \x1b[32m\x1b[1mLinking C shared library libgui_interface__rosidl_generator_c.so\x1b[0m\n'}
+[2.111964] (interface) StdoutLine: {'line': b'[  9%] Built target interface__cpp\n'}
+[2.117470] (interface) StdoutLine: {'line': b'[ 12%] \x1b[32m\x1b[1mLinking C shared library libinterface__rosidl_generator_c.so\x1b[0m\n'}
+[2.126558] (interface) StdoutLine: {'line': b'[ 22%] \x1b[34m\x1b[1mGenerating C++ introspection for ROS interfaces\x1b[0m\n'}
+[2.127054] (interface) StdoutLine: {'line': b'[ 22%] \x1b[34m\x1b[1mGenerating C++ type support for eProsima Fast-RTPS\x1b[0m\n'}
+[2.127152] (interface) StdoutLine: {'line': b'[ 22%] \x1b[34m\x1b[1mGenerating C++ type support dispatch for ROS interfaces\x1b[0m\n'}
+[2.134024] (interface) StdoutLine: {'line': b'running egg_info\n'}
+[2.134495] (interface) StdoutLine: {'line': b'creating interface.egg-info\n'}
+[2.134755] (interface) StdoutLine: {'line': b'writing interface.egg-info/PKG-INFO\n'}
+[2.135055] (interface) StdoutLine: {'line': b'writing dependency_links to interface.egg-info/dependency_links.txt\n'}
+[2.135213] (interface) StdoutLine: {'line': b'writing top-level names to interface.egg-info/top_level.txt\n'}
+[2.135426] (interface) StdoutLine: {'line': b"writing manifest file 'interface.egg-info/SOURCES.txt'\n"}
+[2.137464] (interface) StdoutLine: {'line': b"reading manifest file 'interface.egg-info/SOURCES.txt'\n"}
+[2.137942] (interface) StdoutLine: {'line': b"writing manifest file 'interface.egg-info/SOURCES.txt'\n"}
+[2.140697] (gui_interface) StdoutLine: {'line': b'[ 22%] Built target ament_cmake_python_build_gui_interface_egg\n'}
+[2.159577] (gui_interface) StdoutLine: {'line': b'[ 22%] Built target gui_interface__rosidl_generator_c\n'}
+[2.168701] (interface) StdoutLine: {'line': b'[ 22%] Built target interface__rosidl_generator_c\n'}
+[2.174621] (gui_interface) StdoutLine: {'line': b'[ 29%] \x1b[34m\x1b[1mGenerating C type support dispatch for ROS interfaces\x1b[0m\n'}
+[2.174826] (gui_interface) StdoutLine: {'line': b'[ 29%] \x1b[34m\x1b[1mGenerating C introspection for ROS interfaces\x1b[0m\n'}
+[2.174908] (gui_interface) StdoutLine: {'line': b'[ 32%] \x1b[34m\x1b[1mGenerating C type support for eProsima Fast-RTPS\x1b[0m\n'}
+[2.175935] (interface) StdoutLine: {'line': b'[ 22%] Built target ament_cmake_python_build_interface_egg\n'}
+[2.185933] (interface) StdoutLine: {'line': b'[ 29%] \x1b[34m\x1b[1mGenerating C introspection for ROS interfaces\x1b[0m\n'}
+[2.186178] (interface) StdoutLine: {'line': b'[ 29%] \x1b[34m\x1b[1mGenerating C type support for eProsima Fast-RTPS\x1b[0m\n'}
+[2.188986] (interface) StdoutLine: {'line': b'[ 32%] \x1b[34m\x1b[1mGenerating C type support dispatch for ROS interfaces\x1b[0m\n'}
+[2.202683] (-) TimerEvent: {}
+[2.303029] (-) TimerEvent: {}
+[2.387103] (gui_interface) StdoutLine: {'line': b'[ 35%] \x1b[32mBuilding CXX object CMakeFiles/gui_interface__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/gui_interface/srv/detail/taskcmd__type_support.cpp.o\x1b[0m\n'}
+[2.389286] (gui_interface) StdoutLine: {'line': b'[ 38%] \x1b[32mBuilding CXX object CMakeFiles/gui_interface__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/gui_interface/srv/taskcmd__type_support.cpp.o\x1b[0m\n'}
+[2.403146] (-) TimerEvent: {}
+[2.426205] (gui_interface) StdoutLine: {'line': b'[ 41%] \x1b[32mBuilding CXX object CMakeFiles/gui_interface__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/gui_interface/srv/detail/dds_fastrtps/taskcmd__type_support.cpp.o\x1b[0m\n'}
+[2.434280] (interface) StdoutLine: {'line': b'[ 35%] \x1b[32mBuilding CXX object CMakeFiles/interface__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/interface/srv/maincontroller__type_support.cpp.o\x1b[0m\n'}
+[2.460710] (interface) StdoutLine: {'line': b'[ 38%] \x1b[32mBuilding CXX object CMakeFiles/interface__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/interface/srv/detail/maincontroller__type_support.cpp.o\x1b[0m\n'}
+[2.486496] (interface) StdoutLine: {'line': b'[ 41%] \x1b[32mBuilding CXX object CMakeFiles/interface__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/interface/srv/detail/dds_fastrtps/maincontroller__type_support.cpp.o\x1b[0m\n'}
+[2.499815] (gui_interface) StdoutLine: {'line': b'[ 45%] \x1b[32mBuilding CXX object CMakeFiles/gui_interface__rosidl_typesupport_c.dir/rosidl_typesupport_c/gui_interface/srv/taskcmd__type_support.cpp.o\x1b[0m\n'}
+[2.501334] (interface) StdoutLine: {'line': b'[ 45%] \x1b[32mBuilding CXX object CMakeFiles/interface__rosidl_typesupport_c.dir/rosidl_typesupport_c/interface/srv/maincontroller__type_support.cpp.o\x1b[0m\n'}
+[2.503236] (-) TimerEvent: {}
+[2.527697] (gui_interface) StdoutLine: {'line': b'[ 48%] \x1b[32mBuilding CXX object CMakeFiles/gui_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/gui_interface/srv/detail/taskcmd__type_support_c.cpp.o\x1b[0m\n'}
+[2.531279] (gui_interface) StdoutLine: {'line': b'[ 51%] \x1b[32mBuilding C object CMakeFiles/gui_interface__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/gui_interface/srv/detail/taskcmd__type_support.c.o\x1b[0m\n'}
+[2.538245] (interface) StdoutLine: {'line': b'[ 48%] \x1b[32mBuilding C object CMakeFiles/interface__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/interface/srv/detail/maincontroller__type_support.c.o\x1b[0m\n'}
+[2.547001] (interface) StdoutLine: {'line': b'[ 51%] \x1b[32m\x1b[1mLinking CXX shared library libinterface__rosidl_typesupport_c.so\x1b[0m\n'}
+[2.548145] (gui_interface) StdoutLine: {'line': b'[ 54%] \x1b[32m\x1b[1mLinking CXX shared library libgui_interface__rosidl_typesupport_c.so\x1b[0m\n'}
+[2.563606] (interface) StdoutLine: {'line': b'[ 54%] \x1b[32mBuilding CXX object CMakeFiles/interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/interface/srv/detail/maincontroller__type_support_c.cpp.o\x1b[0m\n'}
+[2.586770] (gui_interface) StdoutLine: {'line': b'[ 58%] \x1b[32m\x1b[1mLinking C shared library libgui_interface__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[2.592350] (interface) StdoutLine: {'line': b'[ 58%] \x1b[32m\x1b[1mLinking C shared library libinterface__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[2.604722] (interface) StdoutLine: {'line': b'[ 58%] Built target interface__rosidl_typesupport_c\n'}
+[2.604942] (-) TimerEvent: {}
+[2.612368] (gui_interface) StdoutLine: {'line': b'[ 58%] Built target gui_interface__rosidl_typesupport_c\n'}
+[2.633396] (gui_interface) StdoutLine: {'line': b'[ 58%] Built target gui_interface__rosidl_typesupport_introspection_c\n'}
+[2.637434] (interface) StdoutLine: {'line': b'[ 58%] Built target interface__rosidl_typesupport_introspection_c\n'}
+[2.705078] (-) TimerEvent: {}
+[2.716060] (gui_interface) StdoutLine: {'line': b'[ 61%] \x1b[32m\x1b[1mLinking CXX shared library libgui_interface__rosidl_typesupport_cpp.so\x1b[0m\n'}
+[2.744263] (interface) StdoutLine: {'line': b'[ 61%] \x1b[32m\x1b[1mLinking CXX shared library libinterface__rosidl_typesupport_cpp.so\x1b[0m\n'}
+[2.779414] (gui_interface) StdoutLine: {'line': b'[ 61%] Built target gui_interface__rosidl_typesupport_cpp\n'}
+[2.791784] (interface) StdoutLine: {'line': b'[ 61%] Built target interface__rosidl_typesupport_cpp\n'}
+[2.805220] (-) TimerEvent: {}
+[2.841234] (gui_interface) StdoutLine: {'line': b'[ 64%] \x1b[32m\x1b[1mLinking CXX shared library libgui_interface__rosidl_typesupport_introspection_cpp.so\x1b[0m\n'}
+[2.858255] (gui_interface) StdoutLine: {'line': b'[ 67%] \x1b[32m\x1b[1mLinking CXX shared library libgui_interface__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[2.860649] (gui_interface) StdoutLine: {'line': b'[ 70%] \x1b[32m\x1b[1mLinking CXX shared library libgui_interface__rosidl_typesupport_fastrtps_cpp.so\x1b[0m\n'}
+[2.862132] (interface) StdoutLine: {'line': b'[ 64%] \x1b[32m\x1b[1mLinking CXX shared library libinterface__rosidl_typesupport_introspection_cpp.so\x1b[0m\n'}
+[2.890948] (interface) StdoutLine: {'line': b'[ 67%] \x1b[32m\x1b[1mLinking CXX shared library libinterface__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[2.905325] (-) TimerEvent: {}
+[2.907684] (interface) StdoutLine: {'line': b'[ 67%] Built target interface__rosidl_typesupport_introspection_cpp\n'}
+[2.908361] (gui_interface) StdoutLine: {'line': b'[ 70%] Built target gui_interface__rosidl_typesupport_introspection_cpp\n'}
+[2.956148] (gui_interface) StdoutLine: {'line': b'[ 70%] Built target gui_interface__rosidl_typesupport_fastrtps_c\n'}
+[2.957363] (gui_interface) StdoutLine: {'line': b'[ 70%] Built target gui_interface__rosidl_typesupport_fastrtps_cpp\n'}
+[2.963573] (interface) StdoutLine: {'line': b'[ 70%] \x1b[32m\x1b[1mLinking CXX shared library libinterface__rosidl_typesupport_fastrtps_cpp.so\x1b[0m\n'}
+[2.971357] (interface) StdoutLine: {'line': b'[ 70%] Built target interface__rosidl_typesupport_fastrtps_c\n'}
+[2.978553] (gui_interface) StdoutLine: {'line': b'[ 70%] Built target gui_interface\n'}
+[3.001675] (gui_interface) StdoutLine: {'line': b'[ 74%] \x1b[34m\x1b[1mGenerating Python code for ROS interfaces\x1b[0m\n'}
+[3.005398] (-) TimerEvent: {}
+[3.035546] (interface) StdoutLine: {'line': b'[ 70%] Built target interface__rosidl_typesupport_fastrtps_cpp\n'}
+[3.056457] (interface) StdoutLine: {'line': b'[ 70%] Built target interface\n'}
+[3.079364] (interface) StdoutLine: {'line': b'[ 74%] \x1b[34m\x1b[1mGenerating Python code for ROS interfaces\x1b[0m\n'}
+[3.105499] (-) TimerEvent: {}
+[3.205812] (-) TimerEvent: {}
+[3.287861] (gui_interface) StdoutLine: {'line': b'[ 74%] Built target gui_interface__py\n'}
+[3.305923] (-) TimerEvent: {}
+[3.308886] (gui_interface) StdoutLine: {'line': b'[ 77%] \x1b[32mBuilding C object CMakeFiles/gui_interface__rosidl_generator_py.dir/rosidl_generator_py/gui_interface/srv/_taskcmd_s.c.o\x1b[0m\n'}
+[3.365277] (interface) StdoutLine: {'line': b'[ 74%] Built target interface__py\n'}
+[3.386894] (interface) StdoutLine: {'line': b'[ 77%] \x1b[32mBuilding C object CMakeFiles/interface__rosidl_generator_py.dir/rosidl_generator_py/interface/srv/_maincontroller_s.c.o\x1b[0m\n'}
+[3.406036] (-) TimerEvent: {}
+[3.411477] (gui_interface) StdoutLine: {'line': b'[ 80%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/gui_interface/libgui_interface__rosidl_generator_py.so\x1b[0m\n'}
+[3.450892] (keyboard_control) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/fxck/work/src/keyboard_control/src/t.cpp:9\x1b[m\x1b[K:\n'}
+[3.451230] (keyboard_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/fxck/work/src/keyboard_control/include/conio.h:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kint Console::cputs(const char*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[3.451307] (keyboard_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/fxck/work/src/keyboard_control/include/conio.h:279:15:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kformat not a string literal and no format arguments [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wformat-security\x07-Wformat-security\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[3.451392] (keyboard_control) StderrLine: {'line': b'  279 |         \x1b[01;35m\x1b[Kprintf(str)\x1b[m\x1b[K;\n'}
+[3.451458] (keyboard_control) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K~~~~~~^~~~~\x1b[m\x1b[K\n'}
+[3.451527] (keyboard_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/fxck/work/src/keyboard_control/include/conio.h:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kchar* Console::getpass(const char*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[3.451595] (keyboard_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/fxck/work/src/keyboard_control/include/conio.h:283:31:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Kprompt\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter\x07-Wunused-parameter\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[3.451658] (keyboard_control) StderrLine: {'line': b'  283 |     char *getpass(\x1b[01;35m\x1b[Kconst char *prompt\x1b[m\x1b[K)\n'}
+[3.451715] (keyboard_control) StderrLine: {'line': b'      |                   \x1b[01;35m\x1b[K~~~~~~~~~~~~^~~~~~\x1b[m\x1b[K\n'}
+[3.451771] (keyboard_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/fxck/work/src/keyboard_control/include/conio.h:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kint Console::gettext(int, int, int, int, void*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[3.451835] (keyboard_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/fxck/work/src/keyboard_control/include/conio.h:289:21:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Kl\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter\x07-Wunused-parameter\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[3.451898] (keyboard_control) StderrLine: {'line': b'  289 |     int gettext(\x1b[01;35m\x1b[Kint l\x1b[m\x1b[K, int t, int r, int b, void *destination)\n'}
+[3.451957] (keyboard_control) StderrLine: {'line': b'      |                 \x1b[01;35m\x1b[K~~~~^\x1b[m\x1b[K\n'}
+[3.452015] (keyboard_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/fxck/work/src/keyboard_control/include/conio.h:289:28:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Kt\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter\x07-Wunused-parameter\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[3.452088] (keyboard_control) StderrLine: {'line': b'  289 |     int gettext(int l, \x1b[01;35m\x1b[Kint t\x1b[m\x1b[K, int r, int b, void *destination)\n'}
+[3.452153] (keyboard_control) StderrLine: {'line': b'      |                        \x1b[01;35m\x1b[K~~~~^\x1b[m\x1b[K\n'}
+[3.452237] (keyboard_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/fxck/work/src/keyboard_control/include/conio.h:289:35:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Kr\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter\x07-Wunused-parameter\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[3.452311] (keyboard_control) StderrLine: {'line': b'  289 |     int gettext(int l, int t, \x1b[01;35m\x1b[Kint r\x1b[m\x1b[K, int b, void *destination)\n'}
+[3.452380] (keyboard_control) StderrLine: {'line': b'      |                               \x1b[01;35m\x1b[K~~~~^\x1b[m\x1b[K\n'}
+[3.452449] (keyboard_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/fxck/work/src/keyboard_control/include/conio.h:289:42:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Kb\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter\x07-Wunused-parameter\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[3.452519] (keyboard_control) StderrLine: {'line': b'  289 |     int gettext(int l, int t, int r, \x1b[01;35m\x1b[Kint b\x1b[m\x1b[K, void *destination)\n'}
+[3.452597] (keyboard_control) StderrLine: {'line': b'      |                                      \x1b[01;35m\x1b[K~~~~^\x1b[m\x1b[K\n'}
+[3.452666] (keyboard_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/fxck/work/src/keyboard_control/include/conio.h:289:51:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Kdestination\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter\x07-Wunused-parameter\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[3.452736] (keyboard_control) StderrLine: {'line': b'  289 |     int gettext(int l, int t, int r, int b, \x1b[01;35m\x1b[Kvoid *destination\x1b[m\x1b[K)\n'}
+[3.452803] (keyboard_control) StderrLine: {'line': b'      |                                             \x1b[01;35m\x1b[K~~~~~~^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.454477] (gui_interface) StdoutLine: {'line': b'[ 80%] Built target gui_interface__rosidl_generator_py\n'}
+[3.464398] (keyboard_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/fxck/work/src/keyboard_control/src/t.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kint main(int, char**)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[3.464611] (keyboard_control) StderrLine: {'line': b'\x1b[01m\x1b[K/home/fxck/work/src/keyboard_control/src/t.cpp:17:7:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kch\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[3.464677] (keyboard_control) StderrLine: {'line': b'   17 |   int \x1b[01;35m\x1b[Kch\x1b[m\x1b[K;\n'}
+[3.464733] (keyboard_control) StderrLine: {'line': b'      |       \x1b[01;35m\x1b[K^~\x1b[m\x1b[K\n'}
+[3.476797] (gui_interface) StdoutLine: {'line': b'[ 87%] \x1b[32mBuilding C object CMakeFiles/gui_interface__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/gui_interface/_gui_interface_s.ep.rosidl_typesupport_c.c.o\x1b[0m\n'}
+[3.477001] (gui_interface) StdoutLine: {'line': b'[ 87%] \x1b[32mBuilding C object CMakeFiles/gui_interface__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/gui_interface/_gui_interface_s.ep.rosidl_typesupport_fastrtps_c.c.o\x1b[0m\n'}
+[3.478060] (gui_interface) StdoutLine: {'line': b'[ 90%] \x1b[32mBuilding C object CMakeFiles/gui_interface__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/gui_interface/_gui_interface_s.ep.rosidl_typesupport_introspection_c.c.o\x1b[0m\n'}
+[3.489599] (interface) StdoutLine: {'line': b'[ 80%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/interface/libinterface__rosidl_generator_py.so\x1b[0m\n'}
+[3.506152] (-) TimerEvent: {}
+[3.531565] (interface) StdoutLine: {'line': b'[ 80%] Built target interface__rosidl_generator_py\n'}
+[3.555454] (interface) StdoutLine: {'line': b'[ 83%] \x1b[32mBuilding C object CMakeFiles/interface__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/interface/_interface_s.ep.rosidl_typesupport_c.c.o\x1b[0m\n'}
+[3.556001] (interface) StdoutLine: {'line': b'[ 87%] \x1b[32mBuilding C object CMakeFiles/interface__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/interface/_interface_s.ep.rosidl_typesupport_introspection_c.c.o\x1b[0m\n'}
+[3.560441] (interface) StdoutLine: {'line': b'[ 90%] \x1b[32mBuilding C object CMakeFiles/interface__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/interface/_interface_s.ep.rosidl_typesupport_fastrtps_c.c.o\x1b[0m\n'}
+[3.586418] (gui_interface) StdoutLine: {'line': b'[ 93%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/gui_interface/gui_interface_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[3.590482] (gui_interface) StdoutLine: {'line': b'[ 96%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/gui_interface/gui_interface_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[3.592836] (gui_interface) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/gui_interface/gui_interface_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[3.606274] (-) TimerEvent: {}
+[3.629173] (gui_interface) StdoutLine: {'line': b'[100%] Built target gui_interface__rosidl_typesupport_c__pyext\n'}
+[3.636017] (gui_interface) StdoutLine: {'line': b'[100%] Built target gui_interface__rosidl_typesupport_introspection_c__pyext\n'}
+[3.636262] (gui_interface) StdoutLine: {'line': b'[100%] Built target gui_interface__rosidl_typesupport_fastrtps_c__pyext\n'}
+[3.650049] (gui_interface) CommandEnded: {'returncode': 0}
+[3.650652] (gui_interface) JobProgress: {'identifier': 'gui_interface', 'progress': 'install'}
+[3.660581] (gui_interface) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/fxck/work/build/gui_interface'], 'cwd': '/home/fxck/work/build/gui_interface', 'env': OrderedDict([('HOSTNAME', 'fxck-X570-AORUS-ELITE-WIFI'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/fxck/work/install/interface/lib:/home/fxck/work/install/gui_interface/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/fxck'), ('OLDPWD', '/home/fxck/work/src'), ('ROS_PYTHON_VERSION', '3'), ('LC_CTYPE', 'C.UTF-8'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/fxck/work/install'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('XAUTHORITY', '/home/fxck/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/fxck/work/install/mecanum:/home/fxck/work/install/main_control:/home/fxck/work/install/linear_move:/home/fxck/work/install/keyboard_control:/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface:/home/fxck/work/install/gui:/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('TERMINATOR_UUID', 'urn:uuid:477dfc6c-02f7-4ef7-81e1-9574e65e8d86'), ('PWD', '/home/fxck/work/build/gui_interface'), ('PYTHONPATH', '/home/fxck/work/install/main_control/lib/python3.10/site-packages:/home/fxck/work/install/interface/local/lib/python3.10/dist-packages:/home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages:/home/fxck/work/install/gui/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('NVIDIA_VISIBLE_DEVICES', 'all'), ('TZ', 'Asia/Taipei'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/fxck/work/install/mecanum:/home/fxck/work/install/linear_move:/home/fxck/work/install/keyboard_control:/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble')]), 'shell': False}
+[3.669873] (gui_interface) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[3.670103] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/ament_index/resource_index/rosidl_interfaces/gui_interface\n'}
+[3.670291] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface\n'}
+[3.670444] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/msg\n'}
+[3.670547] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/msg/rosidl_generator_c__visibility_control.h\n'}
+[3.670693] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/srv\n'}
+[3.670799] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/srv/taskcmd.h\n'}
+[3.670933] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail\n'}
+[3.671032] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail/taskcmd__struct.h\n'}
+[3.671193] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail/taskcmd__functions.h\n'}
+[3.671352] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail/taskcmd__type_support.h\n'}
+[3.671497] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail/taskcmd__functions.c\n'}
+[3.671762] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/environment/library_path.sh\n'}
+[3.671941] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/environment/library_path.dsv\n'}
+[3.672174] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/lib/libgui_interface__rosidl_generator_c.so\n'}
+[3.672623] (gui_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/fxck/work/install/gui_interface/lib/libgui_interface__rosidl_generator_c.so" to ""\n'}
+[3.672700] (gui_interface) StdoutLine: {'line': b'-- Up-to-date: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface\n'}
+[3.672779] (gui_interface) StdoutLine: {'line': b'-- Up-to-date: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/msg\n'}
+[3.672853] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[3.672938] (gui_interface) StdoutLine: {'line': b'-- Up-to-date: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/srv\n'}
+[3.673020] (gui_interface) StdoutLine: {'line': b'-- Up-to-date: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail\n'}
+[3.673103] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail/taskcmd__rosidl_typesupport_fastrtps_c.h\n'}
+[3.673246] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/lib/libgui_interface__rosidl_typesupport_fastrtps_c.so\n'}
+[3.673668] (gui_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/fxck/work/install/gui_interface/lib/libgui_interface__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[3.673757] (gui_interface) StdoutLine: {'line': b'-- Up-to-date: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface\n'}
+[3.673843] (gui_interface) StdoutLine: {'line': b'-- Up-to-date: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/msg\n'}
+[3.673929] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[3.674006] (gui_interface) StdoutLine: {'line': b'-- Up-to-date: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/srv\n'}
+[3.674087] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/srv/taskcmd.hpp\n'}
+[3.674248] (gui_interface) StdoutLine: {'line': b'-- Up-to-date: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail\n'}
+[3.674306] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail/taskcmd__builder.hpp\n'}
+[3.674438] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail/taskcmd__struct.hpp\n'}
+[3.674591] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail/taskcmd__type_support.hpp\n'}
+[3.674738] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail/taskcmd__traits.hpp\n'}
+[3.674914] (gui_interface) StdoutLine: {'line': b'-- Up-to-date: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface\n'}
+[3.675011] (gui_interface) StdoutLine: {'line': b'-- Up-to-date: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/msg\n'}
+[3.675058] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[3.675157] (gui_interface) StdoutLine: {'line': b'-- Up-to-date: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/srv\n'}
+[3.675264] (gui_interface) StdoutLine: {'line': b'-- Up-to-date: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail\n'}
+[3.675314] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail/dds_fastrtps\n'}
+[3.675391] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail/taskcmd__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[3.675584] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/lib/libgui_interface__rosidl_typesupport_fastrtps_cpp.so\n'}
+[3.676010] (gui_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/fxck/work/install/gui_interface/lib/libgui_interface__rosidl_typesupport_fastrtps_cpp.so" to ""\n'}
+[3.676091] (gui_interface) StdoutLine: {'line': b'-- Up-to-date: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface\n'}
+[3.676178] (gui_interface) StdoutLine: {'line': b'-- Up-to-date: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/msg\n'}
+[3.676276] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[3.676356] (gui_interface) StdoutLine: {'line': b'-- Up-to-date: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/srv\n'}
+[3.676430] (gui_interface) StdoutLine: {'line': b'-- Up-to-date: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail\n'}
+[3.676535] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail/taskcmd__type_support.c\n'}
+[3.676704] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail/taskcmd__rosidl_typesupport_introspection_c.h\n'}
+[3.676916] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/lib/libgui_interface__rosidl_typesupport_introspection_c.so\n'}
+[3.677323] (gui_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/fxck/work/install/gui_interface/lib/libgui_interface__rosidl_typesupport_introspection_c.so" to ""\n'}
+[3.677445] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/lib/libgui_interface__rosidl_typesupport_c.so\n'}
+[3.677733] (gui_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/fxck/work/install/gui_interface/lib/libgui_interface__rosidl_typesupport_c.so" to ""\n'}
+[3.677867] (gui_interface) StdoutLine: {'line': b'-- Up-to-date: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface\n'}
+[3.677939] (gui_interface) StdoutLine: {'line': b'-- Up-to-date: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/srv\n'}
+[3.678008] (gui_interface) StdoutLine: {'line': b'-- Up-to-date: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail\n'}
+[3.678113] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail/taskcmd__type_support.cpp\n'}
+[3.678178] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail/taskcmd__rosidl_typesupport_introspection_cpp.hpp\n'}
+[3.678286] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/lib/libgui_interface__rosidl_typesupport_introspection_cpp.so\n'}
+[3.678675] (gui_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/fxck/work/install/gui_interface/lib/libgui_interface__rosidl_typesupport_introspection_cpp.so" to ""\n'}
+[3.678790] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/lib/libgui_interface__rosidl_typesupport_cpp.so\n'}
+[3.679092] (gui_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/fxck/work/install/gui_interface/lib/libgui_interface__rosidl_typesupport_cpp.so" to ""\n'}
+[3.679207] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/environment/pythonpath.sh\n'}
+[3.679342] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/environment/pythonpath.dsv\n'}
+[3.679498] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface-0.0.0-py3.10.egg-info\n'}
+[3.679705] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface-0.0.0-py3.10.egg-info/SOURCES.txt\n'}
+[3.679864] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface-0.0.0-py3.10.egg-info/dependency_links.txt\n'}
+[3.680009] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface-0.0.0-py3.10.egg-info/PKG-INFO\n'}
+[3.680152] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface-0.0.0-py3.10.egg-info/top_level.txt\n'}
+[3.680382] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface\n'}
+[3.680487] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/srv\n'}
+[3.680593] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/srv/_taskcmd_s.c\n'}
+[3.680754] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/srv/_taskcmd.py\n'}
+[3.680915] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/srv/__init__.py\n'}
+[3.681059] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/_gui_interface_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[3.681224] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/gui_interface_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[3.681433] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/libgui_interface__rosidl_generator_py.so\n'}
+[3.681603] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/gui_interface_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[3.681769] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/_gui_interface_s.ep.rosidl_typesupport_c.c\n'}
+[3.681930] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/_gui_interface_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[3.682080] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/__init__.py\n'}
+[3.682223] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/gui_interface_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[3.691324] (interface) StdoutLine: {'line': b'[ 93%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/interface/interface_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[3.691566] (interface) StdoutLine: {'line': b'[ 96%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/interface/interface_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[3.692379] (interface) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/interface/interface_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[3.706372] (-) TimerEvent: {}
+[3.712358] (gui_interface) StdoutLine: {'line': b"Listing '/home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface'...\n"}
+[3.712527] (gui_interface) StdoutLine: {'line': b"Compiling '/home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/__init__.py'...\n"}
+[3.712579] (gui_interface) StdoutLine: {'line': b"Listing '/home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/srv'...\n"}
+[3.712632] (gui_interface) StdoutLine: {'line': b"Compiling '/home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/srv/__init__.py'...\n"}
+[3.712675] (gui_interface) StdoutLine: {'line': b"Compiling '/home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/srv/_taskcmd.py'...\n"}
+[3.716759] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/gui_interface_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[3.717082] (gui_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/gui_interface_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[3.717280] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/gui_interface_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[3.717614] (gui_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/gui_interface_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[3.717795] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/gui_interface_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[3.718121] (gui_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/gui_interface_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[3.718211] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/lib/libgui_interface__rosidl_generator_py.so\n'}
+[3.718606] (gui_interface) StdoutLine: {'line': b'-- Set runtime path of "/home/fxck/work/install/gui_interface/lib/libgui_interface__rosidl_generator_py.so" to ""\n'}
+[3.718723] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/srv/Taskcmd.idl\n'}
+[3.718886] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/srv/Taskcmd.srv\n'}
+[3.719041] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/srv/Taskcmd_Request.msg\n'}
+[3.719227] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/srv/Taskcmd_Response.msg\n'}
+[3.719418] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/ament_index/resource_index/package_run_dependencies/gui_interface\n'}
+[3.719635] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/ament_index/resource_index/parent_prefix_path/gui_interface\n'}
+[3.719808] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/environment/ament_prefix_path.sh\n'}
+[3.719977] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/environment/ament_prefix_path.dsv\n'}
+[3.720136] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/environment/path.sh\n'}
+[3.720313] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/environment/path.dsv\n'}
+[3.720471] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/local_setup.bash\n'}
+[3.720624] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/local_setup.sh\n'}
+[3.720777] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/local_setup.zsh\n'}
+[3.720928] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/local_setup.dsv\n'}
+[3.721081] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/package.dsv\n'}
+[3.721298] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/ament_index/resource_index/packages/gui_interface\n'}
+[3.721510] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/cmake/export_gui_interface__rosidl_generator_cExport.cmake\n'}
+[3.721674] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/cmake/export_gui_interface__rosidl_generator_cExport-noconfig.cmake\n'}
+[3.721840] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/cmake/export_gui_interface__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[3.722004] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/cmake/export_gui_interface__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[3.722166] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/cmake/export_gui_interface__rosidl_generator_cppExport.cmake\n'}
+[3.722345] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/cmake/export_gui_interface__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[3.722502] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/cmake/export_gui_interface__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[3.722670] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/cmake/gui_interface__rosidl_typesupport_introspection_cExport.cmake\n'}
+[3.722832] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/cmake/gui_interface__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[3.723002] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/cmake/gui_interface__rosidl_typesupport_cExport.cmake\n'}
+[3.723165] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/cmake/gui_interface__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[3.723344] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/cmake/gui_interface__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[3.723504] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/cmake/gui_interface__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[3.723675] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/cmake/gui_interface__rosidl_typesupport_cppExport.cmake\n'}
+[3.723835] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/cmake/gui_interface__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[3.724001] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/cmake/export_gui_interface__rosidl_generator_pyExport.cmake\n'}
+[3.724200] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/cmake/export_gui_interface__rosidl_generator_pyExport-noconfig.cmake\n'}
+[3.724403] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/cmake/rosidl_cmake-extras.cmake\n'}
+[3.724569] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[3.724763] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[3.724917] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[3.725091] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[3.725266] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[3.725438] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[3.725600] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/cmake/gui_interfaceConfig.cmake\n'}
+[3.725747] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/cmake/gui_interfaceConfig-version.cmake\n'}
+[3.725914] (gui_interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/gui_interface/share/gui_interface/package.xml\n'}
+[3.728436] (gui_interface) CommandEnded: {'returncode': 0}
+[3.735315] (interface) StdoutLine: {'line': b'[100%] Built target interface__rosidl_typesupport_fastrtps_c__pyext\n'}
+[3.735951] (interface) StdoutLine: {'line': b'[100%] Built target interface__rosidl_typesupport_introspection_c__pyext\n'}
+[3.736019] (interface) StdoutLine: {'line': b'[100%] Built target interface__rosidl_typesupport_c__pyext\n'}
+[3.744478] (gui_interface) JobEnded: {'identifier': 'gui_interface', 'rc': 0}
+[3.745134] (gui) JobStarted: {'identifier': 'gui'}
+[3.749428] (interface) CommandEnded: {'returncode': 0}
+[3.749871] (interface) JobProgress: {'identifier': 'interface', 'progress': 'install'}
+[3.750150] (interface) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/fxck/work/build/interface'], 'cwd': '/home/fxck/work/build/interface', 'env': OrderedDict([('HOSTNAME', 'fxck-X570-AORUS-ELITE-WIFI'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/fxck/work/install/interface/lib:/home/fxck/work/install/gui_interface/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/fxck'), ('OLDPWD', '/home/fxck/work/src'), ('ROS_PYTHON_VERSION', '3'), ('LC_CTYPE', 'C.UTF-8'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/fxck/work/install'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('XAUTHORITY', '/home/fxck/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/fxck/work/install/mecanum:/home/fxck/work/install/main_control:/home/fxck/work/install/linear_move:/home/fxck/work/install/keyboard_control:/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface:/home/fxck/work/install/gui:/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('TERMINATOR_UUID', 'urn:uuid:477dfc6c-02f7-4ef7-81e1-9574e65e8d86'), ('PWD', '/home/fxck/work/build/interface'), ('PYTHONPATH', '/home/fxck/work/install/main_control/lib/python3.10/site-packages:/home/fxck/work/install/interface/local/lib/python3.10/dist-packages:/home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages:/home/fxck/work/install/gui/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('NVIDIA_VISIBLE_DEVICES', 'all'), ('TZ', 'Asia/Taipei'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/fxck/work/install/mecanum:/home/fxck/work/install/linear_move:/home/fxck/work/install/keyboard_control:/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble')]), 'shell': False}
+[3.758344] (interface) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[3.758552] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/ament_index/resource_index/rosidl_interfaces/interface\n'}
+[3.758714] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/include/interface/interface\n'}
+[3.758848] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/include/interface/interface/msg\n'}
+[3.758930] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/include/interface/interface/msg/rosidl_generator_c__visibility_control.h\n'}
+[3.759069] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/include/interface/interface/srv\n'}
+[3.759427] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/include/interface/interface/srv/detail\n'}
+[3.759524] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/include/interface/interface/srv/detail/maincontroller__functions.h\n'}
+[3.759619] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/include/interface/interface/srv/detail/maincontroller__type_support.h\n'}
+[3.759762] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/include/interface/interface/srv/detail/maincontroller__struct.h\n'}
+[3.759895] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/include/interface/interface/srv/detail/maincontroller__functions.c\n'}
+[3.760068] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/include/interface/interface/srv/maincontroller.h\n'}
+[3.760313] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/environment/library_path.sh\n'}
+[3.760482] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/environment/library_path.dsv\n'}
+[3.760693] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/lib/libinterface__rosidl_generator_c.so\n'}
+[3.761086] (interface) StdoutLine: {'line': b'-- Set runtime path of "/home/fxck/work/install/interface/lib/libinterface__rosidl_generator_c.so" to ""\n'}
+[3.761171] (interface) StdoutLine: {'line': b'-- Up-to-date: /home/fxck/work/install/interface/include/interface/interface\n'}
+[3.761314] (interface) StdoutLine: {'line': b'-- Up-to-date: /home/fxck/work/install/interface/include/interface/interface/msg\n'}
+[3.761403] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/include/interface/interface/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[3.761495] (interface) StdoutLine: {'line': b'-- Up-to-date: /home/fxck/work/install/interface/include/interface/interface/srv\n'}
+[3.761539] (interface) StdoutLine: {'line': b'-- Up-to-date: /home/fxck/work/install/interface/include/interface/interface/srv/detail\n'}
+[3.761581] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/include/interface/interface/srv/detail/maincontroller__rosidl_typesupport_fastrtps_c.h\n'}
+[3.761672] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/lib/libinterface__rosidl_typesupport_fastrtps_c.so\n'}
+[3.762013] (interface) StdoutLine: {'line': b'-- Set runtime path of "/home/fxck/work/install/interface/lib/libinterface__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[3.762104] (interface) StdoutLine: {'line': b'-- Up-to-date: /home/fxck/work/install/interface/include/interface/interface\n'}
+[3.762177] (interface) StdoutLine: {'line': b'-- Up-to-date: /home/fxck/work/install/interface/include/interface/interface/msg\n'}
+[3.762238] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/include/interface/interface/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[3.762327] (interface) StdoutLine: {'line': b'-- Up-to-date: /home/fxck/work/install/interface/include/interface/interface/srv\n'}
+[3.762397] (interface) StdoutLine: {'line': b'-- Up-to-date: /home/fxck/work/install/interface/include/interface/interface/srv/detail\n'}
+[3.762439] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/include/interface/interface/srv/detail/maincontroller__traits.hpp\n'}
+[3.762517] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/include/interface/interface/srv/detail/maincontroller__type_support.hpp\n'}
+[3.762653] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/include/interface/interface/srv/detail/maincontroller__builder.hpp\n'}
+[3.762787] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/include/interface/interface/srv/detail/maincontroller__struct.hpp\n'}
+[3.762924] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/include/interface/interface/srv/maincontroller.hpp\n'}
+[3.763101] (interface) StdoutLine: {'line': b'-- Up-to-date: /home/fxck/work/install/interface/include/interface/interface\n'}
+[3.763264] (interface) StdoutLine: {'line': b'-- Up-to-date: /home/fxck/work/install/interface/include/interface/interface/msg\n'}
+[3.763321] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/include/interface/interface/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[3.763395] (interface) StdoutLine: {'line': b'-- Up-to-date: /home/fxck/work/install/interface/include/interface/interface/srv\n'}
+[3.763468] (interface) StdoutLine: {'line': b'-- Up-to-date: /home/fxck/work/install/interface/include/interface/interface/srv/detail\n'}
+[3.763513] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/include/interface/interface/srv/detail/maincontroller__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[3.763580] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/include/interface/interface/srv/detail/dds_fastrtps\n'}
+[3.763698] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/lib/libinterface__rosidl_typesupport_fastrtps_cpp.so\n'}
+[3.764137] (interface) StdoutLine: {'line': b'-- Set runtime path of "/home/fxck/work/install/interface/lib/libinterface__rosidl_typesupport_fastrtps_cpp.so" to ""\n'}
+[3.764250] (interface) StdoutLine: {'line': b'-- Up-to-date: /home/fxck/work/install/interface/include/interface/interface\n'}
+[3.764336] (interface) StdoutLine: {'line': b'-- Up-to-date: /home/fxck/work/install/interface/include/interface/interface/msg\n'}
+[3.764428] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/include/interface/interface/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[3.764548] (interface) StdoutLine: {'line': b'-- Up-to-date: /home/fxck/work/install/interface/include/interface/interface/srv\n'}
+[3.764642] (interface) StdoutLine: {'line': b'-- Up-to-date: /home/fxck/work/install/interface/include/interface/interface/srv/detail\n'}
+[3.764732] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/include/interface/interface/srv/detail/maincontroller__rosidl_typesupport_introspection_c.h\n'}
+[3.764851] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/include/interface/interface/srv/detail/maincontroller__type_support.c\n'}
+[3.765101] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/lib/libinterface__rosidl_typesupport_introspection_c.so\n'}
+[3.765510] (interface) StdoutLine: {'line': b'-- Set runtime path of "/home/fxck/work/install/interface/lib/libinterface__rosidl_typesupport_introspection_c.so" to ""\n'}
+[3.765617] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/lib/libinterface__rosidl_typesupport_c.so\n'}
+[3.765988] (interface) StdoutLine: {'line': b'-- Set runtime path of "/home/fxck/work/install/interface/lib/libinterface__rosidl_typesupport_c.so" to ""\n'}
+[3.766088] (interface) StdoutLine: {'line': b'-- Up-to-date: /home/fxck/work/install/interface/include/interface/interface\n'}
+[3.766193] (interface) StdoutLine: {'line': b'-- Up-to-date: /home/fxck/work/install/interface/include/interface/interface/srv\n'}
+[3.766286] (interface) StdoutLine: {'line': b'-- Up-to-date: /home/fxck/work/install/interface/include/interface/interface/srv/detail\n'}
+[3.766349] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/include/interface/interface/srv/detail/maincontroller__type_support.cpp\n'}
+[3.766451] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/include/interface/interface/srv/detail/maincontroller__rosidl_typesupport_introspection_cpp.hpp\n'}
+[3.766659] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/lib/libinterface__rosidl_typesupport_introspection_cpp.so\n'}
+[3.767088] (interface) StdoutLine: {'line': b'-- Set runtime path of "/home/fxck/work/install/interface/lib/libinterface__rosidl_typesupport_introspection_cpp.so" to ""\n'}
+[3.767184] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/lib/libinterface__rosidl_typesupport_cpp.so\n'}
+[3.767576] (interface) StdoutLine: {'line': b'-- Set runtime path of "/home/fxck/work/install/interface/lib/libinterface__rosidl_typesupport_cpp.so" to ""\n'}
+[3.767669] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/environment/pythonpath.sh\n'}
+[3.767842] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/environment/pythonpath.dsv\n'}
+[3.768022] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/local/lib/python3.10/dist-packages/interface-0.0.0-py3.10.egg-info\n'}
+[3.768249] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/local/lib/python3.10/dist-packages/interface-0.0.0-py3.10.egg-info/SOURCES.txt\n'}
+[3.768418] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/local/lib/python3.10/dist-packages/interface-0.0.0-py3.10.egg-info/dependency_links.txt\n'}
+[3.768579] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/local/lib/python3.10/dist-packages/interface-0.0.0-py3.10.egg-info/PKG-INFO\n'}
+[3.768741] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/local/lib/python3.10/dist-packages/interface-0.0.0-py3.10.egg-info/top_level.txt\n'}
+[3.768994] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/local/lib/python3.10/dist-packages/interface\n'}
+[3.769117] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/local/lib/python3.10/dist-packages/interface/interface_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[3.769315] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/local/lib/python3.10/dist-packages/interface/_interface_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[3.769483] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/local/lib/python3.10/dist-packages/interface/srv\n'}
+[3.769604] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/local/lib/python3.10/dist-packages/interface/srv/_maincontroller_s.c\n'}
+[3.769777] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/local/lib/python3.10/dist-packages/interface/srv/__init__.py\n'}
+[3.769943] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/local/lib/python3.10/dist-packages/interface/srv/_maincontroller.py\n'}
+[3.770120] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/local/lib/python3.10/dist-packages/interface/interface_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[3.770362] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/local/lib/python3.10/dist-packages/interface/_interface_s.ep.rosidl_typesupport_c.c\n'}
+[3.770517] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/local/lib/python3.10/dist-packages/interface/_interface_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[3.770658] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/local/lib/python3.10/dist-packages/interface/libinterface__rosidl_generator_py.so\n'}
+[3.770815] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/local/lib/python3.10/dist-packages/interface/interface_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[3.770969] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/local/lib/python3.10/dist-packages/interface/__init__.py\n'}
+[3.801435] (interface) StdoutLine: {'line': b"Listing '/home/fxck/work/install/interface/local/lib/python3.10/dist-packages/interface'...\n"}
+[3.801641] (interface) StdoutLine: {'line': b"Compiling '/home/fxck/work/install/interface/local/lib/python3.10/dist-packages/interface/__init__.py'...\n"}
+[3.801755] (interface) StdoutLine: {'line': b"Listing '/home/fxck/work/install/interface/local/lib/python3.10/dist-packages/interface/srv'...\n"}
+[3.801838] (interface) StdoutLine: {'line': b"Compiling '/home/fxck/work/install/interface/local/lib/python3.10/dist-packages/interface/srv/__init__.py'...\n"}
+[3.801919] (interface) StdoutLine: {'line': b"Compiling '/home/fxck/work/install/interface/local/lib/python3.10/dist-packages/interface/srv/_maincontroller.py'...\n"}
+[3.805561] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/local/lib/python3.10/dist-packages/interface/interface_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[3.805901] (interface) StdoutLine: {'line': b'-- Set runtime path of "/home/fxck/work/install/interface/local/lib/python3.10/dist-packages/interface/interface_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[3.806086] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/local/lib/python3.10/dist-packages/interface/interface_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[3.806416] (interface) StdoutLine: {'line': b'-- Set runtime path of "/home/fxck/work/install/interface/local/lib/python3.10/dist-packages/interface/interface_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[3.806516] (-) TimerEvent: {}
+[3.806676] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/local/lib/python3.10/dist-packages/interface/interface_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[3.806945] (interface) StdoutLine: {'line': b'-- Set runtime path of "/home/fxck/work/install/interface/local/lib/python3.10/dist-packages/interface/interface_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[3.807067] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/lib/libinterface__rosidl_generator_py.so\n'}
+[3.807410] (interface) StdoutLine: {'line': b'-- Set runtime path of "/home/fxck/work/install/interface/lib/libinterface__rosidl_generator_py.so" to ""\n'}
+[3.807547] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/srv/Maincontroller.idl\n'}
+[3.807683] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/srv/Maincontroller.srv\n'}
+[3.807846] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/srv/Maincontroller_Request.msg\n'}
+[3.807999] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/srv/Maincontroller_Response.msg\n'}
+[3.808215] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/ament_index/resource_index/package_run_dependencies/interface\n'}
+[3.808423] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/ament_index/resource_index/parent_prefix_path/interface\n'}
+[3.808590] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/environment/ament_prefix_path.sh\n'}
+[3.808768] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/environment/ament_prefix_path.dsv\n'}
+[3.808927] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/environment/path.sh\n'}
+[3.809093] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/environment/path.dsv\n'}
+[3.809251] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/local_setup.bash\n'}
+[3.809406] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/local_setup.sh\n'}
+[3.809560] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/local_setup.zsh\n'}
+[3.809707] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/local_setup.dsv\n'}
+[3.809861] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/package.dsv\n'}
+[3.810081] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/ament_index/resource_index/packages/interface\n'}
+[3.810301] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/cmake/export_interface__rosidl_generator_cExport.cmake\n'}
+[3.810457] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/cmake/export_interface__rosidl_generator_cExport-noconfig.cmake\n'}
+[3.810624] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/cmake/export_interface__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[3.810789] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/cmake/export_interface__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[3.810958] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/cmake/export_interface__rosidl_generator_cppExport.cmake\n'}
+[3.811120] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/cmake/export_interface__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[3.811291] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/cmake/export_interface__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[3.811458] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/cmake/interface__rosidl_typesupport_introspection_cExport.cmake\n'}
+[3.811616] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/cmake/interface__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[3.811786] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/cmake/interface__rosidl_typesupport_cExport.cmake\n'}
+[3.811950] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/cmake/interface__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[3.812113] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/cmake/interface__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[3.812285] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/cmake/interface__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[3.812455] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/cmake/interface__rosidl_typesupport_cppExport.cmake\n'}
+[3.812623] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/cmake/interface__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[3.812792] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/cmake/export_interface__rosidl_generator_pyExport.cmake\n'}
+[3.812954] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/cmake/export_interface__rosidl_generator_pyExport-noconfig.cmake\n'}
+[3.813115] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/cmake/rosidl_cmake-extras.cmake\n'}
+[3.813275] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[3.813436] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[3.813591] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[3.813756] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[3.813911] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[3.814064] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[3.814223] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/cmake/interfaceConfig.cmake\n'}
+[3.814359] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/cmake/interfaceConfig-version.cmake\n'}
+[3.814516] (interface) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/interface/share/interface/package.xml\n'}
+[3.906624] (-) TimerEvent: {}
+[3.964360] (interface) CommandEnded: {'returncode': 0}
+[3.975809] (interface) JobEnded: {'identifier': 'interface', 'rc': 0}
+[3.976922] (main_control) JobStarted: {'identifier': 'main_control'}
+[4.006725] (-) TimerEvent: {}
+[4.107005] (-) TimerEvent: {}
+[4.207327] (-) TimerEvent: {}
+[4.256597] (gui) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../../build/gui', 'build', '--build-base', '/home/fxck/work/build/gui/build', 'install', '--record', '/home/fxck/work/build/gui/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/fxck/work/src/GUI/gui', 'env': {'HOSTNAME': 'fxck-X570-AORUS-ELITE-WIFI', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/fxck/work/install/gui_interface/lib:/home/fxck/work/install/interface/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/fxck', 'OLDPWD': '/home/fxck/work/src', 'ROS_PYTHON_VERSION': '3', 'LC_CTYPE': 'C.UTF-8', 'COLORTERM': 'truecolor', 'COLCON_PREFIX_PATH': '/home/fxck/work/install', 'ROS_DISTRO': 'humble', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'NVIDIA_DRIVER_CAPABILITIES': 'all', 'TERM': 'xterm-256color', 'ROS_LOCALHOST_ONLY': '0', 'QT_X11_NO_MITSHM': '1', 'PATH': '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'DISPLAY': ':0', 'RMW_IMPLEMENTATION': 'rmw_cyclonedds_cpp', 'XAUTHORITY': '/home/fxck/.Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'AMENT_PREFIX_PATH': '/home/fxck/work/install/mecanum:/home/fxck/work/install/main_control:/home/fxck/work/install/linear_move:/home/fxck/work/install/keyboard_control:/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface:/home/fxck/work/install/gui:/opt/ros/humble', 'DEBIAN_FRONTEND': 'noninteractive', 'TERMINATOR_UUID': 'urn:uuid:477dfc6c-02f7-4ef7-81e1-9574e65e8d86', 'PWD': '/home/fxck/work/build/gui', 'PYTHONPATH': '/home/fxck/work/build/gui/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fxck/work/install/gui/lib/python3.10/site-packages:/home/fxck/work/install/main_control/lib/python3.10/site-packages:/home/fxck/work/install/interface/local/lib/python3.10/dist-packages:/home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages:/home/fxck/work/install/gui/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'NVIDIA_VISIBLE_DEVICES': 'all', 'TZ': 'Asia/Taipei', 'COLCON': '1', 'VTE_VERSION': '6800', 'CMAKE_PREFIX_PATH': '/home/fxck/work/install/gui_interface:/home/fxck/work/install/mecanum:/home/fxck/work/install/linear_move:/home/fxck/work/install/keyboard_control:/home/fxck/work/install/interface'}, 'shell': False}
+[4.307439] (-) TimerEvent: {}
+[4.407793] (-) TimerEvent: {}
+[4.452420] (gui) StdoutLine: {'line': b'running egg_info\n'}
+[4.452749] (gui) StdoutLine: {'line': b'creating ../../../build/gui/gui.egg-info\n'}
+[4.452915] (gui) StdoutLine: {'line': b'writing ../../../build/gui/gui.egg-info/PKG-INFO\n'}
+[4.453100] (gui) StdoutLine: {'line': b'writing dependency_links to ../../../build/gui/gui.egg-info/dependency_links.txt\n'}
+[4.453242] (gui) StdoutLine: {'line': b'writing entry points to ../../../build/gui/gui.egg-info/entry_points.txt\n'}
+[4.453388] (gui) StdoutLine: {'line': b'writing requirements to ../../../build/gui/gui.egg-info/requires.txt\n'}
+[4.453520] (gui) StdoutLine: {'line': b'writing top-level names to ../../../build/gui/gui.egg-info/top_level.txt\n'}
+[4.453648] (gui) StdoutLine: {'line': b"writing manifest file '../../../build/gui/gui.egg-info/SOURCES.txt'\n"}
+[4.454751] (gui) StdoutLine: {'line': b"reading manifest file '../../../build/gui/gui.egg-info/SOURCES.txt'\n"}
+[4.455285] (gui) StdoutLine: {'line': b"writing manifest file '../../../build/gui/gui.egg-info/SOURCES.txt'\n"}
+[4.455511] (gui) StdoutLine: {'line': b'running build\n'}
+[4.455645] (gui) StdoutLine: {'line': b'running build_py\n'}
+[4.455848] (gui) StdoutLine: {'line': b'creating /home/fxck/work/build/gui/build\n'}
+[4.455943] (gui) StdoutLine: {'line': b'creating /home/fxck/work/build/gui/build/lib\n'}
+[4.456037] (gui) StdoutLine: {'line': b'creating /home/fxck/work/build/gui/build/lib/gui\n'}
+[4.456124] (gui) StdoutLine: {'line': b'copying gui/ui_to_py.py -> /home/fxck/work/build/gui/build/lib/gui\n'}
+[4.456279] (gui) StdoutLine: {'line': b'copying gui/main_ui.py -> /home/fxck/work/build/gui/build/lib/gui\n'}
+[4.456377] (gui) StdoutLine: {'line': b'copying gui/__init__.py -> /home/fxck/work/build/gui/build/lib/gui\n'}
+[4.456464] (gui) StdoutLine: {'line': b'copying gui/main.py -> /home/fxck/work/build/gui/build/lib/gui\n'}
+[4.456696] (gui) StdoutLine: {'line': b'running install\n'}
+[4.456780] (gui) StdoutLine: {'line': b'running install_lib\n'}
+[4.456895] (gui) StdoutLine: {'line': b'creating /home/fxck/work/install/gui/lib/python3.10/site-packages/gui\n'}
+[4.457027] (gui) StdoutLine: {'line': b'copying /home/fxck/work/build/gui/build/lib/gui/ui_to_py.py -> /home/fxck/work/install/gui/lib/python3.10/site-packages/gui\n'}
+[4.457114] (gui) StdoutLine: {'line': b'copying /home/fxck/work/build/gui/build/lib/gui/main_ui.py -> /home/fxck/work/install/gui/lib/python3.10/site-packages/gui\n'}
+[4.457246] (gui) StdoutLine: {'line': b'copying /home/fxck/work/build/gui/build/lib/gui/__init__.py -> /home/fxck/work/install/gui/lib/python3.10/site-packages/gui\n'}
+[4.457357] (gui) StdoutLine: {'line': b'copying /home/fxck/work/build/gui/build/lib/gui/main.py -> /home/fxck/work/install/gui/lib/python3.10/site-packages/gui\n'}
+[4.457674] (gui) StdoutLine: {'line': b'byte-compiling /home/fxck/work/install/gui/lib/python3.10/site-packages/gui/ui_to_py.py to ui_to_py.cpython-310.pyc\n'}
+[4.458027] (gui) StdoutLine: {'line': b'byte-compiling /home/fxck/work/install/gui/lib/python3.10/site-packages/gui/main_ui.py to main_ui.cpython-310.pyc\n'}
+[4.459084] (gui) StdoutLine: {'line': b'byte-compiling /home/fxck/work/install/gui/lib/python3.10/site-packages/gui/__init__.py to __init__.cpython-310.pyc\n'}
+[4.459232] (gui) StdoutLine: {'line': b'byte-compiling /home/fxck/work/install/gui/lib/python3.10/site-packages/gui/main.py to main.cpython-310.pyc\n'}
+[4.459756] (gui) StdoutLine: {'line': b'running install_data\n'}
+[4.459862] (gui) StdoutLine: {'line': b'creating /home/fxck/work/install/gui/share/ament_index\n'}
+[4.459968] (gui) StdoutLine: {'line': b'creating /home/fxck/work/install/gui/share/ament_index/resource_index\n'}
+[4.460109] (gui) StdoutLine: {'line': b'creating /home/fxck/work/install/gui/share/ament_index/resource_index/packages\n'}
+[4.460205] (gui) StdoutLine: {'line': b'copying resource/gui -> /home/fxck/work/install/gui/share/ament_index/resource_index/packages\n'}
+[4.460322] (gui) StdoutLine: {'line': b'copying package.xml -> /home/fxck/work/install/gui/share/gui\n'}
+[4.460405] (gui) StdoutLine: {'line': b'running install_egg_info\n'}
+[4.462265] (gui) StdoutLine: {'line': b'Copying ../../../build/gui/gui.egg-info to /home/fxck/work/install/gui/lib/python3.10/site-packages/gui-0.0.0-py3.10.egg-info\n'}
+[4.463075] (gui) StdoutLine: {'line': b'running install_scripts\n'}
+[4.480253] (gui) StdoutLine: {'line': b'Installing main script to /home/fxck/work/install/gui/lib/gui\n'}
+[4.480575] (gui) StdoutLine: {'line': b"writing list of installed files to '/home/fxck/work/build/gui/install.log'\n"}
+[4.492614] (main_control) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../../build/main_control', 'build', '--build-base', '/home/fxck/work/build/main_control/build', 'install', '--record', '/home/fxck/work/build/main_control/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/fxck/work/src/main_control/main_control', 'env': {'HOSTNAME': 'fxck-X570-AORUS-ELITE-WIFI', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/fxck/work/install/interface/lib:/home/fxck/work/install/gui_interface/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/fxck', 'OLDPWD': '/home/fxck/work/src', 'ROS_PYTHON_VERSION': '3', 'LC_CTYPE': 'C.UTF-8', 'COLORTERM': 'truecolor', 'COLCON_PREFIX_PATH': '/home/fxck/work/install', 'ROS_DISTRO': 'humble', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'NVIDIA_DRIVER_CAPABILITIES': 'all', 'TERM': 'xterm-256color', 'ROS_LOCALHOST_ONLY': '0', 'QT_X11_NO_MITSHM': '1', 'PATH': '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'DISPLAY': ':0', 'RMW_IMPLEMENTATION': 'rmw_cyclonedds_cpp', 'XAUTHORITY': '/home/fxck/.Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'AMENT_PREFIX_PATH': '/home/fxck/work/install/mecanum:/home/fxck/work/install/main_control:/home/fxck/work/install/linear_move:/home/fxck/work/install/keyboard_control:/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface:/home/fxck/work/install/gui:/opt/ros/humble', 'DEBIAN_FRONTEND': 'noninteractive', 'TERMINATOR_UUID': 'urn:uuid:477dfc6c-02f7-4ef7-81e1-9574e65e8d86', 'PWD': '/home/fxck/work/build/main_control', 'PYTHONPATH': '/home/fxck/work/build/main_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fxck/work/install/main_control/lib/python3.10/site-packages:/home/fxck/work/install/main_control/lib/python3.10/site-packages:/home/fxck/work/install/interface/local/lib/python3.10/dist-packages:/home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages:/home/fxck/work/install/gui/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'NVIDIA_VISIBLE_DEVICES': 'all', 'TZ': 'Asia/Taipei', 'COLCON': '1', 'VTE_VERSION': '6800', 'CMAKE_PREFIX_PATH': '/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface:/home/fxck/work/install/mecanum:/home/fxck/work/install/linear_move:/home/fxck/work/install/keyboard_control'}, 'shell': False}
+[4.507892] (-) TimerEvent: {}
+[4.510117] (gui) CommandEnded: {'returncode': 0}
+[4.516320] (gui) JobEnded: {'identifier': 'gui', 'rc': 0}
+[4.608010] (-) TimerEvent: {}
+[4.692203] (main_control) StdoutLine: {'line': b'running egg_info\n'}
+[4.692562] (main_control) StdoutLine: {'line': b'creating ../../../build/main_control/main_control.egg-info\n'}
+[4.692714] (main_control) StdoutLine: {'line': b'writing ../../../build/main_control/main_control.egg-info/PKG-INFO\n'}
+[4.692837] (main_control) StdoutLine: {'line': b'writing dependency_links to ../../../build/main_control/main_control.egg-info/dependency_links.txt\n'}
+[4.692968] (main_control) StdoutLine: {'line': b'writing entry points to ../../../build/main_control/main_control.egg-info/entry_points.txt\n'}
+[4.693118] (main_control) StdoutLine: {'line': b'writing requirements to ../../../build/main_control/main_control.egg-info/requires.txt\n'}
+[4.693267] (main_control) StdoutLine: {'line': b'writing top-level names to ../../../build/main_control/main_control.egg-info/top_level.txt\n'}
+[4.693362] (main_control) StdoutLine: {'line': b"writing manifest file '../../../build/main_control/main_control.egg-info/SOURCES.txt'\n"}
+[4.694412] (main_control) StdoutLine: {'line': b"reading manifest file '../../../build/main_control/main_control.egg-info/SOURCES.txt'\n"}
+[4.694913] (main_control) StdoutLine: {'line': b"writing manifest file '../../../build/main_control/main_control.egg-info/SOURCES.txt'\n"}
+[4.695028] (main_control) StdoutLine: {'line': b'running build\n'}
+[4.695112] (main_control) StdoutLine: {'line': b'running build_py\n'}
+[4.695248] (main_control) StdoutLine: {'line': b'creating /home/fxck/work/build/main_control/build\n'}
+[4.695341] (main_control) StdoutLine: {'line': b'creating /home/fxck/work/build/main_control/build/lib\n'}
+[4.695429] (main_control) StdoutLine: {'line': b'creating /home/fxck/work/build/main_control/build/lib/main_control\n'}
+[4.695563] (main_control) StdoutLine: {'line': b'copying main_control/__init__.py -> /home/fxck/work/build/main_control/build/lib/main_control\n'}
+[4.695650] (main_control) StdoutLine: {'line': b'copying main_control/main.py -> /home/fxck/work/build/main_control/build/lib/main_control\n'}
+[4.695745] (main_control) StdoutLine: {'line': b'running install\n'}
+[4.695826] (main_control) StdoutLine: {'line': b'running install_lib\n'}
+[4.696166] (main_control) StdoutLine: {'line': b'creating /home/fxck/work/install/main_control/lib/python3.10/site-packages/main_control\n'}
+[4.696284] (main_control) StdoutLine: {'line': b'copying /home/fxck/work/build/main_control/build/lib/main_control/__init__.py -> /home/fxck/work/install/main_control/lib/python3.10/site-packages/main_control\n'}
+[4.696408] (main_control) StdoutLine: {'line': b'copying /home/fxck/work/build/main_control/build/lib/main_control/main.py -> /home/fxck/work/install/main_control/lib/python3.10/site-packages/main_control\n'}
+[4.696738] (main_control) StdoutLine: {'line': b'byte-compiling /home/fxck/work/install/main_control/lib/python3.10/site-packages/main_control/__init__.py to __init__.cpython-310.pyc\n'}
+[4.696923] (main_control) StdoutLine: {'line': b'byte-compiling /home/fxck/work/install/main_control/lib/python3.10/site-packages/main_control/main.py to main.cpython-310.pyc\n'}
+[4.697255] (main_control) StdoutLine: {'line': b'running install_data\n'}
+[4.697387] (main_control) StdoutLine: {'line': b'creating /home/fxck/work/install/main_control/share/ament_index\n'}
+[4.697478] (main_control) StdoutLine: {'line': b'creating /home/fxck/work/install/main_control/share/ament_index/resource_index\n'}
+[4.697626] (main_control) StdoutLine: {'line': b'creating /home/fxck/work/install/main_control/share/ament_index/resource_index/packages\n'}
+[4.697712] (main_control) StdoutLine: {'line': b'copying resource/main_control -> /home/fxck/work/install/main_control/share/ament_index/resource_index/packages\n'}
+[4.697793] (main_control) StdoutLine: {'line': b'copying package.xml -> /home/fxck/work/install/main_control/share/main_control\n'}
+[4.697872] (main_control) StdoutLine: {'line': b'running install_egg_info\n'}
+[4.699210] (main_control) StdoutLine: {'line': b'Copying ../../../build/main_control/main_control.egg-info to /home/fxck/work/install/main_control/lib/python3.10/site-packages/main_control-0.0.0-py3.10.egg-info\n'}
+[4.699941] (main_control) StdoutLine: {'line': b'running install_scripts\n'}
+[4.708077] (-) TimerEvent: {}
+[4.715308] (main_control) StdoutLine: {'line': b'Installing main script to /home/fxck/work/install/main_control/lib/main_control\n'}
+[4.715614] (main_control) StdoutLine: {'line': b"writing list of installed files to '/home/fxck/work/build/main_control/install.log'\n"}
+[4.736466] (main_control) CommandEnded: {'returncode': 0}
+[4.741925] (main_control) JobEnded: {'identifier': 'main_control', 'rc': 0}
+[4.808207] (-) TimerEvent: {}
+[4.908521] (-) TimerEvent: {}
+[5.008816] (-) TimerEvent: {}
+[5.109081] (-) TimerEvent: {}
+[5.137333] (keyboard_control) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable main\x1b[0m\n'}
+[5.209209] (-) TimerEvent: {}
+[5.309547] (-) TimerEvent: {}
+[5.332246] (keyboard_control) StdoutLine: {'line': b'[100%] Built target main\n'}
+[5.345370] (keyboard_control) CommandEnded: {'returncode': 0}
+[5.345895] (keyboard_control) JobProgress: {'identifier': 'keyboard_control', 'progress': 'install'}
+[5.346309] (keyboard_control) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/fxck/work/build/keyboard_control'], 'cwd': '/home/fxck/work/build/keyboard_control', 'env': OrderedDict([('HOSTNAME', 'fxck-X570-AORUS-ELITE-WIFI'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/fxck/work/install/interface/lib:/home/fxck/work/install/gui_interface/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/fxck'), ('OLDPWD', '/home/fxck/work/src'), ('ROS_PYTHON_VERSION', '3'), ('LC_CTYPE', 'C.UTF-8'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/fxck/work/install'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('XAUTHORITY', '/home/fxck/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/fxck/work/install/mecanum:/home/fxck/work/install/main_control:/home/fxck/work/install/linear_move:/home/fxck/work/install/keyboard_control:/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface:/home/fxck/work/install/gui:/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('TERMINATOR_UUID', 'urn:uuid:477dfc6c-02f7-4ef7-81e1-9574e65e8d86'), ('PWD', '/home/fxck/work/build/keyboard_control'), ('PYTHONPATH', '/home/fxck/work/install/main_control/lib/python3.10/site-packages:/home/fxck/work/install/interface/local/lib/python3.10/dist-packages:/home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages:/home/fxck/work/install/gui/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('NVIDIA_VISIBLE_DEVICES', 'all'), ('TZ', 'Asia/Taipei'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/fxck/work/install/mecanum:/home/fxck/work/install/linear_move:/home/fxck/work/install/keyboard_control:/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble')]), 'shell': False}
+[5.354154] (keyboard_control) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[5.354354] (keyboard_control) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/keyboard_control/lib/keyboard_control/main\n'}
+[5.355839] (keyboard_control) StdoutLine: {'line': b'-- Set runtime path of "/home/fxck/work/install/keyboard_control/lib/keyboard_control/main" to ""\n'}
+[5.356022] (keyboard_control) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/keyboard_control/share/ament_index/resource_index/package_run_dependencies/keyboard_control\n'}
+[5.356233] (keyboard_control) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/keyboard_control/share/ament_index/resource_index/parent_prefix_path/keyboard_control\n'}
+[5.356473] (keyboard_control) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/keyboard_control/share/keyboard_control/environment/ament_prefix_path.sh\n'}
+[5.356641] (keyboard_control) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/keyboard_control/share/keyboard_control/environment/ament_prefix_path.dsv\n'}
+[5.356801] (keyboard_control) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/keyboard_control/share/keyboard_control/environment/path.sh\n'}
+[5.356964] (keyboard_control) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/keyboard_control/share/keyboard_control/environment/path.dsv\n'}
+[5.357116] (keyboard_control) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/keyboard_control/share/keyboard_control/local_setup.bash\n'}
+[5.357303] (keyboard_control) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/keyboard_control/share/keyboard_control/local_setup.sh\n'}
+[5.357475] (keyboard_control) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/keyboard_control/share/keyboard_control/local_setup.zsh\n'}
+[5.357636] (keyboard_control) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/keyboard_control/share/keyboard_control/local_setup.dsv\n'}
+[5.357802] (keyboard_control) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/keyboard_control/share/keyboard_control/package.dsv\n'}
+[5.358015] (keyboard_control) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/keyboard_control/share/ament_index/resource_index/packages/keyboard_control\n'}
+[5.358223] (keyboard_control) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/keyboard_control/share/keyboard_control/cmake/keyboard_controlConfig.cmake\n'}
+[5.358357] (keyboard_control) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/keyboard_control/share/keyboard_control/cmake/keyboard_controlConfig-version.cmake\n'}
+[5.358508] (keyboard_control) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/keyboard_control/share/keyboard_control/package.xml\n'}
+[5.360944] (keyboard_control) CommandEnded: {'returncode': 0}
+[5.373435] (keyboard_control) JobEnded: {'identifier': 'keyboard_control', 'rc': 0}
+[5.409650] (-) TimerEvent: {}
+[5.509968] (-) TimerEvent: {}
+[5.610252] (-) TimerEvent: {}
+[5.710521] (-) TimerEvent: {}
+[5.810848] (-) TimerEvent: {}
+[5.911232] (-) TimerEvent: {}
+[6.011533] (-) TimerEvent: {}
+[6.111795] (-) TimerEvent: {}
+[6.212057] (-) TimerEvent: {}
+[6.312341] (-) TimerEvent: {}
+[6.412586] (-) TimerEvent: {}
+[6.512866] (-) TimerEvent: {}
+[6.613155] (-) TimerEvent: {}
+[6.713467] (-) TimerEvent: {}
+[6.813756] (-) TimerEvent: {}
+[6.914017] (-) TimerEvent: {}
+[7.014307] (-) TimerEvent: {}
+[7.114552] (-) TimerEvent: {}
+[7.214842] (-) TimerEvent: {}
+[7.315202] (-) TimerEvent: {}
+[7.415546] (-) TimerEvent: {}
+[7.515887] (-) TimerEvent: {}
+[7.616247] (-) TimerEvent: {}
+[7.716587] (-) TimerEvent: {}
+[7.816926] (-) TimerEvent: {}
+[7.917264] (-) TimerEvent: {}
+[8.017605] (-) TimerEvent: {}
+[8.117949] (-) TimerEvent: {}
+[8.218287] (-) TimerEvent: {}
+[8.318628] (-) TimerEvent: {}
+[8.418973] (-) TimerEvent: {}
+[8.519321] (-) TimerEvent: {}
+[8.619655] (-) TimerEvent: {}
+[8.719977] (-) TimerEvent: {}
+[8.820303] (-) TimerEvent: {}
+[8.920613] (-) TimerEvent: {}
+[8.934066] (mecanum) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable mobile_node\x1b[0m\n'}
+[9.020725] (-) TimerEvent: {}
+[9.121060] (-) TimerEvent: {}
+[9.221393] (-) TimerEvent: {}
+[9.321667] (-) TimerEvent: {}
+[9.329348] (linear_move) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable slide\x1b[0m\n'}
+[9.339135] (mecanum) StdoutLine: {'line': b'[100%] Built target mobile_node\n'}
+[9.350936] (mecanum) CommandEnded: {'returncode': 0}
+[9.351339] (mecanum) JobProgress: {'identifier': 'mecanum', 'progress': 'install'}
+[9.351635] (mecanum) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/fxck/work/build/mecanum'], 'cwd': '/home/fxck/work/build/mecanum', 'env': OrderedDict([('HOSTNAME', 'fxck-X570-AORUS-ELITE-WIFI'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/fxck/work/install/interface/lib:/home/fxck/work/install/gui_interface/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/fxck'), ('OLDPWD', '/home/fxck/work/src'), ('ROS_PYTHON_VERSION', '3'), ('LC_CTYPE', 'C.UTF-8'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/fxck/work/install'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('XAUTHORITY', '/home/fxck/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/fxck/work/install/mecanum:/home/fxck/work/install/main_control:/home/fxck/work/install/linear_move:/home/fxck/work/install/keyboard_control:/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface:/home/fxck/work/install/gui:/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('TERMINATOR_UUID', 'urn:uuid:477dfc6c-02f7-4ef7-81e1-9574e65e8d86'), ('PWD', '/home/fxck/work/build/mecanum'), ('PYTHONPATH', '/home/fxck/work/install/main_control/lib/python3.10/site-packages:/home/fxck/work/install/interface/local/lib/python3.10/dist-packages:/home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages:/home/fxck/work/install/gui/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('NVIDIA_VISIBLE_DEVICES', 'all'), ('TZ', 'Asia/Taipei'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/fxck/work/install/mecanum:/home/fxck/work/install/linear_move:/home/fxck/work/install/keyboard_control:/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble')]), 'shell': False}
+[9.360043] (mecanum) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[9.360117] (mecanum) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/mecanum/include/mecanum\n'}
+[9.360284] (mecanum) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/mecanum/include/mecanum/Mecanum.h\n'}
+[9.360446] (mecanum) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/mecanum/include/mecanum/TimdaModbus.h\n'}
+[9.360672] (mecanum) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/mecanum/lib/mecanum/mobile_node\n'}
+[9.365138] (mecanum) StdoutLine: {'line': b'-- Set runtime path of "/home/fxck/work/install/mecanum/lib/mecanum/mobile_node" to ""\n'}
+[9.365324] (mecanum) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/mecanum/share/ament_index/resource_index/package_run_dependencies/mecanum\n'}
+[9.365527] (mecanum) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/mecanum/share/ament_index/resource_index/parent_prefix_path/mecanum\n'}
+[9.365761] (mecanum) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/mecanum/share/mecanum/environment/ament_prefix_path.sh\n'}
+[9.365923] (mecanum) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/mecanum/share/mecanum/environment/ament_prefix_path.dsv\n'}
+[9.366080] (mecanum) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/mecanum/share/mecanum/environment/path.sh\n'}
+[9.366246] (mecanum) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/mecanum/share/mecanum/environment/path.dsv\n'}
+[9.366402] (mecanum) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/mecanum/share/mecanum/local_setup.bash\n'}
+[9.366548] (mecanum) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/mecanum/share/mecanum/local_setup.sh\n'}
+[9.366708] (mecanum) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/mecanum/share/mecanum/local_setup.zsh\n'}
+[9.366856] (mecanum) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/mecanum/share/mecanum/local_setup.dsv\n'}
+[9.367002] (mecanum) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/mecanum/share/mecanum/package.dsv\n'}
+[9.367204] (mecanum) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/mecanum/share/ament_index/resource_index/packages/mecanum\n'}
+[9.367400] (mecanum) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/mecanum/share/mecanum/cmake/mecanumConfig.cmake\n'}
+[9.367533] (mecanum) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/mecanum/share/mecanum/cmake/mecanumConfig-version.cmake\n'}
+[9.367681] (mecanum) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/mecanum/share/mecanum/package.xml\n'}
+[9.369779] (mecanum) CommandEnded: {'returncode': 0}
+[9.385070] (mecanum) JobEnded: {'identifier': 'mecanum', 'rc': 0}
+[9.421742] (-) TimerEvent: {}
+[9.521932] (-) TimerEvent: {}
+[9.622105] (-) TimerEvent: {}
+[9.633928] (linear_move) StdoutLine: {'line': b'[100%] Built target slide\n'}
+[9.646150] (linear_move) CommandEnded: {'returncode': 0}
+[9.646534] (linear_move) JobProgress: {'identifier': 'linear_move', 'progress': 'install'}
+[9.646823] (linear_move) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/fxck/work/build/linear_move'], 'cwd': '/home/fxck/work/build/linear_move', 'env': OrderedDict([('HOSTNAME', 'fxck-X570-AORUS-ELITE-WIFI'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/fxck/work/install/interface/lib:/home/fxck/work/install/gui_interface/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/fxck'), ('OLDPWD', '/home/fxck/work/src'), ('ROS_PYTHON_VERSION', '3'), ('LC_CTYPE', 'C.UTF-8'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/fxck/work/install'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':0'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('XAUTHORITY', '/home/fxck/.Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/fxck/work/install/mecanum:/home/fxck/work/install/main_control:/home/fxck/work/install/linear_move:/home/fxck/work/install/keyboard_control:/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface:/home/fxck/work/install/gui:/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('TERMINATOR_UUID', 'urn:uuid:477dfc6c-02f7-4ef7-81e1-9574e65e8d86'), ('PWD', '/home/fxck/work/build/linear_move'), ('PYTHONPATH', '/home/fxck/work/install/main_control/lib/python3.10/site-packages:/home/fxck/work/install/interface/local/lib/python3.10/dist-packages:/home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages:/home/fxck/work/install/gui/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('NVIDIA_VISIBLE_DEVICES', 'all'), ('TZ', 'Asia/Taipei'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/fxck/work/install/mecanum:/home/fxck/work/install/linear_move:/home/fxck/work/install/keyboard_control:/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble')]), 'shell': False}
+[9.654113] (linear_move) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[9.654359] (linear_move) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/linear_move/lib/linear_move/slide\n'}
+[9.657982] (linear_move) StdoutLine: {'line': b'-- Set runtime path of "/home/fxck/work/install/linear_move/lib/linear_move/slide" to ""\n'}
+[9.658128] (linear_move) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/linear_move/share/ament_index/resource_index/package_run_dependencies/linear_move\n'}
+[9.658437] (linear_move) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/linear_move/share/ament_index/resource_index/parent_prefix_path/linear_move\n'}
+[9.658670] (linear_move) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/linear_move/share/linear_move/environment/ament_prefix_path.sh\n'}
+[9.658831] (linear_move) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/linear_move/share/linear_move/environment/ament_prefix_path.dsv\n'}
+[9.658983] (linear_move) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/linear_move/share/linear_move/environment/path.sh\n'}
+[9.659139] (linear_move) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/linear_move/share/linear_move/environment/path.dsv\n'}
+[9.659311] (linear_move) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/linear_move/share/linear_move/local_setup.bash\n'}
+[9.659499] (linear_move) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/linear_move/share/linear_move/local_setup.sh\n'}
+[9.659663] (linear_move) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/linear_move/share/linear_move/local_setup.zsh\n'}
+[9.659821] (linear_move) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/linear_move/share/linear_move/local_setup.dsv\n'}
+[9.659982] (linear_move) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/linear_move/share/linear_move/package.dsv\n'}
+[9.660221] (linear_move) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/linear_move/share/ament_index/resource_index/packages/linear_move\n'}
+[9.660399] (linear_move) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/linear_move/share/linear_move/cmake/linear_moveConfig.cmake\n'}
+[9.660529] (linear_move) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/linear_move/share/linear_move/cmake/linear_moveConfig-version.cmake\n'}
+[9.660675] (linear_move) StdoutLine: {'line': b'-- Installing: /home/fxck/work/install/linear_move/share/linear_move/package.xml\n'}
+[9.662587] (linear_move) CommandEnded: {'returncode': 0}
+[9.676208] (linear_move) JobEnded: {'identifier': 'linear_move', 'rc': 0}
+[9.677025] (-) EventReactorShutdown: {}

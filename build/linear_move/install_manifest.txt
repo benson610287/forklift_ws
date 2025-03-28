@@ -1,0 +1,16 @@
+/home/fxck/work/install/linear_move/lib/linear_move/slide
+/home/fxck/work/install/linear_move/share/ament_index/resource_index/package_run_dependencies/linear_move
+/home/fxck/work/install/linear_move/share/ament_index/resource_index/parent_prefix_path/linear_move
+/home/fxck/work/install/linear_move/share/linear_move/environment/ament_prefix_path.sh
+/home/fxck/work/install/linear_move/share/linear_move/environment/ament_prefix_path.dsv
+/home/fxck/work/install/linear_move/share/linear_move/environment/path.sh
+/home/fxck/work/install/linear_move/share/linear_move/environment/path.dsv
+/home/fxck/work/install/linear_move/share/linear_move/local_setup.bash
+/home/fxck/work/install/linear_move/share/linear_move/local_setup.sh
+/home/fxck/work/install/linear_move/share/linear_move/local_setup.zsh
+/home/fxck/work/install/linear_move/share/linear_move/local_setup.dsv
+/home/fxck/work/install/linear_move/share/linear_move/package.dsv
+/home/fxck/work/install/linear_move/share/ament_index/resource_index/packages/linear_move
+/home/fxck/work/install/linear_move/share/linear_move/cmake/linear_moveConfig.cmake
+/home/fxck/work/install/linear_move/share/linear_move/cmake/linear_moveConfig-version.cmake
+/home/fxck/work/install/linear_move/share/linear_move/package.xml
