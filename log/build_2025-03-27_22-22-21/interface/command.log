@@ -1,0 +1,4 @@
+Invoking command in '/home/fxck/work/build/interface': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble /usr/bin/cmake --build /home/fxck/work/build/interface -- -j16 -l16
+Invoked command in '/home/fxck/work/build/interface' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble /usr/bin/cmake --build /home/fxck/work/build/interface -- -j16 -l16
+Invoking command in '/home/fxck/work/build/interface': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble /usr/bin/cmake --install /home/fxck/work/build/interface
+Invoked command in '/home/fxck/work/build/interface' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fxck/work/install/main_control:/home/fxck/work/install/gui:/opt/ros/humble /usr/bin/cmake --install /home/fxck/work/build/interface

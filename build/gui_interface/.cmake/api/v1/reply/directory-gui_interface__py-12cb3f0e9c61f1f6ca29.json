@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "gui_interface__py",
+		"source" : "/home/fxck/work/build/gui_interface/gui_interface__py"
+	}
+}
