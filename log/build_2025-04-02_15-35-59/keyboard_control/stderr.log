@@ -1,0 +1,29 @@
+In file included from [01m[K/home/fxck/work/src/keyboard_control/src/t.cpp:9[m[K:
+[01m[K/home/fxck/work/src/keyboard_control/include/conio.h:[m[K In member function ‘[01m[Kint Console::cputs(const char*)[m[K’:
+[01m[K/home/fxck/work/src/keyboard_control/include/conio.h:279:15:[m[K [01;35m[Kwarning: [m[Kformat not a string literal and no format arguments [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wformat-security-Wformat-security]8;;[m[K]
+  279 |         [01;35m[Kprintf(str)[m[K;
+      |         [01;35m[K~~~~~~^~~~~[m[K
+[01m[K/home/fxck/work/src/keyboard_control/include/conio.h:[m[K In member function ‘[01m[Kchar* Console::getpass(const char*)[m[K’:
+[01m[K/home/fxck/work/src/keyboard_control/include/conio.h:283:31:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kprompt[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+  283 |     char *getpass([01;35m[Kconst char *prompt[m[K)
+      |                   [01;35m[K~~~~~~~~~~~~^~~~~~[m[K
+[01m[K/home/fxck/work/src/keyboard_control/include/conio.h:[m[K In member function ‘[01m[Kint Console::gettext(int, int, int, int, void*)[m[K’:
+[01m[K/home/fxck/work/src/keyboard_control/include/conio.h:289:21:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kl[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+  289 |     int gettext([01;35m[Kint l[m[K, int t, int r, int b, void *destination)
+      |                 [01;35m[K~~~~^[m[K
+[01m[K/home/fxck/work/src/keyboard_control/include/conio.h:289:28:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kt[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+  289 |     int gettext(int l, [01;35m[Kint t[m[K, int r, int b, void *destination)
+      |                        [01;35m[K~~~~^[m[K
+[01m[K/home/fxck/work/src/keyboard_control/include/conio.h:289:35:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kr[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+  289 |     int gettext(int l, int t, [01;35m[Kint r[m[K, int b, void *destination)
+      |                               [01;35m[K~~~~^[m[K
+[01m[K/home/fxck/work/src/keyboard_control/include/conio.h:289:42:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kb[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+  289 |     int gettext(int l, int t, int r, [01;35m[Kint b[m[K, void *destination)
+      |                                      [01;35m[K~~~~^[m[K
+[01m[K/home/fxck/work/src/keyboard_control/include/conio.h:289:51:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kdestination[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+  289 |     int gettext(int l, int t, int r, int b, [01;35m[Kvoid *destination[m[K)
+      |                                             [01;35m[K~~~~~~^~~~~~~~~~~[m[K
+[01m[K/home/fxck/work/src/keyboard_control/src/t.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/fxck/work/src/keyboard_control/src/t.cpp:17:7:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kch[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+   17 |   int [01;35m[Kch[m[K;
+      |       [01;35m[K^~[m[K
