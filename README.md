@@ -1,7 +1,7 @@
 # github使用教學
 ### 第一次使用
 ```base
-#回到根目錄
+#回到根目錄qqqqqqqqqqqqqq
 $ cd $HOME
 #clone工作區
 $ git clone https://github.com/benson610287/forklift_ws.git --recursive
