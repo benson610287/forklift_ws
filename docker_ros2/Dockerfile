@@ -25,9 +25,10 @@ RUN groupadd --gid "${GID}" "${GROUP}" \
 
 # * Replace apt urls
 # ? Change to tku
-RUN sed -i 's@archive.ubuntu.com@ftp.tku.edu.tw@g' /etc/apt/sources.list
+# RUN sed -i 's@archive.ubuntu.com@ftp.tku.edu.tw@g' /etc/apt/sources.list
 # ? Change to Taiwan
-# RUN sed -i 's@archive.ubuntu.com@tw.archive.ubuntu.com@g' /etc/apt/sources.list
+RUN sed -i 's@archive.ubuntu.com@tw.archive.ubuntu.com@g' /etc/apt/sources.list
+
 
 # * Time zone
 ENV TZ=Asia/Taipei
@@ -84,18 +85,34 @@ RUN sudo apt update
 RUN sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key  -o /usr/share/keyrings/ros-archive-keyring.gpg
 # RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/ros2.list > /dev/null
 RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
-RUN sudo apt update
+RUN sudo apt update && sudo apt upgrade -y && sudo apt --fix-broken install -y
 # RUN sudo  apt install -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" keyboard-configuration
 RUN sudo DEBIAN_FRONTEND=noninteractive apt install -y ros-humble-desktop
 #ROS2 Cyclone DDS
 RUN sudo apt install -y ros-humble-rmw-cyclonedds-cpp
 #colcon depend
-RUN sudo apt install -y python3-colcon-common-extensions
+RUN apt update \
+    && apt install -y python3-colcon-common-extensions \
+	ros-humble-pcl-ros\
+	ros-humble-diagnostic-updater\
+	ros-humble-laser-proc\
+	ros-humble-urg-c\
+	ros-humble-urg-node-msgs\
+	ros-humble-xacro
+	#ros-humble-urg-node
+
+
+
 
 RUN pip install setuptools==58.2.0
+
+
+
 #RUN sudo apt install -y python3-pip 
 #RUN sudo apt install -y python3-dev 
 #RUN sudo apt install -y python3-setuptools
+RUN apt update
+
 
 RUN ./config/pip/pip_setup.sh
 
