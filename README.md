@@ -1,5 +1,5 @@
 # github使用教學
-gdujshcuhcudhcusdhcuhsdichdu
+
 ### 第一次使用
 ```base
 #回到根目錄qqqqqqqqqqqqqq
