@@ -1,0 +1,6 @@
+Invoking command in '/home/fxck/work/build/linear_move': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/fxck/work/src/linear_move -DCMAKE_INSTALL_PREFIX=/home/fxck/work/install/linear_move
+Invoked command in '/home/fxck/work/build/linear_move' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/fxck/work/src/linear_move -DCMAKE_INSTALL_PREFIX=/home/fxck/work/install/linear_move
+Invoking command in '/home/fxck/work/build/linear_move': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/fxck/work/build/linear_move -- -j16 -l16
+Invoked command in '/home/fxck/work/build/linear_move' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/fxck/work/build/linear_move -- -j16 -l16
+Invoking command in '/home/fxck/work/build/linear_move': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/fxck/work/build/linear_move
+Invoked command in '/home/fxck/work/build/linear_move' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/fxck/work/build/linear_move

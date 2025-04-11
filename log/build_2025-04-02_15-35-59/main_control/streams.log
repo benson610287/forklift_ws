@@ -1,0 +1,37 @@
+[0.722s] Invoking command in '/home/fxck/work/src/main_control/main_control': AMENT_PREFIX_PATH=/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface LD_LIBRARY_PATH=/home/fxck/work/install/interface/lib:/home/fxck/work/install/gui_interface/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/fxck/work/build/main_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fxck/work/install/main_control/lib/python3.10/site-packages:/home/fxck/work/install/interface/local/lib/python3.10/dist-packages:/home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/main_control build --build-base /home/fxck/work/build/main_control/build install --record /home/fxck/work/build/main_control/install.log --single-version-externally-managed install_data
+[0.915s] running egg_info
+[0.915s] creating ../../../build/main_control/main_control.egg-info
+[0.915s] writing ../../../build/main_control/main_control.egg-info/PKG-INFO
+[0.916s] writing dependency_links to ../../../build/main_control/main_control.egg-info/dependency_links.txt
+[0.916s] writing entry points to ../../../build/main_control/main_control.egg-info/entry_points.txt
+[0.916s] writing requirements to ../../../build/main_control/main_control.egg-info/requires.txt
+[0.916s] writing top-level names to ../../../build/main_control/main_control.egg-info/top_level.txt
+[0.916s] writing manifest file '../../../build/main_control/main_control.egg-info/SOURCES.txt'
+[0.917s] reading manifest file '../../../build/main_control/main_control.egg-info/SOURCES.txt'
+[0.918s] writing manifest file '../../../build/main_control/main_control.egg-info/SOURCES.txt'
+[0.918s] running build
+[0.918s] running build_py
+[0.918s] creating /home/fxck/work/build/main_control/build
+[0.918s] creating /home/fxck/work/build/main_control/build/lib
+[0.918s] creating /home/fxck/work/build/main_control/build/lib/main_control
+[0.918s] copying main_control/__init__.py -> /home/fxck/work/build/main_control/build/lib/main_control
+[0.918s] copying main_control/main.py -> /home/fxck/work/build/main_control/build/lib/main_control
+[0.918s] running install
+[0.918s] running install_lib
+[0.919s] creating /home/fxck/work/install/main_control/lib/python3.10/site-packages/main_control
+[0.919s] copying /home/fxck/work/build/main_control/build/lib/main_control/__init__.py -> /home/fxck/work/install/main_control/lib/python3.10/site-packages/main_control
+[0.919s] copying /home/fxck/work/build/main_control/build/lib/main_control/main.py -> /home/fxck/work/install/main_control/lib/python3.10/site-packages/main_control
+[0.920s] byte-compiling /home/fxck/work/install/main_control/lib/python3.10/site-packages/main_control/__init__.py to __init__.cpython-310.pyc
+[0.920s] byte-compiling /home/fxck/work/install/main_control/lib/python3.10/site-packages/main_control/main.py to main.cpython-310.pyc
+[0.920s] running install_data
+[0.920s] creating /home/fxck/work/install/main_control/share/ament_index
+[0.920s] creating /home/fxck/work/install/main_control/share/ament_index/resource_index
+[0.920s] creating /home/fxck/work/install/main_control/share/ament_index/resource_index/packages
+[0.921s] copying resource/main_control -> /home/fxck/work/install/main_control/share/ament_index/resource_index/packages
+[0.921s] copying package.xml -> /home/fxck/work/install/main_control/share/main_control
+[0.921s] running install_egg_info
+[0.922s] Copying ../../../build/main_control/main_control.egg-info to /home/fxck/work/install/main_control/lib/python3.10/site-packages/main_control-0.0.0-py3.10.egg-info
+[0.923s] running install_scripts
+[0.939s] Installing main script to /home/fxck/work/install/main_control/lib/main_control
+[0.939s] writing list of installed files to '/home/fxck/work/build/main_control/install.log'
+[0.964s] Invoked command in '/home/fxck/work/src/main_control/main_control' returned '0': AMENT_PREFIX_PATH=/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/fxck/work/install/interface:/home/fxck/work/install/gui_interface LD_LIBRARY_PATH=/home/fxck/work/install/interface/lib:/home/fxck/work/install/gui_interface/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/fxck/work/build/main_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fxck/work/install/main_control/lib/python3.10/site-packages:/home/fxck/work/install/interface/local/lib/python3.10/dist-packages:/home/fxck/work/install/gui_interface/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/main_control build --build-base /home/fxck/work/build/main_control/build install --record /home/fxck/work/build/main_control/install.log --single-version-externally-managed install_data
