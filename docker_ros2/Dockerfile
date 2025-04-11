@@ -105,7 +105,11 @@ RUN apt update \
 
 
 RUN pip install setuptools==58.2.0
+#GUI require
+RUN pip install pyqt5-tools
+RUN sudo apt-get install pyqt5-dev-tools
 
+#GUI require
 
 
 #RUN sudo apt install -y python3-pip 
