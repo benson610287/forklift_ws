@@ -20,7 +20,7 @@ $ git push -u origin $your_brenchname
 ### 之後使用
 ```base
 #進入分支
-$ git chechout $your_brenchname
+$ git checkout $your_brenchname
 #加入新創的檔案
 $ git add .
 #提交檔案
