@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<robot name="bin_module">
+ <link name="Bin">
+    <inertial>
+      <origin
+      	xyz="0 0 0"
+      	rpy="0 0 0" />
+      <mass
+      	value="10.823603974032196" />
+      <inertia
+      	ixx="1"
+      	ixy="0"
+      	ixz="0"
+      	iyy="1"
+      	iyz="0"
+      	izz="1" />
+    </inertial>
+    <visual>
+      <origin
+      	xyz="0 0 0"
+      	rpy="0 0 0" />
+      <geometry>
+	    <mesh
+        scale="0.001 0.001 0.001"
+	      filename="package://bin_description/meshes/bin.STL" />
+      </geometry>
+      <material
+      	name="blue_">
+       	<color
+       	  rgba="0.4 0.66 0.99 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+	      xyz="0 0 0"
+      	rpy="0 0 0" />
+      <geometry>
+      	<mesh
+          scale="0.001 0.001 0.001"
+	        filename="package://bin_description/meshes/bin.STL" />
+      </geometry>
+    </collision>
+  </link>
+ </robot>
