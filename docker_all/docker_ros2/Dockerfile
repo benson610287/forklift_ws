@@ -93,6 +93,7 @@ RUN sudo apt install -y ros-humble-rmw-cyclonedds-cpp
 RUN sudo apt install -y python3-colcon-common-extensions
 
 RUN pip install setuptools==58.2.0
+
 #RUN sudo apt install -y python3-pip 
 #RUN sudo apt install -y python3-dev 
 #RUN sudo apt install -y python3-setuptools

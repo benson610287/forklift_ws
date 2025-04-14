@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="wall">
+    <link name="front">
+        <contact>
+            <lateral_friction value="1.0"/>
+        </contact>
+        <inertial>
+            <origin rpy="0 0 0" xyz="0.8 0 0.75"/>
+            <mass value="10.0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial>
+        <visual>
+            <origin rpy="0 0 0" xyz="0.8 0 0.75"/>
+            <geometry>
+                <box size="0.1 2.2 1.5"/>
+            </geometry>
+            <material name="brown">
+                <color rgba="0.82 0.54 0.39 0.5"/>
+            </material>
+        </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0.8 0 0.75"/>
+            <geometry>
+                <box size="0.1 2.2 1.5"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="back">
+        <contact>
+            <lateral_friction value="1.0"/>
+        </contact>
+        <inertial>
+            <origin rpy="0 0 0" xyz="-0.8 0 0.75"/>
+            <mass value="10.0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial>
+        <visual>
+            <origin rpy="0 0 0" xyz="-0.8 0 0.75"/>
+            <geometry>
+                <box size="0.1 2.2 1.5"/>
+            </geometry>
+            <material name="brown">
+                <color rgba="0.82 0.54 0.39 0.5"/>
+            </material>
+        </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="-0.8 0 0.75"/>
+            <geometry>
+                <box size="0.1 2.2 1.5"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="left">
+        <contact>
+            <lateral_friction value="1.0"/>
+        </contact>
+        <inertial>
+            <origin rpy="0 0 0" xyz="0 1.05 0.75"/>
+            <mass value="10.0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial>
+        <visual>
+            <origin rpy="0 0 0" xyz="0 1.05 0.75"/>
+            <geometry>
+                <box size="1.5 0.1 1.5"/>
+            </geometry>
+            <material name="brown">
+                <color rgba="0.82 0.54 0.39 0.5"/>
+            </material>
+        </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0 1.05 0.75"/>
+            <geometry>
+                <box size="1.5 0.1 1.5"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="right">
+        <contact>
+            <lateral_friction value="1.0"/>
+        </contact>
+        <inertial>
+            <origin rpy="0 0 0" xyz="0 -1.05 0.75"/>
+            <mass value="10.0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial>
+        <visual>
+            <origin rpy="0 0 0" xyz="0 -1.05 0.75"/>
+            <geometry>
+                <box size="1.5 0.1 1.5"/>
+            </geometry>
+            <material name="brown">
+                <color rgba="0.82 0.54 0.39 0.5"/>
+            </material>
+        </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0 -1.05 0.75"/>
+            <geometry>
+                <box size="1.5 0.1 1.5"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <link name="bottom">
+        <contact>
+            <lateral_friction value="1.0"/>
+        </contact>
+        <inertial>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <mass value="10.0"/>
+            <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+        </inertial>
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <box size="1.7 2.2 0.15"/>
+            </geometry>
+            <material name="brown">
+                <color rgba="0.82 0.54 0.39 0.5"/>
+            </material>
+        </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <box size="1.7 2.2 0.15"/>
+            </geometry>
+        </collision>
+    </link>
+    
+    <joint name="j1" type="fixed">
+        <parent link="front"/>
+        <child link="left"/>
+    </joint>
+    <joint name="j2" type="fixed">
+        <parent link="left"/>
+        <child link="back"/>
+    </joint>
+    <joint name="j3" type="fixed">
+        <parent link="back"/>
+        <child link="right"/>
+    </joint>
+    <joint name="j4" type="fixed">
+        <parent link="right"/>
+        <child link="bottom"/>
+    </joint>
+</robot>
