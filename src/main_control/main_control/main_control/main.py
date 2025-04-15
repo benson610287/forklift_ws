@@ -2,6 +2,7 @@ from interface.srv import Maincontroller
 from gui_interface.srv import Taskcmd
 import rclpy
 from rclpy.node import Node
+from pallet_interfaces.srv import Palletstate
 
 class controller(Node):
 
@@ -10,9 +11,9 @@ class controller(Node):
 
         self.srv = self.create_service(Taskcmd, 'taskcmd', self.aa)
 
-        # self.cli_1 = self.create_client(Maincontroller, 'add_two_ints')
-        # while not self.cli_1.wait_for_service(timeout_sec=1.0):
-        #     self.get_logger().info('service not available, waiting again...')
+        self.cli_1 = self.create_client(Palletstate, 'Palletstate')
+        while not self.cli_1.wait_for_service(timeout_sec=1.0):
+            self.get_logger().info('service not available, waiting again...')
         
         # self.cli_2 = self.create_client(Maincontroller, 'add_two_ints')
         # while not self.cli_2.wait_for_service(timeout_sec=1.0):
@@ -34,11 +35,11 @@ class controller(Node):
     def aa(self,req,res):
         if req.task=="task1":
             print("a")
-            # self.req.enable=True
-            # self.future = self.cli_1.call_async(self.req)
-            # rclpy.spin_until_future_complete(self, self.future)
-            # res=self.future.result()
-            # print(res.done)
+            self.req.enable=True
+            self.future = self.cli_1.call_async(self.req)
+            rclpy.spin_until_future_complete(self, self.future)
+            res=self.future.result()
+            print(res.done)
             res.state=1
         elif req.task=="task2":
             print("a")
