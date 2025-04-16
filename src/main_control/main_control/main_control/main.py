@@ -2,7 +2,6 @@ from interface.srv import Maincontroller
 from gui_interface.srv import Taskcmd
 import rclpy
 from rclpy.node import Node
-from pallet_interfaces.srv import Palletstate
 
 class controller(Node):
 
@@ -11,7 +10,7 @@ class controller(Node):
 
         self.srv = self.create_service(Taskcmd, 'taskcmd', self.aa)
 
-        self.cli_1 = self.create_client(Palletstate, 'Palletstate')
+        self.cli_1 = self.create_client(Maincontroller, 'Pallet')
         while not self.cli_1.wait_for_service(timeout_sec=1.0):
             self.get_logger().info('service not available, waiting again...')
         
