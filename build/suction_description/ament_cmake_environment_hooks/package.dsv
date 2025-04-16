@@ -1,0 +1,4 @@
+source;share/suction_description/local_setup.bash
+source;share/suction_description/local_setup.dsv
+source;share/suction_description/local_setup.sh
+source;share/suction_description/local_setup.zsh

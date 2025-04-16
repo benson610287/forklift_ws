@@ -1,0 +1,3 @@
+[console_scripts]
+docking_status_server = docking_pkg.docking_status_server:main
+

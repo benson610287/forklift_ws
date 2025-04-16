@@ -1,0 +1,6 @@
+Invoking command in '/home/eating/work/build/gui_interface': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/eating/work/src/gui/gui_interface -DCMAKE_INSTALL_PREFIX=/home/eating/work/install/gui_interface
+Invoked command in '/home/eating/work/build/gui_interface' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/eating/work/src/gui/gui_interface -DCMAKE_INSTALL_PREFIX=/home/eating/work/install/gui_interface
+Invoking command in '/home/eating/work/build/gui_interface': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/eating/work/build/gui_interface -- -j8 -l8
+Invoked command in '/home/eating/work/build/gui_interface' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/eating/work/build/gui_interface -- -j8 -l8
+Invoking command in '/home/eating/work/build/gui_interface': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/eating/work/build/gui_interface
+Invoked command in '/home/eating/work/build/gui_interface' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/eating/work/build/gui_interface

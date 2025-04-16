@@ -1,0 +1,6 @@
+Invoking command in '/home/eating/work/build/docking_interface': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/eating/work/src/docking_interface -DCMAKE_INSTALL_PREFIX=/home/eating/work/install/docking_interface
+Invoked command in '/home/eating/work/build/docking_interface' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/eating/work/src/docking_interface -DCMAKE_INSTALL_PREFIX=/home/eating/work/install/docking_interface
+Invoking command in '/home/eating/work/build/docking_interface': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/eating/work/build/docking_interface -- -j8 -l8
+Invoked command in '/home/eating/work/build/docking_interface' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/eating/work/build/docking_interface -- -j8 -l8
+Invoking command in '/home/eating/work/build/docking_interface': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/eating/work/build/docking_interface
+Invoked command in '/home/eating/work/build/docking_interface' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/eating/work/build/docking_interface

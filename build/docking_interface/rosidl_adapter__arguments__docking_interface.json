@@ -1,0 +1,6 @@
+{
+  "package_name": "docking_interface",
+  "non_idl_tuples": [
+    "/home/eating/work/src/docking_interface:srv/Dockingstatus.srv"
+  ]
+}
