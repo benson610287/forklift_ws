@@ -1,0 +1,6 @@
+setup.py
+pallet_interfaces/__init__.py
+pallet_interfaces.egg-info/PKG-INFO
+pallet_interfaces.egg-info/SOURCES.txt
+pallet_interfaces.egg-info/dependency_links.txt
+pallet_interfaces.egg-info/top_level.txt

@@ -1,0 +1,6 @@
+Invoking command in '/home/eating/work/build/suction_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/eating/work/src/timda_sim/suction_description -DCMAKE_INSTALL_PREFIX=/home/eating/work/install/suction_description
+Invoked command in '/home/eating/work/build/suction_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/eating/work/src/timda_sim/suction_description -DCMAKE_INSTALL_PREFIX=/home/eating/work/install/suction_description
+Invoking command in '/home/eating/work/build/suction_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/eating/work/build/suction_description -- -j8 -l8
+Invoked command in '/home/eating/work/build/suction_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/eating/work/build/suction_description -- -j8 -l8
+Invoking command in '/home/eating/work/build/suction_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/eating/work/build/suction_description
+Invoked command in '/home/eating/work/build/suction_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/eating/work/build/suction_description

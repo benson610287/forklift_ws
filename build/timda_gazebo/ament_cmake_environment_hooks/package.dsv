@@ -1,0 +1,4 @@
+source;share/timda_gazebo/local_setup.bash
+source;share/timda_gazebo/local_setup.dsv
+source;share/timda_gazebo/local_setup.sh
+source;share/timda_gazebo/local_setup.zsh

@@ -1,0 +1,7 @@
+{
+  "package_name": "pallet_interfaces",
+  "non_idl_tuples": [
+    "/home/eating/work/src/pallet/pallet_interfaces:msg/Boxinfo.msg",
+    "/home/eating/work/src/pallet/pallet_interfaces:srv/Palletstate.srv"
+  ]
+}

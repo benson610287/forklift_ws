@@ -1,0 +1,15 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from docking_interface/srv/Dockingstatus.srv
+// generated code does not contain a copyright notice
+
+
+module docking_interface {
+  module srv {
+    struct Dockingstatus_Request {
+      boolean run;
+    };
+    struct Dockingstatus_Response {
+      int64 state;
+    };
+  };
+};

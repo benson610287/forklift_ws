@@ -1,0 +1,6 @@
+Invoking command in '/home/eating/work/build/mecanum': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/eating/work/src/mecanum -DCMAKE_INSTALL_PREFIX=/home/eating/work/install/mecanum
+Invoked command in '/home/eating/work/build/mecanum' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/eating/work/src/mecanum -DCMAKE_INSTALL_PREFIX=/home/eating/work/install/mecanum
+Invoking command in '/home/eating/work/build/mecanum': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/eating/work/build/mecanum -- -j8 -l8
+Invoked command in '/home/eating/work/build/mecanum' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/eating/work/build/mecanum -- -j8 -l8
+Invoking command in '/home/eating/work/build/mecanum': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/eating/work/build/mecanum
+Invoked command in '/home/eating/work/build/mecanum' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/eating/work/build/mecanum
