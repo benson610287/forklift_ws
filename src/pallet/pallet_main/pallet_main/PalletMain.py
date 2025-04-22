@@ -3,32 +3,32 @@ import math
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
 from turtlesim.msg import Pose
-from pallet_interfaces.srv import Palletstate     # CHANGE
+from interface.srv import Maincontroller     # CHANGE
 import math
 import random
 class TurtlePControl(Node):
     def __init__(self):
         super().__init__('PalletMain')
-        self.srv = self.create_service(Palletstate, 'Palletstate', self.add_three_ints_callback)        # CHANGE
+        self.srv = self.create_service(Maincontroller, 'Pallet', self.add_three_ints_callback)        # CHANGE
         # # 訂閱烏龜的位置信息
         # self.pose_subscriber = self.create_subscription(Pose, '/turtle1/pose', self.pose_callback, 10)
 
         # # 發布速度指令
         # self.velocity_publisher = self.create_publisher(Twist, '/turtle1/cmd_vel', 10)
 
-        self.timer = self.create_timer(1/30, self.control_loop)  # 100ms 週期執行
+        # self.timer = self.create_timer(1/30, self.control_loop)  # 100ms 週期執行
 
     def add_three_ints_callback(self, request, response):
-        if request.run==True:
-            response.state = 1                                                  # CHANGE
+        if request.enable==True:
+            response.done = 1                                                  # CHANGE
         else:
-            response.state = 2
-        self.get_logger().info('Incoming request\na: %d' % (response.state)) # CHANGE
+            response.done = 2
+        self.get_logger().info('Incoming request\na: %d' % (response.done)) # CHANGE
 
         return response
-    def pose_callback(self, msg):
-        """更新烏龜的當前位姿"""
-        self.pose = msg
+    # def pose_callback(self, msg):
+    #     """更新烏龜的當前位姿"""
+    #     self.pose = msg
 
     def control_loop(self):
         pass
