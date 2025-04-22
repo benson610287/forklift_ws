@@ -1,0 +1,6 @@
+Invoking command in '/home/aa/work/build/mecanum': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/local/bin/cmake /home/aa/work/src/mecanum -DCMAKE_INSTALL_PREFIX=/home/aa/work/install/mecanum
+Invoked command in '/home/aa/work/build/mecanum' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/local/bin/cmake /home/aa/work/src/mecanum -DCMAKE_INSTALL_PREFIX=/home/aa/work/install/mecanum
+Invoking command in '/home/aa/work/build/mecanum': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/local/bin/cmake --build /home/aa/work/build/mecanum -- -j12 -l12
+Invoked command in '/home/aa/work/build/mecanum' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/local/bin/cmake --build /home/aa/work/build/mecanum -- -j12 -l12
+Invoking command in '/home/aa/work/build/mecanum': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/local/bin/cmake --install /home/aa/work/build/mecanum
+Invoked command in '/home/aa/work/build/mecanum' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/local/bin/cmake --install /home/aa/work/build/mecanum
