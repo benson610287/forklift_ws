@@ -1,6 +1,0 @@
-Invoking command in '/home/aa/work/build/keyboard_control': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/local/bin/cmake /home/aa/work/src/keyboard_control -DCMAKE_INSTALL_PREFIX=/home/aa/work/install/keyboard_control
-Invoked command in '/home/aa/work/build/keyboard_control' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/local/bin/cmake /home/aa/work/src/keyboard_control -DCMAKE_INSTALL_PREFIX=/home/aa/work/install/keyboard_control
-Invoking command in '/home/aa/work/build/keyboard_control': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/local/bin/cmake --build /home/aa/work/build/keyboard_control -- -j12 -l12
-Invoked command in '/home/aa/work/build/keyboard_control' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/local/bin/cmake --build /home/aa/work/build/keyboard_control -- -j12 -l12
-Invoking command in '/home/aa/work/build/keyboard_control': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/local/bin/cmake --install /home/aa/work/build/keyboard_control
-Invoked command in '/home/aa/work/build/keyboard_control' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/local/bin/cmake --install /home/aa/work/build/keyboard_control
