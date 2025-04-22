@@ -1,0 +1,10 @@
+/home/aa/work/build/mecanum/CMakeFiles/uninstall.dir
+/home/aa/work/build/mecanum/CMakeFiles/mecanum_uninstall.dir
+/home/aa/work/build/mecanum/CMakeFiles/mobile_node.dir
+/home/aa/work/build/mecanum/CMakeFiles/test.dir
+/home/aa/work/build/mecanum/CMakeFiles/edit_cache.dir
+/home/aa/work/build/mecanum/CMakeFiles/rebuild_cache.dir
+/home/aa/work/build/mecanum/CMakeFiles/list_install_components.dir
+/home/aa/work/build/mecanum/CMakeFiles/install.dir
+/home/aa/work/build/mecanum/CMakeFiles/install/local.dir
+/home/aa/work/build/mecanum/CMakeFiles/install/strip.dir

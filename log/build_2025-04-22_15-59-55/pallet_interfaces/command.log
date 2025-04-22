@@ -1,0 +1,6 @@
+Invoking command in '/home/aa/work/build/pallet_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/local/bin/cmake /home/aa/work/src/pallet/pallet_interfaces -DCMAKE_INSTALL_PREFIX=/home/aa/work/install/pallet_interfaces
+Invoked command in '/home/aa/work/build/pallet_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/local/bin/cmake /home/aa/work/src/pallet/pallet_interfaces -DCMAKE_INSTALL_PREFIX=/home/aa/work/install/pallet_interfaces
+Invoking command in '/home/aa/work/build/pallet_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/local/bin/cmake --build /home/aa/work/build/pallet_interfaces -- -j12 -l12
+Invoked command in '/home/aa/work/build/pallet_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/local/bin/cmake --build /home/aa/work/build/pallet_interfaces -- -j12 -l12
+Invoking command in '/home/aa/work/build/pallet_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/local/bin/cmake --install /home/aa/work/build/pallet_interfaces
+Invoked command in '/home/aa/work/build/pallet_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/local/bin/cmake --install /home/aa/work/build/pallet_interfaces

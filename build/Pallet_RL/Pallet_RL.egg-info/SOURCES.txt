@@ -1,0 +1,7 @@
+README.md
+setup.py
+../../../build/Pallet_RL/Pallet_RL.egg-info/PKG-INFO
+../../../build/Pallet_RL/Pallet_RL.egg-info/SOURCES.txt
+../../../build/Pallet_RL/Pallet_RL.egg-info/dependency_links.txt
+../../../build/Pallet_RL/Pallet_RL.egg-info/requires.txt
+../../../build/Pallet_RL/Pallet_RL.egg-info/top_level.txt

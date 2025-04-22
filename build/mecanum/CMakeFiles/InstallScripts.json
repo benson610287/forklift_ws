@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/aa/work/build/mecanum/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
