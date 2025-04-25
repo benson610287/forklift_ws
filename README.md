@@ -27,6 +27,12 @@ $ git commit -m "version info"
 #上傳至該分支的雲端
 $ git push -u origin $your_brenchname
 ```
+### 
+'''base
+this node subscriber to '/camera/camera/color/image_raw' topic for image.
+Use "ros2 service call /toggle_aruco_detection std_srvs/srv/SetBool '{data: True}'" to activate aruco detection
+Use "ros2 service call /toggle_aruco_detection std_srvs/srv/SetBool '{data: False}'" to deactivate aruco detection
+'''
 
 
 
