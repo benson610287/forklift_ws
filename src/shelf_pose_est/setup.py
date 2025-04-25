@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-package_name = 'shelve_pose_est'
+package_name = 'shelf_pose_est'
 
 setup(
     name=package_name,
@@ -20,6 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+        'stream_rs = shelf_pose_est.realsense_color_pub:main',
+        'aruco_detect = shelf_pose_est.aruco_detect:main',
         ],
     },
 )

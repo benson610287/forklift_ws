@@ -1,3 +1,6 @@
+import numpy as np
+import cv2 
+
 def estimate_pose(frame, corners, ids, marker_size_cm=50, camera_matrix=None, dist_coeffs=None):
     """
     Estimate the pose of detected ArUco markers
