@@ -104,6 +104,7 @@ RUN apt update \
 
 
 
+
 RUN pip install setuptools==58.2.0
 #GUI require
 RUN pip install pyqt5-tools
@@ -117,11 +118,35 @@ RUN sudo apt-get install pyqt5-dev-tools
 #RUN sudo apt install -y python3-setuptools
 RUN apt update
 
+=======
+
+##################### ZACK ADD BEGIN ##################################
+###################### RealSense #############################
+RUN mkdir -p /etc/apt/keyrings
+RUN curl -sSf https://librealsense.intel.com/Debian/librealsense.pgp | sudo tee /etc/apt/keyrings/librealsense.pgp > /dev/null
+RUN echo "deb [signed-by=/etc/apt/keyrings/librealsense.pgp] https://librealsense.intel.com/Debian/apt-repo `lsb_release -cs` main" \
+    | tee /etc/apt/sources.list.d/librealsense.list
+
+
+RUN apt update && apt install -y \
+    # ros2 
+    python3-rosdep \
+    ros-humble-diagnostic-updater \
+    # realsense
+    librealsense2-utils \
+    librealsense2-dev \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN sudo pip3 install setuptools 
+    # opencv-contrib-python==4.11.0.86
+>>>>>>> origin/zack:docker_ros2/Dockerfile
 
 RUN ./config/pip/pip_setup.sh
+##################### ZACK ADD END ##################################
 
 ############################## USER CONFIG ####################################
-# * Switch user to ${USER}
+#* Switch user to ${USER}
 USER ${USER}
 
 RUN ./config/shell/bash_setup.sh "${USER}" "${GROUP}" \
