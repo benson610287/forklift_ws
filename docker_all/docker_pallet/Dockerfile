@@ -25,10 +25,9 @@ RUN groupadd --gid "${GID}" "${GROUP}" \
 
 # * Replace apt urls
 # ? Change to tku
-# RUN sed -i 's@archive.ubuntu.com@ftp.tku.edu.tw@g' /etc/apt/sources.list
+RUN sed -i 's@archive.ubuntu.com@ftp.tku.edu.tw@g' /etc/apt/sources.list
 # ? Change to Taiwan
-RUN sed -i 's@archive.ubuntu.com@tw.archive.ubuntu.com@g' /etc/apt/sources.list
-
+# RUN sed -i 's@archive.ubuntu.com@tw.archive.ubuntu.com@g' /etc/apt/sources.list
 
 # * Time zone
 ENV TZ=Asia/Taipei
@@ -85,71 +84,31 @@ RUN sudo apt update
 RUN sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key  -o /usr/share/keyrings/ros-archive-keyring.gpg
 # RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/ros2.list > /dev/null
 RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
-RUN sudo apt update && sudo apt upgrade -y && sudo apt --fix-broken install -y
+RUN sudo apt update
 # RUN sudo  apt install -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" keyboard-configuration
 RUN sudo DEBIAN_FRONTEND=noninteractive apt install -y ros-humble-desktop
 #ROS2 Cyclone DDS
 RUN sudo apt install -y ros-humble-rmw-cyclonedds-cpp
 #colcon depend
-RUN apt update \
-    && apt install -y python3-colcon-common-extensions \
-	ros-humble-pcl-ros\
-	ros-humble-diagnostic-updater\
-	ros-humble-laser-proc\
-	ros-humble-urg-c\
-	ros-humble-urg-node-msgs\
-	ros-humble-xacro
-	#ros-humble-urg-node
-
-
-
-
+RUN sudo apt install -y python3-colcon-common-extensions
 
 RUN pip install setuptools==58.2.0
-<<<<<<< HEAD
-#GUI require
-RUN pip install pyqt5-tools
-RUN sudo apt-get install pyqt5-dev-tools
-
-#GUI require
-
-=======
->>>>>>> origin/taiwen
-
+RUN pip install pip==22.0 \
+	matplotlib==3.5.1 \
+	numpy==1.22.3 \
+	pybullet==3.2.5 \
+	gym==0.21.0 \
+	stable-baselines3==1.7.0 \
+	torch==2.0.0 \
+	tensorboard==2.12.0 
 #RUN sudo apt install -y python3-pip 
 #RUN sudo apt install -y python3-dev 
 #RUN sudo apt install -y python3-setuptools
-RUN apt update
-
-=======
-
-##################### ZACK ADD BEGIN ##################################
-###################### RealSense #############################
-RUN mkdir -p /etc/apt/keyrings
-RUN curl -sSf https://librealsense.intel.com/Debian/librealsense.pgp | sudo tee /etc/apt/keyrings/librealsense.pgp > /dev/null
-RUN echo "deb [signed-by=/etc/apt/keyrings/librealsense.pgp] https://librealsense.intel.com/Debian/apt-repo `lsb_release -cs` main" \
-    | tee /etc/apt/sources.list.d/librealsense.list
-
-
-RUN apt update && apt install -y \
-    # ros2 
-    python3-rosdep \
-    ros-humble-diagnostic-updater \
-    # realsense
-    librealsense2-utils \
-    librealsense2-dev \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN sudo pip3 install setuptools 
-    # opencv-contrib-python==4.11.0.86
->>>>>>> origin/zack:docker_ros2/Dockerfile
 
 RUN ./config/pip/pip_setup.sh
-##################### ZACK ADD END ##################################
 
 ############################## USER CONFIG ####################################
-#* Switch user to ${USER}
+# * Switch user to ${USER}
 USER ${USER}
 
 RUN ./config/shell/bash_setup.sh "${USER}" "${GROUP}" \
