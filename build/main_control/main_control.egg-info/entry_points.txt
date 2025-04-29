@@ -1,3 +1,0 @@
-[console_scripts]
-main = main_control.main:main
-
