@@ -98,7 +98,8 @@ RUN apt update \
 	ros-humble-laser-proc\
 	ros-humble-urg-c\
 	ros-humble-urg-node-msgs\
-	ros-humble-xacro
+	ros-humble-xacro\
+    ros-humble-urg-node
 	#ros-humble-urg-node
 
 
@@ -106,15 +107,12 @@ RUN apt update \
 
 
 RUN pip install setuptools==58.2.0
-<<<<<<< HEAD
+
 #GUI require
 RUN pip install pyqt5-tools
-RUN sudo apt-get install pyqt5-dev-tools
+RUN apt-get install pyqt5-dev-tools 
 
 #GUI require
-
-=======
->>>>>>> origin/taiwen
 
 #RUN sudo apt install -y python3-pip 
 #RUN sudo apt install -y python3-dev 
