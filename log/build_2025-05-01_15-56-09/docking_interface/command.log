@@ -1,6 +1,0 @@
-Invoking command in '/home/fxck/work/build/docking_interface': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/fxck/work/src/docking/docking_interface -DCMAKE_INSTALL_PREFIX=/home/fxck/work/install/docking_interface
-Invoked command in '/home/fxck/work/build/docking_interface' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/fxck/work/src/docking/docking_interface -DCMAKE_INSTALL_PREFIX=/home/fxck/work/install/docking_interface
-Invoking command in '/home/fxck/work/build/docking_interface': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/fxck/work/build/docking_interface -- -j16 -l16
-Invoked command in '/home/fxck/work/build/docking_interface' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/fxck/work/build/docking_interface -- -j16 -l16
-Invoking command in '/home/fxck/work/build/docking_interface': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/fxck/work/build/docking_interface
-Invoked command in '/home/fxck/work/build/docking_interface' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/fxck/work/build/docking_interface
