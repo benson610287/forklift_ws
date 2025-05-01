@@ -1,0 +1,6 @@
+Invoking command in '/home/fxck/work/build/robot_arm_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/fxck/work/src/timda_sim/robot_arm_description -DCMAKE_INSTALL_PREFIX=/home/fxck/work/install/robot_arm_description
+Invoked command in '/home/fxck/work/build/robot_arm_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/fxck/work/src/timda_sim/robot_arm_description -DCMAKE_INSTALL_PREFIX=/home/fxck/work/install/robot_arm_description
+Invoking command in '/home/fxck/work/build/robot_arm_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/fxck/work/build/robot_arm_description -- -j16 -l16
+Invoked command in '/home/fxck/work/build/robot_arm_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/fxck/work/build/robot_arm_description -- -j16 -l16
+Invoking command in '/home/fxck/work/build/robot_arm_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/fxck/work/build/robot_arm_description
+Invoked command in '/home/fxck/work/build/robot_arm_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/fxck/work/build/robot_arm_description

@@ -1,0 +1,43 @@
+running egg_info
+creating ../../../build/docking_pkg/docking_pkg.egg-info
+writing ../../../build/docking_pkg/docking_pkg.egg-info/PKG-INFO
+writing dependency_links to ../../../build/docking_pkg/docking_pkg.egg-info/dependency_links.txt
+writing entry points to ../../../build/docking_pkg/docking_pkg.egg-info/entry_points.txt
+writing requirements to ../../../build/docking_pkg/docking_pkg.egg-info/requires.txt
+writing top-level names to ../../../build/docking_pkg/docking_pkg.egg-info/top_level.txt
+writing manifest file '../../../build/docking_pkg/docking_pkg.egg-info/SOURCES.txt'
+reading manifest file '../../../build/docking_pkg/docking_pkg.egg-info/SOURCES.txt'
+writing manifest file '../../../build/docking_pkg/docking_pkg.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/fxck/work/build/docking_pkg/build
+creating /home/fxck/work/build/docking_pkg/build/lib
+creating /home/fxck/work/build/docking_pkg/build/lib/docking_pkg
+copying docking_pkg/docking_status_server.py -> /home/fxck/work/build/docking_pkg/build/lib/docking_pkg
+copying docking_pkg/yolo_subscriber.py -> /home/fxck/work/build/docking_pkg/build/lib/docking_pkg
+copying docking_pkg/dockingcamera.py -> /home/fxck/work/build/docking_pkg/build/lib/docking_pkg
+copying docking_pkg/__init__.py -> /home/fxck/work/build/docking_pkg/build/lib/docking_pkg
+running install
+running install_lib
+creating /home/fxck/work/install/docking_pkg/lib/python3.10/site-packages/docking_pkg
+copying /home/fxck/work/build/docking_pkg/build/lib/docking_pkg/docking_status_server.py -> /home/fxck/work/install/docking_pkg/lib/python3.10/site-packages/docking_pkg
+copying /home/fxck/work/build/docking_pkg/build/lib/docking_pkg/yolo_subscriber.py -> /home/fxck/work/install/docking_pkg/lib/python3.10/site-packages/docking_pkg
+copying /home/fxck/work/build/docking_pkg/build/lib/docking_pkg/dockingcamera.py -> /home/fxck/work/install/docking_pkg/lib/python3.10/site-packages/docking_pkg
+copying /home/fxck/work/build/docking_pkg/build/lib/docking_pkg/__init__.py -> /home/fxck/work/install/docking_pkg/lib/python3.10/site-packages/docking_pkg
+byte-compiling /home/fxck/work/install/docking_pkg/lib/python3.10/site-packages/docking_pkg/docking_status_server.py to docking_status_server.cpython-310.pyc
+byte-compiling /home/fxck/work/install/docking_pkg/lib/python3.10/site-packages/docking_pkg/yolo_subscriber.py to yolo_subscriber.cpython-310.pyc
+byte-compiling /home/fxck/work/install/docking_pkg/lib/python3.10/site-packages/docking_pkg/dockingcamera.py to dockingcamera.cpython-310.pyc
+byte-compiling /home/fxck/work/install/docking_pkg/lib/python3.10/site-packages/docking_pkg/__init__.py to __init__.cpython-310.pyc
+running install_data
+creating /home/fxck/work/install/docking_pkg/share/ament_index
+creating /home/fxck/work/install/docking_pkg/share/ament_index/resource_index
+creating /home/fxck/work/install/docking_pkg/share/ament_index/resource_index/packages
+copying resource/docking_pkg -> /home/fxck/work/install/docking_pkg/share/ament_index/resource_index/packages
+copying package.xml -> /home/fxck/work/install/docking_pkg/share/docking_pkg
+running install_egg_info
+Copying ../../../build/docking_pkg/docking_pkg.egg-info to /home/fxck/work/install/docking_pkg/lib/python3.10/site-packages/docking_pkg-0.0.0-py3.10.egg-info
+running install_scripts
+Installing docking_status_server script to /home/fxck/work/install/docking_pkg/lib/docking_pkg
+Installing dockingcamera script to /home/fxck/work/install/docking_pkg/lib/docking_pkg
+Installing yolo_subscriber script to /home/fxck/work/install/docking_pkg/lib/docking_pkg
+writing list of installed files to '/home/fxck/work/build/docking_pkg/install.log'

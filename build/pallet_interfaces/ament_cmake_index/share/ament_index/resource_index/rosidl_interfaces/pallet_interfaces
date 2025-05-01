@@ -1,0 +1,6 @@
+msg/Boxinfo.idl
+msg/Boxinfo.msg
+srv/Palletstate.idl
+srv/Palletstate.srv
+srv/Palletstate_Request.msg
+srv/Palletstate_Response.msg

@@ -1,0 +1,47 @@
+[0.033s] Invoking command in '/home/fxck/work/build/timda_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/fxck/work/src/timda_sim/timda_description -DCMAKE_INSTALL_PREFIX=/home/fxck/work/install/timda_description
+[0.107s] -- The C compiler identification is GNU 11.4.0
+[0.171s] -- The CXX compiler identification is GNU 11.4.0
+[0.180s] -- Detecting C compiler ABI info
+[0.258s] -- Detecting C compiler ABI info - done
+[0.272s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.272s] -- Detecting C compile features
+[0.272s] -- Detecting C compile features - done
+[0.275s] -- Detecting CXX compiler ABI info
+[0.392s] -- Detecting CXX compiler ABI info - done
+[0.402s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.402s] -- Detecting CXX compile features
+[0.403s] -- Detecting CXX compile features - done
+[0.407s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.596s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.753s] -- Found ament_lint_auto: 0.12.12 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[0.914s] -- Added test 'lint_cmake' to check CMake code style
+[0.914s] -- Added test 'xmllint' to check XML markup files
+[0.926s] -- Configuring done
+[0.926s] -- Generating done
+[0.926s] -- Build files have been written to: /home/fxck/work/build/timda_description
+[0.936s] Invoked command in '/home/fxck/work/build/timda_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/fxck/work/src/timda_sim/timda_description -DCMAKE_INSTALL_PREFIX=/home/fxck/work/install/timda_description
+[0.937s] Invoking command in '/home/fxck/work/build/timda_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/fxck/work/build/timda_description -- -j16 -l16
+[1.077s] Invoked command in '/home/fxck/work/build/timda_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/fxck/work/build/timda_description -- -j16 -l16
+[1.077s] Invoking command in '/home/fxck/work/build/timda_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/fxck/work/build/timda_description
+[1.097s] -- Install configuration: ""
+[1.097s] -- Installing: /home/fxck/work/install/timda_description/share/timda_description/urdf
+[1.102s] -- Installing: /home/fxck/work/install/timda_description/share/timda_description/urdf/timda_sim_odom.urdf.xacro
+[1.103s] -- Installing: /home/fxck/work/install/timda_description/share/timda_description/urdf/timda.urdf.xacro
+[1.106s] -- Installing: /home/fxck/work/install/timda_description/share/timda_description/urdf/timda.gazebo.xacro
+[1.106s] -- Installing: /home/fxck/work/install/timda_description/share/timda_description/urdf/timda_only_mobile.urdf.xacro
+[1.106s] -- Installing: /home/fxck/work/install/timda_description/share/ament_index/resource_index/package_run_dependencies/timda_description
+[1.106s] -- Installing: /home/fxck/work/install/timda_description/share/ament_index/resource_index/parent_prefix_path/timda_description
+[1.106s] -- Installing: /home/fxck/work/install/timda_description/share/timda_description/environment/ament_prefix_path.sh
+[1.106s] -- Installing: /home/fxck/work/install/timda_description/share/timda_description/environment/ament_prefix_path.dsv
+[1.106s] -- Installing: /home/fxck/work/install/timda_description/share/timda_description/environment/path.sh
+[1.106s] -- Installing: /home/fxck/work/install/timda_description/share/timda_description/environment/path.dsv
+[1.107s] -- Installing: /home/fxck/work/install/timda_description/share/timda_description/local_setup.bash
+[1.107s] -- Installing: /home/fxck/work/install/timda_description/share/timda_description/local_setup.sh
+[1.107s] -- Installing: /home/fxck/work/install/timda_description/share/timda_description/local_setup.zsh
+[1.108s] -- Installing: /home/fxck/work/install/timda_description/share/timda_description/local_setup.dsv
+[1.108s] -- Installing: /home/fxck/work/install/timda_description/share/timda_description/package.dsv
+[1.108s] -- Installing: /home/fxck/work/install/timda_description/share/ament_index/resource_index/packages/timda_description
+[1.108s] -- Installing: /home/fxck/work/install/timda_description/share/timda_description/cmake/timda_descriptionConfig.cmake
+[1.109s] -- Installing: /home/fxck/work/install/timda_description/share/timda_description/cmake/timda_descriptionConfig-version.cmake
+[1.109s] -- Installing: /home/fxck/work/install/timda_description/share/timda_description/package.xml
+[1.116s] Invoked command in '/home/fxck/work/build/timda_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/fxck/work/build/timda_description

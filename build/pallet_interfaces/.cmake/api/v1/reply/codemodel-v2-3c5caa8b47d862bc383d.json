@@ -1,0 +1,233 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-01225173695824476e96.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17
+					]
+				},
+				{
+					"build" : "pallet_interfaces__py",
+					"jsonFile" : "directory-pallet_interfaces__py-9a812d9553194dc36e60.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/fxck/work/build/pallet_interfaces/pallet_interfaces__py",
+					"targetIndexes" : 
+					[
+						4
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "pallet_interfaces",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_pallet_interfaces_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_pallet_interfaces_egg-571eea1e245fd0ae414c.json",
+					"name" : "ament_cmake_python_build_pallet_interfaces_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_copy_pallet_interfaces::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_copy_pallet_interfaces-dadab65dcc42211a0636.json",
+					"name" : "ament_cmake_python_copy_pallet_interfaces",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pallet_interfaces::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pallet_interfaces-d877317f7ce9c99bf725.json",
+					"name" : "pallet_interfaces",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pallet_interfaces__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pallet_interfaces__cpp-04cecbd4ee3c8993d8bd.json",
+					"name" : "pallet_interfaces__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "pallet_interfaces__py::@795b2b64b87af3daa07d",
+					"jsonFile" : "target-pallet_interfaces__py-887cc20d43bce02e1cfa.json",
+					"name" : "pallet_interfaces__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pallet_interfaces__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pallet_interfaces__rosidl_generator_c-d002a9d6d09af5dc653f.json",
+					"name" : "pallet_interfaces__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pallet_interfaces__rosidl_generator_py::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pallet_interfaces__rosidl_generator_py-2ed02c24a2a4a8780056.json",
+					"name" : "pallet_interfaces__rosidl_generator_py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pallet_interfaces__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pallet_interfaces__rosidl_typesupport_c-2e3501c9203997d07a15.json",
+					"name" : "pallet_interfaces__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pallet_interfaces__rosidl_typesupport_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pallet_interfaces__rosidl_typesupport_c__pyext-e3aa7b5a5f5ddcca2f34.json",
+					"name" : "pallet_interfaces__rosidl_typesupport_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pallet_interfaces__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pallet_interfaces__rosidl_typesupport_cpp-dc3e3571291e8d07029b.json",
+					"name" : "pallet_interfaces__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pallet_interfaces__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pallet_interfaces__rosidl_typesupport_fastrtps_c-0b282ed8078c976d9ca3.json",
+					"name" : "pallet_interfaces__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pallet_interfaces__rosidl_typesupport_fastrtps_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pallet_interfaces__rosidl_typesupport_fastrtps_c__pyext-8582d29c897aa128bf70.json",
+					"name" : "pallet_interfaces__rosidl_typesupport_fastrtps_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pallet_interfaces__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pallet_interfaces__rosidl_typesupport_fastrtps_cpp-2745e0fd2dd08cc29b0a.json",
+					"name" : "pallet_interfaces__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pallet_interfaces__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pallet_interfaces__rosidl_typesupport_introspection_c-059617b65c3b39f7533f.json",
+					"name" : "pallet_interfaces__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pallet_interfaces__rosidl_typesupport_introspection_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pallet_interfaces__rosidl_typesupport_introspection_c__pyext-d43414e162a1c8c8dfd9.json",
+					"name" : "pallet_interfaces__rosidl_typesupport_introspection_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pallet_interfaces__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pallet_interfaces__rosidl_typesupport_introspection_cpp-dd4e104576b65eefae2d.json",
+					"name" : "pallet_interfaces__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pallet_interfaces_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pallet_interfaces_uninstall-e5304662b3612eda2602.json",
+					"name" : "pallet_interfaces_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-0ec7c41feeb67b6c0b38.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/fxck/work/build/pallet_interfaces",
+		"source" : "/home/fxck/work/src/pallet/pallet_interfaces"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

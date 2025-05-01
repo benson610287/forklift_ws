@@ -1,0 +1,131 @@
+[0.465s] Invoking command in '/home/fxck/work/build/ira_laser_tools': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/fxck/work/src/ira_laser_tools -DCMAKE_INSTALL_PREFIX=/home/fxck/work/install/ira_laser_tools
+[1.036s] -- The C compiler identification is GNU 11.4.0
+[1.037s] -- The CXX compiler identification is GNU 11.4.0
+[1.037s] -- Detecting C compiler ABI info
+[1.037s] -- Detecting C compiler ABI info - done
+[1.037s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.037s] -- Detecting C compile features
+[1.037s] -- Detecting C compile features - done
+[1.037s] -- Detecting CXX compiler ABI info
+[1.037s] -- Detecting CXX compiler ABI info - done
+[1.037s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.037s] -- Detecting CXX compile features
+[1.037s] -- Detecting CXX compile features - done
+[1.037s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.038s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.067s] -- Found rclcpp: 16.0.12 (/opt/ros/humble/share/rclcpp/cmake)
+[1.138s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[1.145s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.158s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.178s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.209s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.285s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[1.291s] -- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)
+[1.334s] -- Using RMW implementation 'rmw_cyclonedds_cpp' as default
+[1.353s] -- Looking for pthread.h
+[1.483s] -- Looking for pthread.h - found
+[1.483s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.571s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[1.572s] -- Found Threads: TRUE  
+[1.655s] -- Found rclcpp_action: 16.0.12 (/opt/ros/humble/share/rclcpp_action/cmake)
+[1.715s] -- Found rclcpp_lifecycle: 16.0.12 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)
+[1.755s] -- Found geometry_msgs: 4.8.0 (/opt/ros/humble/share/geometry_msgs/cmake)
+[1.777s] -- Found sensor_msgs: 4.8.0 (/opt/ros/humble/share/sensor_msgs/cmake)
+[1.813s] -- Found laser_geometry: 2.4.0 (/opt/ros/humble/share/laser_geometry/cmake)
+[1.851s] -- Found tf2_ros: 0.25.12 (/opt/ros/humble/share/tf2_ros/cmake)
+[1.935s] -- Found pcl_ros: 2.4.5 (/opt/ros/humble/share/pcl_ros/cmake)
+[1.994s] -- Checking for module 'eigen3'
+[2.014s] --   Found eigen3, version 3.4.0
+[2.059s] -- Found Eigen: /usr/include/eigen3 (Required is at least version "3.1") 
+[2.059s] -- Eigen found (include: /usr/include/eigen3, version: 3.4.0)
+[2.128s] -- Checking for module 'flann'
+[2.150s] --   Found flann, version 1.9.1
+[2.216s] -- Found FLANN: /usr/lib/x86_64-linux-gnu/libflann_cpp.so  
+[2.217s] -- FLANN found (include: /usr/include, lib: /usr/lib/x86_64-linux-gnu/libflann_cpp.so)
+[4.754s] -- Checking for module 'libusb-1.0'
+[4.779s] --   Found libusb-1.0, version 1.0.25
+[4.838s] -- Found libusb: /usr/lib/x86_64-linux-gnu/libusb-1.0.so  
+[4.839s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[4.925s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[5.114s] -- Eigen found (include: /usr/include/eigen3, version: 3.4.0)
+[5.123s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[5.132s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[5.331s] -- Found Qhull version 8.0.2
+[5.518s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[5.682s] -- Found PCL_COMMON: /usr/lib/x86_64-linux-gnu/libpcl_common.so  
+[5.682s] -- Found PCL_KDTREE: /usr/lib/x86_64-linux-gnu/libpcl_kdtree.so  
+[5.683s] -- Found PCL_OCTREE: /usr/lib/x86_64-linux-gnu/libpcl_octree.so  
+[5.684s] -- Found PCL_SEARCH: /usr/lib/x86_64-linux-gnu/libpcl_search.so  
+[5.684s] -- Found PCL_SAMPLE_CONSENSUS: /usr/lib/x86_64-linux-gnu/libpcl_sample_consensus.so  
+[5.685s] -- Found PCL_FILTERS: /usr/lib/x86_64-linux-gnu/libpcl_filters.so  
+[5.685s] -- Found PCL_2D: /usr/include/pcl-1.12  
+[5.686s] -- Found PCL_GEOMETRY: /usr/include/pcl-1.12  
+[5.686s] -- Found PCL_IO: /usr/lib/x86_64-linux-gnu/libpcl_io.so  
+[5.687s] -- Found PCL_FEATURES: /usr/lib/x86_64-linux-gnu/libpcl_features.so  
+[5.688s] -- Found PCL_ML: /usr/lib/x86_64-linux-gnu/libpcl_ml.so  
+[5.689s] -- Found PCL_SEGMENTATION: /usr/lib/x86_64-linux-gnu/libpcl_segmentation.so  
+[5.689s] -- Found PCL_VISUALIZATION: /usr/lib/x86_64-linux-gnu/libpcl_visualization.so  
+[5.690s] -- Found PCL_SURFACE: /usr/lib/x86_64-linux-gnu/libpcl_surface.so  
+[5.691s] -- Found PCL_REGISTRATION: /usr/lib/x86_64-linux-gnu/libpcl_registration.so  
+[5.692s] -- Found PCL_KEYPOINTS: /usr/lib/x86_64-linux-gnu/libpcl_keypoints.so  
+[5.693s] -- Found PCL_TRACKING: /usr/lib/x86_64-linux-gnu/libpcl_tracking.so  
+[5.694s] -- Found PCL_RECOGNITION: /usr/lib/x86_64-linux-gnu/libpcl_recognition.so  
+[5.694s] -- Found PCL_STEREO: /usr/lib/x86_64-linux-gnu/libpcl_stereo.so  
+[5.695s] -- Found PCL_APPS: /usr/lib/x86_64-linux-gnu/libpcl_apps.so  
+[5.696s] -- Found PCL_IN_HAND_SCANNER: /usr/include/pcl-1.12  
+[5.696s] -- Found PCL_MODELER: /usr/include/pcl-1.12  
+[5.698s] -- Found PCL_POINT_CLOUD_EDITOR: /usr/include/pcl-1.12  
+[5.699s] -- Found PCL_OUTOFCORE: /usr/lib/x86_64-linux-gnu/libpcl_outofcore.so  
+[5.700s] -- Found PCL_PEOPLE: /usr/lib/x86_64-linux-gnu/libpcl_people.so  
+[5.720s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[5.721s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[5.724s] [33mCMake Warning (dev) at CMakeLists.txt:27 (find_package):
+[5.724s]   Policy CMP0074 is not set: find_package uses <PackageName>_ROOT variables.
+[5.724s]   Run "cmake --help-policy CMP0074" for policy details.  Use the cmake_policy
+[5.724s]   command to set the policy and suppress this warning.
+[5.724s] 
+[5.724s]   CMake variable PCL_ROOT is set to:
+[5.725s] 
+[5.725s]     /usr
+[5.725s] 
+[5.725s]   For compatibility, CMake is ignoring the variable.
+[5.725s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[5.725s] [0m
+[5.817s] -- Configuring done
+[5.954s] -- Generating done
+[5.979s] -- Build files have been written to: /home/fxck/work/build/ira_laser_tools
+[6.223s] Invoked command in '/home/fxck/work/build/ira_laser_tools' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/fxck/work/src/ira_laser_tools -DCMAKE_INSTALL_PREFIX=/home/fxck/work/install/ira_laser_tools
+[6.225s] Invoking command in '/home/fxck/work/build/ira_laser_tools': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/fxck/work/build/ira_laser_tools -- -j16 -l16
+[6.286s] [ 25%] [32mBuilding CXX object CMakeFiles/laserscan_multi_merger.dir/src/laserscan_multi_merger.cpp.o[0m
+[6.286s] [ 50%] [32mBuilding CXX object CMakeFiles/laserscan_virtualizer.dir/src/laserscan_virtualizer.cpp.o[0m
+[17.679s] [ 75%] [32m[1mLinking CXX executable laserscan_multi_merger[0m
+[17.734s] [100%] [32m[1mLinking CXX executable laserscan_virtualizer[0m
+[18.501s] [100%] Built target laserscan_multi_merger
+[18.507s] [100%] Built target laserscan_virtualizer
+[18.518s] Invoked command in '/home/fxck/work/build/ira_laser_tools' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/fxck/work/build/ira_laser_tools -- -j16 -l16
+[18.519s] Invoking command in '/home/fxck/work/build/ira_laser_tools': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/fxck/work/build/ira_laser_tools
+[18.526s] -- Install configuration: ""
+[18.526s] -- Installing: /home/fxck/work/install/ira_laser_tools/lib/ira_laser_tools/laserscan_multi_merger
+[18.531s] -- Set runtime path of "/home/fxck/work/install/ira_laser_tools/lib/ira_laser_tools/laserscan_multi_merger" to ""
+[18.531s] -- Installing: /home/fxck/work/install/ira_laser_tools/lib/ira_laser_tools/laserscan_virtualizer
+[18.535s] -- Set runtime path of "/home/fxck/work/install/ira_laser_tools/lib/ira_laser_tools/laserscan_virtualizer" to ""
+[18.535s] -- Installing: /home/fxck/work/install/ira_laser_tools/share/ira_laser_tools/launch
+[18.535s] -- Installing: /home/fxck/work/install/ira_laser_tools/share/ira_laser_tools/launch/laserscan_virtualizer.launch
+[18.535s] -- Installing: /home/fxck/work/install/ira_laser_tools/share/ira_laser_tools/launch/laserscan_multi_merger.launch
+[18.535s] -- Installing: /home/fxck/work/install/ira_laser_tools/share/ament_index/resource_index/package_run_dependencies/ira_laser_tools
+[18.536s] -- Installing: /home/fxck/work/install/ira_laser_tools/share/ament_index/resource_index/parent_prefix_path/ira_laser_tools
+[18.536s] -- Installing: /home/fxck/work/install/ira_laser_tools/share/ira_laser_tools/environment/ament_prefix_path.sh
+[18.536s] -- Installing: /home/fxck/work/install/ira_laser_tools/share/ira_laser_tools/environment/ament_prefix_path.dsv
+[18.536s] -- Installing: /home/fxck/work/install/ira_laser_tools/share/ira_laser_tools/environment/path.sh
+[18.536s] -- Installing: /home/fxck/work/install/ira_laser_tools/share/ira_laser_tools/environment/path.dsv
+[18.537s] -- Installing: /home/fxck/work/install/ira_laser_tools/share/ira_laser_tools/local_setup.bash
+[18.537s] -- Installing: /home/fxck/work/install/ira_laser_tools/share/ira_laser_tools/local_setup.sh
+[18.537s] -- Installing: /home/fxck/work/install/ira_laser_tools/share/ira_laser_tools/local_setup.zsh
+[18.537s] -- Installing: /home/fxck/work/install/ira_laser_tools/share/ira_laser_tools/local_setup.dsv
+[18.537s] -- Installing: /home/fxck/work/install/ira_laser_tools/share/ira_laser_tools/package.dsv
+[18.537s] -- Installing: /home/fxck/work/install/ira_laser_tools/share/ament_index/resource_index/packages/ira_laser_tools
+[18.538s] -- Installing: /home/fxck/work/install/ira_laser_tools/share/ira_laser_tools/cmake/ament_cmake_export_dependencies-extras.cmake
+[18.538s] -- Installing: /home/fxck/work/install/ira_laser_tools/share/ira_laser_tools/cmake/ira_laser_toolsConfig.cmake
+[18.538s] -- Installing: /home/fxck/work/install/ira_laser_tools/share/ira_laser_tools/cmake/ira_laser_toolsConfig-version.cmake
+[18.538s] -- Installing: /home/fxck/work/install/ira_laser_tools/share/ira_laser_tools/package.xml
+[18.541s] Invoked command in '/home/fxck/work/build/ira_laser_tools' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/fxck/work/build/ira_laser_tools

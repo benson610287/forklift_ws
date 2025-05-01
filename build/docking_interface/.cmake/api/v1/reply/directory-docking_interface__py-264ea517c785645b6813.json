@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "docking_interface__py",
+		"source" : "/home/fxck/work/build/docking_interface/docking_interface__py"
+	}
+}

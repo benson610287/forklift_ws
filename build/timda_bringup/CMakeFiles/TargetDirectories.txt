@@ -1,0 +1,9 @@
+/home/fxck/work/build/timda_bringup/CMakeFiles/uninstall.dir
+/home/fxck/work/build/timda_bringup/CMakeFiles/timda_bringup_uninstall.dir
+/home/fxck/work/build/timda_bringup/CMakeFiles/test.dir
+/home/fxck/work/build/timda_bringup/CMakeFiles/edit_cache.dir
+/home/fxck/work/build/timda_bringup/CMakeFiles/rebuild_cache.dir
+/home/fxck/work/build/timda_bringup/CMakeFiles/list_install_components.dir
+/home/fxck/work/build/timda_bringup/CMakeFiles/install.dir
+/home/fxck/work/build/timda_bringup/CMakeFiles/install/local.dir
+/home/fxck/work/build/timda_bringup/CMakeFiles/install/strip.dir
