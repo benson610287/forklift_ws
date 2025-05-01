@@ -1,6 +1,0 @@
-setup.py
-docking_interface/__init__.py
-docking_interface.egg-info/PKG-INFO
-docking_interface.egg-info/SOURCES.txt
-docking_interface.egg-info/dependency_links.txt
-docking_interface.egg-info/top_level.txt

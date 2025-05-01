@@ -1,7 +1,0 @@
-{
-  "package_name": "pallet_interfaces",
-  "non_idl_tuples": [
-    "/home/fxck/work/src/pallet/pallet_interfaces:msg/Boxinfo.msg",
-    "/home/fxck/work/src/pallet/pallet_interfaces:srv/Palletstate.srv"
-  ]
-}

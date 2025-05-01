@@ -1,4 +1,0 @@
-[console_scripts]
-aruco_detect = shelf_pose_est.aruco_detect:main
-stream_rs = shelf_pose_est.realsense_color_pub:main
-
