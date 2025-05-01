@@ -119,7 +119,6 @@ RUN apt-get install pyqt5-dev-tools
 #RUN sudo apt install -y python3-setuptools
 RUN apt update
 
-=======
 
 ##################### ZACK ADD BEGIN ##################################
 ###################### RealSense #############################
@@ -141,7 +140,6 @@ RUN apt update && apt install -y \
 
 RUN sudo pip3 install setuptools 
     # opencv-contrib-python==4.11.0.86
->>>>>>> origin/zack:docker_ros2/Dockerfile
 
 RUN ./config/pip/pip_setup.sh
 ##################### ZACK ADD END ##################################
