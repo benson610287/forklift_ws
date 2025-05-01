@@ -1,0 +1,45 @@
+[1.471s] Invoking command in '/home/fxck/work/src/shelf_pose_est': PYTHONPATH=/home/fxck/work/build/shelf_pose_est/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fxck/work/install/shelf_pose_est/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/shelf_pose_est build --build-base /home/fxck/work/build/shelf_pose_est/build install --record /home/fxck/work/build/shelf_pose_est/install.log --single-version-externally-managed install_data
+[1.794s] running egg_info
+[1.795s] creating ../../build/shelf_pose_est/shelf_pose_est.egg-info
+[1.795s] writing ../../build/shelf_pose_est/shelf_pose_est.egg-info/PKG-INFO
+[1.795s] writing dependency_links to ../../build/shelf_pose_est/shelf_pose_est.egg-info/dependency_links.txt
+[1.795s] writing entry points to ../../build/shelf_pose_est/shelf_pose_est.egg-info/entry_points.txt
+[1.795s] writing requirements to ../../build/shelf_pose_est/shelf_pose_est.egg-info/requires.txt
+[1.795s] writing top-level names to ../../build/shelf_pose_est/shelf_pose_est.egg-info/top_level.txt
+[1.795s] writing manifest file '../../build/shelf_pose_est/shelf_pose_est.egg-info/SOURCES.txt'
+[1.795s] reading manifest file '../../build/shelf_pose_est/shelf_pose_est.egg-info/SOURCES.txt'
+[1.795s] adding license file 'LICENSE'
+[1.795s] writing manifest file '../../build/shelf_pose_est/shelf_pose_est.egg-info/SOURCES.txt'
+[1.796s] running build
+[1.796s] running build_py
+[1.796s] creating /home/fxck/work/build/shelf_pose_est/build
+[1.796s] creating /home/fxck/work/build/shelf_pose_est/build/lib
+[1.796s] creating /home/fxck/work/build/shelf_pose_est/build/lib/shelf_pose_est
+[1.796s] copying shelf_pose_est/heihei.py -> /home/fxck/work/build/shelf_pose_est/build/lib/shelf_pose_est
+[1.796s] copying shelf_pose_est/aruco_detect.py -> /home/fxck/work/build/shelf_pose_est/build/lib/shelf_pose_est
+[1.796s] copying shelf_pose_est/realsense_color_pub.py -> /home/fxck/work/build/shelf_pose_est/build/lib/shelf_pose_est
+[1.796s] copying shelf_pose_est/__init__.py -> /home/fxck/work/build/shelf_pose_est/build/lib/shelf_pose_est
+[1.796s] running install
+[1.797s] running install_lib
+[1.797s] creating /home/fxck/work/install/shelf_pose_est/lib/python3.10/site-packages/shelf_pose_est
+[1.797s] copying /home/fxck/work/build/shelf_pose_est/build/lib/shelf_pose_est/heihei.py -> /home/fxck/work/install/shelf_pose_est/lib/python3.10/site-packages/shelf_pose_est
+[1.797s] copying /home/fxck/work/build/shelf_pose_est/build/lib/shelf_pose_est/aruco_detect.py -> /home/fxck/work/install/shelf_pose_est/lib/python3.10/site-packages/shelf_pose_est
+[1.797s] copying /home/fxck/work/build/shelf_pose_est/build/lib/shelf_pose_est/realsense_color_pub.py -> /home/fxck/work/install/shelf_pose_est/lib/python3.10/site-packages/shelf_pose_est
+[1.797s] copying /home/fxck/work/build/shelf_pose_est/build/lib/shelf_pose_est/__init__.py -> /home/fxck/work/install/shelf_pose_est/lib/python3.10/site-packages/shelf_pose_est
+[1.797s] byte-compiling /home/fxck/work/install/shelf_pose_est/lib/python3.10/site-packages/shelf_pose_est/heihei.py to heihei.cpython-310.pyc
+[1.797s] byte-compiling /home/fxck/work/install/shelf_pose_est/lib/python3.10/site-packages/shelf_pose_est/aruco_detect.py to aruco_detect.cpython-310.pyc
+[1.797s] byte-compiling /home/fxck/work/install/shelf_pose_est/lib/python3.10/site-packages/shelf_pose_est/realsense_color_pub.py to realsense_color_pub.cpython-310.pyc
+[1.797s] byte-compiling /home/fxck/work/install/shelf_pose_est/lib/python3.10/site-packages/shelf_pose_est/__init__.py to __init__.cpython-310.pyc
+[1.797s] running install_data
+[1.797s] creating /home/fxck/work/install/shelf_pose_est/share/ament_index
+[1.797s] creating /home/fxck/work/install/shelf_pose_est/share/ament_index/resource_index
+[1.798s] creating /home/fxck/work/install/shelf_pose_est/share/ament_index/resource_index/packages
+[1.798s] copying resource/shelf_pose_est -> /home/fxck/work/install/shelf_pose_est/share/ament_index/resource_index/packages
+[1.798s] copying package.xml -> /home/fxck/work/install/shelf_pose_est/share/shelf_pose_est
+[1.798s] running install_egg_info
+[1.798s] Copying ../../build/shelf_pose_est/shelf_pose_est.egg-info to /home/fxck/work/install/shelf_pose_est/lib/python3.10/site-packages/shelf_pose_est-0.0.0-py3.10.egg-info
+[1.798s] running install_scripts
+[1.798s] Installing aruco_detect script to /home/fxck/work/install/shelf_pose_est/lib/shelf_pose_est
+[1.798s] Installing stream_rs script to /home/fxck/work/install/shelf_pose_est/lib/shelf_pose_est
+[1.798s] writing list of installed files to '/home/fxck/work/build/shelf_pose_est/install.log'
+[1.842s] Invoked command in '/home/fxck/work/src/shelf_pose_est' returned '0': PYTHONPATH=/home/fxck/work/build/shelf_pose_est/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/fxck/work/install/shelf_pose_est/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/shelf_pose_est build --build-base /home/fxck/work/build/shelf_pose_est/build install --record /home/fxck/work/build/shelf_pose_est/install.log --single-version-externally-managed install_data

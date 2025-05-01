@@ -1,0 +1,88 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-914a12a069d4a3e6496d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "ira_laser_tools",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ira_laser_tools_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ira_laser_tools_uninstall-c2e9f8f8bfc0c5c2f85d.json",
+					"name" : "ira_laser_tools_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "laserscan_multi_merger::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-laserscan_multi_merger-699675a285c650c22f8f.json",
+					"name" : "laserscan_multi_merger",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "laserscan_virtualizer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-laserscan_virtualizer-c4619beac2e0eb2ffbf1.json",
+					"name" : "laserscan_virtualizer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-fc6ba4d270174f8b4430.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/fxck/work/build/ira_laser_tools",
+		"source" : "/home/fxck/work/src/ira_laser_tools"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

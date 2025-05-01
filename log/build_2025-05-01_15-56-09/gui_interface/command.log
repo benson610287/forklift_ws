@@ -1,0 +1,6 @@
+Invoking command in '/home/fxck/work/build/gui_interface': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/fxck/work/src/gui/gui_interface -DCMAKE_INSTALL_PREFIX=/home/fxck/work/install/gui_interface
+Invoked command in '/home/fxck/work/build/gui_interface' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/fxck/work/src/gui/gui_interface -DCMAKE_INSTALL_PREFIX=/home/fxck/work/install/gui_interface
+Invoking command in '/home/fxck/work/build/gui_interface': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/fxck/work/build/gui_interface -- -j16 -l16
+Invoked command in '/home/fxck/work/build/gui_interface' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/fxck/work/build/gui_interface -- -j16 -l16
+Invoking command in '/home/fxck/work/build/gui_interface': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/fxck/work/build/gui_interface
+Invoked command in '/home/fxck/work/build/gui_interface' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/fxck/work/build/gui_interface

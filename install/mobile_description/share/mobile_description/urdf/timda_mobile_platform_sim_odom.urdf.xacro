@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="timda_mobile_platform">
+  <xacro:property name="M_PI" value="3.14159265359" />
+  <xacro:property name="M_PI_2" value="1.57079632679" />
+  <xacro:include filename="$(find mobile_description)/urdf/timda_mobile_platform.gazebo.xacro" />
+  <xacro:include filename="$(find hector_sensors_description)/urdf/hokuyo_utm30lx.urdf.xacro" />
+
+  <xacro:macro name="timda_mobile_platform" params="prefix">
+    <xacro:hokuyo_utm30lx name="front_lidar" parent="${prefix}base_link" ros_topic="laser_front"
+                          update_rate="30" ray_count="270"
+                          min_angle="-135" max_angle="135">
+      <origin xyz="0.38516904756 0.28066904756 0.11" rpy="${M_PI} 0 ${M_PI/4}" />
+    </xacro:hokuyo_utm30lx>
+
+    <xacro:hokuyo_utm30lx name="back_lidar" parent="${prefix}base_link" ros_topic="laser_back"
+                          update_rate="30" ray_count="270"
+                          min_angle="-135" max_angle="135">
+      <origin xyz="-0.38616904756 -0.28066904756 0.11" rpy="${M_PI} 0 ${M_PI/4+M_PI}" />
+    </xacro:hokuyo_utm30lx>
+
+    <link name="${prefix}base_footprint">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <box size="0.01 0.01 0.01" />
+        </geometry>
+      </visual>
+    </link>
+
+    <joint name="${prefix}base_link_joint" type="fixed">
+      <origin xyz="0.0 0 0.05" rpy="0 0 0" />
+      <parent link="${prefix}base_footprint"/>
+      <child link="${prefix}base_link" />
+    </joint>
+
+    <link name="${prefix}base_link">
+      <inertial>
+        <origin
+          xyz="-0.03475 -0.00014056 0.15811"
+          rpy="0 0 0" />
+        <mass
+          value="0.0" />
+        <inertia
+          ixx="0.29031"
+          ixy="-0.0013778"
+          ixz="-0.00016386"
+          iyy="0.25069"
+          iyz="5.56E-05"
+          izz="0.48464" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://mobile_description/meshes/base_link.STL" />
+        </geometry>
+        <material
+          name="">
+          <color rgba="0.75294 0.75294 0.75294 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://mobile_description/meshes/base_link.STL" />
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.0</mu>
+              <mu2>0.0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+
+    <xacro:timda_mobile_platform_gazebo prefix="${prefix}" />
+
+  </xacro:macro>
+</robot>

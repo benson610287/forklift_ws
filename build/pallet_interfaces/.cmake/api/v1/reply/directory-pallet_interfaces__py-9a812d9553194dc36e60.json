@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "pallet_interfaces__py",
+		"source" : "/home/fxck/work/build/pallet_interfaces/pallet_interfaces__py"
+	}
+}
