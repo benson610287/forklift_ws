@@ -100,7 +100,19 @@ RUN pip install pip==22.0 \
 	gym==0.21.0 \
 	stable-baselines3==1.7.0 \
 	torch==2.0.0 \
-	tensorboard==2.12.0 
+	tensorboard==2.12.0 \
+	ultralytics \
+	numpy==1.22.3 \
+	matplotlib==3.5.1 
+RUN mkdir -p /etc/apt/keyrings
+RUN curl -sSf https://librealsense.intel.com/Debian/librealsense.pgp | sudo tee /etc/apt/keyrings/librealsense.pgp > /dev/null
+RUN apt-get install apt-transport-https
+RUN echo "deb [signed-by=/etc/apt/keyrings/librealsense.pgp] https://librealsense.intel.com/Debian/apt-repo `lsb_release -cs` main" | sudo tee /etc/apt/sources.list.d/librealsense.list
+RUN apt-get update
+RUN apt-get install -y librealsense2-utils
+RUN apt-get install -y librealsense2-dev
+RUN apt install -y ros-humble-realsense2-camera
+
 #RUN sudo apt install -y python3-pip 
 #RUN sudo apt install -y python3-dev 
 #RUN sudo apt install -y python3-setuptools

@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 # 開啟攝影機
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(6)
 
 # 假設參考物是 21 cm，在影像上長度是 420 px
 REFERENCE_CM = 21.0

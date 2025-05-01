@@ -11,7 +11,7 @@ class ImagePublisher(Node):
         self.publisher_ = self.create_publisher(Image, '/Pallet/BoxImage', 10)
         self.timer_ = self.create_timer(0.01, self.publish_image)
         self.bridge_ = CvBridge()
-        self.cap = cv2.VideoCapture(0) 
+        self.cap = cv2.VideoCapture(25) 
         self.bridge = CvBridge()
 
         if not self.cap.isOpened():
