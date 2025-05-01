@@ -276,21 +276,21 @@ public:
 
     int cputs(const char *str)
     {
-        printf(str);
+        printf("%s",str);
         return 0;
     }
 
-    char *getpass(const char *prompt)
-    {
-        // implementada en unistd.h
-        return nullptr;
-    }
+    // char *getpass(const char *prompt)
+    // {
+    //     // implementada en unistd.h
+    //     return nullptr;
+    // }
 
-    int gettext(int l, int t, int r, int b, void *destination)
-    {
-        // Provide a meaningful implementation or remove the parameters if not needed.
-        return 0;
-    }
+    // int gettext(int l, int t, int r, int b, void *destination)
+    // {
+    //     // Provide a meaningful implementation or remove the parameters if not needed.
+    //     return 0;
+    // }
 
 } console;
 
