@@ -14,7 +14,7 @@ int main(int argc, char **argv)
   // ros::init(argc, argv, "talker");
  
   Console C;
-  int ch;
+  // int ch;
   // ros::NodeHandle mobile;
   // ros::NodeHandle slide;
   // ros::Publisher mobile_pub = mobile.advertise<geometry_msgs::Twist>("mobile/cmd_vel", 1000);
