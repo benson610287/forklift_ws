@@ -3,6 +3,7 @@ from rclpy.node import Node
 from sensor_msgs.msg import Image
 from geometry_msgs.msg import Pose, PoseArray
 from std_srvs.srv import SetBool
+from interface.srv import Maincontroller
 from cv_bridge import CvBridge
 import os
 import configparser
@@ -54,7 +55,7 @@ class ArucoDetect(Node):
         # self.subscription = self.create_subscription(Image, '/camera/camera/color/image_raw', self.detect_aruco_callback, 10)
         self.publisher_ = None
         self.subscription = None
-        self.srv = self.create_service(SetBool, 'toggle_aruco_detection', self.toggle_aruco_callback)
+        self.srv = self.create_service(Maincontroller, 'toggle_aruco_detection', self.toggle_aruco_callback)
 
         self.bridge = CvBridge()
 
@@ -70,32 +71,34 @@ class ArucoDetect(Node):
         # State of the Node
         self.active = False
 
+    # response.done = 0 
     def toggle_aruco_callback(self, request, response):
         # Activate publisher and subsciber
-        if request.data and not self.active:
+        if request.enable and not self.active:
             self.publisher_ = self.create_publisher(PoseArray, 'aruco_detect', 10)
             self.subscription = self.create_subscription(Image, '/camera/camera/color/image_raw', self.detect_aruco_callback, 10)
-            response.success = True
-            response.message = "ArUco detection activated"
+            response.done = 0
+            # response.success = True
+            # response.message = "ArUco detection activated"
             self.get_logger().info("ArUco detection activated")
             self.active = True
         # Deactivate publisher and subsciber
-        elif not request.data and self.active:
+        elif not request.enable and self.active:
             self.destroy_publisher(self.publisher_)
             self.destroy_subscription(self.subscription)
             cv2.destroyAllWindows()
-            response.success = True
-            response.message = "ArUco detection deactivated"
+            response.done = True
+            # response.message = "ArUco detection deactivated"
             self.get_logger().info("ArUco detection deactivated")
-            self.active = False
+            self.active = 1
         # Same state as requested
         else:
             if self.active:
                 state_str = "active"
             else:
                 state_str = "inactive"
-            response.success = True
-            response.message = f"ArUco detection already {state_str}"
+            response.done = 2
+            # response.message = f"ArUco detection already {state_str}"
             self.get_logger().info(f"ArUco detection already {state_str}")
         return response
 
