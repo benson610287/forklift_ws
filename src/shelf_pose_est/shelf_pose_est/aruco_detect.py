@@ -41,7 +41,7 @@ def read_camera_config(filepath):
     return camera_matrix, dist_coeffs
 
 # Load calibration from ini next to this script
-calib_file = os.path.join(os.path.dirname(__file__), 'camera_calibration.ini')
+calib_file = os.path.join('src/shelf_pose_est/shelf_pose_est/camera_calibration.ini')
 cam_mtx, dist = read_camera_config(calib_file)
 
 # Precompute OpenCV camera matrix and distortion coefficients once
