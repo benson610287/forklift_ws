@@ -23,9 +23,15 @@ class MinimalClientAsync(Node):
         self.res=Taskcmd.Response()
         self.task1_thread=Thread(target=self.send_request1)
         self.task1_event=Event()
-
-
         self.task1_thread.start()
+
+        self.task2_thread=Thread(target=self.send_request2)
+        self.task2_event=Event()
+        self.task2_thread.start()
+
+
+
+
         self.ros_thread = Thread(target=rclpy.spin, args=(self,))
         self.ros_thread.start()
 
@@ -51,22 +57,20 @@ class MinimalClientAsync(Node):
         while True:
             self.task1_event.wait()
             self.task1_event.clear()
-            print("aa")
+            print("doing task1")
             self.req.task="task1"
             self.future = self.cli.call_async(self.req)
             self.future.add_done_callback(self.task1_response_callback)
-            print("vvvv")
+            print("done task1")
         
     def task1_response_callback(self, future):
         try:
             self.res = future.result()
-            print("vvvv")
-            print(self.res.state)
+            print("task1 res=",self.res.state)
             if self.res.state==1:
                 self.ui.tasklist.addItem("task1 complete")
             else:
                 self.ui.tasklist.addItem("task1 fail")
-
         except Exception as e:
             print(f"[ERROR] 服務回應錯誤: {e}")
 
@@ -75,19 +79,53 @@ class MinimalClientAsync(Node):
         self.ui.tasklist.addItem("task1")
         self.task1_event.set()
 
+
+
+
+    def send_request2(self):
+        while True:
+            self.task2_event.wait()
+            self.task2_event.clear()
+            print("doing task2")
+            self.req.task="task2"
+            self.future = self.cli.call_async(self.req)
+            self.future.add_done_callback(self.task2_response_callback)
+            print("done task2")
+        
+    def task2_response_callback(self, future):
+        try:
+            self.res = future.result()
+            print("task2 res=",self.res.state)
+            if self.res.state==0:
+                self.ui.tasklist.addItem("task2 activated")
+            elif self.res.state==1:
+                self.ui.tasklist.addItem("task2 deactivate")
+            elif self.res.state==2:
+                self.ui.tasklist.addItem("task2 already active")
+            else:
+                self.ui.tasklist.addItem("task2 fail")
+        except Exception as e:
+            print(f"[ERROR] 服務回應錯誤: {e}")
+
     def task2(self):
         self.ui.tasklist.clear()
         self.ui.tasklist.addItem("task2")
-        print("bb")
-        self.req.task="task2"
-        self.future = self.cli.call_async(self.req)
-        rclpy.spin_until_future_complete(self, self.future)
-        res=self.future.result()
-        print(res.state)
-        if res.state==1:
-            self.ui.tasklist.addItem("task2 complete")
-        else:
-            self.ui.tasklist.addItem("task2 fail")
+        self.task2_event.set()
+
+
+    # def task2(self):
+    #     self.ui.tasklist.clear()
+    #     self.ui.tasklist.addItem("task2")
+    #     print("bb")
+    #     self.req.task="task2"
+    #     self.future = self.cli.call_async(self.req)
+    #     rclpy.spin_until_future_complete(self, self.future)
+    #     res=self.future.result()
+    #     print(res.state)
+    #     if res.state==1:
+    #         self.ui.tasklist.addItem("task2 complete")
+    #     else:
+    #         self.ui.tasklist.addItem("task2 fail")
     def task3(self):
         self.ui.tasklist.clear()
         self.ui.tasklist.addItem("task3")

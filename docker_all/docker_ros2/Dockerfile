@@ -131,14 +131,14 @@ RUN echo "deb [signed-by=/etc/apt/keyrings/librealsense.pgp] https://librealsens
 RUN apt update && apt install -y \
     # ros2 
     python3-rosdep \
-    ros-humble-diagnostic-updater \
     # realsense
     librealsense2-utils \
     librealsense2-dev \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-RUN sudo pip3 install setuptools 
+RUN pip3 install setuptools \
+    pyrealsense2
     # opencv-contrib-python==4.11.0.86
 
 RUN ./config/pip/pip_setup.sh
