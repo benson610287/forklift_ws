@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'main.ui'
+# Form implementation generated from reading ui file 'src/gui/gui/gui/main.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(980, 790)
+        MainWindow.resize(1920, 1080)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
@@ -86,21 +86,35 @@ class Ui_MainWindow(object):
         self.verticalLayout.setStretch(0, 100)
         self.verticalLayout.setStretch(5, 100)
         self.tasklist = QtWidgets.QListWidget(self.centralwidget)
-        self.tasklist.setGeometry(QtCore.QRect(370, 40, 481, 511))
+        self.tasklist.setGeometry(QtCore.QRect(280, 0, 481, 491))
         font = QtGui.QFont()
         font.setPointSize(24)
         self.tasklist.setFont(font)
         self.tasklist.setObjectName("tasklist")
         self.exit = QtWidgets.QPushButton(self.centralwidget)
-        self.exit.setGeometry(QtCore.QRect(560, 600, 279, 120))
+        self.exit.setGeometry(QtCore.QRect(280, 500, 279, 120))
         self.exit.setMaximumSize(QtCore.QSize(16777215, 120))
         font = QtGui.QFont()
         font.setPointSize(24)
         self.exit.setFont(font)
         self.exit.setObjectName("exit")
+        self.open_camera = QtWidgets.QPushButton(self.centralwidget)
+        self.open_camera.setGeometry(QtCore.QRect(280, 620, 279, 120))
+        self.open_camera.setMaximumSize(QtCore.QSize(16777215, 120))
+        font = QtGui.QFont()
+        font.setPointSize(24)
+        self.open_camera.setFont(font)
+        self.open_camera.setObjectName("open_camera")
+        self.out1 = QtWidgets.QOpenGLWidget(self.centralwidget)
+        self.out1.setGeometry(QtCore.QRect(560, 500, 300, 200))
+        self.out1.setObjectName("out1")
+        self.out2 = QtWidgets.QLabel(self.centralwidget)
+        self.out2.setGeometry(QtCore.QRect(870, 500, 300, 200))
+        self.out2.setText("")
+        self.out2.setObjectName("out2")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 980, 26))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1920, 26))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -120,13 +134,4 @@ class Ui_MainWindow(object):
         self.task5.setText(_translate("MainWindow", "task_5"))
         self.task6.setText(_translate("MainWindow", "task_6"))
         self.exit.setText(_translate("MainWindow", "exit"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
+        self.open_camera.setText(_translate("MainWindow", "open_camera"))

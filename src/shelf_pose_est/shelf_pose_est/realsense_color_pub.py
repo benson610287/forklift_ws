@@ -100,7 +100,7 @@ class ImagePublisher(Node):
         color_intrinsics = color_profile.get_intrinsics()
 
         # Get RealSense color intrinsics and export to ini
-        ini_path = os.path.join(os.path.dirname(__file__), 'camera_calibration.ini')
+        ini_path = os.path.join('src/shelf_pose_est/shelf_pose_est/camera_calibration.ini')
         save_realsense_intrinsics(ini_path, color_intrinsics)
 
         # Initialize CvBridge
