@@ -11,6 +11,10 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 
+from sensor_msgs.msg import Image
+from cv_bridge import CvBridge
+import cv2
+
 class MinimalClientAsync(Node):
 
     def __init__(self):
@@ -21,21 +25,38 @@ class MinimalClientAsync(Node):
         self.req = Taskcmd.Request()
         self.tasklist=[]
         self.res=Taskcmd.Response()
+        self.bridge = CvBridge()
+        self.camera_tmp=None
+        self.subscription = self.create_subscription(
+            Image,
+            '/camera/camera/color/image_raw',
+            self.camera_callback,
+            10)
+
+
+
+        self.all_thread_flag=True
         self.task1_thread=Thread(target=self.send_request1)
         self.task1_event=Event()
+        self.task1_event.daemon = True 
         self.task1_thread.start()
 
         self.task2_thread=Thread(target=self.send_request2)
         self.task2_event=Event()
+        self.task2_event.daemon = True 
         self.task2_thread.start()
 
 
 
 
         self.ros_thread = Thread(target=rclpy.spin, args=(self,))
+        self.ros_thread.daemon = True 
         self.ros_thread.start()
 
-
+        self.camera_thread = Thread(target=self.start_camera)
+        self.camera_event=Event()
+        self.camera_thread.daemon = True 
+        self.camera_thread.start()
 
         app = QtWidgets.QApplication(sys.argv)
         MainWindow = QtWidgets.QMainWindow()
@@ -47,6 +68,7 @@ class MinimalClientAsync(Node):
         self.ui.task4.clicked.connect(self.task4)
         self.ui.task5.clicked.connect(self.task5)
         self.ui.task6.clicked.connect(self.task6)
+        # self.ui.open_camera.clicked.connect(self.start_camera)
         self.ui.exit.clicked.connect(self.exit)
 
         MainWindow.show()
@@ -54,7 +76,7 @@ class MinimalClientAsync(Node):
         
 
     def send_request1(self):
-        while True:
+        while self.all_thread_flag:
             self.task1_event.wait()
             self.task1_event.clear()
             print("doing task1")
@@ -83,7 +105,7 @@ class MinimalClientAsync(Node):
 
 
     def send_request2(self):
-        while True:
+        while self.all_thread_flag:
             self.task2_event.wait()
             self.task2_event.clear()
             print("doing task2")
@@ -178,7 +200,48 @@ class MinimalClientAsync(Node):
             self.ui.tasklist.addItem("task6 complete")
         else:
             self.ui.tasklist.addItem("task6 fail")
+
+
+
+    def start_camera(self):
+        while self.all_thread_flag:
+            self.camera_event.wait()
+            self.camera_event.clear()
+            print("doing camera")
+            # self.req.task="task2"
+            # self.future = self.cli.call_async(self.req)
+            # self.future.add_done_callback(self.task2_response_callback)
+            camera_tmp = cv2.resize(self.camera_tmp, (300, 200))   # 改變尺寸和視窗相同
+            camera_tmp = cv2.cvtColor(camera_tmp, cv2.COLOR_BGR2RGB)  # 轉換成 RGB
+            height, width, channel = camera_tmp.shape    # 讀取尺寸和 channel數量
+            bytesPerline = channel * width          # 設定 bytesPerline ( 轉換使用 )
+            # 轉換影像為 QImage，讓 PyQt5 可以讀取
+            img = QtGui.QImage(camera_tmp, width, height, bytesPerline, QtGui.QImage.Format_RGB888)
+            self.ui.out2.setPixmap(QtGui.QPixmap.fromImage(img))
+
+            print("done cmaera")
+    def camera_callback(self,msg):
+        self.camera_tmp=self.bridge.imgmsg_to_cv2(msg,'bgr8')
+        self.camera_event.set()
+
+
+
+
     def exit(self):
+        # self.task1_thread.kill()
+        # self.task2_thread.kill()
+        # self.camera_thread.kill()
+        # self.ros_thread.kill()
+        self.all_thread_flag=False
+        # rclpy.shutdown()
+        self.task1_event.set()
+        self.task2_event.set()
+        self.camera_event.set()
+        self.task1_thread.join()
+        self.task2_thread.join()
+        self.camera_thread.join()
+        rclpy.shutdown()
+        self.ros_thread.join()
         sys.exit()
     # def _setup_ui(self):
     #     print("Setting up UI")

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>980</width>
-    <height>790</height>
+    <width>1920</width>
+    <height>1080</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -173,10 +173,10 @@
    <widget class="QListWidget" name="tasklist">
     <property name="geometry">
      <rect>
-      <x>370</x>
-      <y>40</y>
+      <x>280</x>
+      <y>0</y>
       <width>481</width>
-      <height>511</height>
+      <height>491</height>
      </rect>
     </property>
     <property name="font">
@@ -188,8 +188,8 @@
    <widget class="QPushButton" name="exit">
     <property name="geometry">
      <rect>
-      <x>560</x>
-      <y>600</y>
+      <x>280</x>
+      <y>500</y>
       <width>279</width>
       <height>120</height>
      </rect>
@@ -209,13 +209,60 @@
      <string>exit</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="open_camera">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>620</y>
+      <width>279</width>
+      <height>120</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>120</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>24</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>open_camera</string>
+    </property>
+   </widget>
+   <widget class="QOpenGLWidget" name="out1">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>500</y>
+      <width>300</width>
+      <height>200</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="out2">
+    <property name="geometry">
+     <rect>
+      <x>870</x>
+      <y>500</y>
+      <width>300</width>
+      <height>200</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>980</width>
+     <width>1920</width>
      <height>26</height>
     </rect>
    </property>
