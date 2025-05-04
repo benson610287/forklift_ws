@@ -55,9 +55,8 @@ class controller(Node):
                 self.get_logger().error(f"Inner service failed: {e}")
                 res.state = -1
             
-        elif req.task=="task2":
-            print("a")
-            self.get_logger().info("Calling shelf_pose...")
+        elif req.task=="task2_start":
+            self.get_logger().info("starting shelf_pose...")
             inner_req = Maincontroller.Request()
             inner_req.enable = True
             future = self.cli_shelf_pose.call_async(inner_req)
@@ -70,6 +69,24 @@ class controller(Node):
             except Exception as e:
                 self.get_logger().error(f"Inner service failed: {e}")
                 res.state = -1
+
+
+        elif req.task=="task2_close":
+            self.get_logger().info("closing shelf_pose...")
+            inner_req = Maincontroller.Request()
+            inner_req.enable = False
+            future = self.cli_shelf_pose.call_async(inner_req)
+            while not future.done():
+                time.sleep(0.01)
+            try:
+                inner_res = future.result()
+                print("inner_res.done=",inner_res.done)
+                res.state=inner_res.done
+            except Exception as e:
+                self.get_logger().error(f"Inner service failed: {e}")
+                res.state = -1
+
+
         elif req.task=="task3":
             print("a")
             # self.req.enable=True

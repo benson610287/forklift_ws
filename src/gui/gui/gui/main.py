@@ -41,10 +41,14 @@ class MinimalClientAsync(Node):
         self.task1_event.daemon = True 
         self.task1_thread.start()
 
-        self.task2_thread=Thread(target=self.send_request2)
-        self.task2_event=Event()
-        self.task2_event.daemon = True 
-        self.task2_thread.start()
+        self.task2_start_thread=Thread(target=self.send_start_request2)
+        self.task2_close_thread=Thread(target=self.send_close_request2)
+        self.task2_start_event=Event()
+        self.task2_close_event=Event()
+        self.task2_start_event.daemon = True 
+        self.task2_close_event.daemon = True 
+        self.task2_start_thread.start()
+        self.task2_close_thread.start()
 
 
 
@@ -63,7 +67,8 @@ class MinimalClientAsync(Node):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(MainWindow)
         self.ui.task1.clicked.connect(self.task1)
-        self.ui.task2.clicked.connect(self.task2)
+        self.ui.task2_open.clicked.connect(self.task2_open)
+        self.ui.task2_close.clicked.connect(self.task2_close)
         self.ui.task3.clicked.connect(self.task3)
         self.ui.task4.clicked.connect(self.task4)
         self.ui.task5.clicked.connect(self.task5)
@@ -104,15 +109,25 @@ class MinimalClientAsync(Node):
 
 
 
-    def send_request2(self):
+    def send_start_request2(self):
         while self.all_thread_flag:
-            self.task2_event.wait()
-            self.task2_event.clear()
-            print("doing task2")
-            self.req.task="task2"
+            self.task2_start_event.wait()
+            self.task2_start_event.clear()
+            print("starting task2")
+            self.req.task="task2_start"
             self.future = self.cli.call_async(self.req)
             self.future.add_done_callback(self.task2_response_callback)
-            print("done task2")
+            print("start task2")
+
+    def send_close_request2(self):
+        while self.all_thread_flag:
+            self.task2_close_event.wait()
+            self.task2_close_event.clear()
+            print("closing task2")
+            self.req.task="task2_close"  #not yet
+            self.future = self.cli.call_async(self.req)
+            self.future.add_done_callback(self.task2_response_callback)
+            print("close task2")
         
     def task2_response_callback(self, future):
         try:
@@ -123,16 +138,21 @@ class MinimalClientAsync(Node):
             elif self.res.state==1:
                 self.ui.tasklist.addItem("task2 deactivate")
             elif self.res.state==2:
-                self.ui.tasklist.addItem("task2 already active")
+                self.ui.tasklist.addItem("task2 command error")
             else:
                 self.ui.tasklist.addItem("task2 fail")
         except Exception as e:
             print(f"[ERROR] 服務回應錯誤: {e}")
 
-    def task2(self):
+    def task2_open(self):
         self.ui.tasklist.clear()
-        self.ui.tasklist.addItem("task2")
-        self.task2_event.set()
+        self.ui.tasklist.addItem("task2_start")
+        self.task2_start_event.set()
+
+    def task2_close(self):
+        self.ui.tasklist.clear()
+        self.ui.tasklist.addItem("task2_close")
+        self.task2_close_event.set()
 
 
     # def task2(self):
@@ -217,7 +237,7 @@ class MinimalClientAsync(Node):
             bytesPerline = channel * width          # 設定 bytesPerline ( 轉換使用 )
             # 轉換影像為 QImage，讓 PyQt5 可以讀取
             img = QtGui.QImage(camera_tmp, width, height, bytesPerline, QtGui.QImage.Format_RGB888)
-            self.ui.out2.setPixmap(QtGui.QPixmap.fromImage(img))
+            self.ui.shelf_pose_camera.setPixmap(QtGui.QPixmap.fromImage(img))
 
             print("done cmaera")
     def camera_callback(self,msg):
@@ -235,10 +255,12 @@ class MinimalClientAsync(Node):
         self.all_thread_flag=False
         # rclpy.shutdown()
         self.task1_event.set()
-        self.task2_event.set()
+        self.task2_start_event.set()
+        self.task2_close_event.set()
         self.camera_event.set()
         self.task1_thread.join()
-        self.task2_thread.join()
+        self.task2_start_thread.join()
+        self.task2_close_thread.join()
         self.camera_thread.join()
         rclpy.shutdown()
         self.ros_thread.join()
