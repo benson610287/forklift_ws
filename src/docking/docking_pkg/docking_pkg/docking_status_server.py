@@ -1,4 +1,4 @@
-from docking_interface.srv import Dockingstatus  # 假設 .srv 檔叫 TaskStatus.srv
+from interface.srv import Maincontroller  # 假設 .srv 檔叫 TaskStatus.srv
 import rclpy
 from rclpy.node import Node
 import time
@@ -9,7 +9,7 @@ class DockingStatusServer(Node):
 
     def __init__(self):
         super().__init__('docking_status_server')
-        self.srv = self.create_service(Dockingstatus, 'docking_status_server', self.docking_status_callback)
+        self.srv = self.create_service(Maincontroller, 'docking_status_server', self.docking_status_callback)
         self.get_logger().info('DockingTaskStatus service is ready.')
 
     def docking_status_callback(self, request, response):
