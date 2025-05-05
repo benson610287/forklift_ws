@@ -1,8 +1,0 @@
-sudo apt-get update
-colcon build
-source install/setup.bash
-
-cd src
-pip3 install -r yolov8_ros/requirements.txt
-
-rosdep install --from-paths src --ignore-src -r -y

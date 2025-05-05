@@ -1,0 +1,16 @@
+sudo apt-get update
+colcon build
+source install/setup.bash
+
+pip install pyrealsense2
+pip install ultralytics
+sudo apt install ros-humble-cv-bridge  
+pip install opencv-python numpy
+
+#如果numpy錯誤就打
+pip install 'numpy<2.0' --force-reinstall
+
+sudo apt install ros-humble-librealsense2*
+
+ros2 launch realsense2_camera rs_launch.py 
+
