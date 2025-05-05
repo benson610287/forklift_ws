@@ -90,7 +90,7 @@ class ArucoDetect(Node):
             response.done = True
             # response.message = "ArUco detection deactivated"
             self.get_logger().info("ArUco detection deactivated")
-            self.active = 1
+            self.active = False
         # Same state as requested
         else:
             if self.active:
