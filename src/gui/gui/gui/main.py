@@ -248,16 +248,12 @@ class MinimalClientAsync(Node):
 
 
     def exit(self):
-        # self.task1_thread.kill()
-        # self.task2_thread.kill()
-        # self.camera_thread.kill()
-        # self.ros_thread.kill()
         self.all_thread_flag=False
-        # rclpy.shutdown()
         self.task1_event.set()
         self.task2_start_event.set()
         self.task2_close_event.set()
         self.camera_event.set()
+
         self.task1_thread.join()
         self.task2_start_thread.join()
         self.task2_close_thread.join()
@@ -265,15 +261,6 @@ class MinimalClientAsync(Node):
         rclpy.shutdown()
         self.ros_thread.join()
         sys.exit()
-    # def _setup_ui(self):
-    #     print("Setting up UI")
-        
-    #     print("aa")
-    #     self.destroy_node()
-    # def ui_thread(self):
-    #     self.ui_loop=Thread(target=self._setup_ui)
-    #     self.ui_loop.daemon=True
-    #     self.ui_loop.start()
 
 
     
@@ -286,14 +273,6 @@ def main(args=None):
     rclpy.init(args=args)
 
     minimal_client = MinimalClientAsync()
-
-
-    
-    # response = minimal_client.send_request(int(1), int(2))
-    # minimal_client.get_logger().info(
-    #     'Result of add_two_ints: for %d + %d = %d' %
-    #     (int(sys.argv[1]), int(sys.argv[2]), response.sum))
-
     minimal_client.destroy_node()
     rclpy.shutdown()
 
