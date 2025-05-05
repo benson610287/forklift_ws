@@ -32,9 +32,6 @@ $ git push -u origin $your_brenchname
 this node subscriber to '/camera/camera/color/image_raw' topic for image.
 Use "ros2 service call /toggle_aruco_detection interface/srv/Maincontroller '{enable: True}'" to activate aruco detection
 Use "ros2 service call /toggle_aruco_detection interface/srv/Maincontroller '{enable: False}'" to deactivate aruco detection
-returns 0 if activate
-return 1 if deactivate
-return 3 if stay at current state
 ```
 
 
