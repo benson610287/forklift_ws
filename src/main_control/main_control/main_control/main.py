@@ -49,10 +49,10 @@ class controller(Node):
                 time.sleep(0.01)
             try:
                 inner_res = future.result()
-                print("inner_res.done=",inner_res.done)
+                print("Pallet_inner_res.done=",inner_res.done)
                 res.state=inner_res.done
             except Exception as e:
-                self.get_logger().error(f"Inner service failed: {e}")
+                self.get_logger().error(f"Pallet Inner service failed: {e}")
                 res.state = -1
             
         elif req.task=="task2_start":
@@ -64,10 +64,10 @@ class controller(Node):
                 time.sleep(0.01)
             try:
                 inner_res = future.result()
-                print("inner_res.done=",inner_res.done)
+                print("shelf_pose_inner_res.done=",inner_res.done)
                 res.state=inner_res.done
             except Exception as e:
-                self.get_logger().error(f"Inner service failed: {e}")
+                self.get_logger().error(f"shelf_pose Inner service failed: {e}")
                 res.state = -1
 
 
@@ -80,10 +80,10 @@ class controller(Node):
                 time.sleep(0.01)
             try:
                 inner_res = future.result()
-                print("inner_res.done=",inner_res.done)
+                print("shelf_pose_inner_res.done=",inner_res.done)
                 res.state=inner_res.done
             except Exception as e:
-                self.get_logger().error(f"Inner service failed: {e}")
+                self.get_logger().error(f"shelf_pose Inner service failed: {e}")
                 res.state = -1
 
 
@@ -138,11 +138,7 @@ def main(args=None):
     executor.add_node(minimal_client)
     minimal_client.get_logger().info('beginning')
     executor.spin()
-    # response = minimal_client.send_request(int(sys.argv[1]), int(sys.argv[2]))
-    # minimal_client.get_logger().info(
-    #     'Result of add_two_ints: for %d + %d = %d' %
-    #     (int(sys.argv[1]), int(sys.argv[2]), response.sum))
-    # rclpy.spin(minimal_client)
+
     minimal_client.destroy_node()
     rclpy.shutdown()
 
