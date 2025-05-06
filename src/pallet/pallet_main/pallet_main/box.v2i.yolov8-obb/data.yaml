@@ -1,6 +1,7 @@
-train: train/images
-val: valid/images
-test: test/images
+path: ../box.v2i.yolov8-obb
+train: .images/train/
+val: ./images/valid
+test: ./images/test
 
 names: 
   0: box
