@@ -12,23 +12,24 @@ class Plane:
 class Bin:
     def __init__(self, args):
         self.args = args
+        args.bin_model=2
         if self.args.bin_model == 1:
             self.Bin_pos = [2.55, 1.05, 0] # bin_2 30x20x15
-            self.Bin = p.loadURDF("Pallet_RL/envs/bin_description/urdf/bin_2.urdf", self.Bin_pos, useFixedBase=True) 
+            self.Bin = p.loadURDF("src/pallet/BPP_ws/Pallet_RL/envs/bin_description/urdf/bin_2.urdf", self.Bin_pos, useFixedBase=True) 
             self.L = 30
             self.W = 20
             self.H = 15
 
         elif self.args.bin_model == 2:
             self.Bin_pos = [3.05, 1.55, 0] # bin_4 40x30x20
-            self.Bin = p.loadURDF("Pallet_RL/envs/bin_description/urdf/bin_4.urdf", self.Bin_pos, useFixedBase=True) 
+            self.Bin = p.loadURDF("src/pallet/BPP_ws/Pallet_RL/envs/bin_description/urdf/bin_4.urdf", self.Bin_pos, useFixedBase=True) 
             self.L = 40
             self.W = 30
             self.H = 20
         
         elif self.args.bin_model == 3:
             self.Bin_pos = [2.8, 1.8, 0] # bin_5 35x35x24
-            self.Bin = p.loadURDF("Pallet_RL/envs/bin_description/urdf/bin_5.urdf", self.Bin_pos, useFixedBase=True) 
+            self.Bin = p.loadURDF("src/pallet/BPP_ws/Pallet_RL/envs/bin_description/urdf/bin_5.urdf", self.Bin_pos, useFixedBase=True) 
             self.L = 35
             self.W = 35
             self.H = 24
@@ -38,39 +39,62 @@ class Bin:
 class box:
     def __init__(self, args):
         self.args = args
+        args.box_model=2
         if self.args.box_model == 1:
             self.num = random.randint(1,4)
         elif self.args.box_model == 2:
             self.num = random.randint(5,9)
         elif self.args.box_model == 3:
             self.num = random.randint(10,16)
-
+        
         self.pre_box_pos = [5, 5, 0]
         self.pre_box_ori = p.getQuaternionFromEuler([0, 0, 0])
+    def get_box(self,box):
+        if box=='1':
+            self.box_1 = p.loadURDF("src/pallet/BPP_ws/Pallet_RL/envs/box_description/urdf/box_5.urdf", self.pre_box_pos, self.pre_box_ori)
 
+            self.L = 3
+            self.W = 4
+            self.H = 2
+            self.select='5'
+        elif box=='2':
+            self.box_1 = p.loadURDF("src/pallet/BPP_ws/Pallet_RL/envs/box_description/urdf/box_6.urdf", self.pre_box_pos, self.pre_box_ori)
+
+            self.L = 3
+            self.W = 5
+            self.H = 2
+            self.select='6'
+        elif box=='3':
+            self.box_1 = p.loadURDF("src/pallet/BPP_ws/Pallet_RL/envs/box_description/urdf/box_7.urdf", self.pre_box_pos, self.pre_box_ori)
+
+            self.L = 4
+            self.W = 5
+            self.H = 2
+            self.select='7'
+        self.V = self.L * self.W * self.H
     def rand_box(self):
 
 #-------------------------------------bin_2------------------------------------------------------
         if self.num == 1:
-            self.box_1 = p.loadURDF("Pallet_RL/envs/box_description/urdf/box_1.urdf", self.pre_box_pos, self.pre_box_ori)
+            self.box_1 = p.loadURDF("src/pallet/BPP_ws/Pallet_RL/envs/box_description/urdf/box_1.urdf", self.pre_box_pos, self.pre_box_ori)
 
             self.L = 5
             self.W = 10
             self.H = 2
         elif self.num == 2:
-            self.box_1 = p.loadURDF("//Pallet_RL/envs/box_description/urdf/box_2.urdf", self.pre_box_pos, self.pre_box_ori)
+            self.box_1 = p.loadURDF("//src/pallet/BPP_ws/Pallet_RL/envs/box_description/urdf/box_2.urdf", self.pre_box_pos, self.pre_box_ori)
 
             self.L = 6
             self.W = 6
             self.H = 1
         elif self.num == 3:
-            self.box_1 = p.loadURDF("Pallet_RL/envs/box_description/urdf/box_3.urdf", self.pre_box_pos, self.pre_box_ori)
+            self.box_1 = p.loadURDF("src/pallet/BPP_ws/Pallet_RL/envs/box_description/urdf/box_3.urdf", self.pre_box_pos, self.pre_box_ori)
 
             self.L = 5
             self.W = 5
             self.H = 5
         elif self.num == 4:
-            self.box_1 = p.loadURDF("Pallet_RL/envs/box_description/urdf/box_4.urdf", self.pre_box_pos, self.pre_box_ori)
+            self.box_1 = p.loadURDF("src/pallet/BPP_ws/Pallet_RL/envs/box_description/urdf/box_4.urdf", self.pre_box_pos, self.pre_box_ori)
 
             self.L = 3
             self.W = 9
@@ -78,76 +102,76 @@ class box:
 
 #-------------------------------------bin_4------------------------------------------------------
         elif self.num == 5:
-            self.box_1 = p.loadURDF("Pallet_RL/envs/box_description/urdf/box_5.urdf", self.pre_box_pos, self.pre_box_ori)
+            self.box_1 = p.loadURDF("src/pallet/BPP_ws/Pallet_RL/envs/box_description/urdf/box_5.urdf", self.pre_box_pos, self.pre_box_ori)
 
             self.L = 3
             self.W = 4
             self.H = 2
         elif self.num == 6:
-            self.box_1 = p.loadURDF("Pallet_RL/envs/box_description/urdf/box_6.urdf", self.pre_box_pos, self.pre_box_ori)
+            self.box_1 = p.loadURDF("src/pallet/BPP_ws/Pallet_RL/envs/box_description/urdf/box_6.urdf", self.pre_box_pos, self.pre_box_ori)
 
             self.L = 3
             self.W = 5
             self.H = 2
         elif self.num == 7:
-            self.box_1 = p.loadURDF("Pallet_RL/envs/box_description/urdf/box_7.urdf", self.pre_box_pos, self.pre_box_ori)
+            self.box_1 = p.loadURDF("src/pallet/BPP_ws/Pallet_RL/envs/box_description/urdf/box_7.urdf", self.pre_box_pos, self.pre_box_ori)
 
             self.L = 4
             self.W = 5
             self.H = 2
         elif self.num == 8:
-            self.box_1 = p.loadURDF("Pallet_RL/envs/box_description/urdf/box_8.urdf", self.pre_box_pos, self.pre_box_ori)
+            self.box_1 = p.loadURDF("src/pallet/BPP_ws/Pallet_RL/envs/box_description/urdf/box_8.urdf", self.pre_box_pos, self.pre_box_ori)
 
             self.L = 3
             self.W = 5
             self.H = 4
         elif self.num == 9:
-            self.box_1 = p.loadURDF("Pallet_RL/envs/box_description/urdf/box_9.urdf", self.pre_box_pos, self.pre_box_ori)
+            self.box_1 = p.loadURDF("src/pallet/BPP_ws/Pallet_RL/envs/box_description/urdf/box_9.urdf", self.pre_box_pos, self.pre_box_ori)
 
             self.L = 4
             self.W = 5
             self.H = 3
 # ---------------------------------------------------real_box-------------------------------------
         elif self.num == 10:
-            self.box_1 = p.loadURDF("Pallet_RL/envs/box_description/urdf/box_10.urdf", self.pre_box_pos, self.pre_box_ori)
+            self.box_1 = p.loadURDF("src/pallet/BPP_ws/Pallet_RL/envs/box_description/urdf/box_10.urdf", self.pre_box_pos, self.pre_box_ori)
 
             self.L = 21
             self.W = 28
             self.H = 10
 
         elif self.num == 11:
-            self.box_1 = p.loadURDF("Pallet_RL/envs/box_description/urdf/box_11.urdf", self.pre_box_pos, self.pre_box_ori)
+            self.box_1 = p.loadURDF("src/pallet/BPP_ws/Pallet_RL/envs/box_description/urdf/box_11.urdf", self.pre_box_pos, self.pre_box_ori)
 
             self.L = 21
             self.W = 25
             self.H = 12
         elif self.num == 12:
-            self.box_1 = p.loadURDF("Pallet_RL/envs/box_description/urdf/box_12.urdf", self.pre_box_pos, self.pre_box_ori)
+            self.box_1 = p.loadURDF("src/pallet/BPP_ws/Pallet_RL/envs/box_description/urdf/box_12.urdf", self.pre_box_pos, self.pre_box_ori)
 
             self.L = 12
             self.W = 25
             self.H = 23
         elif self.num == 13:
-            self.box_1 = p.loadURDF("Pallet_RL/envs/box_description/urdf/box_13.urdf", self.pre_box_pos, self.pre_box_ori)
+            self.box_1 = p.loadURDF("src/pallet/BPP_ws/Pallet_RL/envs/box_description/urdf/box_13.urdf", self.pre_box_pos, self.pre_box_ori)
 
             self.L = 21
             self.W = 4
             self.H = 10
         elif self.num == 14:
-            self.box_1 = p.loadURDF("Pallet_RL/envs/box_description/urdf/box_14.urdf", self.pre_box_pos, self.pre_box_ori)
+            self.box_1 = p.loadURDF("src/pallet/BPP_ws/Pallet_RL/envs/box_description/urdf/box_14.urdf", self.pre_box_pos, self.pre_box_ori)
 
             self.L = 22
             self.W = 6
             self.H = 11
         elif self.num == 15:
-            self.box_1 = p.loadURDF("Pallet_RL/envs/box_description/urdf/box_15.urdf", self.pre_box_pos, self.pre_box_ori)
+            self.box_1 = p.loadURDF("src/pallet/BPP_ws/Pallet_RL/envs/box_description/urdf/box_15.urdf", self.pre_box_pos, self.pre_box_ori)
 
             self.L = 11
             self.W = 7
             self.H = 18
 
         elif self.num == 16:
-            self.box_1 = p.loadURDF("Pallet_RL/envs/box_description/urdf/box_16.urdf", self.pre_box_pos, self.pre_box_ori)
+            self.box_1 = p.loadURDF("src/pallet/BPP_ws/Pallet_RL/envs/box_description/urdf/box_16.urdf", self.pre_box_pos, self.pre_box_ori)
 
             self.L = 21
             self.W = 28
@@ -158,12 +182,13 @@ class box:
         self.V = self.L * self.W * self.H
 
     def stack(self, pos, ori):
-        select = str(self.num)
+        # select = str(self.num)
+        # select = '5'
         #remove random_box
         p.removeBody(self.box_1)
         
         #stack select box to bin or tray
-        self.stack_box = p.loadURDF("Pallet_RL/envs/box_description/urdf/box_"+ select +".urdf", pos, ori, useFixedBase=True)
+        self.stack_box = p.loadURDF("src/pallet/BPP_ws/Pallet_RL/envs/box_description/urdf/box_"+ self.select +".urdf", pos, ori, useFixedBase=True)
 
 class camera:
     def __init__(self):
