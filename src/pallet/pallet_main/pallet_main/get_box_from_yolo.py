@@ -11,7 +11,7 @@ class BoxDetectorNode(Node):
     def __init__(self):
         super().__init__('box_detector_node')
         self.bridge = CvBridge()
-
+        self.pallet_mode=0
         # --- 1. 訂閱 Topic ---
         self.color_sub = self.create_subscription(
             Image, '/camera/camera/color/image_raw', self.color_callback, 10)
@@ -19,9 +19,11 @@ class BoxDetectorNode(Node):
             Image, '/camera/camera/aligned_depth_to_color/image_raw', self.depth_callback, 10)
         self.info_sub = self.create_subscription(
             CameraInfo, '/camera/camera/color/camera_info', self.info_callback, 10)
-
+        # --- 5. Boxinfo Publisher ---
+        self.box_pub = self.create_publisher(Boxinfo, '/Pallet/MultiBoxInfo', 10)
+        self.box_pubb = self.create_publisher(Boxinfo, '/Pallet/SingBoxInfo', 10)
         # --- 2. YOLO 模型 ---
-        self.model = YOLO('work/src/pallet/pallet_main/pallet_main/yolov8n.pt').to('cuda')  # 或換成你自己的 .pt
+        self.model = YOLO('src/pallet/pallet_main/pallet_main/best.pt').to('cuda')  # 或換成你自己的 .pt
 
         # --- 3. 暫存影像 & 內參 ---
         self.color_image = None
@@ -32,8 +34,7 @@ class BoxDetectorNode(Node):
         # --- 4. 定時器驅動偵測流程 ---
         self.create_timer(0.1, self.detect_loop)  # 10Hz
 
-        # --- 5. Boxinfo Publisher ---
-        self.box_pub = self.create_publisher(Boxinfo, '/Pallet/BoxInfo', 10)
+
 
     def color_callback(self, msg: Image):
         self.color_image = self.bridge.imgmsg_to_cv2(msg, 'bgr8')
@@ -100,7 +101,11 @@ class BoxDetectorNode(Node):
         msg.width = float(w_m * 100)   # 轉 cm
         msg.length = float(h_m * 100)  # 轉 cm
         msg.height = float(z_nearest * 100)  # 轉 cm
-        self.box_pub.publish(msg)
+        if self.pallet_mode==0:
+            
+            self.box_pub.publish(msg)
+        else:
+            self.box_pubb.publish(msg)
 
         # 6. 視覺化 (除錯用)
         img = self.color_image.copy()

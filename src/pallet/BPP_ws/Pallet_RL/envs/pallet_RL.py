@@ -42,6 +42,7 @@ class Pallet_env(gym.Env):
         self.init_score_space()
 
         self.select_pos = None
+        self.stack_ep = [0,0,0,0]
         
         self.pos_ep1 = None
         self.pos_ep2 = None
@@ -114,13 +115,14 @@ class Pallet_env(gym.Env):
                                #[[L,W,H,V,count], [x, y, z]]
     # input stack box_ori 
     def step(self, action):
-
+        action, box_type = action
         reward = 0
         stack_score = 0
         self.select_other_flag = False
         self.non_full_flag = False
         self.box1 = box(self.args)
-        self.box1.rand_box()
+        # self.box1.rand_box()
+        self.box1.get_box(box_type)
         _, _, _= self.camera.get_information()
 
         # first box stack origin point
@@ -307,7 +309,7 @@ class Pallet_env(gym.Env):
         self.count +=1
         # time.sleep(1)
         
-        return obs, reward, self.done, {}
+        return obs, reward, self.done, [self.stack_ep]
 
     def reset(self):
 
@@ -1331,12 +1333,16 @@ class Pallet_env(gym.Env):
                 self.eps_stage.append(self.pos_ep2)
                 # self.normal_eps(self.pos_ep3)
                 self.box_pos = self.pos_ep1
+                print("a=0,pos=",self.pos_ep1)
+                self.stack_ep=self.box_pos
         
         if (action == 1):
             self.success_stack = self.decide_stack(self.mask_space, self.pos_ep2)
             if (self.success_stack):
                 self.box_pos = self.pos_ep2
                 self.eps_stage.append(self.pos_ep1)
+                print("a=1,pos=",self.pos_ep2)
+                self.stack_ep=self.box_pos
                 # self.normal_eps(self.pos_ep3)
 
         # if (action == 2):
@@ -1354,6 +1360,8 @@ class Pallet_env(gym.Env):
                     self.eps.pop(j)
                     self.eps_stage.append(self.pos_ep1)
                     self.eps_stage.append(self.pos_ep2)
+                    print("a=2,pos=",self.box_pos)
+                    self.stack_ep=self.box_pos
                     # self.normal_eps(self.pos_ep3)
                     break
 

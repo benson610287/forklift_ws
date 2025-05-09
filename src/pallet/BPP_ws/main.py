@@ -8,8 +8,8 @@ from Pallet_RL.envs.argument import get_args
 
 def main(args):
 
-    models_dir = "Pallet_RL/models/PPO"
-    logdir = "Pallet_RL/logs"
+    models_dir = "src/pallet/BPP_ws/Pallet_RL/models"
+    logdir = "src/pallet/BPP_ws/Pallet_RL/logs"
 
     if not os.path.exists(models_dir):
         os.makedirs(models_dir)
@@ -18,6 +18,10 @@ def main(args):
         os.makedirs(logdir)
 
     env=gym.make('pallet-v0')
+
+    args.mode='test'
+    episodes=1000
+    args.load_model="11_04_400000.0"
 
     if args.mode == "train":
         model = PPO("MultiInputPolicy", env, verbose=1,n_steps=500,seed=0, tensorboard_log=logdir)
@@ -72,14 +76,17 @@ def main(args):
         obs = env.reset()
         # obs = env.reset()
 
-        episodes = args.episode
+        # episodes = args.episode
 
         for i in range(episodes):
-            obs = env.reset()
+            # obs = env.reset()
             done = False
-            while not done:
-                action = model.predict(obs)
-                obs, reward, done, info = env.step(action[0])
+            # print("obs=",obs)
+            # while not done:
+            input("eeeeee= ")
+            action = model.predict(obs)
+            obs, reward, done, info = env.step((action[0],'3'))
+            print("action=",action[0],"stack_ep=",info[0])
             # if dones:
             #     env.reset()
             env.render()
