@@ -2,6 +2,7 @@ import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Image, CameraInfo
 from pallet_interfaces.msg import Boxinfo
+from std_msgs.msg import Int64
 from cv_bridge import CvBridge
 from ultralytics import YOLO
 import cv2
@@ -20,7 +21,7 @@ class BoxDetectorNode(Node):
         self.info_sub = self.create_subscription(
             CameraInfo, '/camera/camera/color/camera_info', self.info_callback, 10)
         # --- 5. Boxinfo Publisher ---
-        self.box_pub = self.create_publisher(Boxinfo, '/Pallet/MultiBoxInfo', 10)
+        self.box_pub = self.create_publisher(Int64, '/Pallet/boxtype', 10)
         self.box_pubb = self.create_publisher(Boxinfo, '/Pallet/SingBoxInfo', 10)
         # --- 2. YOLO 模型 ---
         self.model = YOLO('src/pallet/pallet_main/pallet_main/best.pt').to('cuda')  # 或換成你自己的 .pt
@@ -32,7 +33,8 @@ class BoxDetectorNode(Node):
         self.fy = None
 
         # --- 4. 定時器驅動偵測流程 ---
-        self.create_timer(0.1, self.detect_loop)  # 10Hz
+        self.get_yolo_sub=self.create_subscription(Int64,'Pallet/yolo_cmd',self.detect_loop,10)
+        # self.create_timer(0.1, self.detect_loop_test)  # 10Hz
 
 
 
@@ -53,8 +55,88 @@ class BoxDetectorNode(Node):
             self.fy = msg.k[4]
             self.get_logger().info(f'Loaded intrinsics fx={self.fx:.1f}, fy={self.fy:.1f}')
 
+    # def detect_loop_test(self):
+    #     boxtype=0
+    #     # 等待所有資料準備好
+    #     if any(x is None for x in (self.color_image, self.depth_image, self.fx, self.fy)):
 
-    def detect_loop(self):
+    #     # if None in (self.color_image, self.depth_image, self.fx, self.fy):
+    #         return
+
+    #     # 1. YOLO 偵測
+    #     results = self.model(self.color_image)
+    #     # boxes = results[0].boxes.xyxy.cpu().numpy()  # shape=(N,4)
+    #     boxes = results[0].obb.xywhr.cpu().numpy()
+
+    #     candidates = []
+    #     for xc, yc, w, h, angle in boxes:
+    #         rect = ((xc, yc), (w, h), np.degrees(angle))
+    #         box = cv2.boxPoints(rect).astype(int)
+
+    #         x_min = np.clip(np.min(box[:, 0]), 0, self.depth_image.shape[1] - 1)
+    #         x_max = np.clip(np.max(box[:, 0]), 0, self.depth_image.shape[1] - 1)
+    #         y_min = np.clip(np.min(box[:, 1]), 0, self.depth_image.shape[0] - 1)
+    #         y_max = np.clip(np.max(box[:, 1]), 0, self.depth_image.shape[0] - 1)
+
+    #         # ROI 中位數深度 (m)
+    #         roi = self.depth_image[y_min:y_max, x_min:x_max]
+    #         valid = roi[(roi > 0.1) & (roi < 5.0)]
+    #         if valid.size == 0:
+    #             continue
+
+    #         z = float(np.median(valid))
+    #         candidates.append((z, box))  # 你也可以保留 boxPoints 結果
+
+
+    #     # 3. 挑最近的那個
+    #     z_nearest, box_nearest = min(candidates, key=lambda x: x[0])
+    #     z_nearest *= (39 / 40)  # 校正
+
+    #     # 4. 計算實際長寬 (m) —— 使用 box 四點計算像素長寬
+    #     # box_nearest 是 shape (4,2)，每兩個相鄰點為一條邊
+    #     edge_lengths = [np.linalg.norm(box_nearest[i] - box_nearest[(i + 1) % 4]) for i in range(4)]
+    #     w_px = max(edge_lengths)
+    #     h_px = min(edge_lengths)
+
+    #     # 透過相機內參換算成實際尺寸
+    #     w_m = (w_px * z_nearest) / self.fx
+    #     h_m = (h_px * z_nearest) / self.fy
+
+    #     # 5. 發 Boxinfo
+    #     inner_msg = Int64()
+    #     width = float(w_m * 100)   # 轉 cm
+    #     length = float(h_m * 100)  # 轉 cm
+    #     height = float(z_nearest * 100)  # 轉 cm
+    #     if 22.5>=width>=17.5 and 32.5>=length>=27.5:
+    #         inner_msg.data=2
+    #     else:
+    #         inner_msg.data=-1
+    #         pass
+    #     if boxtype==0:
+            
+    #         self.box_pub.publish(inner_msg)
+    #     else:
+    #         pass
+    #         # self.box_pubb.publish(msg)
+
+    #     # 6. 視覺化 (除錯用)
+    #     img = self.color_image.copy()
+
+    #     # 繪製旋轉框
+    #     cv2.polylines(img, [box_nearest], isClosed=True, color=(0, 0, 255), thickness=2)
+
+    #     # 顯示尺寸資訊（單位換算成 cm）
+    #     label = f'{w_m*100:.1f}x{h_m*100:.1f}cm'
+    #     print(label)
+    #     text_origin = tuple(box_nearest[0])  # 以第 1 個點為起始
+    #     cv2.putText(img, label, text_origin,
+    #                 cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
+
+    #     cv2.imshow('Box Detection', img)
+    #     cv2.waitKey(1)
+
+    def detect_loop(self,msg):
+        
         # 等待所有資料準備好
         if any(x is None for x in (self.color_image, self.depth_image, self.fx, self.fy)):
 
@@ -63,58 +145,84 @@ class BoxDetectorNode(Node):
 
         # 1. YOLO 偵測
         results = self.model(self.color_image)
-        boxes = results[0].boxes.xyxy.cpu().numpy()  # shape=(N,4)
-
-        # 2. 收集 depth + 找最近箱子
+        # boxes = results[0].boxes.xyxy.cpu().numpy()  # shape=(N,4)
+        boxes = results[0].obb.xywhr.cpu().numpy()
+        scores = results[0].obb.conf.cpu().numpy()
         candidates = []
-        for x1, y1, x2, y2 in boxes.astype(int):
-            cx = (x1 + x2) // 2
-            cy = (y1 + y2) // 2
-            # 防邊界外
-            if not (0 <= cy < self.depth_image.shape[0] and 0 <= cx < self.depth_image.shape[1]):
-                continue
+        print(len(boxes))
+        id=0
+        for (xc, yc, w, h, angle), conf in zip(boxes, scores):
+            print("ID=",id,"w=",w,"h=",h,"angle=",angle,"conf=",conf)
+            id+=1
+            angle=1.57
+            # if conf>0.45:
+            rect = ((xc, yc), (w, h), np.degrees(angle))
+            box = cv2.boxPoints(rect).astype(int)
+
+            x_min = np.clip(np.min(box[:, 0]), 0, self.depth_image.shape[1] - 1)
+            x_max = np.clip(np.max(box[:, 0]), 0, self.depth_image.shape[1] - 1)
+            y_min = np.clip(np.min(box[:, 1]), 0, self.depth_image.shape[0] - 1)
+            y_max = np.clip(np.max(box[:, 1]), 0, self.depth_image.shape[0] - 1)
 
             # ROI 中位數深度 (m)
-            roi = self.depth_image[y1:y2, x1:x2]
-            valid = roi[(roi > 0.1) & (roi < 5.0)]  # 0.1~5m 有效範圍
+            roi = self.depth_image[y_min:y_max, x_min:x_max]
+            valid = roi[(roi > 0.1) & (roi < 5.0)]
             if valid.size == 0:
                 continue
+
             z = float(np.median(valid))
+            candidates.append((z, box))  # 你也可以保留 boxPoints 結果
 
-            candidates.append((z, (x1, y1, x2, y2)))
-
-        if not candidates:
-            self.get_logger().info('No valid boxes')
-            return
 
         # 3. 挑最近的那個
-        z_nearest, (x1, y1, x2, y2) = min(candidates, key=lambda x: x[0])
-        z_nearest*=(39/40)
-        # 4. 計算實際長寬 (m)
-        w_px = x2 - x1
-        h_px = y2 - y1
+        z_nearest, box_nearest = min(candidates, key=lambda x: x[0])
+        z_nearest *= (7.0 / 8.0*7.1/7.4)  # 校正
+
+        # 4. 計算實際長寬 (m) —— 使用 box 四點計算像素長寬
+        # box_nearest 是 shape (4,2)，每兩個相鄰點為一條邊
+        edge_lengths = [np.linalg.norm(box_nearest[i] - box_nearest[(i + 1) % 4]) for i in range(4)]
+        w_px = max(edge_lengths)
+        h_px = min(edge_lengths)
+
+        # 透過相機內參換算成實際尺寸
+        # w_m = (w_px * z_nearest) / self.fx
+        # h_m = (h_px * z_nearest) / self.fy
         w_m = (w_px * z_nearest) / self.fx
         h_m = (h_px * z_nearest) / self.fy
-
         # 5. 發 Boxinfo
-        msg = Boxinfo()
-        msg.width = float(w_m * 100)   # 轉 cm
-        msg.length = float(h_m * 100)  # 轉 cm
-        msg.height = float(z_nearest * 100)  # 轉 cm
-        if self.pallet_mode==0:
-            
-            self.box_pub.publish(msg)
+        inner_msg = Int64()
+        width = float(w_m * 100)   # 轉 cm
+        length = float(h_m * 100)  # 轉 cm
+        height = float(z_nearest * 100)  # 轉 cm
+        print("width=",width,"length=",length,"height=",height)
+        if 22.5>=width>=17.5 and 32.5>=length>=27.5:
+            inner_msg.data=2
         else:
-            self.box_pubb.publish(msg)
+            inner_msg.data=-1
+            pass
+        if msg.data==0:
+            
+            self.box_pub.publish(inner_msg)
+        else:
+            pass
+            # self.box_pubb.publish(msg)
 
         # 6. 視覺化 (除錯用)
         img = self.color_image.copy()
-        cv2.rectangle(img, (x1, y1), (x2, y2), (0,0,255), 2)
-        label = f'{msg.length:.1f}x{msg.width:.1f}x{msg.height:.1f}cm'
-        cv2.putText(img, label, (x1, y1-10),
-                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,255), 2)
-        cv2.imshow('Box Detection', img)
-        cv2.waitKey(1)
+
+        # 繪製旋轉框
+        cv2.polylines(img, [box_nearest], isClosed=True, color=(0, 0, 255), thickness=2)
+
+        # 顯示尺寸資訊（單位換算成 cm）
+        label = f'{w_m*100:.1f}x{h_m*100:.1f}cm'
+        print(label)
+        text_origin = tuple(box_nearest[0])  # 以第 1 個點為起始
+        cv2.putText(img, label, text_origin,
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
+
+        # cv2.imshow('Box Detection', img)
+        cv2.imwrite('box.jpg',img)
+
 
 def main(args=None):
     rclpy.init(args=args)

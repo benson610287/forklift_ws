@@ -49,9 +49,10 @@ class PalletModel(Node):
         self.obs, reward, done, info = self.env.step((action[0],str(msg.data)))
         print("action=",action[0],"stack_ep=",info[0])
         self.env.render()
-        input("aaaaa=")
-        self.env.close()
+        # input("aaaaa=")
         
+        # self.env.close()
+
         pass
 
 
