@@ -1,0 +1,22 @@
+[0.436s] Invoking command in '/home/eating/work/build/linear_move': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake --build /home/eating/work/build/linear_move -- -j8 -l8
+[0.522s] [100%] Built target slide
+[0.549s] Invoked command in '/home/eating/work/build/linear_move' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake --build /home/eating/work/build/linear_move -- -j8 -l8
+[0.553s] Invoking command in '/home/eating/work/build/linear_move': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake --install /home/eating/work/build/linear_move
+[0.568s] -- Install configuration: ""
+[0.568s] -- Up-to-date: /home/eating/work/install/linear_move/lib/linear_move/slide
+[0.568s] -- Up-to-date: /home/eating/work/install/linear_move/share/ament_index/resource_index/package_run_dependencies/linear_move
+[0.568s] -- Up-to-date: /home/eating/work/install/linear_move/share/ament_index/resource_index/parent_prefix_path/linear_move
+[0.568s] -- Up-to-date: /home/eating/work/install/linear_move/share/linear_move/environment/ament_prefix_path.sh
+[0.569s] -- Up-to-date: /home/eating/work/install/linear_move/share/linear_move/environment/ament_prefix_path.dsv
+[0.569s] -- Up-to-date: /home/eating/work/install/linear_move/share/linear_move/environment/path.sh
+[0.569s] -- Up-to-date: /home/eating/work/install/linear_move/share/linear_move/environment/path.dsv
+[0.570s] -- Up-to-date: /home/eating/work/install/linear_move/share/linear_move/local_setup.bash
+[0.570s] -- Up-to-date: /home/eating/work/install/linear_move/share/linear_move/local_setup.sh
+[0.570s] -- Up-to-date: /home/eating/work/install/linear_move/share/linear_move/local_setup.zsh
+[0.571s] -- Up-to-date: /home/eating/work/install/linear_move/share/linear_move/local_setup.dsv
+[0.571s] -- Installing: /home/eating/work/install/linear_move/share/linear_move/package.dsv
+[0.571s] -- Up-to-date: /home/eating/work/install/linear_move/share/ament_index/resource_index/packages/linear_move
+[0.572s] -- Up-to-date: /home/eating/work/install/linear_move/share/linear_move/cmake/linear_moveConfig.cmake
+[0.573s] -- Up-to-date: /home/eating/work/install/linear_move/share/linear_move/cmake/linear_moveConfig-version.cmake
+[0.573s] -- Up-to-date: /home/eating/work/install/linear_move/share/linear_move/package.xml
+[0.608s] Invoked command in '/home/eating/work/build/linear_move' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake --install /home/eating/work/build/linear_move

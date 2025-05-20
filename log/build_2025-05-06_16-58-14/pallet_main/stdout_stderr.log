@@ -1,0 +1,43 @@
+running egg_info
+creating ../../../build/pallet_main/pallet_main.egg-info
+writing ../../../build/pallet_main/pallet_main.egg-info/PKG-INFO
+writing dependency_links to ../../../build/pallet_main/pallet_main.egg-info/dependency_links.txt
+writing entry points to ../../../build/pallet_main/pallet_main.egg-info/entry_points.txt
+writing requirements to ../../../build/pallet_main/pallet_main.egg-info/requires.txt
+writing top-level names to ../../../build/pallet_main/pallet_main.egg-info/top_level.txt
+writing manifest file '../../../build/pallet_main/pallet_main.egg-info/SOURCES.txt'
+reading manifest file '../../../build/pallet_main/pallet_main.egg-info/SOURCES.txt'
+writing manifest file '../../../build/pallet_main/pallet_main.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/eating/work/build/pallet_main/build
+creating /home/eating/work/build/pallet_main/build/lib
+creating /home/eating/work/build/pallet_main/build/lib/pallet_main
+copying pallet_main/__init__.py -> /home/eating/work/build/pallet_main/build/lib/pallet_main
+copying pallet_main/handcamera.py -> /home/eating/work/build/pallet_main/build/lib/pallet_main
+copying pallet_main/GetBox.py -> /home/eating/work/build/pallet_main/build/lib/pallet_main
+copying pallet_main/PalletMain.py -> /home/eating/work/build/pallet_main/build/lib/pallet_main
+running install
+running install_lib
+creating /home/eating/work/install/pallet_main/lib/python3.10/site-packages/pallet_main
+copying /home/eating/work/build/pallet_main/build/lib/pallet_main/__init__.py -> /home/eating/work/install/pallet_main/lib/python3.10/site-packages/pallet_main
+copying /home/eating/work/build/pallet_main/build/lib/pallet_main/handcamera.py -> /home/eating/work/install/pallet_main/lib/python3.10/site-packages/pallet_main
+copying /home/eating/work/build/pallet_main/build/lib/pallet_main/GetBox.py -> /home/eating/work/install/pallet_main/lib/python3.10/site-packages/pallet_main
+copying /home/eating/work/build/pallet_main/build/lib/pallet_main/PalletMain.py -> /home/eating/work/install/pallet_main/lib/python3.10/site-packages/pallet_main
+byte-compiling /home/eating/work/install/pallet_main/lib/python3.10/site-packages/pallet_main/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/eating/work/install/pallet_main/lib/python3.10/site-packages/pallet_main/handcamera.py to handcamera.cpython-310.pyc
+byte-compiling /home/eating/work/install/pallet_main/lib/python3.10/site-packages/pallet_main/GetBox.py to GetBox.cpython-310.pyc
+byte-compiling /home/eating/work/install/pallet_main/lib/python3.10/site-packages/pallet_main/PalletMain.py to PalletMain.cpython-310.pyc
+running install_data
+creating /home/eating/work/install/pallet_main/share/ament_index
+creating /home/eating/work/install/pallet_main/share/ament_index/resource_index
+creating /home/eating/work/install/pallet_main/share/ament_index/resource_index/packages
+copying resource/pallet_main -> /home/eating/work/install/pallet_main/share/ament_index/resource_index/packages
+copying package.xml -> /home/eating/work/install/pallet_main/share/pallet_main
+running install_egg_info
+Copying ../../../build/pallet_main/pallet_main.egg-info to /home/eating/work/install/pallet_main/lib/python3.10/site-packages/pallet_main-0.0.0-py3.10.egg-info
+running install_scripts
+Installing GetBox script to /home/eating/work/install/pallet_main/lib/pallet_main
+Installing PalletMain script to /home/eating/work/install/pallet_main/lib/pallet_main
+Installing handcamera script to /home/eating/work/install/pallet_main/lib/pallet_main
+writing list of installed files to '/home/eating/work/build/pallet_main/install.log'

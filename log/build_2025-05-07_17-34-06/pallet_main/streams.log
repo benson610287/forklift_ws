@@ -1,0 +1,22 @@
+[1.288s] Invoking command in '/home/eating/work/src/pallet/pallet_main': PYTHONPATH=/home/eating/work/build/pallet_main/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/eating/work/install/pallet_main/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/pallet_main build --build-base /home/eating/work/build/pallet_main/build install --record /home/eating/work/build/pallet_main/install.log --single-version-externally-managed install_data
+[1.545s] running egg_info
+[1.545s] writing ../../../build/pallet_main/pallet_main.egg-info/PKG-INFO
+[1.545s] writing dependency_links to ../../../build/pallet_main/pallet_main.egg-info/dependency_links.txt
+[1.546s] writing entry points to ../../../build/pallet_main/pallet_main.egg-info/entry_points.txt
+[1.546s] writing requirements to ../../../build/pallet_main/pallet_main.egg-info/requires.txt
+[1.546s] writing top-level names to ../../../build/pallet_main/pallet_main.egg-info/top_level.txt
+[1.547s] reading manifest file '../../../build/pallet_main/pallet_main.egg-info/SOURCES.txt'
+[1.548s] writing manifest file '../../../build/pallet_main/pallet_main.egg-info/SOURCES.txt'
+[1.548s] running build
+[1.548s] running build_py
+[1.549s] running install
+[1.549s] running install_lib
+[1.550s] running install_data
+[1.550s] running install_egg_info
+[1.552s] removing '/home/eating/work/install/pallet_main/lib/python3.10/site-packages/pallet_main-0.0.0-py3.10.egg-info' (and everything under it)
+[1.552s] Copying ../../../build/pallet_main/pallet_main.egg-info to /home/eating/work/install/pallet_main/lib/python3.10/site-packages/pallet_main-0.0.0-py3.10.egg-info
+[1.553s] running install_scripts
+[1.571s] Installing GetBox script to /home/eating/work/install/pallet_main/lib/pallet_main
+[1.571s] Installing PalletMain script to /home/eating/work/install/pallet_main/lib/pallet_main
+[1.571s] Installing handcamera script to /home/eating/work/install/pallet_main/lib/pallet_main
+[1.571s] writing list of installed files to '/home/eating/work/build/pallet_main/install.log'
