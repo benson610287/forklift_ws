@@ -1,0 +1,151 @@
+[0.037s] Invoking command in '/home/eating/work/build/interface': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake --build /home/eating/work/build/interface -- -j8 -l8
+[0.475s] [  3%] Built target interface__cpp
+[0.475s] [  6%] Built target ament_cmake_python_copy_interface
+[0.475s] [ 12%] Built target interface__rosidl_generator_c
+[0.475s] [ 22%] Built target interface__rosidl_typesupport_cpp
+[0.476s] [ 32%] Built target interface__rosidl_typesupport_fastrtps_cpp
+[0.476s] [ 41%] Built target interface__rosidl_typesupport_fastrtps_c
+[0.476s] [ 51%] Built target interface__rosidl_typesupport_c
+[0.476s] [ 61%] Built target interface__rosidl_typesupport_introspection_cpp
+[0.476s] [ 70%] Built target interface__rosidl_typesupport_introspection_c
+[0.476s] [ 70%] Built target interface
+[0.477s] [ 74%] Built target interface__py
+[0.477s] [ 80%] Built target interface__rosidl_generator_py
+[0.477s] [ 87%] Built target interface__rosidl_typesupport_c__pyext
+[0.478s] [ 93%] Built target interface__rosidl_typesupport_fastrtps_c__pyext
+[0.478s] [100%] Built target interface__rosidl_typesupport_introspection_c__pyext
+[0.520s] running egg_info
+[0.521s] writing interface.egg-info/PKG-INFO
+[0.521s] writing dependency_links to interface.egg-info/dependency_links.txt
+[0.522s] writing top-level names to interface.egg-info/top_level.txt
+[0.526s] reading manifest file 'interface.egg-info/SOURCES.txt'
+[0.526s] writing manifest file 'interface.egg-info/SOURCES.txt'
+[0.583s] [100%] Built target ament_cmake_python_build_interface_egg
+[0.631s] Invoked command in '/home/eating/work/build/interface' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake --build /home/eating/work/build/interface -- -j8 -l8
+[0.643s] Invoking command in '/home/eating/work/build/interface': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake --install /home/eating/work/build/interface
+[0.653s] -- Install configuration: ""
+[0.653s] -- Up-to-date: /home/eating/work/install/interface/share/ament_index/resource_index/rosidl_interfaces/interface
+[0.653s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface
+[0.654s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/msg
+[0.654s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/msg/rosidl_generator_c__visibility_control.h
+[0.654s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/srv
+[0.654s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/srv/detail
+[0.654s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/srv/detail/maincontroller__struct.h
+[0.654s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/srv/detail/maincontroller__functions.c
+[0.655s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/srv/detail/maincontroller__functions.h
+[0.655s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/srv/detail/maincontroller__type_support.h
+[0.655s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/srv/maincontroller.h
+[0.655s] -- Up-to-date: /home/eating/work/install/interface/share/interface/environment/library_path.sh
+[0.655s] -- Up-to-date: /home/eating/work/install/interface/share/interface/environment/library_path.dsv
+[0.655s] -- Up-to-date: /home/eating/work/install/interface/lib/libinterface__rosidl_generator_c.so
+[0.655s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface
+[0.656s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/msg
+[0.656s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[0.656s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/srv
+[0.656s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/srv/detail
+[0.656s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/srv/detail/maincontroller__rosidl_typesupport_fastrtps_c.h
+[0.656s] -- Up-to-date: /home/eating/work/install/interface/lib/libinterface__rosidl_typesupport_fastrtps_c.so
+[0.657s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface
+[0.657s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/msg
+[0.657s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/msg/rosidl_generator_cpp__visibility_control.hpp
+[0.657s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/srv
+[0.657s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/srv/maincontroller.hpp
+[0.658s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/srv/detail
+[0.658s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/srv/detail/maincontroller__builder.hpp
+[0.658s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/srv/detail/maincontroller__traits.hpp
+[0.658s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/srv/detail/maincontroller__type_support.hpp
+[0.658s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/srv/detail/maincontroller__struct.hpp
+[0.658s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface
+[0.658s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/msg
+[0.659s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[0.659s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/srv
+[0.659s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/srv/detail
+[0.659s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/srv/detail/dds_fastrtps
+[0.660s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/srv/detail/maincontroller__rosidl_typesupport_fastrtps_cpp.hpp
+[0.660s] -- Up-to-date: /home/eating/work/install/interface/lib/libinterface__rosidl_typesupport_fastrtps_cpp.so
+[0.660s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface
+[0.660s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/msg
+[0.660s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[0.660s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/srv
+[0.661s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/srv/detail
+[0.661s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/srv/detail/maincontroller__type_support.c
+[0.661s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/srv/detail/maincontroller__rosidl_typesupport_introspection_c.h
+[0.661s] -- Up-to-date: /home/eating/work/install/interface/lib/libinterface__rosidl_typesupport_introspection_c.so
+[0.662s] -- Up-to-date: /home/eating/work/install/interface/lib/libinterface__rosidl_typesupport_c.so
+[0.662s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface
+[0.662s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/srv
+[0.663s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/srv/detail
+[0.663s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/srv/detail/maincontroller__type_support.cpp
+[0.663s] -- Up-to-date: /home/eating/work/install/interface/include/interface/interface/srv/detail/maincontroller__rosidl_typesupport_introspection_cpp.hpp
+[0.663s] -- Up-to-date: /home/eating/work/install/interface/lib/libinterface__rosidl_typesupport_introspection_cpp.so
+[0.664s] -- Up-to-date: /home/eating/work/install/interface/lib/libinterface__rosidl_typesupport_cpp.so
+[0.664s] -- Up-to-date: /home/eating/work/install/interface/share/interface/environment/pythonpath.sh
+[0.664s] -- Up-to-date: /home/eating/work/install/interface/share/interface/environment/pythonpath.dsv
+[0.664s] -- Up-to-date: /home/eating/work/install/interface/local/lib/python3.10/dist-packages/interface-0.0.0-py3.10.egg-info
+[0.665s] -- Installing: /home/eating/work/install/interface/local/lib/python3.10/dist-packages/interface-0.0.0-py3.10.egg-info/top_level.txt
+[0.665s] -- Installing: /home/eating/work/install/interface/local/lib/python3.10/dist-packages/interface-0.0.0-py3.10.egg-info/SOURCES.txt
+[0.665s] -- Installing: /home/eating/work/install/interface/local/lib/python3.10/dist-packages/interface-0.0.0-py3.10.egg-info/dependency_links.txt
+[0.665s] -- Installing: /home/eating/work/install/interface/local/lib/python3.10/dist-packages/interface-0.0.0-py3.10.egg-info/PKG-INFO
+[0.665s] -- Up-to-date: /home/eating/work/install/interface/local/lib/python3.10/dist-packages/interface
+[0.665s] -- Up-to-date: /home/eating/work/install/interface/local/lib/python3.10/dist-packages/interface/interface_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[0.665s] -- Up-to-date: /home/eating/work/install/interface/local/lib/python3.10/dist-packages/interface/libinterface__rosidl_generator_py.so
+[0.665s] -- Up-to-date: /home/eating/work/install/interface/local/lib/python3.10/dist-packages/interface/__init__.py
+[0.666s] -- Up-to-date: /home/eating/work/install/interface/local/lib/python3.10/dist-packages/interface/_interface_s.ep.rosidl_typesupport_fastrtps_c.c
+[0.666s] -- Up-to-date: /home/eating/work/install/interface/local/lib/python3.10/dist-packages/interface/_interface_s.ep.rosidl_typesupport_c.c
+[0.666s] -- Up-to-date: /home/eating/work/install/interface/local/lib/python3.10/dist-packages/interface/srv
+[0.666s] -- Up-to-date: /home/eating/work/install/interface/local/lib/python3.10/dist-packages/interface/srv/__init__.py
+[0.666s] -- Up-to-date: /home/eating/work/install/interface/local/lib/python3.10/dist-packages/interface/srv/_maincontroller.py
+[0.666s] -- Up-to-date: /home/eating/work/install/interface/local/lib/python3.10/dist-packages/interface/srv/_maincontroller_s.c
+[0.666s] -- Up-to-date: /home/eating/work/install/interface/local/lib/python3.10/dist-packages/interface/_interface_s.ep.rosidl_typesupport_introspection_c.c
+[0.666s] -- Up-to-date: /home/eating/work/install/interface/local/lib/python3.10/dist-packages/interface/interface_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[0.666s] -- Up-to-date: /home/eating/work/install/interface/local/lib/python3.10/dist-packages/interface/interface_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[0.677s] Listing '/home/eating/work/install/interface/local/lib/python3.10/dist-packages/interface'...
+[0.677s] Listing '/home/eating/work/install/interface/local/lib/python3.10/dist-packages/interface/srv'...
+[0.680s] -- Up-to-date: /home/eating/work/install/interface/local/lib/python3.10/dist-packages/interface/interface_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[0.680s] -- Up-to-date: /home/eating/work/install/interface/local/lib/python3.10/dist-packages/interface/interface_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[0.680s] -- Up-to-date: /home/eating/work/install/interface/local/lib/python3.10/dist-packages/interface/interface_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[0.680s] -- Up-to-date: /home/eating/work/install/interface/lib/libinterface__rosidl_generator_py.so
+[0.680s] -- Up-to-date: /home/eating/work/install/interface/share/interface/srv/Maincontroller.idl
+[0.680s] -- Up-to-date: /home/eating/work/install/interface/share/interface/srv/Maincontroller.srv
+[0.680s] -- Up-to-date: /home/eating/work/install/interface/share/interface/srv/Maincontroller_Request.msg
+[0.680s] -- Up-to-date: /home/eating/work/install/interface/share/interface/srv/Maincontroller_Response.msg
+[0.680s] -- Up-to-date: /home/eating/work/install/interface/share/ament_index/resource_index/package_run_dependencies/interface
+[0.680s] -- Up-to-date: /home/eating/work/install/interface/share/ament_index/resource_index/parent_prefix_path/interface
+[0.680s] -- Up-to-date: /home/eating/work/install/interface/share/interface/environment/ament_prefix_path.sh
+[0.680s] -- Up-to-date: /home/eating/work/install/interface/share/interface/environment/ament_prefix_path.dsv
+[0.680s] -- Up-to-date: /home/eating/work/install/interface/share/interface/environment/path.sh
+[0.680s] -- Up-to-date: /home/eating/work/install/interface/share/interface/environment/path.dsv
+[0.681s] -- Up-to-date: /home/eating/work/install/interface/share/interface/local_setup.bash
+[0.681s] -- Up-to-date: /home/eating/work/install/interface/share/interface/local_setup.sh
+[0.681s] -- Up-to-date: /home/eating/work/install/interface/share/interface/local_setup.zsh
+[0.681s] -- Up-to-date: /home/eating/work/install/interface/share/interface/local_setup.dsv
+[0.681s] -- Installing: /home/eating/work/install/interface/share/interface/package.dsv
+[0.681s] -- Up-to-date: /home/eating/work/install/interface/share/ament_index/resource_index/packages/interface
+[0.681s] -- Up-to-date: /home/eating/work/install/interface/share/interface/cmake/export_interface__rosidl_generator_cExport.cmake
+[0.681s] -- Up-to-date: /home/eating/work/install/interface/share/interface/cmake/export_interface__rosidl_generator_cExport-noconfig.cmake
+[0.681s] -- Up-to-date: /home/eating/work/install/interface/share/interface/cmake/export_interface__rosidl_typesupport_fastrtps_cExport.cmake
+[0.681s] -- Up-to-date: /home/eating/work/install/interface/share/interface/cmake/export_interface__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[0.681s] -- Up-to-date: /home/eating/work/install/interface/share/interface/cmake/export_interface__rosidl_generator_cppExport.cmake
+[0.682s] -- Up-to-date: /home/eating/work/install/interface/share/interface/cmake/export_interface__rosidl_typesupport_fastrtps_cppExport.cmake
+[0.682s] -- Up-to-date: /home/eating/work/install/interface/share/interface/cmake/export_interface__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[0.682s] -- Up-to-date: /home/eating/work/install/interface/share/interface/cmake/interface__rosidl_typesupport_introspection_cExport.cmake
+[0.682s] -- Up-to-date: /home/eating/work/install/interface/share/interface/cmake/interface__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[0.682s] -- Up-to-date: /home/eating/work/install/interface/share/interface/cmake/interface__rosidl_typesupport_cExport.cmake
+[0.682s] -- Up-to-date: /home/eating/work/install/interface/share/interface/cmake/interface__rosidl_typesupport_cExport-noconfig.cmake
+[0.682s] -- Up-to-date: /home/eating/work/install/interface/share/interface/cmake/interface__rosidl_typesupport_introspection_cppExport.cmake
+[0.682s] -- Up-to-date: /home/eating/work/install/interface/share/interface/cmake/interface__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[0.682s] -- Up-to-date: /home/eating/work/install/interface/share/interface/cmake/interface__rosidl_typesupport_cppExport.cmake
+[0.682s] -- Up-to-date: /home/eating/work/install/interface/share/interface/cmake/interface__rosidl_typesupport_cppExport-noconfig.cmake
+[0.682s] -- Up-to-date: /home/eating/work/install/interface/share/interface/cmake/export_interface__rosidl_generator_pyExport.cmake
+[0.682s] -- Up-to-date: /home/eating/work/install/interface/share/interface/cmake/export_interface__rosidl_generator_pyExport-noconfig.cmake
+[0.682s] -- Up-to-date: /home/eating/work/install/interface/share/interface/cmake/rosidl_cmake-extras.cmake
+[0.682s] -- Up-to-date: /home/eating/work/install/interface/share/interface/cmake/ament_cmake_export_dependencies-extras.cmake
+[0.682s] -- Up-to-date: /home/eating/work/install/interface/share/interface/cmake/ament_cmake_export_include_directories-extras.cmake
+[0.682s] -- Up-to-date: /home/eating/work/install/interface/share/interface/cmake/ament_cmake_export_libraries-extras.cmake
+[0.682s] -- Up-to-date: /home/eating/work/install/interface/share/interface/cmake/ament_cmake_export_targets-extras.cmake
+[0.683s] -- Up-to-date: /home/eating/work/install/interface/share/interface/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[0.683s] -- Up-to-date: /home/eating/work/install/interface/share/interface/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[0.683s] -- Up-to-date: /home/eating/work/install/interface/share/interface/cmake/interfaceConfig.cmake
+[0.683s] -- Up-to-date: /home/eating/work/install/interface/share/interface/cmake/interfaceConfig-version.cmake
+[0.683s] -- Up-to-date: /home/eating/work/install/interface/share/interface/package.xml
+[0.743s] Invoked command in '/home/eating/work/build/interface' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake --install /home/eating/work/build/interface

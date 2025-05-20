@@ -1,0 +1,16 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from pallet_interfaces/msg/Boxinfo.msg
+// generated code does not contain a copyright notice
+
+
+module pallet_interfaces {
+  module msg {
+    struct Boxinfo {
+      double length;
+
+      double width;
+
+      double height;
+    };
+  };
+};

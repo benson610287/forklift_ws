@@ -1,0 +1,237 @@
+[0.030s] Invoking command in '/home/eating/work/build/gui_interface': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake /home/eating/work/src/gui/gui_interface -DCMAKE_INSTALL_PREFIX=/home/eating/work/install/gui_interface
+[0.341s] -- The C compiler identification is GNU 11.4.0
+[0.342s] -- The CXX compiler identification is GNU 11.4.0
+[0.342s] -- Detecting C compiler ABI info
+[0.342s] -- Detecting C compiler ABI info - done
+[0.342s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.343s] -- Detecting C compile features
+[0.343s] -- Detecting C compile features - done
+[0.343s] -- Detecting CXX compiler ABI info
+[0.343s] -- Detecting CXX compiler ABI info - done
+[0.343s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.343s] -- Detecting CXX compile features
+[0.343s] -- Detecting CXX compile features - done
+[0.343s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.504s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.659s] -- Found geometry_msgs: 4.8.0 (/opt/ros/humble/share/geometry_msgs/cmake)
+[0.717s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.725s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.740s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.763s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.791s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.864s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[1.370s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[2.016s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.330s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.394s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+[2.397s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[2.438s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+[2.438s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[2.438s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[2.439s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[2.472s] -- Found PythonExtra: .so  
+[2.705s] -- Found ament_lint_auto: 0.12.12 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[2.751s] -- Added test 'lint_cmake' to check CMake code style
+[2.761s] -- Added test 'xmllint' to check XML markup files
+[2.769s] -- Configuring done
+[2.872s] -- Generating done
+[2.892s] -- Build files have been written to: /home/eating/work/build/gui_interface
+[2.913s] Invoked command in '/home/eating/work/build/gui_interface' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake /home/eating/work/src/gui/gui_interface -DCMAKE_INSTALL_PREFIX=/home/eating/work/install/gui_interface
+[2.917s] Invoking command in '/home/eating/work/build/gui_interface': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake --build /home/eating/work/build/gui_interface -- -j8 -l8
+[3.714s] [  3%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[3.715s] [  6%] [34m[1mGenerating C code for ROS interfaces[0m
+[3.715s] [  6%] Built target ament_cmake_python_copy_gui_interface
+[3.858s] [  6%] Built target gui_interface__cpp
+[3.894s] running egg_info
+[3.895s] creating gui_interface.egg-info
+[3.896s] writing gui_interface.egg-info/PKG-INFO
+[3.897s] writing dependency_links to gui_interface.egg-info/dependency_links.txt
+[3.897s] writing top-level names to gui_interface.egg-info/top_level.txt
+[3.898s] writing manifest file 'gui_interface.egg-info/SOURCES.txt'
+[3.899s] [  9%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[3.902s] reading manifest file 'gui_interface.egg-info/SOURCES.txt'
+[3.904s] writing manifest file 'gui_interface.egg-info/SOURCES.txt'
+[3.929s] [ 12%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[3.944s] [ 16%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[4.050s] [ 16%] Built target ament_cmake_python_build_gui_interface_egg
+[4.110s] [ 19%] [32mBuilding C object CMakeFiles/gui_interface__rosidl_generator_c.dir/rosidl_generator_c/gui_interface/srv/detail/taskcmd__functions.c.o[0m
+[4.407s] [ 22%] [32m[1mLinking C shared library libgui_interface__rosidl_generator_c.so[0m
+[4.570s] [ 22%] Built target gui_interface__rosidl_generator_c
+[4.626s] [ 25%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[4.654s] [ 29%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[4.691s] [ 32%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[4.904s] [ 35%] [32mBuilding CXX object CMakeFiles/gui_interface__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/gui_interface/srv/taskcmd__type_support.cpp.o[0m
+[4.922s] [ 38%] [32mBuilding CXX object CMakeFiles/gui_interface__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/gui_interface/srv/detail/taskcmd__type_support.cpp.o[0m
+[5.058s] [ 41%] [32mBuilding CXX object CMakeFiles/gui_interface__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/gui_interface/srv/detail/dds_fastrtps/taskcmd__type_support.cpp.o[0m
+[5.450s] [ 45%] [32mBuilding CXX object CMakeFiles/gui_interface__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/gui_interface/srv/detail/taskcmd__type_support_c.cpp.o[0m
+[5.690s] [ 48%] [32m[1mLinking CXX shared library libgui_interface__rosidl_typesupport_cpp.so[0m
+[5.765s] [ 51%] [32mBuilding CXX object CMakeFiles/gui_interface__rosidl_typesupport_c.dir/rosidl_typesupport_c/gui_interface/srv/taskcmd__type_support.cpp.o[0m
+[5.837s] [ 51%] Built target gui_interface__rosidl_typesupport_cpp
+[5.853s] [ 54%] [32mBuilding C object CMakeFiles/gui_interface__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/gui_interface/srv/detail/taskcmd__type_support.c.o[0m
+[5.890s] [ 58%] [32m[1mLinking CXX shared library libgui_interface__rosidl_typesupport_c.so[0m
+[5.900s] [ 61%] [32m[1mLinking CXX shared library libgui_interface__rosidl_typesupport_introspection_cpp.so[0m
+[6.034s] [ 64%] [32m[1mLinking C shared library libgui_interface__rosidl_typesupport_introspection_c.so[0m
+[6.050s] [ 64%] Built target gui_interface__rosidl_typesupport_c
+[6.173s] [ 64%] Built target gui_interface__rosidl_typesupport_introspection_cpp
+[6.185s] [ 64%] Built target gui_interface__rosidl_typesupport_introspection_c
+[6.293s] [ 67%] [32m[1mLinking CXX shared library libgui_interface__rosidl_typesupport_fastrtps_cpp.so[0m
+[6.363s] [ 70%] [32m[1mLinking CXX shared library libgui_interface__rosidl_typesupport_fastrtps_c.so[0m
+[6.566s] [ 70%] Built target gui_interface__rosidl_typesupport_fastrtps_cpp
+[6.599s] [ 70%] Built target gui_interface__rosidl_typesupport_fastrtps_c
+[6.653s] [ 70%] Built target gui_interface
+[6.719s] [ 74%] [34m[1mGenerating Python code for ROS interfaces[0m
+[7.593s] [ 74%] Built target gui_interface__py
+[7.753s] [ 77%] [32mBuilding C object CMakeFiles/gui_interface__rosidl_generator_py.dir/rosidl_generator_py/gui_interface/srv/_taskcmd_s.c.o[0m
+[8.082s] [ 80%] [32m[1mLinking C shared library rosidl_generator_py/gui_interface/libgui_interface__rosidl_generator_py.so[0m
+[8.248s] [ 80%] Built target gui_interface__rosidl_generator_py
+[8.361s] [ 83%] [32mBuilding C object CMakeFiles/gui_interface__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/gui_interface/_gui_interface_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[8.361s] [ 87%] [32mBuilding C object CMakeFiles/gui_interface__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/gui_interface/_gui_interface_s.ep.rosidl_typesupport_c.c.o[0m
+[8.384s] [ 90%] [32mBuilding C object CMakeFiles/gui_interface__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/gui_interface/_gui_interface_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[8.769s] [ 93%] [32m[1mLinking C shared library rosidl_generator_py/gui_interface/gui_interface_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so[0m
+[8.802s] [ 96%] [32m[1mLinking C shared library rosidl_generator_py/gui_interface/gui_interface_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so[0m
+[8.811s] [100%] [32m[1mLinking C shared library rosidl_generator_py/gui_interface/gui_interface_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so[0m
+[8.988s] [100%] Built target gui_interface__rosidl_typesupport_c__pyext
+[9.013s] [100%] Built target gui_interface__rosidl_typesupport_introspection_c__pyext
+[9.048s] [100%] Built target gui_interface__rosidl_typesupport_fastrtps_c__pyext
+[9.098s] Invoked command in '/home/eating/work/build/gui_interface' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake --build /home/eating/work/build/gui_interface -- -j8 -l8
+[9.110s] Invoking command in '/home/eating/work/build/gui_interface': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake --install /home/eating/work/build/gui_interface
+[9.435s] -- Install configuration: ""
+[9.435s] -- Installing: /home/eating/work/install/gui_interface/share/ament_index/resource_index/rosidl_interfaces/gui_interface
+[9.436s] -- Installing: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface
+[9.436s] -- Installing: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/msg
+[9.436s] -- Installing: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/msg/rosidl_generator_c__visibility_control.h
+[9.436s] -- Installing: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/srv
+[9.436s] -- Installing: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail
+[9.436s] -- Installing: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail/taskcmd__struct.h
+[9.437s] -- Installing: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail/taskcmd__type_support.h
+[9.437s] -- Installing: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail/taskcmd__functions.h
+[9.437s] -- Installing: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail/taskcmd__functions.c
+[9.437s] -- Installing: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/srv/taskcmd.h
+[9.437s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/environment/library_path.sh
+[9.437s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/environment/library_path.dsv
+[9.437s] -- Installing: /home/eating/work/install/gui_interface/lib/libgui_interface__rosidl_generator_c.so
+[9.437s] -- Set runtime path of "/home/eating/work/install/gui_interface/lib/libgui_interface__rosidl_generator_c.so" to ""
+[9.437s] -- Up-to-date: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface
+[9.438s] -- Up-to-date: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/msg
+[9.438s] -- Installing: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[9.438s] -- Up-to-date: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/srv
+[9.438s] -- Up-to-date: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail
+[9.438s] -- Installing: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail/taskcmd__rosidl_typesupport_fastrtps_c.h
+[9.438s] -- Installing: /home/eating/work/install/gui_interface/lib/libgui_interface__rosidl_typesupport_fastrtps_c.so
+[9.438s] -- Set runtime path of "/home/eating/work/install/gui_interface/lib/libgui_interface__rosidl_typesupport_fastrtps_c.so" to ""
+[9.438s] -- Up-to-date: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface
+[9.438s] -- Up-to-date: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/msg
+[9.439s] -- Installing: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/msg/rosidl_generator_cpp__visibility_control.hpp
+[9.439s] -- Up-to-date: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/srv
+[9.439s] -- Installing: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/srv/taskcmd.hpp
+[9.439s] -- Up-to-date: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail
+[9.439s] -- Installing: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail/taskcmd__struct.hpp
+[9.439s] -- Installing: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail/taskcmd__builder.hpp
+[9.439s] -- Installing: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail/taskcmd__type_support.hpp
+[9.439s] -- Installing: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail/taskcmd__traits.hpp
+[9.439s] -- Up-to-date: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface
+[9.440s] -- Up-to-date: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/msg
+[9.440s] -- Installing: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[9.440s] -- Up-to-date: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/srv
+[9.440s] -- Up-to-date: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail
+[9.440s] -- Installing: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail/dds_fastrtps
+[9.440s] -- Installing: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail/taskcmd__rosidl_typesupport_fastrtps_cpp.hpp
+[9.440s] -- Installing: /home/eating/work/install/gui_interface/lib/libgui_interface__rosidl_typesupport_fastrtps_cpp.so
+[9.440s] -- Set runtime path of "/home/eating/work/install/gui_interface/lib/libgui_interface__rosidl_typesupport_fastrtps_cpp.so" to ""
+[9.441s] -- Up-to-date: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface
+[9.441s] -- Up-to-date: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/msg
+[9.441s] -- Installing: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[9.441s] -- Up-to-date: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/srv
+[9.441s] -- Up-to-date: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail
+[9.441s] -- Installing: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail/taskcmd__type_support.c
+[9.441s] -- Installing: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail/taskcmd__rosidl_typesupport_introspection_c.h
+[9.441s] -- Installing: /home/eating/work/install/gui_interface/lib/libgui_interface__rosidl_typesupport_introspection_c.so
+[9.442s] -- Set runtime path of "/home/eating/work/install/gui_interface/lib/libgui_interface__rosidl_typesupport_introspection_c.so" to ""
+[9.442s] -- Installing: /home/eating/work/install/gui_interface/lib/libgui_interface__rosidl_typesupport_c.so
+[9.442s] -- Set runtime path of "/home/eating/work/install/gui_interface/lib/libgui_interface__rosidl_typesupport_c.so" to ""
+[9.442s] -- Up-to-date: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface
+[9.442s] -- Up-to-date: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/srv
+[9.442s] -- Up-to-date: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail
+[9.442s] -- Installing: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail/taskcmd__rosidl_typesupport_introspection_cpp.hpp
+[9.442s] -- Installing: /home/eating/work/install/gui_interface/include/gui_interface/gui_interface/srv/detail/taskcmd__type_support.cpp
+[9.442s] -- Installing: /home/eating/work/install/gui_interface/lib/libgui_interface__rosidl_typesupport_introspection_cpp.so
+[9.443s] -- Set runtime path of "/home/eating/work/install/gui_interface/lib/libgui_interface__rosidl_typesupport_introspection_cpp.so" to ""
+[9.443s] -- Installing: /home/eating/work/install/gui_interface/lib/libgui_interface__rosidl_typesupport_cpp.so
+[9.443s] -- Set runtime path of "/home/eating/work/install/gui_interface/lib/libgui_interface__rosidl_typesupport_cpp.so" to ""
+[9.443s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/environment/pythonpath.sh
+[9.443s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/environment/pythonpath.dsv
+[9.443s] -- Installing: /home/eating/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface-0.0.0-py3.10.egg-info
+[9.443s] -- Installing: /home/eating/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface-0.0.0-py3.10.egg-info/top_level.txt
+[9.443s] -- Installing: /home/eating/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface-0.0.0-py3.10.egg-info/SOURCES.txt
+[9.443s] -- Installing: /home/eating/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface-0.0.0-py3.10.egg-info/dependency_links.txt
+[9.444s] -- Installing: /home/eating/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface-0.0.0-py3.10.egg-info/PKG-INFO
+[9.444s] -- Installing: /home/eating/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface
+[9.444s] -- Installing: /home/eating/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/__init__.py
+[9.444s] -- Installing: /home/eating/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/gui_interface_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[9.444s] -- Installing: /home/eating/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/_gui_interface_s.ep.rosidl_typesupport_fastrtps_c.c
+[9.444s] -- Installing: /home/eating/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/_gui_interface_s.ep.rosidl_typesupport_c.c
+[9.444s] -- Installing: /home/eating/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/gui_interface_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[9.444s] -- Installing: /home/eating/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/srv
+[9.445s] -- Installing: /home/eating/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/srv/__init__.py
+[9.445s] -- Installing: /home/eating/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/srv/_taskcmd.py
+[9.445s] -- Installing: /home/eating/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/srv/_taskcmd_s.c
+[9.445s] -- Installing: /home/eating/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/libgui_interface__rosidl_generator_py.so
+[9.445s] -- Installing: /home/eating/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/gui_interface_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[9.445s] -- Installing: /home/eating/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/_gui_interface_s.ep.rosidl_typesupport_introspection_c.c
+[9.445s] Listing '/home/eating/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface'...
+[9.445s] Compiling '/home/eating/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/__init__.py'...
+[9.445s] Listing '/home/eating/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/srv'...
+[9.446s] Compiling '/home/eating/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/srv/__init__.py'...
+[9.446s] Compiling '/home/eating/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/srv/_taskcmd.py'...
+[9.446s] -- Installing: /home/eating/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/gui_interface_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[9.446s] -- Set runtime path of "/home/eating/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/gui_interface_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""
+[9.446s] -- Installing: /home/eating/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/gui_interface_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[9.446s] -- Set runtime path of "/home/eating/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/gui_interface_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""
+[9.446s] -- Installing: /home/eating/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/gui_interface_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[9.446s] -- Set runtime path of "/home/eating/work/install/gui_interface/local/lib/python3.10/dist-packages/gui_interface/gui_interface_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""
+[9.447s] -- Installing: /home/eating/work/install/gui_interface/lib/libgui_interface__rosidl_generator_py.so
+[9.447s] -- Set runtime path of "/home/eating/work/install/gui_interface/lib/libgui_interface__rosidl_generator_py.so" to ""
+[9.447s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/srv/Taskcmd.idl
+[9.447s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/srv/Taskcmd.srv
+[9.447s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/srv/Taskcmd_Request.msg
+[9.447s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/srv/Taskcmd_Response.msg
+[9.447s] -- Installing: /home/eating/work/install/gui_interface/share/ament_index/resource_index/package_run_dependencies/gui_interface
+[9.447s] -- Installing: /home/eating/work/install/gui_interface/share/ament_index/resource_index/parent_prefix_path/gui_interface
+[9.447s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/environment/ament_prefix_path.sh
+[9.448s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/environment/ament_prefix_path.dsv
+[9.448s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/environment/path.sh
+[9.448s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/environment/path.dsv
+[9.448s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/local_setup.bash
+[9.448s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/local_setup.sh
+[9.448s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/local_setup.zsh
+[9.448s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/local_setup.dsv
+[9.448s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/package.dsv
+[9.448s] -- Installing: /home/eating/work/install/gui_interface/share/ament_index/resource_index/packages/gui_interface
+[9.449s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/cmake/export_gui_interface__rosidl_generator_cExport.cmake
+[9.449s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/cmake/export_gui_interface__rosidl_generator_cExport-noconfig.cmake
+[9.449s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/cmake/export_gui_interface__rosidl_typesupport_fastrtps_cExport.cmake
+[9.449s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/cmake/export_gui_interface__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[9.449s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/cmake/export_gui_interface__rosidl_generator_cppExport.cmake
+[9.449s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/cmake/export_gui_interface__rosidl_typesupport_fastrtps_cppExport.cmake
+[9.449s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/cmake/export_gui_interface__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[9.449s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/cmake/gui_interface__rosidl_typesupport_introspection_cExport.cmake
+[9.449s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/cmake/gui_interface__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[9.450s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/cmake/gui_interface__rosidl_typesupport_cExport.cmake
+[9.450s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/cmake/gui_interface__rosidl_typesupport_cExport-noconfig.cmake
+[9.450s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/cmake/gui_interface__rosidl_typesupport_introspection_cppExport.cmake
+[9.450s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/cmake/gui_interface__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[9.476s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/cmake/gui_interface__rosidl_typesupport_cppExport.cmake
+[9.477s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/cmake/gui_interface__rosidl_typesupport_cppExport-noconfig.cmake
+[9.477s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/cmake/export_gui_interface__rosidl_generator_pyExport.cmake
+[9.477s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/cmake/export_gui_interface__rosidl_generator_pyExport-noconfig.cmake
+[9.477s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/cmake/rosidl_cmake-extras.cmake
+[9.477s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/cmake/ament_cmake_export_dependencies-extras.cmake
+[9.477s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/cmake/ament_cmake_export_include_directories-extras.cmake
+[9.477s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/cmake/ament_cmake_export_libraries-extras.cmake
+[9.477s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/cmake/ament_cmake_export_targets-extras.cmake
+[9.477s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[9.478s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[9.478s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/cmake/gui_interfaceConfig.cmake
+[9.478s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/cmake/gui_interfaceConfig-version.cmake
+[9.478s] -- Installing: /home/eating/work/install/gui_interface/share/gui_interface/package.xml
+[9.482s] Invoked command in '/home/eating/work/build/gui_interface' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake --install /home/eating/work/build/gui_interface

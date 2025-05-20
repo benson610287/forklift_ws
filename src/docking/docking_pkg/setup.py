@@ -23,6 +23,9 @@ setup(
             'docking_status_server = docking_pkg.docking_status_server:main',
             'dockingcamera = docking_pkg.dockingcamera:main',
             'yolo_subscriber = docking_pkg.yolo_subscriber:main',
+            'YoloDepthProcessor = docking_pkg.YoloDepthProcessor:main',
+            'ransac = docking_pkg.ransac:main',
+
         ],
     },
 )
