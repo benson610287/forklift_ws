@@ -44,16 +44,16 @@ class PalletModel(Node):
 
     def type_callback(self,msg):
 
-
-        action = self.model.predict(self.obs)
-        self.obs, reward, done, info = self.env.step((action[0],str(msg.data)))
-        print("action=",action[0],"stack_ep=",info[0])
-        self.env.render()
-        # input("aaaaa=")
+        if msg.data==-1:
+            self.get_logger().error('box type error', once=True)
+            print("reset")
+            self.obs = self.env.reset()
+        else:
+            action = self.model.predict(self.obs)
+            self.obs, reward, done, info = self.env.step((action[0],str(msg.data)))
+            print("action=",action[0],"stack_ep=",info[0])
+            self.env.render()
         
-        # self.env.close()
-
-        pass
 
 
 

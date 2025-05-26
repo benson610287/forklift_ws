@@ -22,7 +22,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            "main=pallet_model.main:main"
+            "main=pallet_model.main:main",
+            "single_main=pallet_model.single_main:main"
         ],
     },
 )

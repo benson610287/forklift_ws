@@ -10,10 +10,9 @@ class YoloCmdNode(Node):
         self.create_timer(0.1, self.loop)
         self.sensor_flag=True
     def loop(self):
-        input("start cmd")
         if self.sensor_flag:
             msg=Int64()
-            msg.data=0
+            msg.data=int(input("start cmd"))
             self.yolo_cmd_pub.publish(msg)
         else:
             pass
