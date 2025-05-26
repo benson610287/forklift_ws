@@ -23,5 +23,5 @@ def get_args():
     parser.add_argument('--episode',    default='100',    type=int,
                             help='predict episode')
 
-    args = parser.parse_args()
+    args, _ = parser.parse_known_args()
     return args

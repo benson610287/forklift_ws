@@ -122,6 +122,7 @@ class Pallet_env(gym.Env):
         self.non_full_flag = False
         self.box1 = box(self.args)
         # self.box1.rand_box()
+        print("box_type", box_type,"box_type_type", type(box_type))
         self.box1.get_box(box_type)
         _, _, _= self.camera.get_information()
 

@@ -22,7 +22,7 @@ class BoxDetectorNode(Node):
             CameraInfo, '/camera/camera/color/camera_info', self.info_callback, 10)
         # --- 5. Boxinfo Publisher ---
         self.box_pub = self.create_publisher(Int64, '/Pallet/boxtype', 10)
-        self.box_pubb = self.create_publisher(Boxinfo, '/Pallet/SingBoxInfo', 10)
+        self.box_pubb = self.create_publisher(Int64, '/Pallet/SingBoxInfo', 10)
         # --- 2. YOLO 模型 ---
         self.model = YOLO('src/pallet/pallet_main/pallet_main/best.pt').to('cuda')  # 或換成你自己的 .pt
 
@@ -150,28 +150,31 @@ class BoxDetectorNode(Node):
         scores = results[0].obb.conf.cpu().numpy()
         candidates = []
         print(len(boxes))
+        if len(boxes)==0:
+            self.get_logger().error('no box detected')
+            return
         id=0
         for (xc, yc, w, h, angle), conf in zip(boxes, scores):
             print("ID=",id,"w=",w,"h=",h,"angle=",angle,"conf=",conf)
             id+=1
-            angle=1.57
-            # if conf>0.45:
-            rect = ((xc, yc), (w, h), np.degrees(angle))
-            box = cv2.boxPoints(rect).astype(int)
+            # angle=1.57
+            if conf>0.45:
+                rect = ((xc, yc), (w, h), np.degrees(angle))
+                box = cv2.boxPoints(rect).astype(int)
 
-            x_min = np.clip(np.min(box[:, 0]), 0, self.depth_image.shape[1] - 1)
-            x_max = np.clip(np.max(box[:, 0]), 0, self.depth_image.shape[1] - 1)
-            y_min = np.clip(np.min(box[:, 1]), 0, self.depth_image.shape[0] - 1)
-            y_max = np.clip(np.max(box[:, 1]), 0, self.depth_image.shape[0] - 1)
+                x_min = np.clip(np.min(box[:, 0]), 0, self.depth_image.shape[1] - 1)
+                x_max = np.clip(np.max(box[:, 0]), 0, self.depth_image.shape[1] - 1)
+                y_min = np.clip(np.min(box[:, 1]), 0, self.depth_image.shape[0] - 1)
+                y_max = np.clip(np.max(box[:, 1]), 0, self.depth_image.shape[0] - 1)
 
-            # ROI 中位數深度 (m)
-            roi = self.depth_image[y_min:y_max, x_min:x_max]
-            valid = roi[(roi > 0.1) & (roi < 5.0)]
-            if valid.size == 0:
-                continue
+                # ROI 中位數深度 (m)
+                roi = self.depth_image[y_min:y_max, x_min:x_max]
+                valid = roi[(roi > 0.1) & (roi < 5.0)]
+                if valid.size == 0:
+                    continue
 
-            z = float(np.median(valid))
-            candidates.append((z, box))  # 你也可以保留 boxPoints 結果
+                z = float(np.median(valid))
+                candidates.append((z, box))  # 你也可以保留 boxPoints 結果
 
 
         # 3. 挑最近的那個
@@ -181,8 +184,8 @@ class BoxDetectorNode(Node):
         # 4. 計算實際長寬 (m) —— 使用 box 四點計算像素長寬
         # box_nearest 是 shape (4,2)，每兩個相鄰點為一條邊
         edge_lengths = [np.linalg.norm(box_nearest[i] - box_nearest[(i + 1) % 4]) for i in range(4)]
-        w_px = max(edge_lengths)
-        h_px = min(edge_lengths)
+        w_px = min(edge_lengths)
+        h_px = max(edge_lengths)
 
         # 透過相機內參換算成實際尺寸
         # w_m = (w_px * z_nearest) / self.fx
@@ -194,17 +197,27 @@ class BoxDetectorNode(Node):
         width = float(w_m * 100)   # 轉 cm
         length = float(h_m * 100)  # 轉 cm
         height = float(z_nearest * 100)  # 轉 cm
-        print("width=",width,"length=",length,"height=",height)
-        if 22.5>=width>=17.5 and 32.5>=length>=27.5:
-            inner_msg.data=2
+        self.get_logger().info(f'Box dimensions (cm): width={width}, length={length}, height={height}')
+        if 27.5>=width>=22.5 and 32.5>=length>=27.5:
+            inner_msg.data=2 #mid
+        elif 32.5>=width>=27.5 and 42.5>=length>=37.5:
+            inner_msg.data=1 #big
+        elif 13.5>=width>=8.5 and 23>=length>=18:
+            inner_msg.data=3 #small
         else:
-            inner_msg.data=-1
-            pass
-        if msg.data==0:
+            self.get_logger().error('box type error')
+            return
+
+
             
+        if msg.data==0:
+            self.get_logger().info(f'box_pub={inner_msg.data}')
+            # print("box_pub=",inner_msg.data)
             self.box_pub.publish(inner_msg)
-        else:
-            pass
+        elif msg.data==1:
+            self.get_logger().info(f'box_pubb={inner_msg.data}')
+            # print("box_pubb=",inner_msg.data)
+            self.box_pubb.publish(inner_msg)
             # self.box_pubb.publish(msg)
 
         # 6. 視覺化 (除錯用)
