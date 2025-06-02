@@ -1,5 +1,6 @@
 import rclpy
 <<<<<<< HEAD
+<<<<<<< HEAD
 import math
 from rclpy.node import Node
 from sensor_msgs.msg import Image
@@ -59,6 +60,8 @@ def main(args=None):
     node.destroy_node()
     rclpy.shutdown()
 =======
+=======
+>>>>>>> 2f8df0d86a3d0786f379a4f697a40e86a40618c3
 from rclpy.node import Node
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
@@ -139,7 +142,10 @@ def main(args=None):
     node.destroy_node()
     rclpy.shutdown()
     cv2.destroyAllWindows()
+<<<<<<< HEAD
 >>>>>>> taiwen
+=======
+>>>>>>> 2f8df0d86a3d0786f379a4f697a40e86a40618c3
 
 if __name__ == '__main__':
     main()
