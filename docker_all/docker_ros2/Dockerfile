@@ -99,7 +99,8 @@ RUN apt update \
 	ros-humble-urg-c\
 	ros-humble-urg-node-msgs\
 	ros-humble-xacro\
-    ros-humble-urg-node
+        ros-humble-urg-node\
+        ros-humble-ur
 	#ros-humble-urg-node
 
 
@@ -109,7 +110,8 @@ RUN apt update \
 RUN pip install setuptools==58.2.0
 #GUI require
 RUN pip install pyqt5-tools
-RUN apt-get install pyqt5-dev-tools 
+RUN apt-get install pyqt5-dev-tools
+	
 
 #GUI require
 
