@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<robot name="simple_box">
+  <link name="baseLink">
+    <inertial>
+      <origin xyz="0.2 0.25 0.15"/>
+      <mass value="1" />
+      <inertia  ixx="0.0001" ixy="0.0"  ixz="0.0"  iyy="0.0001"  iyz="0.0"  izz="0.0001" />
+    </inertial>
+    <visual>
+      <origin xyz="0.2 0.25 0.15"/>
+      <material name = 'lb'>
+        <color rgba="0 1 1 1"/>
+      </material>
+      <geometry>
+        <box size="0.4 0.5 0.3"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.2 0.25 0.15"/>
+      <geometry>
+        <box size="0.4 0.5 0.3"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="baseLink">
+    <material>Gazebo/red</material>
+  </gazebo>
+</robot>
