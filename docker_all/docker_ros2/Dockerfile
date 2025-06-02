@@ -98,8 +98,10 @@ RUN apt update \
 	ros-humble-laser-proc\
 	ros-humble-urg-c\
 	ros-humble-urg-node-msgs\
-	ros-humble-xacro
+	ros-humble-xacro\
+    ros-humble-urg-node
 	#ros-humble-urg-node
+
 
 
 
@@ -107,10 +109,9 @@ RUN apt update \
 RUN pip install setuptools==58.2.0
 #GUI require
 RUN pip install pyqt5-tools
-RUN sudo apt-get install pyqt5-dev-tools
+RUN apt-get install pyqt5-dev-tools 
 
 #GUI require
-
 
 #RUN sudo apt install -y python3-pip 
 #RUN sudo apt install -y python3-dev 
@@ -118,10 +119,32 @@ RUN sudo apt-get install pyqt5-dev-tools
 RUN apt update
 
 
+##################### ZACK ADD BEGIN ##################################
+###################### RealSense #############################
+RUN mkdir -p /etc/apt/keyrings
+RUN curl -sSf https://librealsense.intel.com/Debian/librealsense.pgp | sudo tee /etc/apt/keyrings/librealsense.pgp > /dev/null
+RUN echo "deb [signed-by=/etc/apt/keyrings/librealsense.pgp] https://librealsense.intel.com/Debian/apt-repo `lsb_release -cs` main" \
+    | tee /etc/apt/sources.list.d/librealsense.list
+
+
+RUN apt update && apt install -y \
+    # ros2 
+    python3-rosdep \
+    # realsense
+    librealsense2-utils \
+    librealsense2-dev \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN pip3 install setuptools \
+    pyrealsense2
+    # opencv-contrib-python==4.11.0.86
+
 RUN ./config/pip/pip_setup.sh
+##################### ZACK ADD END ##################################
 
 ############################## USER CONFIG ####################################
-# * Switch user to ${USER}
+#* Switch user to ${USER}
 USER ${USER}
 
 RUN ./config/shell/bash_setup.sh "${USER}" "${GROUP}" \
