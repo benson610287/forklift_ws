@@ -23,11 +23,11 @@ setup(
     entry_points={
         'console_scripts': [
         'handcamera=pallet_main.handcamera:main',
-        'GetBox=pallet_main.GetBox:main',
+        # 'GetBox=pallet_main.GetBox:main',
         'PalletMain=pallet_main.PalletMain:main',
-        'GetBoxv2=pallet_main.GetBoxv2:main',
+        # 'GetBoxv2=pallet_main.GetBoxv2:main',
         'get_box_from_yolo=pallet_main.get_box_from_yolo:main',
-        'get_box_from_yolo_4points=pallet_main.get_box_from_yolo_4points:main',
+        # 'get_box_from_yolo_4points=pallet_main.get_box_from_yolo_4points:main',
         'yolo_cmd=pallet_main.yolo_cmd:main'
         ],
     },

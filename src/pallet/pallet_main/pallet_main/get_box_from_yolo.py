@@ -3,6 +3,7 @@ from rclpy.node import Node
 from sensor_msgs.msg import Image, CameraInfo
 from pallet_interfaces.msg import Boxinfo
 from std_msgs.msg import Int64
+from geometry_msgs.msg import Twist
 from cv_bridge import CvBridge
 from ultralytics import YOLO
 import cv2
@@ -23,6 +24,7 @@ class BoxDetectorNode(Node):
         # --- 5. Boxinfo Publisher ---
         self.box_pub = self.create_publisher(Int64, '/Pallet/boxtype', 10)
         self.box_pubb = self.create_publisher(Int64, '/Pallet/SingBoxInfo', 10)
+        self.pose_pub = self.create_publisher(Twist, '/Pallet/pose', 10)
         # --- 2. YOLO 模型 ---
         self.model = YOLO('src/pallet/pallet_main/pallet_main/best.pt').to('cuda')  # 或換成你自己的 .pt
 
@@ -181,6 +183,29 @@ class BoxDetectorNode(Node):
         z_nearest, box_nearest = min(candidates, key=lambda x: x[0])
         z_nearest *= (7.0 / 8.0*7.1/7.4)  # 校正
 
+        # --- Publish Center + Angle ---
+        pose_msg = Twist()
+
+        # 中心點像素位置轉實際距離
+        center_x = np.mean(box_nearest[:, 0])
+        center_y = np.mean(box_nearest[:, 1])
+
+        # 將 pixel 坐標轉換成相機座標系下的 (x, y, z)
+        x_m = ((center_x - self.depth_image.shape[1] / 2) * z_nearest) / self.fx
+        y_m = ((center_y - self.depth_image.shape[0] / 2) * z_nearest) / self.fy
+
+        pose_msg.linear.x = float(x_m)
+        pose_msg.linear.y = float(y_m)
+        pose_msg.linear.z = float(z_nearest)  # depth
+
+        # 計算角度（角度轉換成 -pi ~ pi 區間）
+        angle_deg = np.degrees(angle)
+        angle_rad = float(angle)
+        pose_msg.angular.z = angle_rad
+
+        self.pose_pub.publish(pose_msg)
+        self.get_logger().info(f'Pose published: x={x_m:.2f}, y={y_m:.2f}, z={z_nearest:.2f}, angle(deg)={angle_deg:.1f}')
+
         # 4. 計算實際長寬 (m) —— 使用 box 四點計算像素長寬
         # box_nearest 是 shape (4,2)，每兩個相鄰點為一條邊
         edge_lengths = [np.linalg.norm(box_nearest[i] - box_nearest[(i + 1) % 4]) for i in range(4)]
@@ -188,8 +213,6 @@ class BoxDetectorNode(Node):
         h_px = max(edge_lengths)
 
         # 透過相機內參換算成實際尺寸
-        # w_m = (w_px * z_nearest) / self.fx
-        # h_m = (h_px * z_nearest) / self.fy
         w_m = (w_px * z_nearest) / self.fx
         h_m = (h_px * z_nearest) / self.fy
         # 5. 發 Boxinfo
