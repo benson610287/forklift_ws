@@ -1,33 +1,14 @@
 import rclpy
-<<<<<<< HEAD
-import math
-from rclpy.node import Node
-from geometry_msgs.msg import Twist
-from turtlesim.msg import Pose
-=======
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
 from turtlesim.msg import Pose
 from geomentry_msgs.msg import PoseStamped
->>>>>>> taiwen
 from interface.srv import Maincontroller     # CHANGE
 import math
 import random
 class TurtlePControl(Node):
     def __init__(self):
         super().__init__('PalletMain')
-<<<<<<< HEAD
-        self.srv = self.create_service(Maincontroller, 'Pallet', self.add_three_ints_callback)        # CHANGE
-        # # 訂閱烏龜的位置信息
-        # self.pose_subscriber = self.create_subscription(Pose, '/turtle1/pose', self.pose_callback, 10)
-
-        # # 發布速度指令
-        # self.velocity_publisher = self.create_publisher(Twist, '/turtle1/cmd_vel', 10)
-
-        # self.timer = self.create_timer(1/30, self.control_loop)  # 100ms 週期執行
-
-    def add_three_ints_callback(self, request, response):
-=======
         self.srv = self.create_service(Maincontroller, 'Pallet', self.actived_callback)        # CHANGE
         # # 移動平台命令
         self.mobile_position_publisher = self.create_publisher(PoseStamped, '/mobile_slam_topic', 10) #topic 名稱要改！！！
@@ -37,7 +18,6 @@ class TurtlePControl(Node):
         # self.timer = self.create_timer(1/30, self.control_loop)  # 100ms 週期執行
 
     def actived_callback(self, request, response):
->>>>>>> taiwen
         if request.enable==True:
             response.done = 1                                                  # CHANGE
         else:
