@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<robot name="timda" xmlns:xacro="http://www.ros.org/wiki/xacro">
-
-  <xacro:include filename="$(find mobile_description)/urdf/timda_mobile_platform.urdf.xacro" />
-  <xacro:include filename="$(find timda_description)/urdf/timda.gazebo.xacro" />
-
-  <xacro:timda_mobile_platform prefix=""/>
-</robot>
