@@ -1,8 +1,0 @@
-setup.py
-gui_interface/__init__.py
-gui_interface.egg-info/PKG-INFO
-gui_interface.egg-info/SOURCES.txt
-gui_interface.egg-info/dependency_links.txt
-gui_interface.egg-info/top_level.txt
-gui_interface/srv/__init__.py
-gui_interface/srv/_taskcmd.py
