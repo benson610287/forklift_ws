@@ -1,0 +1,45 @@
+[0.311s] Invoking command in '/home/eating/work/build/linear_move': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake /home/eating/work/src/linear_move -DCMAKE_INSTALL_PREFIX=/home/eating/work/install/linear_move
+[0.384s] -- The C compiler identification is GNU 11.4.0
+[0.466s] -- The CXX compiler identification is GNU 11.4.0
+[0.476s] -- Detecting C compiler ABI info
+[0.570s] -- Detecting C compiler ABI info - done
+[0.586s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.586s] -- Detecting C compile features
+[0.587s] -- Detecting C compile features - done
+[0.592s] -- Detecting CXX compiler ABI info
+[0.693s] -- Detecting CXX compiler ABI info - done
+[0.708s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.708s] -- Detecting CXX compile features
+[0.710s] -- Detecting CXX compile features - done
+[0.715s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.951s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.093s] -- Found rclcpp: 16.0.12 (/opt/ros/humble/share/rclcpp/cmake)
+[1.155s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[1.164s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.178s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.201s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.231s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.305s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[1.313s] -- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)
+[1.351s] -- Using RMW implementation 'rmw_cyclonedds_cpp' as default
+[1.364s] -- Looking for pthread.h
+[1.466s] -- Looking for pthread.h - found
+[1.467s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.558s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[1.560s] -- Found Threads: TRUE  
+[1.639s] -- Found ament_lint_auto: 0.12.12 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.756s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[1.757s] -- Configured cppcheck include dirs: /home/eating/work/src/linear_move/include
+[1.757s] -- Configured cppcheck exclude dirs and/or files: 
+[1.759s] -- Added test 'lint_cmake' to check CMake code style
+[1.761s] -- Added test 'uncrustify' to check C / C++ code style
+[1.761s] -- Configured uncrustify additional arguments: 
+[1.763s] -- Added test 'xmllint' to check XML markup files
+[1.766s] -- Configuring done
+[1.779s] -- Generating done
+[1.782s] -- Build files have been written to: /home/eating/work/build/linear_move
+[1.790s] Invoked command in '/home/eating/work/build/linear_move' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake /home/eating/work/src/linear_move -DCMAKE_INSTALL_PREFIX=/home/eating/work/install/linear_move
+[1.797s] Invoking command in '/home/eating/work/build/linear_move': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake --build /home/eating/work/build/linear_move -- -j8 -l8
+[1.855s] [ 50%] [32mBuilding CXX object CMakeFiles/slide.dir/src/slide.cpp.o[0m
+[21.350s] [100%] [32m[1mLinking CXX executable slide[0m
+[21.735s] [100%] Built target slide

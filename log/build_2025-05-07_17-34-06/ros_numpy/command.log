@@ -1,2 +1,0 @@
-Invoking command in '/home/eating/work/build/ros_numpy': /usr/bin/cmake /home/eating/work/ros_numpy -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/home/eating/work/install/ros_numpy
-Invoked command in '/home/eating/work/build/ros_numpy' returned '1': /usr/bin/cmake /home/eating/work/ros_numpy -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/home/eating/work/install/ros_numpy
