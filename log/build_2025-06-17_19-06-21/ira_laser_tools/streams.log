@@ -1,0 +1,32 @@
+[0.458s] Invoking command in '/home/eating/work/build/ira_laser_tools': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake --build /home/eating/work/build/ira_laser_tools -- -j8 -l8
+[0.513s] [35m[1mConsolidate compiler generated dependencies of target laserscan_virtualizer[0m
+[0.514s] [35m[1mConsolidate compiler generated dependencies of target laserscan_multi_merger[0m
+[0.560s] [100%] Built target laserscan_virtualizer
+[0.560s] [100%] Built target laserscan_multi_merger
+[0.629s] Invoked command in '/home/eating/work/build/ira_laser_tools' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake --build /home/eating/work/build/ira_laser_tools -- -j8 -l8
+[0.635s] Invoking command in '/home/eating/work/build/ira_laser_tools': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake --install /home/eating/work/build/ira_laser_tools
+[0.636s] -- Install configuration: ""
+[0.637s] -- Installing: /home/eating/work/install/ira_laser_tools/lib/ira_laser_tools/laserscan_multi_merger
+[0.637s] -- Set runtime path of "/home/eating/work/install/ira_laser_tools/lib/ira_laser_tools/laserscan_multi_merger" to ""
+[0.638s] -- Installing: /home/eating/work/install/ira_laser_tools/lib/ira_laser_tools/laserscan_virtualizer
+[0.638s] -- Set runtime path of "/home/eating/work/install/ira_laser_tools/lib/ira_laser_tools/laserscan_virtualizer" to ""
+[0.638s] -- Installing: /home/eating/work/install/ira_laser_tools/share/ira_laser_tools/launch
+[0.638s] -- Installing: /home/eating/work/install/ira_laser_tools/share/ira_laser_tools/launch/laserscan_multi_merger.launch
+[0.638s] -- Installing: /home/eating/work/install/ira_laser_tools/share/ira_laser_tools/launch/laserscan_virtualizer.launch
+[0.638s] -- Installing: /home/eating/work/install/ira_laser_tools/share/ament_index/resource_index/package_run_dependencies/ira_laser_tools
+[0.638s] -- Installing: /home/eating/work/install/ira_laser_tools/share/ament_index/resource_index/parent_prefix_path/ira_laser_tools
+[0.638s] -- Installing: /home/eating/work/install/ira_laser_tools/share/ira_laser_tools/environment/ament_prefix_path.sh
+[0.638s] -- Installing: /home/eating/work/install/ira_laser_tools/share/ira_laser_tools/environment/ament_prefix_path.dsv
+[0.639s] -- Installing: /home/eating/work/install/ira_laser_tools/share/ira_laser_tools/environment/path.sh
+[0.639s] -- Installing: /home/eating/work/install/ira_laser_tools/share/ira_laser_tools/environment/path.dsv
+[0.639s] -- Installing: /home/eating/work/install/ira_laser_tools/share/ira_laser_tools/local_setup.bash
+[0.639s] -- Installing: /home/eating/work/install/ira_laser_tools/share/ira_laser_tools/local_setup.sh
+[0.639s] -- Installing: /home/eating/work/install/ira_laser_tools/share/ira_laser_tools/local_setup.zsh
+[0.639s] -- Installing: /home/eating/work/install/ira_laser_tools/share/ira_laser_tools/local_setup.dsv
+[0.639s] -- Installing: /home/eating/work/install/ira_laser_tools/share/ira_laser_tools/package.dsv
+[0.640s] -- Installing: /home/eating/work/install/ira_laser_tools/share/ament_index/resource_index/packages/ira_laser_tools
+[0.640s] -- Installing: /home/eating/work/install/ira_laser_tools/share/ira_laser_tools/cmake/ament_cmake_export_dependencies-extras.cmake
+[0.640s] -- Installing: /home/eating/work/install/ira_laser_tools/share/ira_laser_tools/cmake/ira_laser_toolsConfig.cmake
+[0.640s] -- Installing: /home/eating/work/install/ira_laser_tools/share/ira_laser_tools/cmake/ira_laser_toolsConfig-version.cmake
+[0.641s] -- Installing: /home/eating/work/install/ira_laser_tools/share/ira_laser_tools/package.xml
+[0.665s] Invoked command in '/home/eating/work/build/ira_laser_tools' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake --install /home/eating/work/build/ira_laser_tools

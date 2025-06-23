@@ -1,0 +1,23 @@
+[35m[1mConsolidate compiler generated dependencies of target mobile_node[0m
+[100%] Built target mobile_node
+-- Install configuration: ""
+-- Installing: /home/eating/work/install/mecanum/include/mecanum
+-- Installing: /home/eating/work/install/mecanum/include/mecanum/TimdaModbus.h
+-- Installing: /home/eating/work/install/mecanum/include/mecanum/Mecanum.h
+-- Installing: /home/eating/work/install/mecanum/lib/mecanum/mobile_node
+-- Set runtime path of "/home/eating/work/install/mecanum/lib/mecanum/mobile_node" to ""
+-- Installing: /home/eating/work/install/mecanum/share/ament_index/resource_index/package_run_dependencies/mecanum
+-- Installing: /home/eating/work/install/mecanum/share/ament_index/resource_index/parent_prefix_path/mecanum
+-- Installing: /home/eating/work/install/mecanum/share/mecanum/environment/ament_prefix_path.sh
+-- Installing: /home/eating/work/install/mecanum/share/mecanum/environment/ament_prefix_path.dsv
+-- Installing: /home/eating/work/install/mecanum/share/mecanum/environment/path.sh
+-- Installing: /home/eating/work/install/mecanum/share/mecanum/environment/path.dsv
+-- Installing: /home/eating/work/install/mecanum/share/mecanum/local_setup.bash
+-- Installing: /home/eating/work/install/mecanum/share/mecanum/local_setup.sh
+-- Installing: /home/eating/work/install/mecanum/share/mecanum/local_setup.zsh
+-- Installing: /home/eating/work/install/mecanum/share/mecanum/local_setup.dsv
+-- Installing: /home/eating/work/install/mecanum/share/mecanum/package.dsv
+-- Installing: /home/eating/work/install/mecanum/share/ament_index/resource_index/packages/mecanum
+-- Installing: /home/eating/work/install/mecanum/share/mecanum/cmake/mecanumConfig.cmake
+-- Installing: /home/eating/work/install/mecanum/share/mecanum/cmake/mecanumConfig-version.cmake
+-- Installing: /home/eating/work/install/mecanum/share/mecanum/package.xml

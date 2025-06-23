@@ -1,0 +1,23 @@
+[1.019s] Invoking command in '/home/eating/work/src/pallet/pallet_main': PYTHONPATH=/home/eating/work/build/pallet_main/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/eating/work/install/pallet_main/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/pallet_main build --build-base /home/eating/work/build/pallet_main/build install --record /home/eating/work/build/pallet_main/install.log --single-version-externally-managed install_data
+[1.277s] running egg_info
+[1.278s] writing ../../../build/pallet_main/pallet_main.egg-info/PKG-INFO
+[1.278s] writing dependency_links to ../../../build/pallet_main/pallet_main.egg-info/dependency_links.txt
+[1.278s] writing entry points to ../../../build/pallet_main/pallet_main.egg-info/entry_points.txt
+[1.278s] writing requirements to ../../../build/pallet_main/pallet_main.egg-info/requires.txt
+[1.279s] writing top-level names to ../../../build/pallet_main/pallet_main.egg-info/top_level.txt
+[1.280s] reading manifest file '../../../build/pallet_main/pallet_main.egg-info/SOURCES.txt'
+[1.281s] writing manifest file '../../../build/pallet_main/pallet_main.egg-info/SOURCES.txt'
+[1.281s] running build
+[1.281s] running build_py
+[1.282s] running install
+[1.282s] running install_lib
+[1.283s] running install_data
+[1.283s] running install_egg_info
+[1.285s] removing '/home/eating/work/install/pallet_main/lib/python3.10/site-packages/pallet_main-0.0.0-py3.10.egg-info' (and everything under it)
+[1.286s] Copying ../../../build/pallet_main/pallet_main.egg-info to /home/eating/work/install/pallet_main/lib/python3.10/site-packages/pallet_main-0.0.0-py3.10.egg-info
+[1.286s] running install_scripts
+[1.304s] Installing GetBox script to /home/eating/work/install/pallet_main/lib/pallet_main
+[1.304s] Installing PalletMain script to /home/eating/work/install/pallet_main/lib/pallet_main
+[1.305s] Installing handcamera script to /home/eating/work/install/pallet_main/lib/pallet_main
+[1.305s] writing list of installed files to '/home/eating/work/build/pallet_main/install.log'
+[1.338s] Invoked command in '/home/eating/work/src/pallet/pallet_main' returned '0': PYTHONPATH=/home/eating/work/build/pallet_main/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/eating/work/install/pallet_main/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/pallet_main build --build-base /home/eating/work/build/pallet_main/build install --record /home/eating/work/build/pallet_main/install.log --single-version-externally-managed install_data

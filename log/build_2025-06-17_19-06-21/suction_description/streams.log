@@ -1,0 +1,29 @@
+[0.360s] Invoking command in '/home/eating/work/build/suction_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake --build /home/eating/work/build/suction_description -- -j8 -l8
+[0.411s] Invoked command in '/home/eating/work/build/suction_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake --build /home/eating/work/build/suction_description -- -j8 -l8
+[0.412s] Invoking command in '/home/eating/work/build/suction_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake --install /home/eating/work/build/suction_description
+[0.422s] -- Install configuration: ""
+[0.423s] -- Up-to-date: /home/eating/work/install/suction_description/share/suction_description/config
+[0.423s] -- Up-to-date: /home/eating/work/install/suction_description/share/suction_description/config/joint_names_suction_urdf.yaml
+[0.423s] -- Up-to-date: /home/eating/work/install/suction_description/share/suction_description/meshes
+[0.423s] -- Up-to-date: /home/eating/work/install/suction_description/share/suction_description/meshes/tool_link.STL
+[0.423s] -- Up-to-date: /home/eating/work/install/suction_description/share/suction_description/meshes/tool_end_Link.STL
+[0.424s] -- Up-to-date: /home/eating/work/install/suction_description/share/suction_description/urdf
+[0.424s] -- Up-to-date: /home/eating/work/install/suction_description/share/suction_description/urdf/suction_urdf.xacro
+[0.424s] -- Up-to-date: /home/eating/work/install/suction_description/share/suction_description/urdf/suction.gazebo.xacro
+[0.424s] -- Up-to-date: /home/eating/work/install/suction_description/share/suction_description/urdf/suction.transmission.xacro
+[0.424s] -- Up-to-date: /home/eating/work/install/suction_description/share/ament_index/resource_index/package_run_dependencies/suction_description
+[0.424s] -- Up-to-date: /home/eating/work/install/suction_description/share/ament_index/resource_index/parent_prefix_path/suction_description
+[0.424s] -- Up-to-date: /home/eating/work/install/suction_description/share/suction_description/environment/ament_prefix_path.sh
+[0.425s] -- Up-to-date: /home/eating/work/install/suction_description/share/suction_description/environment/ament_prefix_path.dsv
+[0.425s] -- Up-to-date: /home/eating/work/install/suction_description/share/suction_description/environment/path.sh
+[0.425s] -- Up-to-date: /home/eating/work/install/suction_description/share/suction_description/environment/path.dsv
+[0.425s] -- Up-to-date: /home/eating/work/install/suction_description/share/suction_description/local_setup.bash
+[0.425s] -- Up-to-date: /home/eating/work/install/suction_description/share/suction_description/local_setup.sh
+[0.425s] -- Up-to-date: /home/eating/work/install/suction_description/share/suction_description/local_setup.zsh
+[0.425s] -- Up-to-date: /home/eating/work/install/suction_description/share/suction_description/local_setup.dsv
+[0.425s] -- Up-to-date: /home/eating/work/install/suction_description/share/suction_description/package.dsv
+[0.426s] -- Up-to-date: /home/eating/work/install/suction_description/share/ament_index/resource_index/packages/suction_description
+[0.426s] -- Up-to-date: /home/eating/work/install/suction_description/share/suction_description/cmake/suction_descriptionConfig.cmake
+[0.426s] -- Up-to-date: /home/eating/work/install/suction_description/share/suction_description/cmake/suction_descriptionConfig-version.cmake
+[0.426s] -- Up-to-date: /home/eating/work/install/suction_description/share/suction_description/package.xml
+[0.442s] Invoked command in '/home/eating/work/build/suction_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake --install /home/eating/work/build/suction_description

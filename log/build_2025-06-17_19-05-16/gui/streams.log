@@ -1,0 +1,43 @@
+[2.226s] Invoking command in '/home/eating/work/src/gui/gui': CMAKE_PREFIX_PATH=/home/eating/work/install/gui_interface:/home/eating/work/install/timda_gazebo:/home/eating/work/install/timda_description:/home/eating/work/install/timda_bringup:/home/eating/work/install/timda_body_description:/home/eating/work/install/suction_description:/home/eating/work/install/robot_arm_description:/home/eating/work/install/realsense2_description:/home/eating/work/install/realsense2_camera:/home/eating/work/install/realsense2_camera_msgs:/home/eating/work/install/pallet_interfaces:/home/eating/work/install/mobile_description:/home/eating/work/install/mecanum:/home/eating/work/install/linear_move:/home/eating/work/install/keyboard_control:/home/eating/work/install/ira_laser_tools:/home/eating/work/install/interface LD_LIBRARY_PATH=/home/eating/work/install/gui_interface/lib:/home/eating/work/install/realsense2_camera/lib:/home/eating/work/install/realsense2_camera_msgs/lib:/home/eating/work/install/pallet_interfaces/lib:/home/eating/work/install/interface/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib PYTHONPATH=/home/eating/work/build/gui/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/eating/work/install/gui/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/gui build --build-base /home/eating/work/build/gui/build install --record /home/eating/work/build/gui/install.log --single-version-externally-managed install_data
+[3.322s] running egg_info
+[3.323s] creating ../../../build/gui/gui.egg-info
+[3.323s] writing ../../../build/gui/gui.egg-info/PKG-INFO
+[3.324s] writing dependency_links to ../../../build/gui/gui.egg-info/dependency_links.txt
+[3.336s] writing entry points to ../../../build/gui/gui.egg-info/entry_points.txt
+[3.336s] writing requirements to ../../../build/gui/gui.egg-info/requires.txt
+[3.336s] writing top-level names to ../../../build/gui/gui.egg-info/top_level.txt
+[3.337s] writing manifest file '../../../build/gui/gui.egg-info/SOURCES.txt'
+[3.337s] reading manifest file '../../../build/gui/gui.egg-info/SOURCES.txt'
+[3.337s] writing manifest file '../../../build/gui/gui.egg-info/SOURCES.txt'
+[3.337s] running build
+[3.337s] running build_py
+[3.337s] creating /home/eating/work/build/gui/build
+[3.337s] creating /home/eating/work/build/gui/build/lib
+[3.337s] creating /home/eating/work/build/gui/build/lib/gui
+[3.338s] copying gui/main_ui.py -> /home/eating/work/build/gui/build/lib/gui
+[3.338s] copying gui/__init__.py -> /home/eating/work/build/gui/build/lib/gui
+[3.338s] copying gui/main.py -> /home/eating/work/build/gui/build/lib/gui
+[3.338s] copying gui/ui_to_py.py -> /home/eating/work/build/gui/build/lib/gui
+[3.338s] running install
+[3.338s] running install_lib
+[3.338s] creating /home/eating/work/install/gui/lib/python3.10/site-packages/gui
+[3.338s] copying /home/eating/work/build/gui/build/lib/gui/main_ui.py -> /home/eating/work/install/gui/lib/python3.10/site-packages/gui
+[3.338s] copying /home/eating/work/build/gui/build/lib/gui/__init__.py -> /home/eating/work/install/gui/lib/python3.10/site-packages/gui
+[3.339s] copying /home/eating/work/build/gui/build/lib/gui/main.py -> /home/eating/work/install/gui/lib/python3.10/site-packages/gui
+[3.339s] copying /home/eating/work/build/gui/build/lib/gui/ui_to_py.py -> /home/eating/work/install/gui/lib/python3.10/site-packages/gui
+[3.339s] byte-compiling /home/eating/work/install/gui/lib/python3.10/site-packages/gui/main_ui.py to main_ui.cpython-310.pyc
+[3.339s] byte-compiling /home/eating/work/install/gui/lib/python3.10/site-packages/gui/__init__.py to __init__.cpython-310.pyc
+[3.339s] byte-compiling /home/eating/work/install/gui/lib/python3.10/site-packages/gui/main.py to main.cpython-310.pyc
+[3.339s] byte-compiling /home/eating/work/install/gui/lib/python3.10/site-packages/gui/ui_to_py.py to ui_to_py.cpython-310.pyc
+[3.339s] running install_data
+[3.339s] creating /home/eating/work/install/gui/share/ament_index
+[3.339s] creating /home/eating/work/install/gui/share/ament_index/resource_index
+[3.339s] creating /home/eating/work/install/gui/share/ament_index/resource_index/packages
+[3.340s] copying resource/gui -> /home/eating/work/install/gui/share/ament_index/resource_index/packages
+[3.340s] copying package.xml -> /home/eating/work/install/gui/share/gui
+[3.340s] running install_egg_info
+[3.340s] Copying ../../../build/gui/gui.egg-info to /home/eating/work/install/gui/lib/python3.10/site-packages/gui-0.0.0-py3.10.egg-info
+[3.340s] running install_scripts
+[3.340s] Installing main script to /home/eating/work/install/gui/lib/gui
+[3.340s] writing list of installed files to '/home/eating/work/build/gui/install.log'
+[3.349s] Invoked command in '/home/eating/work/src/gui/gui' returned '0': CMAKE_PREFIX_PATH=/home/eating/work/install/gui_interface:/home/eating/work/install/timda_gazebo:/home/eating/work/install/timda_description:/home/eating/work/install/timda_bringup:/home/eating/work/install/timda_body_description:/home/eating/work/install/suction_description:/home/eating/work/install/robot_arm_description:/home/eating/work/install/realsense2_description:/home/eating/work/install/realsense2_camera:/home/eating/work/install/realsense2_camera_msgs:/home/eating/work/install/pallet_interfaces:/home/eating/work/install/mobile_description:/home/eating/work/install/mecanum:/home/eating/work/install/linear_move:/home/eating/work/install/keyboard_control:/home/eating/work/install/ira_laser_tools:/home/eating/work/install/interface LD_LIBRARY_PATH=/home/eating/work/install/gui_interface/lib:/home/eating/work/install/realsense2_camera/lib:/home/eating/work/install/realsense2_camera_msgs/lib:/home/eating/work/install/pallet_interfaces/lib:/home/eating/work/install/interface/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib PYTHONPATH=/home/eating/work/build/gui/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/eating/work/install/gui/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/gui build --build-base /home/eating/work/build/gui/build install --record /home/eating/work/build/gui/install.log --single-version-externally-managed install_data

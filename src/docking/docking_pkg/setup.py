@@ -25,6 +25,7 @@ setup(
             'yolo_subscriber = docking_pkg.yolo_subscriber:main',
             'YoloDepthProcessor = docking_pkg.YoloDepthProcessor:main',
             'ransac = docking_pkg.ransac:main',
+            'pid_mecanum_node = docking_pkg.pid_mecanum_node:main',
 
         ],
     },

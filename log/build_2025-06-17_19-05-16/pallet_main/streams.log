@@ -1,0 +1,45 @@
+[1.402s] Invoking command in '/home/eating/work/src/pallet/pallet_main': PYTHONPATH=/home/eating/work/build/pallet_main/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/eating/work/install/pallet_main/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/pallet_main build --build-base /home/eating/work/build/pallet_main/build install --record /home/eating/work/build/pallet_main/install.log --single-version-externally-managed install_data
+[3.150s] running egg_info
+[3.151s] creating ../../../build/pallet_main/pallet_main.egg-info
+[3.151s] writing ../../../build/pallet_main/pallet_main.egg-info/PKG-INFO
+[3.151s] writing dependency_links to ../../../build/pallet_main/pallet_main.egg-info/dependency_links.txt
+[3.151s] writing entry points to ../../../build/pallet_main/pallet_main.egg-info/entry_points.txt
+[3.151s] writing requirements to ../../../build/pallet_main/pallet_main.egg-info/requires.txt
+[3.151s] writing top-level names to ../../../build/pallet_main/pallet_main.egg-info/top_level.txt
+[3.151s] writing manifest file '../../../build/pallet_main/pallet_main.egg-info/SOURCES.txt'
+[3.151s] reading manifest file '../../../build/pallet_main/pallet_main.egg-info/SOURCES.txt'
+[3.152s] writing manifest file '../../../build/pallet_main/pallet_main.egg-info/SOURCES.txt'
+[3.152s] running build
+[3.152s] running build_py
+[3.152s] creating /home/eating/work/build/pallet_main/build
+[3.152s] creating /home/eating/work/build/pallet_main/build/lib
+[3.152s] creating /home/eating/work/build/pallet_main/build/lib/pallet_main
+[3.152s] copying pallet_main/__init__.py -> /home/eating/work/build/pallet_main/build/lib/pallet_main
+[3.152s] copying pallet_main/handcamera.py -> /home/eating/work/build/pallet_main/build/lib/pallet_main
+[3.152s] copying pallet_main/GetBox.py -> /home/eating/work/build/pallet_main/build/lib/pallet_main
+[3.153s] copying pallet_main/PalletMain.py -> /home/eating/work/build/pallet_main/build/lib/pallet_main
+[3.153s] running install
+[3.153s] running install_lib
+[3.153s] creating /home/eating/work/install/pallet_main/lib/python3.10/site-packages/pallet_main
+[3.153s] copying /home/eating/work/build/pallet_main/build/lib/pallet_main/__init__.py -> /home/eating/work/install/pallet_main/lib/python3.10/site-packages/pallet_main
+[3.153s] copying /home/eating/work/build/pallet_main/build/lib/pallet_main/handcamera.py -> /home/eating/work/install/pallet_main/lib/python3.10/site-packages/pallet_main
+[3.153s] copying /home/eating/work/build/pallet_main/build/lib/pallet_main/GetBox.py -> /home/eating/work/install/pallet_main/lib/python3.10/site-packages/pallet_main
+[3.153s] copying /home/eating/work/build/pallet_main/build/lib/pallet_main/PalletMain.py -> /home/eating/work/install/pallet_main/lib/python3.10/site-packages/pallet_main
+[3.153s] byte-compiling /home/eating/work/install/pallet_main/lib/python3.10/site-packages/pallet_main/__init__.py to __init__.cpython-310.pyc
+[3.153s] byte-compiling /home/eating/work/install/pallet_main/lib/python3.10/site-packages/pallet_main/handcamera.py to handcamera.cpython-310.pyc
+[3.154s] byte-compiling /home/eating/work/install/pallet_main/lib/python3.10/site-packages/pallet_main/GetBox.py to GetBox.cpython-310.pyc
+[3.154s] byte-compiling /home/eating/work/install/pallet_main/lib/python3.10/site-packages/pallet_main/PalletMain.py to PalletMain.cpython-310.pyc
+[3.154s] running install_data
+[3.154s] creating /home/eating/work/install/pallet_main/share/ament_index
+[3.154s] creating /home/eating/work/install/pallet_main/share/ament_index/resource_index
+[3.154s] creating /home/eating/work/install/pallet_main/share/ament_index/resource_index/packages
+[3.154s] copying resource/pallet_main -> /home/eating/work/install/pallet_main/share/ament_index/resource_index/packages
+[3.154s] copying package.xml -> /home/eating/work/install/pallet_main/share/pallet_main
+[3.154s] running install_egg_info
+[3.154s] Copying ../../../build/pallet_main/pallet_main.egg-info to /home/eating/work/install/pallet_main/lib/python3.10/site-packages/pallet_main-0.0.0-py3.10.egg-info
+[3.155s] running install_scripts
+[3.155s] Installing GetBox script to /home/eating/work/install/pallet_main/lib/pallet_main
+[3.155s] Installing PalletMain script to /home/eating/work/install/pallet_main/lib/pallet_main
+[3.155s] Installing handcamera script to /home/eating/work/install/pallet_main/lib/pallet_main
+[3.155s] writing list of installed files to '/home/eating/work/build/pallet_main/install.log'
+[3.196s] Invoked command in '/home/eating/work/src/pallet/pallet_main' returned '0': PYTHONPATH=/home/eating/work/build/pallet_main/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/eating/work/install/pallet_main/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/pallet_main build --build-base /home/eating/work/build/pallet_main/build install --record /home/eating/work/build/pallet_main/install.log --single-version-externally-managed install_data

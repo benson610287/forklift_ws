@@ -10,8 +10,10 @@ setup.py
 ../../../build/docking_pkg/docking_pkg.egg-info/zip-safe
 docking_pkg/YoloDepthProcessor.py
 docking_pkg/__init__.py
+docking_pkg/camera.py
 docking_pkg/docking_status_server.py
 docking_pkg/dockingcamera.py
+docking_pkg/pid_mecanum_node.py
 docking_pkg/ransac.py
 docking_pkg/yolo_subscriber.py
 resource/docking_pkg
