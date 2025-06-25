@@ -1,0 +1,45 @@
+[0.047s] Invoking command in '/home/eating/work/build/timda_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake /home/eating/work/src/timda_bringup -DCMAKE_INSTALL_PREFIX=/home/eating/work/install/timda_bringup
+[0.195s] -- The C compiler identification is GNU 11.4.0
+[0.336s] -- The CXX compiler identification is GNU 11.4.0
+[0.336s] -- Detecting C compiler ABI info
+[0.613s] -- Detecting C compiler ABI info - done
+[0.625s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.625s] -- Detecting C compile features
+[0.626s] -- Detecting C compile features - done
+[0.633s] -- Detecting CXX compiler ABI info
+[0.881s] -- Detecting CXX compiler ABI info - done
+[0.901s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.902s] -- Detecting CXX compile features
+[0.909s] -- Detecting CXX compile features - done
+[0.915s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.514s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.915s] -- Found urg_c: 1.0.4001 (/opt/ros/humble/share/urg_c/cmake)
+[1.945s] -- Found ament_lint_auto: 0.12.12 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[2.297s] -- Added test 'lint_cmake' to check CMake code style
+[2.299s] -- Added test 'xmllint' to check XML markup files
+[2.303s] -- Configuring done
+[2.334s] -- Generating done
+[2.337s] -- Build files have been written to: /home/eating/work/build/timda_bringup
+[2.365s] Invoked command in '/home/eating/work/build/timda_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake /home/eating/work/src/timda_bringup -DCMAKE_INSTALL_PREFIX=/home/eating/work/install/timda_bringup
+[2.366s] Invoking command in '/home/eating/work/build/timda_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake --build /home/eating/work/build/timda_bringup -- -j8 -l8
+[3.081s] Invoked command in '/home/eating/work/build/timda_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake --build /home/eating/work/build/timda_bringup -- -j8 -l8
+[3.082s] Invoking command in '/home/eating/work/build/timda_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake --install /home/eating/work/build/timda_bringup
+[3.122s] -- Install configuration: ""
+[3.122s] -- Installing: /home/eating/work/install/timda_bringup/share/timda_bringup//launch
+[3.122s] -- Installing: /home/eating/work/install/timda_bringup/share/timda_bringup//launch/urg_lidar.launch
+[3.122s] -- Installing: /home/eating/work/install/timda_bringup/share/ament_index/resource_index/package_run_dependencies/timda_bringup
+[3.122s] -- Installing: /home/eating/work/install/timda_bringup/share/ament_index/resource_index/parent_prefix_path/timda_bringup
+[3.122s] -- Installing: /home/eating/work/install/timda_bringup/share/timda_bringup/environment/ament_prefix_path.sh
+[3.122s] -- Installing: /home/eating/work/install/timda_bringup/share/timda_bringup/environment/ament_prefix_path.dsv
+[3.123s] -- Installing: /home/eating/work/install/timda_bringup/share/timda_bringup/environment/path.sh
+[3.123s] -- Installing: /home/eating/work/install/timda_bringup/share/timda_bringup/environment/path.dsv
+[3.123s] -- Installing: /home/eating/work/install/timda_bringup/share/timda_bringup/local_setup.bash
+[3.123s] -- Installing: /home/eating/work/install/timda_bringup/share/timda_bringup/local_setup.sh
+[3.123s] -- Installing: /home/eating/work/install/timda_bringup/share/timda_bringup/local_setup.zsh
+[3.123s] -- Installing: /home/eating/work/install/timda_bringup/share/timda_bringup/local_setup.dsv
+[3.123s] -- Installing: /home/eating/work/install/timda_bringup/share/timda_bringup/package.dsv
+[3.123s] -- Installing: /home/eating/work/install/timda_bringup/share/ament_index/resource_index/packages/timda_bringup
+[3.123s] -- Installing: /home/eating/work/install/timda_bringup/share/timda_bringup/cmake/timda_bringupConfig.cmake
+[3.124s] -- Installing: /home/eating/work/install/timda_bringup/share/timda_bringup/cmake/timda_bringupConfig-version.cmake
+[3.124s] -- Installing: /home/eating/work/install/timda_bringup/share/timda_bringup/package.xml
+[3.145s] Invoked command in '/home/eating/work/build/timda_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake --install /home/eating/work/build/timda_bringup
