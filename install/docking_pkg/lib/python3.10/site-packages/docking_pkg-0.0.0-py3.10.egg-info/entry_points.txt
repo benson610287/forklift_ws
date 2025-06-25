@@ -1,0 +1,8 @@
+[console_scripts]
+YoloDepthProcessor = docking_pkg.YoloDepthProcessor:main
+docking_status_server = docking_pkg.docking_status_server:main
+dockingcamera = docking_pkg.dockingcamera:main
+pid_mecanum_node = docking_pkg.pid_mecanum_node:main
+ransac = docking_pkg.ransac:main
+yolo_subscriber = docking_pkg.yolo_subscriber:main
+

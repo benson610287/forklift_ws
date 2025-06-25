@@ -1,0 +1,50 @@
+[0.023s] Invoking command in '/home/eating/work/build/mobile_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake /home/eating/work/src/timda_sim/mobile_description -DCMAKE_INSTALL_PREFIX=/home/eating/work/install/mobile_description
+[0.678s] -- The C compiler identification is GNU 11.4.0
+[0.678s] -- The CXX compiler identification is GNU 11.4.0
+[0.678s] -- Detecting C compiler ABI info
+[0.678s] -- Detecting C compiler ABI info - done
+[0.679s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.679s] -- Detecting C compile features
+[0.679s] -- Detecting C compile features - done
+[0.679s] -- Detecting CXX compiler ABI info
+[0.680s] -- Detecting CXX compiler ABI info - done
+[0.680s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.680s] -- Detecting CXX compile features
+[0.680s] -- Detecting CXX compile features - done
+[0.680s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.996s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.211s] -- Found ament_lint_auto: 0.12.12 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.480s] -- Added test 'lint_cmake' to check CMake code style
+[1.483s] -- Added test 'xmllint' to check XML markup files
+[1.486s] -- Configuring done
+[1.500s] -- Generating done
+[1.503s] -- Build files have been written to: /home/eating/work/build/mobile_description
+[1.514s] Invoked command in '/home/eating/work/build/mobile_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake /home/eating/work/src/timda_sim/mobile_description -DCMAKE_INSTALL_PREFIX=/home/eating/work/install/mobile_description
+[1.537s] Invoking command in '/home/eating/work/build/mobile_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake --build /home/eating/work/build/mobile_description -- -j8 -l8
+[7.729s] Invoked command in '/home/eating/work/build/mobile_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake --build /home/eating/work/build/mobile_description -- -j8 -l8
+[7.729s] Invoking command in '/home/eating/work/build/mobile_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake --install /home/eating/work/build/mobile_description
+[7.907s] -- Install configuration: ""
+[7.908s] -- Installing: /home/eating/work/install/mobile_description/share/mobile_description/meshes
+[7.908s] -- Installing: /home/eating/work/install/mobile_description/share/mobile_description/meshes/base_link.STL
+[7.908s] -- Installing: /home/eating/work/install/mobile_description/share/mobile_description/urdf
+[7.908s] -- Installing: /home/eating/work/install/mobile_description/share/mobile_description/urdf/timda_mobile_platform.urdf.xacro
+[7.908s] -- Installing: /home/eating/work/install/mobile_description/share/mobile_description/urdf/timda_mobile_platform.csv
+[7.908s] -- Installing: /home/eating/work/install/mobile_description/share/mobile_description/urdf/timda_mobile_platform.gazebo.xacro
+[7.908s] -- Installing: /home/eating/work/install/mobile_description/share/mobile_description/urdf/timda_mobile_platform_sim_odom.urdf.xacro
+[7.908s] -- Installing: /home/eating/work/install/mobile_description/share/mobile_description/urdf/timda_mobile_platform.urdf
+[7.909s] -- Installing: /home/eating/work/install/mobile_description/share/ament_index/resource_index/package_run_dependencies/mobile_description
+[7.909s] -- Installing: /home/eating/work/install/mobile_description/share/ament_index/resource_index/parent_prefix_path/mobile_description
+[7.909s] -- Installing: /home/eating/work/install/mobile_description/share/mobile_description/environment/ament_prefix_path.sh
+[7.909s] -- Installing: /home/eating/work/install/mobile_description/share/mobile_description/environment/ament_prefix_path.dsv
+[7.909s] -- Installing: /home/eating/work/install/mobile_description/share/mobile_description/environment/path.sh
+[7.909s] -- Installing: /home/eating/work/install/mobile_description/share/mobile_description/environment/path.dsv
+[7.909s] -- Installing: /home/eating/work/install/mobile_description/share/mobile_description/local_setup.bash
+[7.909s] -- Installing: /home/eating/work/install/mobile_description/share/mobile_description/local_setup.sh
+[7.910s] -- Installing: /home/eating/work/install/mobile_description/share/mobile_description/local_setup.zsh
+[7.910s] -- Installing: /home/eating/work/install/mobile_description/share/mobile_description/local_setup.dsv
+[7.910s] -- Installing: /home/eating/work/install/mobile_description/share/mobile_description/package.dsv
+[7.910s] -- Installing: /home/eating/work/install/mobile_description/share/ament_index/resource_index/packages/mobile_description
+[7.910s] -- Installing: /home/eating/work/install/mobile_description/share/mobile_description/cmake/mobile_descriptionConfig.cmake
+[7.910s] -- Installing: /home/eating/work/install/mobile_description/share/mobile_description/cmake/mobile_descriptionConfig-version.cmake
+[7.910s] -- Installing: /home/eating/work/install/mobile_description/share/mobile_description/package.xml
+[8.012s] Invoked command in '/home/eating/work/build/mobile_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake --install /home/eating/work/build/mobile_description

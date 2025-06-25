@@ -1,0 +1,37 @@
+[1.144s] Invoking command in '/home/eating/work/src/main_control/main_control': CMAKE_PREFIX_PATH=/home/eating/work/install/interface:/home/eating/work/install/gui_interface:/home/eating/work/install/timda_gazebo:/home/eating/work/install/timda_description:/home/eating/work/install/timda_bringup:/home/eating/work/install/timda_body_description:/home/eating/work/install/suction_description:/home/eating/work/install/robot_arm_description:/home/eating/work/install/realsense2_description:/home/eating/work/install/realsense2_camera:/home/eating/work/install/realsense2_camera_msgs:/home/eating/work/install/pallet_interfaces:/home/eating/work/install/mobile_description:/home/eating/work/install/mecanum:/home/eating/work/install/linear_move:/home/eating/work/install/keyboard_control:/home/eating/work/install/ira_laser_tools LD_LIBRARY_PATH=/home/eating/work/install/interface/lib:/home/eating/work/install/gui_interface/lib:/home/eating/work/install/realsense2_camera/lib:/home/eating/work/install/realsense2_camera_msgs/lib:/home/eating/work/install/pallet_interfaces/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib PYTHONPATH=/home/eating/work/build/main_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/eating/work/install/main_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/main_control build --build-base /home/eating/work/build/main_control/build install --record /home/eating/work/build/main_control/install.log --single-version-externally-managed install_data
+[1.658s] running egg_info
+[1.659s] creating ../../../build/main_control/main_control.egg-info
+[1.660s] writing ../../../build/main_control/main_control.egg-info/PKG-INFO
+[1.660s] writing dependency_links to ../../../build/main_control/main_control.egg-info/dependency_links.txt
+[1.660s] writing entry points to ../../../build/main_control/main_control.egg-info/entry_points.txt
+[1.660s] writing requirements to ../../../build/main_control/main_control.egg-info/requires.txt
+[1.661s] writing top-level names to ../../../build/main_control/main_control.egg-info/top_level.txt
+[1.661s] writing manifest file '../../../build/main_control/main_control.egg-info/SOURCES.txt'
+[1.664s] reading manifest file '../../../build/main_control/main_control.egg-info/SOURCES.txt'
+[1.665s] writing manifest file '../../../build/main_control/main_control.egg-info/SOURCES.txt'
+[1.665s] running build
+[1.665s] running build_py
+[1.666s] creating /home/eating/work/build/main_control/build
+[1.666s] creating /home/eating/work/build/main_control/build/lib
+[1.666s] creating /home/eating/work/build/main_control/build/lib/main_control
+[1.666s] copying main_control/__init__.py -> /home/eating/work/build/main_control/build/lib/main_control
+[1.666s] copying main_control/main.py -> /home/eating/work/build/main_control/build/lib/main_control
+[1.667s] running install
+[1.667s] running install_lib
+[1.668s] creating /home/eating/work/install/main_control/lib/python3.10/site-packages/main_control
+[1.669s] copying /home/eating/work/build/main_control/build/lib/main_control/__init__.py -> /home/eating/work/install/main_control/lib/python3.10/site-packages/main_control
+[1.669s] copying /home/eating/work/build/main_control/build/lib/main_control/main.py -> /home/eating/work/install/main_control/lib/python3.10/site-packages/main_control
+[1.670s] byte-compiling /home/eating/work/install/main_control/lib/python3.10/site-packages/main_control/__init__.py to __init__.cpython-310.pyc
+[1.671s] byte-compiling /home/eating/work/install/main_control/lib/python3.10/site-packages/main_control/main.py to main.cpython-310.pyc
+[1.672s] running install_data
+[1.672s] creating /home/eating/work/install/main_control/share/ament_index
+[1.673s] creating /home/eating/work/install/main_control/share/ament_index/resource_index
+[1.673s] creating /home/eating/work/install/main_control/share/ament_index/resource_index/packages
+[1.673s] copying resource/main_control -> /home/eating/work/install/main_control/share/ament_index/resource_index/packages
+[1.674s] copying package.xml -> /home/eating/work/install/main_control/share/main_control
+[1.674s] running install_egg_info
+[1.677s] Copying ../../../build/main_control/main_control.egg-info to /home/eating/work/install/main_control/lib/python3.10/site-packages/main_control-0.0.0-py3.10.egg-info
+[1.679s] running install_scripts
+[1.713s] Installing main script to /home/eating/work/install/main_control/lib/main_control
+[1.713s] writing list of installed files to '/home/eating/work/build/main_control/install.log'
+[1.776s] Invoked command in '/home/eating/work/src/main_control/main_control' returned '0': CMAKE_PREFIX_PATH=/home/eating/work/install/interface:/home/eating/work/install/gui_interface:/home/eating/work/install/timda_gazebo:/home/eating/work/install/timda_description:/home/eating/work/install/timda_bringup:/home/eating/work/install/timda_body_description:/home/eating/work/install/suction_description:/home/eating/work/install/robot_arm_description:/home/eating/work/install/realsense2_description:/home/eating/work/install/realsense2_camera:/home/eating/work/install/realsense2_camera_msgs:/home/eating/work/install/pallet_interfaces:/home/eating/work/install/mobile_description:/home/eating/work/install/mecanum:/home/eating/work/install/linear_move:/home/eating/work/install/keyboard_control:/home/eating/work/install/ira_laser_tools LD_LIBRARY_PATH=/home/eating/work/install/interface/lib:/home/eating/work/install/gui_interface/lib:/home/eating/work/install/realsense2_camera/lib:/home/eating/work/install/realsense2_camera_msgs/lib:/home/eating/work/install/pallet_interfaces/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib PYTHONPATH=/home/eating/work/build/main_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/eating/work/install/main_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/main_control build --build-base /home/eating/work/build/main_control/build install --record /home/eating/work/build/main_control/install.log --single-version-externally-managed install_data
