@@ -16,6 +16,7 @@ docking_pkg/dockingcamera.py
 docking_pkg/pid_mecanum_node.py
 docking_pkg/ransac.py
 docking_pkg/yolo_subscriber.py
+launch/docking_nodes.launch.py
 resource/docking_pkg
 test/test_copyright.py
 test/test_flake8.py
