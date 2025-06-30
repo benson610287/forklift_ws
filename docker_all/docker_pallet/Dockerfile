@@ -12,6 +12,7 @@ ARG ENTRYPOINT_FILE=entrypint.sh
 # * Env vars for the nvidia-container-runtime.
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES all
+ENV ROS_DISTRO=humble
 # ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
 
 # * Setup users and groups
@@ -90,7 +91,33 @@ RUN sudo DEBIAN_FRONTEND=noninteractive apt install -y ros-humble-desktop
 #ROS2 Cyclone DDS
 RUN sudo apt install -y ros-humble-rmw-cyclonedds-cpp
 #colcon depend
-RUN sudo apt install -y python3-colcon-common-extensions
+#colcon depend
+RUN apt update \
+    && apt install -y python3-colcon-common-extensions\
+    	ros-humble-pcl-ros\
+	ros-humble-diagnostic-updater\
+	ros-humble-laser-proc\
+	ros-humble-urg-c\
+	ros-humble-urg-node-msgs\
+	#ros-humble-xacro\
+        ros-humble-urg-node
+# 安裝ROS2相關套件
+RUN apt-get update && apt-get install -y \
+    ros-${ROS_DISTRO}-ur \
+    libcap-dev\
+    ros-${ROS_DISTRO}-rosidl-default-generators \
+    ros-${ROS_DISTRO}-action-msgs \
+    ros-${ROS_DISTRO}-ur-msgs \
+    ros-${ROS_DISTRO}-controller-interface \
+    ros-${ROS_DISTRO}-joint-trajectory-controller \
+    ros-${ROS_DISTRO}-controller-manager \
+    ros-${ROS_DISTRO}-moveit-simple-controller-manager \
+    ros-${ROS_DISTRO}-ament-cmake \
+    ros-${ROS_DISTRO}-xacro \
+    ros-${ROS_DISTRO}-test-msgs \
+    ros-${ROS_DISTRO}-ackermann-msgs \
+    python3-ament-package \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN pip install setuptools==58.2.0
 RUN pip install pip==22.0 \

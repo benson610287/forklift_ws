@@ -12,6 +12,7 @@ ARG ENTRYPOINT_FILE=entrypint.sh
 # * Env vars for the nvidia-container-runtime.
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES all
+ENV ROS_DISTRO=humble
 # ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
 
 # * Setup users and groups
@@ -98,9 +99,26 @@ RUN apt update \
 	ros-humble-laser-proc\
 	ros-humble-urg-c\
 	ros-humble-urg-node-msgs\
-	ros-humble-xacro\
-        ros-humble-urg-node\
-        ros-humble-ur
+	#ros-humble-xacro\
+        ros-humble-urg-node
+        #ros-humble-ur
+
+# 安裝ROS2相關套件
+RUN apt-get update && apt-get install -y \
+    ros-${ROS_DISTRO}-ur \
+    ros-${ROS_DISTRO}-rosidl-default-generators \
+    ros-${ROS_DISTRO}-action-msgs \
+    ros-${ROS_DISTRO}-ur-msgs \
+    ros-${ROS_DISTRO}-controller-interface \
+    ros-${ROS_DISTRO}-joint-trajectory-controller \
+    ros-${ROS_DISTRO}-controller-manager \
+    ros-${ROS_DISTRO}-moveit-simple-controller-manager \
+    ros-${ROS_DISTRO}-ament-cmake \
+    ros-${ROS_DISTRO}-xacro \
+    ros-${ROS_DISTRO}-test-msgs \
+    ros-${ROS_DISTRO}-ackermann-msgs \
+    python3-ament-package \
+    && rm -rf /var/lib/apt/lists/*
 	#ros-humble-urg-node
 
 
@@ -109,8 +127,12 @@ RUN apt update \
 
 RUN pip install setuptools==58.2.0
 #GUI require
-RUN pip install pyqt5-tools
-RUN apt-get install pyqt5-dev-tools
+RUN pip install pyqt5-tools \ 
+	opencv-python-headless
+RUN apt-get update && apt-get install -y \
+	qttools5-dev-tools
+
+
 	
 
 #GUI require

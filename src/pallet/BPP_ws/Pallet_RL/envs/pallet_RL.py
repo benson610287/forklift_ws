@@ -115,15 +115,15 @@ class Pallet_env(gym.Env):
                                #[[L,W,H,V,count], [x, y, z]]
     # input stack box_ori 
     def step(self, action):
-        action, box_type = action
+        # action, box_type = action
         reward = 0
         stack_score = 0
         self.select_other_flag = False
         self.non_full_flag = False
         self.box1 = box(self.args)
-        # self.box1.rand_box()
+        self.box1.rand_box()
         
-        self.box1.get_box(box_type)
+        # self.box1.get_box(box_type)
         _, _, _= self.camera.get_information()
 
         # first box stack origin point
@@ -309,8 +309,8 @@ class Pallet_env(gym.Env):
         self.com_pos = [0,0,0]
         self.count +=1
         # time.sleep(1)
-        
-        return obs, reward, self.done, [self.stack_ep]
+
+        return obs, reward, self.done, {}
 
     def reset(self):
 

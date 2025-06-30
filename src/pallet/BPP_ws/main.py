@@ -19,23 +19,24 @@ def main(args):
 
     env=gym.make('pallet-v0')
 
-    args.mode='test'
+    # args.mode='test'
     episodes=1000
-    args.load_model="11_04_400000.0"
+    # args.load_model="11_04_400000.0"
 
     if args.mode == "train":
+        TIMESTEPS = args.train_step/10
         model = PPO("MultiInputPolicy", env, verbose=1,n_steps=500,seed=0, tensorboard_log=logdir)
-        # model.learn(total_timesteps=args.train_step, tb_log_name="PPO")
-
+        model.learn(total_timesteps=args.train_step, tb_log_name="PPO")
+        model.save(f"{models_dir}/06_12_{TIMESTEPS*(i)}")
         #get tensor_data
         #tensorboard --logdir=logs
 
-        TIMESTEPS = args.train_step/10
+        
         for i in range (1,7):
-            model.load(f"{models_dir}/11_04_{300000+TIMESTEPS*i}")
+            model.load(f"{models_dir}/06_12_{TIMESTEPS*i}")
             model.learn(total_timesteps=TIMESTEPS, tb_log_name="PPO")
-            model.save(f"{models_dir}/11_04_{400000+TIMESTEPS*i}")
-            model.load(f"{models_dir}/11_04_{400000+TIMESTEPS*i}")
+            model.save(f"{models_dir}/06_12_{TIMESTEPS*(i+1)}")
+            # model.load(f"{models_dir}/11_04_{400000+TIMESTEPS*i}")
         # plt.subplot(2,1,1)
         model.save(f"{models_dir}/{args.save_model}.pt")
 

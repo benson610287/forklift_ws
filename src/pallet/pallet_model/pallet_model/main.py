@@ -13,7 +13,7 @@ import os
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import Int64
-
+from geometry_msgs.msg import Twist
 class PalletModel(Node):
     def __init__(self):
         super().__init__('PalletModel')
@@ -34,10 +34,9 @@ class PalletModel(Node):
         self.model = PPO.load(f"{models_dir}/{load_model}")
         self.obs = self.env.reset()
         # self.srv = self.create_service(Maincontroller, 'Pallet', self.add_three_ints_callback)        # CHANGE
-        # # 訂閱烏龜的位置信息
         self.box_type_subscriber = self.create_subscription(Int64, '/Pallet/boxtype', self.type_callback, 10)
         print("done")
-        # # 發布速度指令
+        self.virtual_endpose_publisher = self.create_publisher(Twist, '/Pallet/virtualendpose', 10)
         # self.box_ep_publisher = self.create_publisher(Twist, '/turtle1/cmd_vel', 10)
 
         # self.timer = self.create_timer(1/30, self.control_loop)  # 100ms 週期執行
@@ -51,13 +50,22 @@ class PalletModel(Node):
         else:
             action = self.model.predict(self.obs)
             self.obs, reward, done, info = self.env.step((action[0],str(msg.data)))
-            print("action=",action[0],"stack_ep=",info[0])
+            self.get_logger().info(f'Action: {action[0]}, Box Type: {msg.data}, Stack EP: {info[0]}')
+            if info[0][3] == 0:
+                angz= info[0][3]
+            elif info[0][3] == -50:
+                angz = 1.57
+                self.get_logger().info('Box is not stackable, resetting environment.')
+            # 發布虛擬末端位姿
+            virtual_endpose = Twist()
+            virtual_endpose.linear.x = info[0][0]
+            virtual_endpose.linear.y = info[0][1]
+            virtual_endpose.linear.z = info[0][2]
+            virtual_endpose.angular.z = angz
+            self.get_logger().info(f'Virtual End Pose: {virtual_endpose}')
+            self.virtual_endpose_publisher.publish(virtual_endpose)
+
             self.env.render()
-        
-
-
-
-
 def main(args=None):
     rclpy.init(args=args)
     node = PalletModel()

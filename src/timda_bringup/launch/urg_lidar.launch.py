@@ -4,13 +4,14 @@ from launch.substitutions import Command
 from launch_ros.substitutions import FindPackageShare
 from launch.substitutions import PathJoinSubstitution
 from launch_ros.parameter_descriptions import ParameterValue
+from launch.actions import DeclareLaunchArgument
+from launch.substitutions import LaunchConfiguration
 from typing import List  # 匯入 List
 def generate_launch_description():
     robot_description_content = ParameterValue(Command([
         'xacro ',
         PathJoinSubstitution([
-            FindPackageShare('forkift_urdf'),
-            'urdf',
+            FindPackageShare('forklift_urdf'),
             'car_ur5_20250118_urdf.urdf'
         ])
     ]),
@@ -37,7 +38,7 @@ def generate_launch_description():
             {'serial_port': '/dev/ttyACM0'},
             {'serial_baud': 115200},
             {'frame_id': 'laser_front'},
-            {'calibrate_time': True},
+            {'calibrate_time': False},
             {'publish_intensity': False},
             {'publish_multiecho': False},
             {'angle_min': -2.35619449},
@@ -58,7 +59,7 @@ def generate_launch_description():
             {'serial_port': '/dev/ttyACM1'},
             {'serial_baud': 115200},
             {'frame_id': 'laser_back'},
-            {'calibrate_time': True},
+            {'calibrate_time': False},
             {'publish_intensity': False},
             {'publish_multiecho': False},
             {'angle_min': -2.35619449},
@@ -74,7 +75,7 @@ def generate_launch_description():
         name='laserscan_multi_merger',
         output='screen',
         parameters=[{
-            'destination_frame': 'base_link',
+            'destination_frame': 'laser_merged',  # 改為獨立的激光合併座標系
             'cloud_destination_topic': '/merged_cloud',
             'scan_destination_topic': '/scan_multi',
             'laserscan_topics': '/scan_front /scan_back',
@@ -82,51 +83,50 @@ def generate_launch_description():
             'angle_max': 3.14159265359,
             'angle_increment': 0.0058,
             'scan_time': 0.0333333,
-            'range_min': 0.30,
+            'range_min': 1.0,
             'range_max': 50.0,
         }]
     )
 
-
-
-
-    static_tf_map_to_base = Node(
-    package='tf2_ros',
-    executable='static_transform_publisher',
-    name='static_tf_map_to_base',
-    arguments=['0', '0', '0', '0', '0', '0', 'map', 'base_link'],
-    output='screen'
+    # 發布激光合併座標系的TF變換（在base_link正上方1公分）
+    static_tf_base_to_laser_merged = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='static_tf_base_to_laser_merged',
+        arguments=['0', '0', '0.01', '0', '0', '0', 'base_link', 'laser_merged'],
+        output='screen'
     )
+
+    # 删除这个错误的静态变换 - SLAM toolbox应该发布map->odom变换
+    # static_tf_map_to_base = Node(
+    # package='tf2_ros',
+    # executable='static_transform_publisher',
+    # name='static_tf_map_to_base',
+    # arguments=['0', '0', '0', '0', '0', '0', 'map', 'base_link'],
+    # output='screen'
+    # )
+    
     static_tf_map_to_front = Node(
     package='tf2_ros',
     executable='static_transform_publisher',
     name='static_tf_map_to_front',
-    arguments=['0', '0', '0', '3.14', '0', '0', 'base_link', 'laser_front'],
+    arguments=['0', '0', '0', '0.785', '3.14', '0', 'base_link', 'laser_front'],
     output='screen'
     )
     static_tf_map_to_back = Node(
     package='tf2_ros',
     executable='static_transform_publisher',
     name='static_tf_map_to_back',
-    arguments=['0', '0', '0', '0', '0', '0', 'base_link', 'laser_back'],
+    arguments=['0', '0', '0', '-2.355', '3.14', '0', 'base_link', 'laser_back'],
     output='screen'
     )
-
-
-
-
-
-
-
-
-
 
     return LaunchDescription([
         robot_state_publisher_node,
         urg_node_front,
         urg_node_back,
         laserscan_multi_merger,
-        static_tf_map_to_base,
+        static_tf_base_to_laser_merged,
         static_tf_map_to_front,
         static_tf_map_to_back
     ])
