@@ -1,0 +1,26 @@
+1  export ROS_DOMAIN_ID=1
+    2  colcon build
+    3  sudo apt update
+    4  sudo apt install ros-humble-test-msgs
+    5  colcon build
+    6  sudo apt update
+    7  sudo apt install libcap-dev
+    8  colcon build
+    9  sudo apt-get update && sudo apt-get install -y     ros-humble-ur     ros-humble-rosidl-default-generators     ros-humble-action-msgs     ros-humble-ur-msgs     ros-humble-controller-interface     ros-humble-joint-trajectory-controller     ros-humble-controller-manager     ros-humble-moveit-simple-controller-manager     ros-humble-ament-cmake     ros-humble-xacro     ros-humble-test-msgs     ros-humble-ackermann-msgs
+   10  colcon build
+   11  sudo apt-get update && sudo apt-get install -y     ros-humble-ur     ros-humble-rosidl-default-generators     ros-humble-action-msgs     ros-humble-ur-msgs     ros-humble-controller-interface     ros-humble-joint-trajectory-controller     ros-humble-controller-manager     ros-humble-moveit-simple-controller-manager     ros-humble-ament-cmake     ros-humble-xacro     ros-humble-test-msgs     ros-humble-ackermann-msgs
+   12  sudo apt update
+   13  colcon buildsudo apt update
+   14  sudo apt install ros-humble-pcl-ros
+   15  colcon build
+   16  sudo apt update
+   17  sudo apt install ros-$ROS_DISTRO-urg-c
+   18  colcon build
+   19  . install/setup.bash 
+   20  colcon build
+   21  . install/setup.bash 
+   22  colcon build
+   23  . install/setup.bash 
+   24  list
+   25  history
+

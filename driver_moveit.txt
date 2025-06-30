@@ -1,0 +1,26 @@
+
+# ur5 driver
+ros2 launch ur_robot_driver ur5e.launch.py  robot_ip:=192.168.56.10 use_fake_hardware:=false launch_rviz:=false initial_joint_controller:=joint_trajectory_controller
+
+#moveit 
+ros2 launch ur_moveit_config ur_moveit.launch.py ur_type:=ur5e use_fake_hardware:=false launch_rviz:=true use_sim_time:=false
+
+#check ros_controller
+ros2 control list_controllers
+
+#change ros_controller
+ros2 control switch_controllers --activate joint_trajectory_controller
+
+sudo apt install ros-humble-test-msgs
+   15  colcon build
+   16  sudo apt install libcap-dev
+   17  colcon build
+   18  sudo apt install ros-humble-filters
+   19  colcon build
+   20  sudo apt install ros-humble-moveit ros-humble-moveit-ros-planning-interface~
+   21  sudo apt install ros-humble-moveit ros-humble-moveit-ros-planning-interface
+   22  colcon build
+   23  sudo apt install ros-humble-ackermann-msgs
+   24  colcon build
+   25  history
+

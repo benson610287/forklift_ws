@@ -22,9 +22,9 @@ class controller(Node):
         while not self.cli_pallet.wait_for_service(timeout_sec=1.0):
             self.get_logger().info('service not available, waiting again...')
         
-        self.cli_shelf_pose = self.create_client(Maincontroller, 'toggle_aruco_detection',callback_group=client_group1)
-        while not self.cli_shelf_pose.wait_for_service(timeout_sec=1.0):
-            self.get_logger().info('service not available, waiting again...')
+        # self.cli_shelf_pose = self.create_client(Maincontroller, 'toggle_aruco_detection',callback_group=client_group1)
+        # while not self.cli_shelf_pose.wait_for_service(timeout_sec=1.0):
+        #     self.get_logger().info('service not available, waiting again...')
         
         # self.cli_3 = self.create_client(Maincontroller, 'add_two_ints')
         # while not self.cli_3.wait_for_service(timeout_sec=1.0):

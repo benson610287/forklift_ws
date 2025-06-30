@@ -28,7 +28,9 @@ setup(
         # 'GetBoxv2=pallet_main.GetBoxv2:main',
         'get_box_from_yolo=pallet_main.get_box_from_yolo:main',
         # 'get_box_from_yolo_4points=pallet_main.get_box_from_yolo_4points:main',
-        'yolo_cmd=pallet_main.yolo_cmd:main'
+        'yolo_cmd=pallet_main.yolo_cmd:main',
+        'point_test=pallet_main.point_test:main',
+        'arm_start_end=pallet_main.arm_start_end:main'
         ],
     },
 )

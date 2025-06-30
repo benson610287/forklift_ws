@@ -24,9 +24,9 @@ class BoxDetectorNode(Node):
         # --- 5. Boxinfo Publisher ---
         self.box_pub = self.create_publisher(Int64, '/Pallet/boxtype', 10)
         self.box_pubb = self.create_publisher(Int64, '/Pallet/SingBoxInfo', 10)
-        self.pose_pub = self.create_publisher(Twist, '/Pallet/pose', 10)
+        self.pose_pub = self.create_publisher(Twist, '/Pallet/virtualstartpose', 10)
         # --- 2. YOLO 模型 ---
-        self.model = YOLO('src/pallet/pallet_main/pallet_main/best.pt').to('cuda')  # 或換成你自己的 .pt
+        self.model = YOLO('src/pallet/pallet_main/pallet_main/best.pt').to('cuda')  
 
         # --- 3. 暫存影像 & 內參 ---
         self.color_image = None
@@ -182,7 +182,7 @@ class BoxDetectorNode(Node):
         # 3. 挑最近的那個
         z_nearest, box_nearest = min(candidates, key=lambda x: x[0])
         z_nearest *= (7.0 / 8.0*7.1/7.4)  # 校正
-
+        # z_nearest = z_nearest-0.06 # 校正
         # --- Publish Center + Angle ---
         pose_msg = Twist()
 
@@ -194,9 +194,9 @@ class BoxDetectorNode(Node):
         x_m = ((center_x - self.depth_image.shape[1] / 2) * z_nearest) / self.fx
         y_m = ((center_y - self.depth_image.shape[0] / 2) * z_nearest) / self.fy
 
-        pose_msg.linear.x = float(x_m)
-        pose_msg.linear.y = float(y_m)
-        pose_msg.linear.z = float(z_nearest)  # depth
+        pose_msg.linear.x = float(x_m*1000)
+        pose_msg.linear.y = float(y_m*1000)
+        # pose_msg.linear.z = float(z_nearest*1000)  # depth
 
         # 計算角度（角度轉換成 -pi ~ pi 區間）
         angle_deg = np.degrees(angle)
@@ -223,12 +223,30 @@ class BoxDetectorNode(Node):
         self.get_logger().info(f'Box dimensions (cm): width={width}, length={length}, height={height}')
         if 27.5>=width>=22.5 and 32.5>=length>=27.5:
             inner_msg.data=2 #mid
+            pose_msg.linear.z = float(150.0)
         elif 32.5>=width>=27.5 and 42.5>=length>=37.5:
             inner_msg.data=1 #big
+            pose_msg.linear.z = float(200.0)
         elif 13.5>=width>=8.5 and 23>=length>=18:
             inner_msg.data=3 #small
+            pose_msg.linear.z = float(140.0)
         else:
             self.get_logger().error('box type error')
+            # 6. 視覺化 (除錯用)
+            img = self.color_image.copy()
+
+            # 繪製旋轉框
+            cv2.polylines(img, [box_nearest], isClosed=True, color=(0, 0, 255), thickness=2)
+
+            # 顯示尺寸資訊（單位換算成 cm）
+            label = f'{w_m*100:.1f}x{h_m*100:.1f}cm'
+            print(label)
+            text_origin = tuple(box_nearest[0])  # 以第 1 個點為起始
+            cv2.putText(img, label, text_origin,
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
+
+            # cv2.imshow('Box Detection', img)
+            cv2.imwrite('box.jpg',img)
             return
 
 

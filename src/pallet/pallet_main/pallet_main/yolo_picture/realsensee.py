@@ -1,6 +1,6 @@
 import cv2
 
-a = 100
+a = 529
 
 # 指定資料夾字串（事先要確認資料夾存在）
 save_dir = 'src/pallet/pallet_main/pallet_main/yolo_picture/box'

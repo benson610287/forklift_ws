@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="tool">
+
+  <!-- 定義材質屬性 -->
+  <xacro:property name="tool_material_color" value="0.792156862745098 0.819607843137255 0.933333333333333 1"/>
+  
+  <!-- 定義慣性參數 -->
+  <xacro:property name="tool_base_mass" value="0.1455130074308"/>
+  <xacro:property name="tool_base_origin_xyz" value="-1.39735980762834E-06 0.000918594921958074 -0.0782287606866805"/>
+  <xacro:property name="tool_base_ixx" value="0.000611904531731262"/>
+  <xacro:property name="tool_base_ixy" value="1.00961622852883E-10"/>
+  <xacro:property name="tool_base_ixz" value="-2.49065208208441E-08"/>
+  <xacro:property name="tool_base_iyy" value="0.000613628791660279"/>
+  <xacro:property name="tool_base_iyz" value="1.44936904052993E-07"/>
+  <xacro:property name="tool_base_izz" value="4.37661987317966E-05"/>
+
+  <!-- base_link定義 -->
+  <link name="tool_base_link">
+    <inertial>
+      <origin xyz="${tool_base_origin_xyz}" rpy="0 0 0"/>
+      <!-- <mass value="${tool_base_mass}"/> -->
+      <!-- <inertia
+        ixx="${tool_base_ixx}" ixy="${tool_base_ixy}" ixz="${tool_base_ixz}"
+        iyy="${tool_base_iyy}" iyz="${tool_base_iyz}"
+        izz="${tool_base_izz}"/>
+    </inertial>
+     -->
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="/home/an/work/ur5_ws/src/Universal_Robots_ROS2_Driver/ur_moveit_config/srdf/tool/meshes/base_link.STL"/>
+      </geometry>
+      <material name="base_material">
+        <color rgba="${tool_material_color}"/>
+      </material>
+    </visual>
+    
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="/home/an/work/ur5_ws/src/Universal_Robots_ROS2_Driver/ur_moveit_config/srdf/tool/meshes/base_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+
+</robot>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="tool_70mm">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-2.11078556952571E-07 0.00101079663075779 -0.0810411267655116"
+        rpy="0 0 0" />
+      <mass
+        value="0.105658504124794" />
+      <inertia
+        ixx="0.000442406330734862"
+        ixy="-1.21950266951057E-10"
+        ixz="-1.47020442568055E-10"
+        iyy="0.000443670567309011"
+        iyz="3.93202267822577E-07"
+        izz="2.81724145104337E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tool_70mm/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://tool_70mm/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+</robot>
