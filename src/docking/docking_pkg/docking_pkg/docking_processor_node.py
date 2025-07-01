@@ -82,44 +82,39 @@ class DockingProcessorNode(Node):
         self.get_logger().info('Starting docking task...')
         time.sleep(0.5)
 
-        if (self.color_frame is None or self.depth_frame is None or self.fx is None):
-            self.get_logger().warn('Missing input data.')
-            response.done = 2
-            return response
+        max_iterations = 30
+        for i in range(max_iterations):
+            if (self.color_frame is None or self.depth_frame is None or self.fx is None):
+                self.get_logger().warn('Missing input data.')
+                response.done = 2
+                return response
 
-        results = self.model(self.color_frame)
-        masks = results[0].masks
-        if masks is None:
-            self.get_logger().warn('No objects detected.')
-            response.done = 3
-            return response
-
-        for mask in masks.data:
-            mask_np = mask.cpu().numpy().astype(bool)
-            points = self.mask_to_points(mask_np)
-
-            if points.shape[0] < 30:
+            results = self.model(self.color_frame)
+            masks = results[0].masks
+            if masks is None:
+                self.get_logger().warn('No objects detected.')
                 continue
 
-            plane_model, inliers = self.fit_plane(points)
-            coef, _ = plane_model  # coef = array([a, b, c])
-            a, b, c = coef
+            for mask in masks.data:
+                mask_np = mask.cpu().numpy().astype(bool)
+                points = self.mask_to_points(mask_np)
+                if points.shape[0] < 30:
+                    continue
 
-            self.get_logger().info(f"Received plane_model: {plane_model}")
+                plane_model, inliers = self.fit_plane(points)
+                coef, _ = plane_model
+                a, b = coef[1], coef[2]
+                normal = np.array([a, b, -1.0])
+                normal = normal / np.linalg.norm(normal)
 
-            inlier_points = points[inliers]
-            center = np.mean(inlier_points, axis=0)
+                inlier_points = points[inliers]
+                center = np.mean(inlier_points, axis=0)
 
-            normal = np.array([a, b, -1.0])
-            normal = normal / np.linalg.norm(normal)
+                if self.execute_pid_until_stable(center, normal):
+                    response.done = 0
+                    return response
 
-            self.execute_pid(center, normal)
-            response.done = 0
-            return response
-
-
-
-        self.get_logger().warn('No suitable plane found.')
+        self.get_logger().warn('Docking failed after max attempts.')
         response.done = 4
         return response
 
@@ -143,30 +138,48 @@ class DockingProcessorNode(Node):
         intercept = model.named_steps['ransacregressor'].estimator_.intercept_
         return (coef, intercept), inliers
 
-    def execute_pid(self, center, normal):
-        self.get_logger().info(f"Executing PID on center={center} normal={normal}")
-        x_error = center[0]
-        z_error = self.target_depth - center[2]
-        yaw_error = np.arctan2(normal[0], normal[2])
+    def execute_pid_until_stable(self, center, normal):
+        POSITION_THRESHOLD = 0.01
+        ANGLE_THRESHOLD = np.radians(3)
+        max_pid_iterations = 20
+        dt = 0.1
 
-        # 避免正對相機時角度跳變
-        if normal[2] < 0:
-            yaw_error += -np.pi if yaw_error > 0 else np.pi
-        if abs(np.degrees(yaw_error)) < 5:
-            yaw_error = 0.0
+        for i in range(max_pid_iterations):
+            x_error = center[0]
+            z_error = self.target_depth - center[2]
+            yaw_error = np.arctan2(normal[0], normal[2])
 
-        dt = 0.05  # 固定控制週期
-        vx = self.pid_z.update(z_error, dt)
-        vy = self.pid_x.update(x_error, dt)
-        omega = self.pid_yaw.update(yaw_error, dt)
+            if normal[2] < 0:
+                yaw_error += -np.pi if yaw_error > 0 else np.pi
+            if abs(np.degrees(yaw_error)) < 5:
+                yaw_error = 0.0
 
-        twist = Twist()
-        twist.linear.x = vx
-        twist.linear.y = vy
-        twist.angular.z = omega
-        self.cmd_pub.publish(twist)
-        self.get_logger().info(f"Published Twist: x={vx:.2f}, y={vy:.2f}, z={omega:.2f}")
-        time.sleep(1.5)
+            vx = self.pid_z.update(z_error, dt)
+            vy = self.pid_x.update(x_error, dt)
+            omega = self.pid_yaw.update(yaw_error, dt)
+
+            twist = Twist()
+            twist.linear.x = vx
+            twist.linear.y = vy
+            twist.angular.z = omega
+            self.cmd_pub.publish(twist)
+
+            self.get_logger().info(
+                f"[PID {i+1}] Error(x={x_error:.3f}, z={z_error:.3f}, yaw={np.degrees(yaw_error):.2f} deg), "
+                f"Twist(x={vx:.2f}, y={vy:.2f}, ω={omega:.2f})"
+            )
+
+            if (abs(x_error) < POSITION_THRESHOLD and
+                abs(z_error) < POSITION_THRESHOLD and
+                abs(yaw_error) < ANGLE_THRESHOLD):
+                self.get_logger().info("Docking complete. Errors within threshold.")
+                self.cmd_pub.publish(Twist())
+                return True
+
+            time.sleep(dt)
+
+        self.cmd_pub.publish(Twist())
+        return False
 
 
 def main(args=None):
