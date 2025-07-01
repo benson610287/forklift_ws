@@ -29,6 +29,7 @@ setup(
             'YoloDepthProcessor = docking_pkg.YoloDepthProcessor:main',
             'ransac = docking_pkg.ransac:main',
             'pid_mecanum_node = docking_pkg.pid_mecanum_node:main',
+            'docking_processor_node = docking_pkg.docking_processor_node:main',
 
         ],
     },
