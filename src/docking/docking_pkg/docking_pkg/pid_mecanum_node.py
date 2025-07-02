@@ -1,7 +1,9 @@
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Point, Vector3, Twist
+from std_msgs.msg import Int64
 from math import atan2, pi
+
 
 class PID:
     def __init__(self, kp, ki, kd):
@@ -22,76 +24,129 @@ class PID:
         self.integral = 0.0
         self.last_error = 0.0
 
+
 class PIDMecanumController(Node):
     def __init__(self):
         super().__init__('pid_mecanum_controller')
 
-        # 初始化 PID 控制器
-        self.pid_x = PID(1.0, 0.0, 0.1)      # 控制畫面中心 X 對齊（linear.y）
-        self.pid_z = PID(1.0, 0.0, 0.1)      # 控制深度（linear.x）
-        self.pid_yaw = PID(1.0, 0.0, 0.1)    # 控制法向量角度（angular.z）
+        self.pid_x = PID(1.0, 0.0, 0.1)
+        self.pid_z = PID(1.0, 0.0, 0.1)
+        self.pid_yaw = PID(1.0, 0.0, 0.1)
 
-        self.target_depth = 1.0  # 目標深度（公尺）
-
+        self.target_depth = 1.0
         self.last_time = self.get_clock().now()
 
-        # 接收的資料
         self.center = None
         self.normal = None
+        self.center_time = None
+        self.normal_time = None
+        self.timeout_sec = 0.5
 
-        # 訂閱主題
+        self.success_counter = 0
+        self.required_success = 30
+
+        self.task_done = False
+        self.movement_phase = None       # None, 'waiting', 'forwarding'
+        self.phase_start_time = None
+
         self.create_subscription(Point, '/plane_center', self.center_callback, 10)
         self.create_subscription(Vector3, '/plane_normal', self.normal_callback, 10)
 
-        # 發布 /cmd_vel
         self.cmd_pub = self.create_publisher(Twist, '/cmd_vel', 10)
+        self.docking_pub = self.create_publisher(Int64, '/dockingfinish', 10)
 
-        # 啟動控制迴圈（50Hz）
         self.timer = self.create_timer(0.02, self.control_loop)
 
     def center_callback(self, msg):
         self.center = msg
+        self.center_time = self.get_clock().now()
 
     def normal_callback(self, msg):
         self.normal = msg
+        self.normal_time = self.get_clock().now()
 
     def control_loop(self):
-        if self.center is None or self.normal is None:
-            return
-
         now = self.get_clock().now()
         dt = (now - self.last_time).nanoseconds / 1e9
         self.last_time = now
 
-        # 誤差計算
-        x_error = self.center.x
+        # === Phase: waiting ===
+        if self.movement_phase == 'waiting':
+            if (now - self.phase_start_time).nanoseconds / 1e9 >= 5.0:
+                self.get_logger().info('Waiting done. Start moving forward.')
+                self.phase_start_time = now
+                self.movement_phase = 'forwarding'
+            else:
+                self.publish_zero_twist()
+                return
+
+        # === Phase: forwarding ===
+        elif self.movement_phase == 'forwarding':
+            if (now - self.phase_start_time).nanoseconds / 1e9 >= 5.0:
+                self.get_logger().info('Forwarding done. Stop and publish dockingfinish.')
+                self.publish_zero_twist()
+                self.docking_pub.publish(Int64(data=1))
+                self.movement_phase = 'done'
+            else:
+                twist = Twist()
+                twist.linear.x = 0.1  # Move forward at 0.2 m/s
+                self.cmd_pub.publish(twist)
+            return
+
+        # === Phase: done ===
+        elif self.movement_phase == 'done':
+            return
+
+        # === Normal PID control ===
+        if (self.center_time is None or self.normal_time is None or
+            (now - self.center_time).nanoseconds / 1e9 > self.timeout_sec or
+            (now - self.normal_time).nanoseconds / 1e9 > self.timeout_sec):
+            self.get_logger().warn('Missing or stale /plane_center or /plane_normal data. Sending zero velocity.')
+            self.publish_zero_twist()
+            return
+
+        x_error = self.center.x - 0.1
         z_error = self.target_depth - self.center.z
         yaw_error = atan2(self.normal.x, self.normal.z)
 
-        # 修正：如果角度大於 ±90 度，代表背對鏡頭，轉換為最近旋轉方向
         if abs(yaw_error) > pi / 2:
             yaw_error = yaw_error - pi if yaw_error > 0 else yaw_error + pi
 
-        # 死區處理：小於 ±5 度則視為對準
-        if abs(yaw_error) < 0.0873:
+        aligned = (abs(x_error) < 0.05 and abs(z_error) < 0.05 and abs(yaw_error) < 0.0373)
+
+        if aligned:
+            self.success_counter += 1
+            self.get_logger().info(f"Alignment success count: {self.success_counter}/{self.required_success}")
+        else:
+            self.success_counter = 0
+
+        if self.success_counter >= self.required_success and not self.task_done:
+            self.get_logger().info("Docking alignment confirmed. Enter waiting phase.")
+            self.publish_zero_twist()
+            self.task_done = True
+            self.movement_phase = 'waiting'
+            self.phase_start_time = now
+            return
+
+        # PID control
+        if abs(yaw_error) < 0.0373:
             angular_z = 0.0
             self.pid_yaw.reset()
         else:
-            angular_z = self.pid_yaw.update(yaw_error, dt)
+            angular_z = self.pid_yaw.update(yaw_error, dt) / -10
 
-        # 計算 linear 控制輸出
-        linear_x = self.pid_z.update(z_error, dt)
-        linear_y = self.pid_x.update(x_error, dt)
+        linear_x = self.pid_z.update(z_error, dt) / -20
+        linear_y = self.pid_x.update(x_error, dt) / -20
 
-        # 發布 Twist 指令
         twist = Twist()
         twist.linear.x = linear_x
         twist.linear.y = linear_y
-        twist.linear.z = 0.0
-        twist.angular.x = 0.0
-        twist.angular.y = 0.0
         twist.angular.z = angular_z
         self.cmd_pub.publish(twist)
+
+    def publish_zero_twist(self):
+        self.cmd_pub.publish(Twist())
+
 
 def main(args=None):
     rclpy.init(args=args)
@@ -99,6 +154,7 @@ def main(args=None):
     rclpy.spin(node)
     node.destroy_node()
     rclpy.shutdown()
+
 
 if __name__ == '__main__':
     main()

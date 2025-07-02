@@ -1,0 +1,233 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-cab56085f9f318c1700a.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17
+					]
+				},
+				{
+					"build" : "gui_interface__py",
+					"jsonFile" : "directory-gui_interface__py-3991574be56d8e646719.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/eating/work/build/gui_interface/gui_interface__py",
+					"targetIndexes" : 
+					[
+						4
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "gui_interface",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_gui_interface_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_gui_interface_egg-5eb0d1b9bcd51f65168f.json",
+					"name" : "ament_cmake_python_build_gui_interface_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_copy_gui_interface::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_copy_gui_interface-8485beb07bb770466e54.json",
+					"name" : "ament_cmake_python_copy_gui_interface",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "gui_interface::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-gui_interface-354bdc5b56e40cf78466.json",
+					"name" : "gui_interface",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "gui_interface__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-gui_interface__cpp-cde1f826ecd1033b5b28.json",
+					"name" : "gui_interface__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "gui_interface__py::@a5fe95e7c546f73162a4",
+					"jsonFile" : "target-gui_interface__py-6ee66f485702b3f62ebf.json",
+					"name" : "gui_interface__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "gui_interface__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-gui_interface__rosidl_generator_c-a210dce0609deaea67a5.json",
+					"name" : "gui_interface__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "gui_interface__rosidl_generator_py::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-gui_interface__rosidl_generator_py-a6384e7e89aeb16c7110.json",
+					"name" : "gui_interface__rosidl_generator_py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "gui_interface__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-gui_interface__rosidl_typesupport_c-99dcae03c924dbdf9543.json",
+					"name" : "gui_interface__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "gui_interface__rosidl_typesupport_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-gui_interface__rosidl_typesupport_c__pyext-8641c475e45da6dc038f.json",
+					"name" : "gui_interface__rosidl_typesupport_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "gui_interface__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-gui_interface__rosidl_typesupport_cpp-90ce3ed5e0c8d57627ca.json",
+					"name" : "gui_interface__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "gui_interface__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-gui_interface__rosidl_typesupport_fastrtps_c-a6cc2f37c658bdee5502.json",
+					"name" : "gui_interface__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "gui_interface__rosidl_typesupport_fastrtps_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-gui_interface__rosidl_typesupport_fastrtps_c__pyext-1e1a73761d4a1e82e9b3.json",
+					"name" : "gui_interface__rosidl_typesupport_fastrtps_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "gui_interface__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-gui_interface__rosidl_typesupport_fastrtps_cpp-f218fd13f09c8e128c96.json",
+					"name" : "gui_interface__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "gui_interface__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-gui_interface__rosidl_typesupport_introspection_c-63a9cef7f18a496d350a.json",
+					"name" : "gui_interface__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "gui_interface__rosidl_typesupport_introspection_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-gui_interface__rosidl_typesupport_introspection_c__pyext-9516b9368654c24ce621.json",
+					"name" : "gui_interface__rosidl_typesupport_introspection_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "gui_interface__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-gui_interface__rosidl_typesupport_introspection_cpp-1ec38e3a5443c3568599.json",
+					"name" : "gui_interface__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "gui_interface_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-gui_interface_uninstall-f60eee95e27165e3c427.json",
+					"name" : "gui_interface_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-c4c33da3c9e7aa622bdf.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/eating/work/build/gui_interface",
+		"source" : "/home/eating/work/src/gui/gui_interface"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

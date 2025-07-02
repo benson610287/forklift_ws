@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 import rclpy
 from rclpy.node import Node
-from sensor_msgs.msg import Image, CameraInfo, PointCloud2
-from geometry_msgs.msg import Point, Vector3, Twist
-from std_msgs.msg import Header
+from sensor_msgs.msg import Image, CameraInfo
+from geometry_msgs.msg import Twist
 from sensor_msgs_py import point_cloud2
 from cv_bridge import CvBridge
 from sklearn.linear_model import RANSACRegressor
@@ -14,6 +13,7 @@ import numpy as np
 import cv2
 import time
 from interface.srv import Maincontroller
+from math import atan2, pi
 
 
 class PID:
@@ -41,7 +41,7 @@ class DockingProcessorNode(Node):
         super().__init__('docking_processor_node')
 
         self.bridge = CvBridge()
-        self.model = YOLO('/home/eating/work/src/docking/docking_pkg/yolov8_models/best.pt')
+        self.model = YOLO('/home/flash/work/src/docking/docking_pkg/yolov8_models/best.pt')
 
         self.color_frame = None
         self.depth_frame = None
@@ -82,7 +82,7 @@ class DockingProcessorNode(Node):
         self.get_logger().info('Starting docking task...')
         time.sleep(0.5)
 
-        max_iterations = 30
+        max_iterations = 100
         for i in range(max_iterations):
             if (self.color_frame is None or self.depth_frame is None or self.fx is None):
                 self.get_logger().warn('Missing input data.')
@@ -110,9 +110,10 @@ class DockingProcessorNode(Node):
                 inlier_points = points[inliers]
                 center = np.mean(inlier_points, axis=0)
 
-                if self.execute_pid_until_stable(center, normal):
+                if self.execute_pid_continuously(center, normal):
                     response.done = 0
                     return response
+
 
         self.get_logger().warn('Docking failed after max attempts.')
         response.done = 4
@@ -138,24 +139,30 @@ class DockingProcessorNode(Node):
         intercept = model.named_steps['ransacregressor'].estimator_.intercept_
         return (coef, intercept), inliers
 
-    def execute_pid_until_stable(self, center, normal):
-        POSITION_THRESHOLD = 0.01
-        ANGLE_THRESHOLD = np.radians(3)
-        max_pid_iterations = 20
+    def execute_pid_continuously(self, center, normal):
         dt = 0.1
+        POSITION_THRESHOLD = 0.03
+        max_duration = 5.0  # 最長執行時間（秒）
 
-        for i in range(max_pid_iterations):
+        start_time = time.time()
+
+        while rclpy.ok() and (time.time() - start_time) < max_duration:
             x_error = center[0]
             z_error = self.target_depth - center[2]
             yaw_error = np.arctan2(normal[0], normal[2])
 
             if normal[2] < 0:
-                yaw_error += -np.pi if yaw_error > 0 else np.pi
+                yaw_error += -pi if yaw_error > 0 else pi
             if abs(np.degrees(yaw_error)) < 5:
                 yaw_error = 0.0
 
-            vx = self.pid_z.update(z_error, dt)
-            vy = self.pid_x.update(x_error, dt)
+            if abs(x_error) < POSITION_THRESHOLD and abs(z_error) < POSITION_THRESHOLD:
+                self.get_logger().info("Position within threshold. Stopping.")
+                self.cmd_pub.publish(Twist())
+                return True
+
+            vx = self.pid_z.update(z_error, dt) / -10
+            vy = self.pid_x.update(x_error, dt) / -10
             omega = self.pid_yaw.update(yaw_error, dt)
 
             twist = Twist()
@@ -165,21 +172,15 @@ class DockingProcessorNode(Node):
             self.cmd_pub.publish(twist)
 
             self.get_logger().info(
-                f"[PID {i+1}] Error(x={x_error:.3f}, z={z_error:.3f}, yaw={np.degrees(yaw_error):.2f} deg), "
+                f"[PID] Error(x={x_error:.3f}, z={z_error:.3f}, yaw={np.degrees(yaw_error):.2f} deg), "
                 f"Twist(x={vx:.2f}, y={vy:.2f}, ω={omega:.2f})"
             )
-
-            if (abs(x_error) < POSITION_THRESHOLD and
-                abs(z_error) < POSITION_THRESHOLD and
-                abs(yaw_error) < ANGLE_THRESHOLD):
-                self.get_logger().info("Docking complete. Errors within threshold.")
-                self.cmd_pub.publish(Twist())
-                return True
 
             time.sleep(dt)
 
         self.cmd_pub.publish(Twist())
         return False
+
 
 
 def main(args=None):

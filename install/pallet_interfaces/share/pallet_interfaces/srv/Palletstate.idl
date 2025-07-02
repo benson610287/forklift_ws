@@ -1,0 +1,15 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from pallet_interfaces/srv/Palletstate.srv
+// generated code does not contain a copyright notice
+
+
+module pallet_interfaces {
+  module srv {
+    struct Palletstate_Request {
+      boolean run;
+    };
+    struct Palletstate_Response {
+      int64 state;
+    };
+  };
+};

@@ -1,0 +1,6 @@
+{
+  "package_name": "gui_interface",
+  "non_idl_tuples": [
+    "/home/eating/work/src/gui/gui_interface:srv/Taskcmd.srv"
+  ]
+}

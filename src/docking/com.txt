@@ -1,31 +1,11 @@
-sudo apt-get update
-
-source install/setup.bash
-
-pip install pyrealsense2
-pip install ultralytics
-sudo apt install ros-humble-cv-bridge  
-pip install opencv-python numpy
-
-
-sudo mkdir -p /etc/apt/keyrings
-curl -sSf https://librealsense.intel.com/Debian/librealsense.pgp | sudo tee /etc/apt/keyrings/librealsense.pgp > /dev/null
-echo "deb [signed-by=/etc/apt/keyrings/librealsense.pgp] https://librealsense.intel.com/Debian/apt-repo $(lsb_release -cs) main" | \
-  sudo tee /etc/apt/sources.list.d/librealsense.list > /dev/null
-sudo apt update
-sudo apt install librealsense2-dev librealsense2-utils
-
-pip install open3d
-
-colcon build
-
-#如果numpy錯誤就打
-pip install 'numpy<2.0' --force-reinstall
-
-sudo apt install ros-humble-librealsense2*
-
 
 ros2 launch realsense2_camera rs_launch.py
+
+新視窗
+ros2 run docking_pkg docking_status_server 
+
+
+ros2 service call /docking_status_server interface/srv/Maincontroller "{enable: true}"
 
 新視窗
 ros2 run docking_pkg YoloDepthProcessor
@@ -36,3 +16,5 @@ ros2 run docking_pkg YoloDepthProcessor
 新視窗
 ros2 run docking_pkg pid_mecanum_node 
 
+新視窗
+ros2 run mecanum mobile_node 
