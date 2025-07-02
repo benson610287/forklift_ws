@@ -1,0 +1,29 @@
+[0.059s] Invoking command in '/home/eating/work/build/timda_body_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake --build /home/eating/work/build/timda_body_description -- -j8 -l8
+[0.114s] Invoked command in '/home/eating/work/build/timda_body_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake --build /home/eating/work/build/timda_body_description -- -j8 -l8
+[0.116s] Invoking command in '/home/eating/work/build/timda_body_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake --install /home/eating/work/build/timda_body_description
+[0.126s] -- Install configuration: ""
+[0.126s] -- Up-to-date: /home/eating/work/install/timda_body_description/share/timda_body_description/config
+[0.127s] -- Up-to-date: /home/eating/work/install/timda_body_description/share/timda_body_description/config/joint_names_timda_body.yaml
+[0.127s] -- Up-to-date: /home/eating/work/install/timda_body_description/share/timda_body_description/meshes
+[0.127s] -- Up-to-date: /home/eating/work/install/timda_body_description/share/timda_body_description/meshes/slide_left.STL
+[0.128s] -- Up-to-date: /home/eating/work/install/timda_body_description/share/timda_body_description/meshes/base_link.STL
+[0.128s] -- Up-to-date: /home/eating/work/install/timda_body_description/share/timda_body_description/meshes/slide_right.STL
+[0.128s] -- Up-to-date: /home/eating/work/install/timda_body_description/share/timda_body_description/urdf
+[0.129s] -- Up-to-date: /home/eating/work/install/timda_body_description/share/timda_body_description/urdf/timda_body.xacro
+[0.129s] -- Up-to-date: /home/eating/work/install/timda_body_description/share/timda_body_description/urdf/timda_body.gazebo.xacro
+[0.129s] -- Up-to-date: /home/eating/work/install/timda_body_description/share/ament_index/resource_index/package_run_dependencies/timda_body_description
+[0.129s] -- Up-to-date: /home/eating/work/install/timda_body_description/share/ament_index/resource_index/parent_prefix_path/timda_body_description
+[0.130s] -- Up-to-date: /home/eating/work/install/timda_body_description/share/timda_body_description/environment/ament_prefix_path.sh
+[0.130s] -- Up-to-date: /home/eating/work/install/timda_body_description/share/timda_body_description/environment/ament_prefix_path.dsv
+[0.130s] -- Up-to-date: /home/eating/work/install/timda_body_description/share/timda_body_description/environment/path.sh
+[0.130s] -- Up-to-date: /home/eating/work/install/timda_body_description/share/timda_body_description/environment/path.dsv
+[0.131s] -- Up-to-date: /home/eating/work/install/timda_body_description/share/timda_body_description/local_setup.bash
+[0.131s] -- Up-to-date: /home/eating/work/install/timda_body_description/share/timda_body_description/local_setup.sh
+[0.131s] -- Up-to-date: /home/eating/work/install/timda_body_description/share/timda_body_description/local_setup.zsh
+[0.131s] -- Up-to-date: /home/eating/work/install/timda_body_description/share/timda_body_description/local_setup.dsv
+[0.131s] -- Installing: /home/eating/work/install/timda_body_description/share/timda_body_description/package.dsv
+[0.132s] -- Up-to-date: /home/eating/work/install/timda_body_description/share/ament_index/resource_index/packages/timda_body_description
+[0.132s] -- Up-to-date: /home/eating/work/install/timda_body_description/share/timda_body_description/cmake/timda_body_descriptionConfig.cmake
+[0.132s] -- Up-to-date: /home/eating/work/install/timda_body_description/share/timda_body_description/cmake/timda_body_descriptionConfig-version.cmake
+[0.132s] -- Up-to-date: /home/eating/work/install/timda_body_description/share/timda_body_description/package.xml
+[0.199s] Invoked command in '/home/eating/work/build/timda_body_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake --install /home/eating/work/build/timda_body_description

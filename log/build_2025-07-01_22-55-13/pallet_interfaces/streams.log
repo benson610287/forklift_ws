@@ -1,0 +1,278 @@
+[0.560s] Invoking command in '/home/eating/work/build/pallet_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake /home/eating/work/src/pallet/pallet_interfaces -DCMAKE_INSTALL_PREFIX=/home/eating/work/install/pallet_interfaces
+[0.670s] -- The C compiler identification is GNU 11.4.0
+[0.790s] -- The CXX compiler identification is GNU 11.4.0
+[0.806s] -- Detecting C compiler ABI info
+[0.982s] -- Detecting C compiler ABI info - done
+[0.996s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.996s] -- Detecting C compile features
+[0.997s] -- Detecting C compile features - done
+[1.002s] -- Detecting CXX compiler ABI info
+[1.209s] -- Detecting CXX compiler ABI info - done
+[1.235s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.235s] -- Detecting CXX compile features
+[1.235s] -- Detecting CXX compile features - done
+[1.237s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.591s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.826s] -- Found geometry_msgs: 4.9.0 (/opt/ros/humble/share/geometry_msgs/cmake)
+[1.889s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[1.899s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.915s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.938s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.970s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.043s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[2.817s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[3.670s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[4.017s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[4.066s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+[4.070s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[4.118s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+[4.118s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[4.118s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[4.119s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[4.156s] -- Found PythonExtra: .so  
+[4.286s] -- Found ament_lint_auto: 0.12.12 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[4.345s] -- Added test 'lint_cmake' to check CMake code style
+[4.347s] -- Added test 'xmllint' to check XML markup files
+[4.352s] -- Configuring done
+[4.424s] -- Generating done
+[4.443s] -- Build files have been written to: /home/eating/work/build/pallet_interfaces
+[4.458s] Invoked command in '/home/eating/work/build/pallet_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake /home/eating/work/src/pallet/pallet_interfaces -DCMAKE_INSTALL_PREFIX=/home/eating/work/install/pallet_interfaces
+[4.460s] Invoking command in '/home/eating/work/build/pallet_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake --build /home/eating/work/build/pallet_interfaces -- -j8 -l8
+[4.528s] [  2%] [34m[1mGenerating C code for ROS interfaces[0m
+[4.556s] [  5%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[4.557s] [  5%] Built target ament_cmake_python_copy_pallet_interfaces
+[5.087s] running egg_info
+[5.088s] creating pallet_interfaces.egg-info
+[5.088s] writing pallet_interfaces.egg-info/PKG-INFO
+[5.089s] writing dependency_links to pallet_interfaces.egg-info/dependency_links.txt
+[5.089s] writing top-level names to pallet_interfaces.egg-info/top_level.txt
+[5.090s] writing manifest file 'pallet_interfaces.egg-info/SOURCES.txt'
+[5.093s] reading manifest file 'pallet_interfaces.egg-info/SOURCES.txt'
+[5.095s] writing manifest file 'pallet_interfaces.egg-info/SOURCES.txt'
+[5.150s] [  5%] Built target ament_cmake_python_build_pallet_interfaces_egg
+[5.229s] [  5%] Built target pallet_interfaces__cpp
+[5.247s] [  7%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[5.253s] [ 10%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[5.262s] [ 12%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[5.305s] [ 15%] [32mBuilding C object CMakeFiles/pallet_interfaces__rosidl_generator_c.dir/rosidl_generator_c/pallet_interfaces/msg/detail/boxinfo__functions.c.o[0m
+[5.317s] [ 17%] [32mBuilding C object CMakeFiles/pallet_interfaces__rosidl_generator_c.dir/rosidl_generator_c/pallet_interfaces/srv/detail/palletstate__functions.c.o[0m
+[5.489s] [ 20%] [32m[1mLinking C shared library libpallet_interfaces__rosidl_generator_c.so[0m
+[5.650s] [ 20%] Built target pallet_interfaces__rosidl_generator_c
+[5.720s] [ 23%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[5.735s] [ 25%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[5.752s] [ 28%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[5.853s] [ 30%] [32mBuilding CXX object CMakeFiles/pallet_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/pallet_interfaces/srv/palletstate__type_support.cpp.o[0m
+[5.872s] [ 33%] [32mBuilding CXX object CMakeFiles/pallet_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/pallet_interfaces/msg/boxinfo__type_support.cpp.o[0m
+[6.015s] [ 35%] [32mBuilding CXX object CMakeFiles/pallet_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/pallet_interfaces/msg/detail/dds_fastrtps/boxinfo__type_support.cpp.o[0m
+[6.048s] [ 38%] [32mBuilding CXX object CMakeFiles/pallet_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/pallet_interfaces/srv/detail/dds_fastrtps/palletstate__type_support.cpp.o[0m
+[6.095s] [ 41%] [32mBuilding CXX object CMakeFiles/pallet_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/pallet_interfaces/msg/detail/boxinfo__type_support.cpp.o[0m
+[6.735s] [ 43%] [32mBuilding CXX object CMakeFiles/pallet_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/pallet_interfaces/srv/detail/palletstate__type_support.cpp.o[0m
+[6.767s] [ 46%] [32m[1mLinking CXX shared library libpallet_interfaces__rosidl_typesupport_cpp.so[0m
+[6.788s] [ 48%] [32mBuilding CXX object CMakeFiles/pallet_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/pallet_interfaces/msg/detail/boxinfo__type_support_c.cpp.o[0m
+[6.816s] [ 51%] [32mBuilding CXX object CMakeFiles/pallet_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/pallet_interfaces/msg/boxinfo__type_support.cpp.o[0m
+[6.927s] [ 51%] Built target pallet_interfaces__rosidl_typesupport_cpp
+[6.940s] [ 53%] [32mBuilding C object CMakeFiles/pallet_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/pallet_interfaces/msg/detail/boxinfo__type_support.c.o[0m
+[6.971s] [ 56%] [32mBuilding CXX object CMakeFiles/pallet_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/pallet_interfaces/srv/detail/palletstate__type_support_c.cpp.o[0m
+[6.973s] [ 58%] [32mBuilding CXX object CMakeFiles/pallet_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/pallet_interfaces/srv/palletstate__type_support.cpp.o[0m
+[7.077s] [ 61%] [32mBuilding C object CMakeFiles/pallet_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/pallet_interfaces/srv/detail/palletstate__type_support.c.o[0m
+[7.135s] [ 64%] [32m[1mLinking CXX shared library libpallet_interfaces__rosidl_typesupport_c.so[0m
+[7.254s] [ 66%] [32m[1mLinking C shared library libpallet_interfaces__rosidl_typesupport_introspection_c.so[0m
+[7.347s] [ 66%] Built target pallet_interfaces__rosidl_typesupport_c
+[7.363s] [ 69%] [32m[1mLinking CXX shared library libpallet_interfaces__rosidl_typesupport_fastrtps_cpp.so[0m
+[7.413s] [ 69%] Built target pallet_interfaces__rosidl_typesupport_introspection_c
+[7.659s] [ 69%] Built target pallet_interfaces__rosidl_typesupport_fastrtps_cpp
+[7.719s] [ 71%] [32m[1mLinking CXX shared library libpallet_interfaces__rosidl_typesupport_fastrtps_c.so[0m
+[7.872s] [ 74%] [32m[1mLinking CXX shared library libpallet_interfaces__rosidl_typesupport_introspection_cpp.so[0m
+[7.895s] [ 74%] Built target pallet_interfaces__rosidl_typesupport_fastrtps_c
+[7.942s] [ 74%] Built target pallet_interfaces__rosidl_typesupport_introspection_cpp
+[7.977s] [ 74%] Built target pallet_interfaces
+[8.008s] [ 76%] [34m[1mGenerating Python code for ROS interfaces[0m
+[8.863s] [ 76%] Built target pallet_interfaces__py
+[8.889s] [ 82%] [32mBuilding C object CMakeFiles/pallet_interfaces__rosidl_generator_py.dir/rosidl_generator_py/pallet_interfaces/srv/_palletstate_s.c.o[0m
+[8.890s] [ 82%] [32mBuilding C object CMakeFiles/pallet_interfaces__rosidl_generator_py.dir/rosidl_generator_py/pallet_interfaces/msg/_boxinfo_s.c.o[0m
+[9.052s] [ 84%] [32m[1mLinking C shared library rosidl_generator_py/pallet_interfaces/libpallet_interfaces__rosidl_generator_py.so[0m
+[9.104s] [ 84%] Built target pallet_interfaces__rosidl_generator_py
+[9.133s] [ 87%] [32mBuilding C object CMakeFiles/pallet_interfaces__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/pallet_interfaces/_pallet_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[9.136s] [ 89%] [32mBuilding C object CMakeFiles/pallet_interfaces__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/pallet_interfaces/_pallet_interfaces_s.ep.rosidl_typesupport_c.c.o[0m
+[9.137s] [ 92%] [32mBuilding C object CMakeFiles/pallet_interfaces__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/pallet_interfaces/_pallet_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[9.310s] [ 94%] [32m[1mLinking C shared library rosidl_generator_py/pallet_interfaces/pallet_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so[0m
+[9.317s] [ 97%] [32m[1mLinking C shared library rosidl_generator_py/pallet_interfaces/pallet_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so[0m
+[9.355s] [100%] [32m[1mLinking C shared library rosidl_generator_py/pallet_interfaces/pallet_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so[0m
+[9.374s] [100%] Built target pallet_interfaces__rosidl_typesupport_introspection_c__pyext
+[9.384s] [100%] Built target pallet_interfaces__rosidl_typesupport_c__pyext
+[9.416s] [100%] Built target pallet_interfaces__rosidl_typesupport_fastrtps_c__pyext
+[9.433s] Invoked command in '/home/eating/work/build/pallet_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake --build /home/eating/work/build/pallet_interfaces -- -j8 -l8
+[9.433s] Invoking command in '/home/eating/work/build/pallet_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake --install /home/eating/work/build/pallet_interfaces
+[9.443s] -- Install configuration: ""
+[9.443s] -- Installing: /home/eating/work/install/pallet_interfaces/share/ament_index/resource_index/rosidl_interfaces/pallet_interfaces
+[9.444s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces
+[9.444s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/msg
+[9.444s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/msg/rosidl_generator_c__visibility_control.h
+[9.444s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/msg/detail
+[9.444s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/msg/detail/boxinfo__functions.h
+[9.445s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/msg/detail/boxinfo__struct.h
+[9.445s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/msg/detail/boxinfo__functions.c
+[9.445s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/msg/detail/boxinfo__type_support.h
+[9.445s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/msg/boxinfo.h
+[9.445s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/srv
+[9.446s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/srv/detail
+[9.446s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/srv/detail/palletstate__struct.h
+[9.446s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/srv/detail/palletstate__functions.c
+[9.446s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/srv/detail/palletstate__functions.h
+[9.447s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/srv/detail/palletstate__type_support.h
+[9.447s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/srv/palletstate.h
+[9.447s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/environment/library_path.sh
+[9.447s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/environment/library_path.dsv
+[9.448s] -- Installing: /home/eating/work/install/pallet_interfaces/lib/libpallet_interfaces__rosidl_generator_c.so
+[9.448s] -- Set runtime path of "/home/eating/work/install/pallet_interfaces/lib/libpallet_interfaces__rosidl_generator_c.so" to ""
+[9.448s] -- Up-to-date: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces
+[9.448s] -- Up-to-date: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/msg
+[9.449s] -- Up-to-date: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/msg/detail
+[9.449s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/msg/detail/boxinfo__rosidl_typesupport_fastrtps_c.h
+[9.449s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[9.449s] -- Up-to-date: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/srv
+[9.449s] -- Up-to-date: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/srv/detail
+[9.449s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/srv/detail/palletstate__rosidl_typesupport_fastrtps_c.h
+[9.449s] -- Installing: /home/eating/work/install/pallet_interfaces/lib/libpallet_interfaces__rosidl_typesupport_fastrtps_c.so
+[9.450s] -- Set runtime path of "/home/eating/work/install/pallet_interfaces/lib/libpallet_interfaces__rosidl_typesupport_fastrtps_c.so" to ""
+[9.450s] -- Up-to-date: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces
+[9.450s] -- Up-to-date: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/msg
+[9.451s] -- Up-to-date: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/msg/detail
+[9.451s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/msg/detail/boxinfo__type_support.hpp
+[9.451s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/msg/detail/boxinfo__builder.hpp
+[9.451s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/msg/detail/boxinfo__struct.hpp
+[9.451s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/msg/detail/boxinfo__traits.hpp
+[9.451s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp
+[9.452s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/msg/boxinfo.hpp
+[9.452s] -- Up-to-date: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/srv
+[9.452s] -- Up-to-date: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/srv/detail
+[9.452s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/srv/detail/palletstate__builder.hpp
+[9.452s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/srv/detail/palletstate__type_support.hpp
+[9.452s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/srv/detail/palletstate__struct.hpp
+[9.453s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/srv/detail/palletstate__traits.hpp
+[9.453s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/srv/palletstate.hpp
+[9.453s] -- Up-to-date: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces
+[9.453s] -- Up-to-date: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/msg
+[9.453s] -- Up-to-date: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/msg/detail
+[9.454s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/msg/detail/boxinfo__rosidl_typesupport_fastrtps_cpp.hpp
+[9.454s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/msg/detail/dds_fastrtps
+[9.454s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[9.454s] -- Up-to-date: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/srv
+[9.454s] -- Up-to-date: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/srv/detail
+[9.455s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/srv/detail/palletstate__rosidl_typesupport_fastrtps_cpp.hpp
+[9.455s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/srv/detail/dds_fastrtps
+[9.455s] -- Installing: /home/eating/work/install/pallet_interfaces/lib/libpallet_interfaces__rosidl_typesupport_fastrtps_cpp.so
+[9.455s] -- Set runtime path of "/home/eating/work/install/pallet_interfaces/lib/libpallet_interfaces__rosidl_typesupport_fastrtps_cpp.so" to ""
+[9.455s] -- Up-to-date: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces
+[9.456s] -- Up-to-date: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/msg
+[9.456s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[9.456s] -- Up-to-date: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/msg/detail
+[9.456s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/msg/detail/boxinfo__rosidl_typesupport_introspection_c.h
+[9.456s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/msg/detail/boxinfo__type_support.c
+[9.456s] -- Up-to-date: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/srv
+[9.456s] -- Up-to-date: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/srv/detail
+[9.457s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/srv/detail/palletstate__type_support.c
+[9.457s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/srv/detail/palletstate__rosidl_typesupport_introspection_c.h
+[9.457s] -- Installing: /home/eating/work/install/pallet_interfaces/lib/libpallet_interfaces__rosidl_typesupport_introspection_c.so
+[9.457s] -- Set runtime path of "/home/eating/work/install/pallet_interfaces/lib/libpallet_interfaces__rosidl_typesupport_introspection_c.so" to ""
+[9.458s] -- Installing: /home/eating/work/install/pallet_interfaces/lib/libpallet_interfaces__rosidl_typesupport_c.so
+[9.458s] -- Set runtime path of "/home/eating/work/install/pallet_interfaces/lib/libpallet_interfaces__rosidl_typesupport_c.so" to ""
+[9.458s] -- Up-to-date: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces
+[9.458s] -- Up-to-date: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/msg
+[9.459s] -- Up-to-date: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/msg/detail
+[9.459s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/msg/detail/boxinfo__type_support.cpp
+[9.459s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/msg/detail/boxinfo__rosidl_typesupport_introspection_cpp.hpp
+[9.459s] -- Up-to-date: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/srv
+[9.460s] -- Up-to-date: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/srv/detail
+[9.460s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/srv/detail/palletstate__type_support.cpp
+[9.460s] -- Installing: /home/eating/work/install/pallet_interfaces/include/pallet_interfaces/pallet_interfaces/srv/detail/palletstate__rosidl_typesupport_introspection_cpp.hpp
+[9.460s] -- Installing: /home/eating/work/install/pallet_interfaces/lib/libpallet_interfaces__rosidl_typesupport_introspection_cpp.so
+[9.463s] -- Set runtime path of "/home/eating/work/install/pallet_interfaces/lib/libpallet_interfaces__rosidl_typesupport_introspection_cpp.so" to ""
+[9.463s] -- Installing: /home/eating/work/install/pallet_interfaces/lib/libpallet_interfaces__rosidl_typesupport_cpp.so
+[9.463s] -- Set runtime path of "/home/eating/work/install/pallet_interfaces/lib/libpallet_interfaces__rosidl_typesupport_cpp.so" to ""
+[9.463s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/environment/pythonpath.sh
+[9.463s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/environment/pythonpath.dsv
+[9.463s] -- Installing: /home/eating/work/install/pallet_interfaces/local/lib/python3.10/dist-packages/pallet_interfaces-0.0.0-py3.10.egg-info
+[9.463s] -- Installing: /home/eating/work/install/pallet_interfaces/local/lib/python3.10/dist-packages/pallet_interfaces-0.0.0-py3.10.egg-info/top_level.txt
+[9.464s] -- Installing: /home/eating/work/install/pallet_interfaces/local/lib/python3.10/dist-packages/pallet_interfaces-0.0.0-py3.10.egg-info/SOURCES.txt
+[9.464s] -- Installing: /home/eating/work/install/pallet_interfaces/local/lib/python3.10/dist-packages/pallet_interfaces-0.0.0-py3.10.egg-info/dependency_links.txt
+[9.464s] -- Installing: /home/eating/work/install/pallet_interfaces/local/lib/python3.10/dist-packages/pallet_interfaces-0.0.0-py3.10.egg-info/PKG-INFO
+[9.464s] -- Installing: /home/eating/work/install/pallet_interfaces/local/lib/python3.10/dist-packages/pallet_interfaces
+[9.464s] -- Installing: /home/eating/work/install/pallet_interfaces/local/lib/python3.10/dist-packages/pallet_interfaces/msg
+[9.464s] -- Installing: /home/eating/work/install/pallet_interfaces/local/lib/python3.10/dist-packages/pallet_interfaces/msg/__init__.py
+[9.464s] -- Installing: /home/eating/work/install/pallet_interfaces/local/lib/python3.10/dist-packages/pallet_interfaces/msg/_boxinfo.py
+[9.465s] -- Installing: /home/eating/work/install/pallet_interfaces/local/lib/python3.10/dist-packages/pallet_interfaces/msg/_boxinfo_s.c
+[9.465s] -- Installing: /home/eating/work/install/pallet_interfaces/local/lib/python3.10/dist-packages/pallet_interfaces/__init__.py
+[9.465s] -- Installing: /home/eating/work/install/pallet_interfaces/local/lib/python3.10/dist-packages/pallet_interfaces/_pallet_interfaces_s.ep.rosidl_typesupport_c.c
+[9.465s] -- Installing: /home/eating/work/install/pallet_interfaces/local/lib/python3.10/dist-packages/pallet_interfaces/libpallet_interfaces__rosidl_generator_py.so
+[9.465s] -- Installing: /home/eating/work/install/pallet_interfaces/local/lib/python3.10/dist-packages/pallet_interfaces/pallet_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[9.465s] -- Installing: /home/eating/work/install/pallet_interfaces/local/lib/python3.10/dist-packages/pallet_interfaces/pallet_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[9.465s] -- Installing: /home/eating/work/install/pallet_interfaces/local/lib/python3.10/dist-packages/pallet_interfaces/srv
+[9.465s] -- Installing: /home/eating/work/install/pallet_interfaces/local/lib/python3.10/dist-packages/pallet_interfaces/srv/__init__.py
+[9.466s] -- Installing: /home/eating/work/install/pallet_interfaces/local/lib/python3.10/dist-packages/pallet_interfaces/srv/_palletstate_s.c
+[9.466s] -- Installing: /home/eating/work/install/pallet_interfaces/local/lib/python3.10/dist-packages/pallet_interfaces/srv/_palletstate.py
+[9.466s] -- Installing: /home/eating/work/install/pallet_interfaces/local/lib/python3.10/dist-packages/pallet_interfaces/_pallet_interfaces_s.ep.rosidl_typesupport_introspection_c.c
+[9.466s] -- Installing: /home/eating/work/install/pallet_interfaces/local/lib/python3.10/dist-packages/pallet_interfaces/pallet_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[9.466s] -- Installing: /home/eating/work/install/pallet_interfaces/local/lib/python3.10/dist-packages/pallet_interfaces/_pallet_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+[9.530s] Listing '/home/eating/work/install/pallet_interfaces/local/lib/python3.10/dist-packages/pallet_interfaces'...
+[9.530s] Compiling '/home/eating/work/install/pallet_interfaces/local/lib/python3.10/dist-packages/pallet_interfaces/__init__.py'...
+[9.531s] Listing '/home/eating/work/install/pallet_interfaces/local/lib/python3.10/dist-packages/pallet_interfaces/msg'...
+[9.531s] Compiling '/home/eating/work/install/pallet_interfaces/local/lib/python3.10/dist-packages/pallet_interfaces/msg/__init__.py'...
+[9.531s] Compiling '/home/eating/work/install/pallet_interfaces/local/lib/python3.10/dist-packages/pallet_interfaces/msg/_boxinfo.py'...
+[9.531s] Listing '/home/eating/work/install/pallet_interfaces/local/lib/python3.10/dist-packages/pallet_interfaces/srv'...
+[9.531s] Compiling '/home/eating/work/install/pallet_interfaces/local/lib/python3.10/dist-packages/pallet_interfaces/srv/__init__.py'...
+[9.531s] Compiling '/home/eating/work/install/pallet_interfaces/local/lib/python3.10/dist-packages/pallet_interfaces/srv/_palletstate.py'...
+[9.540s] -- Installing: /home/eating/work/install/pallet_interfaces/local/lib/python3.10/dist-packages/pallet_interfaces/pallet_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[9.540s] -- Set runtime path of "/home/eating/work/install/pallet_interfaces/local/lib/python3.10/dist-packages/pallet_interfaces/pallet_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""
+[9.540s] -- Installing: /home/eating/work/install/pallet_interfaces/local/lib/python3.10/dist-packages/pallet_interfaces/pallet_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[9.540s] -- Set runtime path of "/home/eating/work/install/pallet_interfaces/local/lib/python3.10/dist-packages/pallet_interfaces/pallet_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""
+[9.543s] -- Installing: /home/eating/work/install/pallet_interfaces/local/lib/python3.10/dist-packages/pallet_interfaces/pallet_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[9.543s] -- Set runtime path of "/home/eating/work/install/pallet_interfaces/local/lib/python3.10/dist-packages/pallet_interfaces/pallet_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""
+[9.543s] -- Installing: /home/eating/work/install/pallet_interfaces/lib/libpallet_interfaces__rosidl_generator_py.so
+[9.543s] -- Set runtime path of "/home/eating/work/install/pallet_interfaces/lib/libpallet_interfaces__rosidl_generator_py.so" to ""
+[9.543s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/msg/Boxinfo.idl
+[9.543s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/srv/Palletstate.idl
+[9.544s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/msg/Boxinfo.msg
+[9.544s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/srv/Palletstate.srv
+[9.544s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/srv/Palletstate_Request.msg
+[9.544s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/srv/Palletstate_Response.msg
+[9.544s] -- Installing: /home/eating/work/install/pallet_interfaces/share/ament_index/resource_index/package_run_dependencies/pallet_interfaces
+[9.544s] -- Installing: /home/eating/work/install/pallet_interfaces/share/ament_index/resource_index/parent_prefix_path/pallet_interfaces
+[9.544s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/environment/ament_prefix_path.sh
+[9.545s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/environment/ament_prefix_path.dsv
+[9.545s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/environment/path.sh
+[9.545s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/environment/path.dsv
+[9.545s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/local_setup.bash
+[9.546s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/local_setup.sh
+[9.546s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/local_setup.zsh
+[9.546s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/local_setup.dsv
+[9.546s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/package.dsv
+[9.547s] -- Installing: /home/eating/work/install/pallet_interfaces/share/ament_index/resource_index/packages/pallet_interfaces
+[9.547s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/cmake/export_pallet_interfaces__rosidl_generator_cExport.cmake
+[9.547s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/cmake/export_pallet_interfaces__rosidl_generator_cExport-noconfig.cmake
+[9.547s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/cmake/export_pallet_interfaces__rosidl_typesupport_fastrtps_cExport.cmake
+[9.548s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/cmake/export_pallet_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[9.548s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/cmake/export_pallet_interfaces__rosidl_generator_cppExport.cmake
+[9.548s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/cmake/export_pallet_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake
+[9.548s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/cmake/export_pallet_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[9.549s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/cmake/pallet_interfaces__rosidl_typesupport_introspection_cExport.cmake
+[9.549s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/cmake/pallet_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[9.549s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/cmake/pallet_interfaces__rosidl_typesupport_cExport.cmake
+[9.549s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/cmake/pallet_interfaces__rosidl_typesupport_cExport-noconfig.cmake
+[9.550s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/cmake/pallet_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+[9.550s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/cmake/pallet_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[9.550s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/cmake/pallet_interfaces__rosidl_typesupport_cppExport.cmake
+[9.551s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/cmake/pallet_interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+[9.551s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/cmake/export_pallet_interfaces__rosidl_generator_pyExport.cmake
+[9.551s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/cmake/export_pallet_interfaces__rosidl_generator_pyExport-noconfig.cmake
+[9.551s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/cmake/rosidl_cmake-extras.cmake
+[9.551s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+[9.552s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+[9.552s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+[9.552s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+[9.552s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[9.553s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[9.553s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/cmake/pallet_interfacesConfig.cmake
+[9.553s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/cmake/pallet_interfacesConfig-version.cmake
+[9.553s] -- Installing: /home/eating/work/install/pallet_interfaces/share/pallet_interfaces/package.xml
+[9.557s] Invoked command in '/home/eating/work/build/pallet_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/eating/work/install/pallet_main:/home/eating/work/install/main_control:/home/eating/work/install/gui:/home/eating/work/install/docking_pkg:/opt/ros/humble /usr/bin/cmake --install /home/eating/work/build/pallet_interfaces
