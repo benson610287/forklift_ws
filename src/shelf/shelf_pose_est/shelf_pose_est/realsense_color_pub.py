@@ -51,7 +51,7 @@ def save_realsense_intrinsics(filepath, intrinsics):
     """Save RealSense color camera intrinsics and distortion to an ini file."""
     # Build camera matrix from intrinsics
     camera_matrix = np.array([
-        [intrinsics.fx, 0.0, intrinsics.ppx],
+        [intrinsics.fx, 0.0, intrinsics.ppx],b
         [0.0, intrinsics.fy, intrinsics.ppy],
         [0.0, 0.0, 1.0]
     ], dtype=np.float64)
@@ -84,7 +84,7 @@ class ImagePublisher(Node):
         super().__init__('image_publisher')  # Node name
 
         # Create the publisher
-        self.publisher_ = self.create_publisher(Image, '/camera/camera/color/image_raw', 10)
+        self.publisher_ = self.create_publisher(Image, '/camera/color/image_raw', 10)
         timer_period = 0.03  # Publish at 30Hz
         self.timer = self.create_timer(timer_period, self.timer_callback)
 
