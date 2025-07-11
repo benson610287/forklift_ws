@@ -140,6 +140,16 @@ RUN apt-get install -y librealsense2-utils
 RUN apt-get install -y librealsense2-dev
 RUN apt install -y ros-humble-realsense2-camera
 
+#GUI require
+RUN pip install pyqt5-tools
+RUN sudo apt-get install pyqt5-dev-tools
+
+#GUI require
+
+
+
+
+
 #RUN sudo apt install -y python3-pip 
 #RUN sudo apt install -y python3-dev 
 #RUN sudo apt install -y python3-setuptools
