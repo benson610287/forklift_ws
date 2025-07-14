@@ -14,14 +14,17 @@ class YoloSubscriber(Node):
         # 訂閱影像
         self.subscription = self.create_subscription(
             Image,
-            '/Docking/PalletImage',
-            self.listener_callback,
-            10)
+            '/camera/camera/color/image_raw',
+            self.listener_callback,10)
         
         self.bridge = CvBridge()
 
         # 載入YOLO模型（可換成 yolov8s.pt 等）
-        model_path = os.path.join(os.path.dirname(__file__), 'yolov8_models', 'yolov8m-seg.pt')
+        # model_path = os.path.join(os.path.dirname(__file__), 'yolov8_models', 'best.pt')
+
+        model_path = '/home/flash/work/src/docking/docking_pkg/yolov8_models/last.pt'
+
+
         self.model = YOLO(model_path)
         self.get_logger().info('YOLOv8 node initialized.')
 
