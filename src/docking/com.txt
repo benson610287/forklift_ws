@@ -1,0 +1,20 @@
+
+ros2 launch realsense2_camera rs_launch.py
+
+新視窗
+ros2 run docking_pkg docking_status_server 
+
+
+ros2 service call /docking_status_server interface/srv/Maincontroller "{enable: true}"
+
+新視窗
+ros2 run docking_pkg YoloDepthProcessor
+
+新視窗
+ ros2 run docking_pkg ransac 
+
+新視窗
+ros2 run docking_pkg pid_mecanum_node 
+
+新視窗
+ros2 run mecanum mobile_node 
