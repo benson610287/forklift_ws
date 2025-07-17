@@ -91,6 +91,14 @@ def main():
     while True:
         capture = k4a.get_capture()
         if capture.transformed_depth is not None:
+            print("=== DEPTH DATA INFO ===")
+            print(f"Data type: {capture.transformed_depth.dtype}")
+            print(f"Shape: {capture.transformed_depth.shape}")
+            print(f"Min value: {np.min(capture.transformed_depth[capture.transformed_depth > 0])}")  # Exclude 0s
+            print(f"Max value: {np.max(capture.transformed_depth)}")
+            print(f"Sample depth value: {capture.transformed_depth[500, 600]}")
+            print("=======================")
+        # if capture.transformed_depth is not None and capture.color is not None:
             frame_count += 1
             current_time = time.time()
             #color image
