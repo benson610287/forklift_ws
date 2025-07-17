@@ -1,4 +1,6 @@
-FROM ubuntu:22.04
+# FROM ubuntu:22.04
+########## zack change image for nvidia cuda toolkit ###########
+FROM nvidia/cuda:12.8.1-cudnn-devel-ubuntu22.04
 ############################## SYSTEM PARAMETERS ##############################
 # * Arguments
 ARG USER=initial
@@ -10,8 +12,8 @@ ARG HARDWARE=x86_64
 ARG ENTRYPOINT_FILE=entrypint.sh
 
 # * Env vars for the nvidia-container-runtime.
-ENV NVIDIA_VISIBLE_DEVICES all
-ENV NVIDIA_DRIVER_CAPABILITIES all
+ENV NVIDIA_VISIBLE_DEVICES=all
+ENV NVIDIA_DRIVER_CAPABILITIES=all
 # ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
 
 # * Setup users and groups
@@ -42,33 +44,36 @@ COPY --chown="${USER}":"${GROUP}" --chmod=0775 config config
 # COPY ./${ENTRYPOINT_FILE} /entrypoint.sh
 # COPY config config
 # RUN sudo chmod 0775 /entrypoint.sh && \
-    # sudo chown -R "${USER}":"${GROUP}" config \
-    # && sudo chmod -R 0775 config
+# sudo chown -R "${USER}":"${GROUP}" config \
+# && sudo chmod -R 0775 config
 
 ############################### INSTALL #######################################
 # * Install packages
 RUN apt update \
     && apt install -y --no-install-recommends \
-        sudo \
-        git \
-        htop \
-        wget \
-        curl \
-        psmisc \
-        # * Shell
-        tmux \
-        terminator \
-        # * base tools
-        udev \
-        python3-pip \
-        python3-dev \
-        python3-setuptools \
-        # python3-colcon-common-extensions \
-        software-properties-common \
-        lsb-release \
-        libmodbus-dev \
-        # ros-humble-rmw-cyclonedds-cpp \
-        # * Work tools
+    sudo \
+    git \
+    htop \
+    nvtop \
+    wget \
+    curl \
+    psmisc \
+    openssh-server \
+    usbutils \
+    # * Shell
+    tmux \
+    terminator \
+    # * base tools
+    udev \
+    python3-pip \
+    python3-dev \
+    python3-setuptools \
+    # python3-colcon-common-extensions \
+    software-properties-common \
+    lsb-release \
+    libmodbus-dev \
+    # ros-humble-rmw-cyclonedds-cpp \
+    # * Work tools
     && apt clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -138,7 +143,7 @@ RUN echo "deb [signed-by=/etc/apt/keyrings/librealsense.pgp] https://librealsens
 
 
 RUN apt update && apt install -y \
-    # ros2 
+    # ros2
     python3-rosdep \
     # realsense
     librealsense2-utils \
@@ -150,6 +155,38 @@ RUN pip3 install setuptools \
     pyrealsense2
     # opencv-contrib-python==4.11.0.86
 
+#################### PyTorch ######################
+RUN pip3 install --ignore-install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128
+
+#################### Kinect Azure ###############################
+RUN apt-get update && apt install -y \
+    libgl1-mesa-dev libsoundio-dev libvulkan-dev libx11-dev libxcursor-dev libxinerama-dev libxrandr-dev libusb-1.0-0-dev libssl-dev libudev-dev mesa-common-dev uuid-dev
+
+WORKDIR /home/${USER}/work/azure
+RUN wget https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/k/k4a-tools/k4a-tools_1.4.2_amd64.deb
+RUN wget https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/libk/libk4a1.4-dev/libk4a1.4-dev_1.4.2_amd64.deb
+RUN wget https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/libk/libk4a1.4/libk4a1.4_1.4.2_amd64.deb
+RUN wget http://ftp.de.debian.org/debian/pool/main/libs/libsoundio/libsoundio1_1.1.0-1_amd64.deb
+
+RUN ACCEPT_EULA=Y dpkg -i libk4a1.4_1.4.2_amd64.deb &&\
+    dpkg -i libk4a1.4-dev_1.4.2_amd64.deb
+RUN dpkg -i libsoundio1_1.1.0-1_amd64.deb
+RUN dpkg -i k4a-tools_1.4.2_amd64.deb
+
+RUN rm libk4a1.4_1.4.2_amd64.deb \
+    libk4a1.4-dev_1.4.2_amd64.deb \
+    libsoundio1_1.1.0-1_amd64.deb \
+    k4a-tools_1.4.2_amd64.deb
+
+WORKDIR /home/${USER}/work/azure
+RUN git clone https://github.com/microsoft/Azure-Kinect-Sensor-SDK.git
+WORKDIR /home/${USER}/work/azure/Azure-Kinect-Sensor-SDK
+RUN mkdir -p /etc/udev/rules.d/ && \
+    cp ./scripts/99-k4a.rules /etc/udev/rules.d/
+
+RUN rm -rf /home/${USER}/work/azure/Azure-Kinect-Sensor-SDK
+
+WORKDIR /
 RUN ./config/pip/pip_setup.sh
 ##################### ZACK ADD END ##################################
 
@@ -161,7 +198,7 @@ RUN ./config/shell/bash_setup.sh "${USER}" "${GROUP}" \
     && ./config/shell/terminator/terminator_setup.sh "${USER}" "${GROUP}" \
     && ./config/shell/tmux/tmux_setup.sh "${USER}" "${GROUP}" \
     && sudo rm -rf /config
-    
+
 RUN echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 RUN echo "export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp" >> ~/.bashrc
 
