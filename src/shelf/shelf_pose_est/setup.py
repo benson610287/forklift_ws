@@ -23,6 +23,7 @@ setup(
         'stream_rs = shelf_pose_est.realsense_color_pub:main',
         'stream_azure = shelf_pose_est.azure_color_pub:main',
         'aruco_detect = shelf_pose_est.aruco_detect:main',
+        'shelf_detect = shelf_pose_est.shelf_point_detect:main',
         'camera_sub = shelf_pose_est.camera_sub:main',
         ],
     },
