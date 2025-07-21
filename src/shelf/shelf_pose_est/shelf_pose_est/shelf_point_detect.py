@@ -1,14 +1,15 @@
-from typing import AsyncGenerator
+# from typing import AsyncGenerator
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Image
-from geometry_msgs.msg import Pose
+# from geometry_msgs.msg import Pose
+from interface.msg import ShelfState
 from interface.srv import Maincontroller
 from cv_bridge import CvBridge
 
 import numpy as np
 import cv2
-import time
+# import time
 from ultralytics import YOLO
 import os
 
@@ -84,6 +85,8 @@ class ShelfPointDetector(Node):
 
         self.subscription = self.create_subscription(Image, '/camera/color/azure_image', self.shelf_point_detect_callback, 10)
         self.depth_subscription = self.create_subscription(Image, '/camera/depth/azure_depth', self.depth_frame_callback, 10)
+        self.shelf_state_publisher = self.create_publisher(ShelfState, '/shelf/state', 10)
+        self.shelf_depth_publisher = self.create_publisher(Image, '/camera/depth/state_image', 10)
         self.bridge = CvBridge()
 
         # Load YOLO model
@@ -108,8 +111,6 @@ class ShelfPointDetector(Node):
 
         for result in results:
             self.xy = result.keypoints.xy
-            # print("all xy coordinates: ",self.xy)
-            # print("one coordinate: ",self.xy[0])
 
         annotated_frame = results[0].plot()
         cv2.namedWindow('YOLO Shelf Keypoint', cv2.WINDOW_NORMAL)
@@ -121,12 +122,20 @@ class ShelfPointDetector(Node):
             cv2.destroyAllWindows()
 
     def depth_frame_callback(self, depth_msg):
+        msg = ShelfState()
         self.depth = self.bridge.imgmsg_to_cv2(depth_msg, 'passthrough')
         depth_image = colorize_depth(self.depth)
+        # make sure self.xy and not empty
         if hasattr(self, 'xy') and self.xy is not None and len(self.xy) > 0:
-            _, sorted_polygon_points = self.draw_shelf_polylines(depth_image, self.xy)
+            shelf_state = self.draw_shelf_polylines(depth_image, self.xy)
+            # print("SHELF STATE: ",shelf_state)
+            msg.shelf_state = shelf_state.astype(bool).tolist()
+            self.shelf_state_publisher.publish(msg)
+            depth_state_msg = self.bridge.cv2_to_imgmsg(depth_image, 'passthrough')
+            self.shelf_depth_publisher.publish(depth_state_msg)
         cv2.namedWindow('Depth Image', cv2.WINDOW_NORMAL)
         cv2.imshow('Depth Image', depth_image)
+
 
     def count_pixels_in_polygon(self, image, polygon_points, min_valid_depth=100, max_valid_depth=6000, detect_depth=4500):
         # Create mask
@@ -134,20 +143,26 @@ class ShelfPointDetector(Node):
         cv2.fillPoly(mask, [polygon_points], 255)
 
         roi_pixels = image[mask>0]
+        invalid_pixels = image[mask==0]
+        # Count valid pixels within the polygon
         valid_pixels = roi_pixels[(roi_pixels >= min_valid_depth) & (roi_pixels <= max_valid_depth)]
+        # Count pixels that are within the detection depth range
         detect_pixels = roi_pixels[(roi_pixels >= min_valid_depth) & (roi_pixels <= detect_depth)]
 
         valid_pixels_count = len(valid_pixels)
         detect_pixels_count = len(detect_pixels)
+        invalid_pixels_count = len(invalid_pixels)
+        if valid_pixels_count == 0:
+            return 0.0, 0.0
         detect_ratio = detect_pixels_count/valid_pixels_count
-        return detect_ratio
+        invalid_ratio = invalid_pixels_count/valid_pixels_count
+        return detect_ratio, invalid_ratio
 
     def draw_shelf_polylines(self, image, xy_tensor):
-        """Draw polylines from YOLO keypoint tensor"""
 
+        """Draw polylines from YOLO keypoint tensor"""
         # Convert tensor to numpy and move to CPU
         all_shelfs_keypoints = xy_tensor.cpu().numpy()
-
 
         # rearange xy_numpy
         first_x_values = all_shelfs_keypoints[:, 0, 0] # Shape: (4,) - first x-coord of each object
@@ -169,37 +184,46 @@ class ShelfPointDetector(Node):
         sorted_shelfs_keypoints = np.concatenate([sorted_first_half, sorted_second_half], axis=0)
         # Draw each shelf section
         sorted_polygon_points = []
-        shelf_state = np.zeros(4)
+        shelf_state = np.zeros(8)
+        state_index = 0
         for i, each_shelf_points in enumerate(sorted_shelfs_keypoints):
-            # Convert to integer coordinates
-            points = []
-            for point in each_shelf_points:
-                x, y = int(point[0]), int(point[1])
-                points.append([x, y])
+            top_mid_point = (each_shelf_points[0]+each_shelf_points[3])/2
+            bottom_mid_point = (each_shelf_points[1]+each_shelf_points[2])/2
+            left_shelf = np.array([each_shelf_points[0], each_shelf_points[1], bottom_mid_point, top_mid_point])
+            right_shelf = np.array([top_mid_point, bottom_mid_point, each_shelf_points[2], each_shelf_points[3]])
+            each_shelf = np.array([left_shelf, right_shelf])
 
-            # Convert to proper format for cv2.polylines
-            polygon_points = np.array(points, np.int32).reshape((-1, 1, 2))
-            # Draw polygon outline
-            ratio = self.count_pixels_in_polygon(self.depth, polygon_points, detect_depth=self.detect_depth)
-            if ratio >= 0.15:
-                # red: have stuff on shelf
-                cv2.polylines(image, [polygon_points], True, (0, 0, 255), 3)
-                shelf_state[i] = False
-            else:
-                # green: no stuff on shelf
-                cv2.polylines(image, [polygon_points], True, (0, 255, 0), 3)
-                shelf_state[i] = True
+            for j, sub_shelf in enumerate(each_shelf):
+                # Convert to integer coordinates
+                points = sub_shelf.astype(int)
+                # Convert to proper format for cv2.polylines
+                polygon_points = points.reshape((-1, 1, 2))
+                # Draw polygon outline
+                detected_ratio, invalid_ratio = self.count_pixels_in_polygon(self.depth, polygon_points, detect_depth=self.detect_depth)
+                # print(f"detected ratio {state_index}: ",detected_ratio)
+                # print(f"invalid ratio {state_index}: ",invalid_ratio)
+                if state_index < 8:
+                    # the blow magic ratio number is tested with specific angle
+                    if detected_ratio >= 0.06 and invalid_ratio >= 110:
+                        # red: have stuff on shelf
+                        cv2.polylines(image, [polygon_points], True, (0, 0, 255), 3)
+                        shelf_state[state_index] = False
+                    else:
+                        # green: no stuff on shelf
+                        cv2.polylines(image, [polygon_points], True, (0, 255, 0), 3)
+                        shelf_state[state_index] = True
 
+                        sorted_polygon_points.append(polygon_points)
+                    state_index += 1
+                else:
+                    break
 
+                # Add shelf label
+                label_x, label_y = points[0][0], points[0][1] - 10
+                cv2.putText(image, f'Shelf {i+1}-{j+1}', (label_x, label_y),
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 0), 2)
 
-            sorted_polygon_points.append(polygon_points)
-
-            # Add shelf label
-            label_x, label_y = points[0][0], points[0][1] - 10
-            cv2.putText(image, f'Shelf {i+1}', (label_x, label_y),
-                       cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 0), 2)
-
-        return image, sorted_polygon_points
+        return shelf_state
 
 
 def main():
