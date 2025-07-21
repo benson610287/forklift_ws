@@ -11,7 +11,7 @@ class AzureImageViewer(Node):
         # Create subscriber
         self.subscription = self.create_subscription(
             Image,
-            '/camera/color/azure_image',
+            '/camera/depth/state_image',
             self.image_callback,
             10
         )
@@ -30,7 +30,7 @@ class AzureImageViewer(Node):
     def image_callback(self, msg):
         try:
             # Convert ROS Image message to OpenCV image
-            cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
+            cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='passthrough')
 
             # Update frame counter
             self.frame_count += 1
