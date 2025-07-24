@@ -39,7 +39,7 @@ def read_camera_config(filepath):
     return camera_matrix, dist_coeffs
 
 # Load calibration from ini next to this script
-calib_file = os.path.join('src/shelf_pose_est/shelf_pose_est/azure_camera_calibration.ini')
+calib_file = os.path.join('src/shelf/shelf_pose_est/shelf_pose_est/azure_camera_calibration.ini')
 cam_mtx, dist = read_camera_config(calib_file)
 
 # Precompute OpenCV camera matrix and distortion coefficients once
@@ -92,7 +92,7 @@ class ArucoDetect(Node):
         # Activate publisher and subsciber
         if request.enable and not self.active:
             self.publisher_ = self.create_publisher(PoseArray, 'aruco_detect', 10)
-            self.subscription = self.create_subscription(Image, '/camera/color/azure_image', self.detect_aruco_callback, 10)
+            self.subscription = self.create_subscription(Image, '/camera/color/image_raw', self.detect_aruco_callback, 10)
             response.done = 0
             self.get_logger().info("ArUco detection activated")
             self.active = True

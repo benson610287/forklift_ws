@@ -137,7 +137,7 @@ class ShelfPointDetector(Node):
         cv2.imshow('Depth Image', depth_image)
 
 
-    def count_pixels_in_polygon(self, image, polygon_points, min_valid_depth=100, max_valid_depth=6000, detect_depth=4500):
+    def count_pixels_in_polygon(self, image, polygon_points, min_valid_depth=100, max_valid_depth=6000, detect_depth=5500):
         # Create mask
         mask = np.zeros(image.shape[:2], dtype=np.uint8)
         cv2.fillPoly(mask, [polygon_points], 255)
@@ -153,10 +153,11 @@ class ShelfPointDetector(Node):
         detect_pixels_count = len(detect_pixels)
         invalid_pixels_count = len(invalid_pixels)
         if valid_pixels_count == 0:
-            return 0.0, 0.0
+            return 0.0, 0.0, 0.0
         detect_ratio = detect_pixels_count/valid_pixels_count
         invalid_ratio = invalid_pixels_count/valid_pixels_count
-        return detect_ratio, invalid_ratio
+
+        return detect_ratio, invalid_ratio, detect_pixels_count
 
     def draw_shelf_polylines(self, image, xy_tensor):
 
@@ -187,11 +188,19 @@ class ShelfPointDetector(Node):
         shelf_state = np.zeros(8)
         state_index = 0
         for i, each_shelf_points in enumerate(sorted_shelfs_keypoints):
+            if i == 1 or i == 3:
+                each_shelf_points[1][1]-=10
+                each_shelf_points[2][1]-=10
+
+            each_shelf_points[0][1]+=10
+            each_shelf_points[3][1]+=10
             top_mid_point = (each_shelf_points[0]+each_shelf_points[3])/2
             bottom_mid_point = (each_shelf_points[1]+each_shelf_points[2])/2
             left_shelf = np.array([each_shelf_points[0], each_shelf_points[1], bottom_mid_point, top_mid_point])
             right_shelf = np.array([top_mid_point, bottom_mid_point, each_shelf_points[2], each_shelf_points[3]])
             each_shelf = np.array([left_shelf, right_shelf])
+
+
 
             for j, sub_shelf in enumerate(each_shelf):
                 # Convert to integer coordinates
@@ -199,12 +208,14 @@ class ShelfPointDetector(Node):
                 # Convert to proper format for cv2.polylines
                 polygon_points = points.reshape((-1, 1, 2))
                 # Draw polygon outline
-                detected_ratio, invalid_ratio = self.count_pixels_in_polygon(self.depth, polygon_points, detect_depth=self.detect_depth)
-                # print(f"detected ratio {state_index}: ",detected_ratio)
-                # print(f"invalid ratio {state_index}: ",invalid_ratio)
+                detected_ratio, invalid_ratio, detected_pixels_count = self.count_pixels_in_polygon(self.depth, polygon_points, detect_depth=self.detect_depth)
+                print("+++++++++++++++++++++++++++++++++++++++++++++++++++")
+                print(f"detected ratio {state_index}: ",detected_ratio)
+                print(f"invalid ratio {state_index}: ",invalid_ratio)
+                print(f"detected pixels {state_index}: ",detected_pixels_count)
                 if state_index < 8:
                     # the blow magic ratio number is tested with specific angle
-                    if detected_ratio >= 0.06 and invalid_ratio >= 110:
+                    if detected_ratio >= 0.06 or detected_pixels_count >= 600:
                         # red: have stuff on shelf
                         cv2.polylines(image, [polygon_points], True, (0, 0, 255), 3)
                         shelf_state[state_index] = False
@@ -221,6 +232,11 @@ class ShelfPointDetector(Node):
                 # Add shelf label
                 label_x, label_y = points[0][0], points[0][1] - 10
                 cv2.putText(image, f'Shelf {i+1}-{j+1}', (label_x, label_y),
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 0), 2)
+
+                # for adjusting parameters
+                label_x, label_y = points[0][0]+10, points[0][1] - 20
+                cv2.putText(image, f"{detected_pixels_count}", (label_x, label_y),
                         cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 0), 2)
 
         return shelf_state

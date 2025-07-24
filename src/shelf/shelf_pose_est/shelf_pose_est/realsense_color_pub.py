@@ -51,7 +51,7 @@ def save_realsense_intrinsics(filepath, intrinsics):
     """Save RealSense color camera intrinsics and distortion to an ini file."""
     # Build camera matrix from intrinsics
     camera_matrix = np.array([
-        [intrinsics.fx, 0.0, intrinsics.ppx],b
+        [intrinsics.fx, 0.0, intrinsics.ppx],
         [0.0, intrinsics.fy, intrinsics.ppy],
         [0.0, 0.0, 1.0]
     ], dtype=np.float64)
@@ -98,6 +98,14 @@ class ImagePublisher(Node):
         profile = self.pipeline.get_active_profile()
         color_profile = rs.video_stream_profile(profile.get_stream(rs.stream.color))
         color_intrinsics = color_profile.get_intrinsics()
+
+        # self.camera_matrix = np.array([
+        #     [color_intrinsics.fx, 0.0, color_intrinsics.ppx],
+        #     [0.0, color_intrinsics.fy, color_intrinsics.ppy],
+        #     [0.0, 0.0, 1.0]
+        # ], dtype=np.float64)
+        # # Flatten distortion coefficients
+        # self.dist_coeffs = np.array(color_intrinsics.coeffs, dtype=np.float64).flatten()
 
         # Get RealSense color intrinsics and export to ini
         ini_path = os.path.join(os.path.dirname(__file__), 'camera_calibration.ini')

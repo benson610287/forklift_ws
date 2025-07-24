@@ -29,7 +29,6 @@ import numpy as np
 # print(sorted_arr)
 
 # array = np.random.rand(4, 2)
-array = np.array([[1,2],[3,4],[5,6],[7,8]])
-print(array)
-topmid = (array[0] + array[1]) / 2
-print(topmid)
+
+for i in range(2):
+    print(i)
