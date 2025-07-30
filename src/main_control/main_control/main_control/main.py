@@ -22,13 +22,13 @@ class controller(Node):
         while not self.cli_pallet.wait_for_service(timeout_sec=1.0):
             self.get_logger().info('service not available, waiting again...')
         
-        # self.cli_shelf_pose = self.create_client(Maincontroller, 'toggle_aruco_detection',callback_group=client_group1)
-        # while not self.cli_shelf_pose.wait_for_service(timeout_sec=1.0):
-        #     self.get_logger().info('service not available, waiting again...')
+        self.cli_shelf_pose = self.create_client(Maincontroller, 'toggle_aruco_detection',callback_group=client_group1)
+        while not self.cli_shelf_pose.wait_for_service(timeout_sec=1.0):
+            self.get_logger().info('service not available, waiting again...')
         
-        # self.cli_3 = self.create_client(Maincontroller, 'add_two_ints')
-        # while not self.cli_3.wait_for_service(timeout_sec=1.0):
-        #     self.get_logger().info('service not available, waiting again...')
+        self.cli_docking = self.create_client(Maincontroller, 'maincontroller',callback_group=client_group1)  #docking
+        while not self.cli_3.wait_for_service(timeout_sec=1.0):
+            self.get_logger().info('service not available, waiting again...')
         
         # self.cli_4 = self.create_client(Maincontroller, 'add_two_ints')
         # while not self.cli_4.wait_for_service(timeout_sec=1.0):
@@ -87,14 +87,20 @@ class controller(Node):
                 res.state = -1
 
 
-        elif req.task=="task3":
-            print("a")
-            # self.req.enable=True
-            # self.future = self.cli_3.call_async(self.req)
-            # rclpy.spin_until_future_complete(self, self.future)
-            # res=self.future.result()
-            # print(res.done)
-            res.state=3
+        elif req.task=="docking":
+            self.get_logger().info("starting docking...")
+            inner_req = Maincontroller.Request()
+            inner_req.enable = True
+            future = self.cli_docking.call_async(inner_req)
+            while not future.done():
+                time.sleep(0.01)
+            try:
+                inner_res = future.result()
+                print("docking_inner_res.done=",inner_res.done)
+                res.state=inner_res.done
+            except Exception as e:
+                self.get_logger().error(f"docking Inner service failed: {e}")
+                res.state = -1
         elif req.task=="task4":
             print("a")
             # self.req.enable=True

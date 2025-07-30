@@ -1,0 +1,7 @@
+path: ./box.v5i.yolov8-obb
+train: ./images/train
+val: ./images/valid
+test: ./images/test
+
+names: 
+  0: box

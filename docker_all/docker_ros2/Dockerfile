@@ -125,10 +125,10 @@ RUN apt-get update && apt-get install -y \
 ############################## PYTHON LIBS ####################################
 RUN pip install setuptools==58.2.0 && \
     pip install pyrealsense2 ultralytics open3d && \
-    pip install 'numpy<2.0' --force-reinstall && \
+    # pip install 'numpy<2.0' --force-reinstall && \
     pip install opencv-python
 
-RUN apt install -y pyqt5-dev-tools
+# RUN apt install -y pyqt5-dev-tools
 
 ############################## USER CONFIG ####################################
 #GUI require
