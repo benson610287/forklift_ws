@@ -1,7 +1,0 @@
-README.md
-setup.py
-Pallet_RL.egg-info/PKG-INFO
-Pallet_RL.egg-info/SOURCES.txt
-Pallet_RL.egg-info/dependency_links.txt
-Pallet_RL.egg-info/requires.txt
-Pallet_RL.egg-info/top_level.txt

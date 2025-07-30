@@ -12,6 +12,7 @@ class SinglePallet(Node):
             '/Pallet/SingBoxInfo',
             self.box_type_callback,
             10)
+        self.box_start_sub = self.create_subscription(Twist, '/Pallet/startpose',self.box_start_callback,10)
          # # 移動平台命令
         self.mobile_position_publisher = self.create_publisher(PoseStamped, '/mobile_slam_topic', 10) #topic 名稱要改！！！
         # # 手臂命令

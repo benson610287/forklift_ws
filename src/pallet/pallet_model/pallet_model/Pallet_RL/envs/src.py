@@ -12,7 +12,7 @@ class Plane:
 class Bin:
     def __init__(self, args):
         self.args = args
-        args.bin_model=2
+        args.bin_model=4
         if self.args.bin_model == 1:
             self.Bin_pos = [2.55, 1.05, 0] # bin_2 30x20x15
             self.Bin = p.loadURDF("src/pallet/BPP_ws/Pallet_RL/envs/bin_description/urdf/bin_2.urdf", self.Bin_pos, useFixedBase=True) 
@@ -33,44 +33,50 @@ class Bin:
             self.L = 35
             self.W = 35
             self.H = 24
-
+        elif self.args.bin_model == 4:
+            self.Bin_pos = [5.05, 3.05, 0] # bin_6 80x60x45
+            self.Bin = p.loadURDF("src/pallet/pallet_model/pallet_model/Pallet_RL/envs/bin_description/urdf/bin_6.urdf", self.Bin_pos, useFixedBase=True) 
+            self.L = 80
+            self.W = 60
+            self.H = 45
         self.V = self.L * self.W * self.H
 
 class box:
     def __init__(self, args):
         self.args = args
-        args.box_model=2
+        args.box_model=4
         if self.args.box_model == 1:
             self.num = random.randint(1,4)
         elif self.args.box_model == 2:
             self.num = random.randint(5,9)
         elif self.args.box_model == 3:
             self.num = random.randint(10,16)
-        
+        elif self.args.box_model == 4:
+            self.num = random.randint(17,19)
         self.pre_box_pos = [5, 5, 0]
         self.pre_box_ori = p.getQuaternionFromEuler([0, 0, 0])
     def get_box(self,box):
         if box=='1':
-            self.box_1 = p.loadURDF("src/pallet/BPP_ws/Pallet_RL/envs/box_description/urdf/box_5.urdf", self.pre_box_pos, self.pre_box_ori)
+            self.box_1 = p.loadURDF("src/pallet/pallet_model/pallet_model/Pallet_RL/envs/box_description/urdf/box_17.urdf", self.pre_box_pos, self.pre_box_ori)
 
-            self.L = 3
-            self.W = 4
-            self.H = 2
-            self.select='5'
+            self.L = 40
+            self.W = 30
+            self.H = 20
+            self.select='17'
         elif box=='2':
-            self.box_1 = p.loadURDF("src/pallet/BPP_ws/Pallet_RL/envs/box_description/urdf/box_6.urdf", self.pre_box_pos, self.pre_box_ori)
+            self.box_1 = p.loadURDF("src/pallet/pallet_model/pallet_model/Pallet_RL/envs/box_description/urdf/box_18.urdf", self.pre_box_pos, self.pre_box_ori)
 
-            self.L = 3
-            self.W = 5
-            self.H = 2
-            self.select='6'
+            self.L = 30
+            self.W = 25
+            self.H = 16
+            self.select='18'
         elif box=='3':
-            self.box_1 = p.loadURDF("src/pallet/BPP_ws/Pallet_RL/envs/box_description/urdf/box_7.urdf", self.pre_box_pos, self.pre_box_ori)
+            self.box_1 = p.loadURDF("src/pallet/pallet_model/pallet_model/Pallet_RL/envs/box_description/urdf/box_19.urdf", self.pre_box_pos, self.pre_box_ori)
 
-            self.L = 4
-            self.W = 5
-            self.H = 2
-            self.select='7'
+            self.L = 21
+            self.W = 11
+            self.H = 14
+            self.select='19'
         self.V = self.L * self.W * self.H
     def rand_box(self):
 
@@ -176,7 +182,27 @@ class box:
             self.L = 21
             self.W = 28
             self.H = 10
-        
+        elif self.num == 17:
+            self.box_1 = p.loadURDF("src/pallet/pallet_model/pallet_model/Pallet_RL/envs/box_description/urdf/box_17.urdf", self.pre_box_pos, self.pre_box_ori)
+
+            self.L = 40
+            self.W = 30
+            self.H = 20
+            self.select='17'
+        elif self.num == 18:
+            self.box_1 = p.loadURDF("src/pallet/pallet_model/pallet_model/Pallet_RL/envs/box_description/urdf/box_18.urdf", self.pre_box_pos, self.pre_box_ori)
+
+            self.L = 30
+            self.W = 25
+            self.H = 16 #15.5
+            self.select='18'
+        elif self.num == 19:
+            self.box_1 = p.loadURDF("src/pallet/pallet_model/pallet_model/Pallet_RL/envs/box_description/urdf/box_19.urdf", self.pre_box_pos, self.pre_box_ori)
+
+            self.L = 21 #20.5
+            self.W = 11
+            self.H = 14
+            self.select='19'
     
         # ----------------------------------real_box----------------------------------
         self.V = self.L * self.W * self.H
