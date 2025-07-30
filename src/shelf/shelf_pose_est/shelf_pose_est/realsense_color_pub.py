@@ -51,7 +51,7 @@ def save_realsense_intrinsics(filepath, intrinsics):
     """Save RealSense color camera intrinsics and distortion to an ini file."""
     # Build camera matrix from intrinsics
     camera_matrix = np.array([
-        [intrinsics.fx, 0.0, intrinsics.ppx],b
+        [intrinsics.fx, 0.0, intrinsics.ppx],
         [0.0, intrinsics.fy, intrinsics.ppy],
         [0.0, 0.0, 1.0]
     ], dtype=np.float64)
