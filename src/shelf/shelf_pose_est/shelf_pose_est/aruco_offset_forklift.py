@@ -106,7 +106,7 @@ class ArucoDetect(Node):
         """Check if we've received camera messages recently"""
         if self.last_msg_time is None:
             self.get_logger().warn("\n" + "="*50 +
-                                  "\nNo images received yet on /camera/camera/color/image_raw" +
+                                  "\nNo images received yet on /camera/color/image_raw" +
                                   "\nPlease ensure camera is running" +
                                   "\nOr this node is not yet activated" +
                                   "\n" + "="*50)

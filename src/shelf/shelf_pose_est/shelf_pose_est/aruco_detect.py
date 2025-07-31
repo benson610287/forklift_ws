@@ -326,12 +326,11 @@ def estimate_pose_and_get_data(frame, corners, ids, marker_size=0.10):
                 camera_matrix, dist_coeffs
             )
             rect_2d_points = rect_2d_points.reshape(-1, 2).astype(np.int32)
-            cv2.polylines(frame, [rect_2d_points], True, (255, 0, 0), 2)  # Blue rectangle
+            cv2.polylines(frame, [rect_2d_points], True, (255, 0, 0), 2)  # Blue
 
             # Convert rotation matrix to Euler angles
             euler_angles = cv2.decomposeProjectionMatrix(np.hstack((rotation_matrix, np.zeros((3,1)))))[6]
 
-            # Print position (x,y,z) and rotation (rx,ry,rz) in degrees
             print(f"Marker 0 Position: x={position[0]:.5f}m, y={position[1]:.5f}m, z={position[2]:.5f}m")
             print(f"Marker 0 Rotation: rx={euler_angles[0][0]:.2f}°, ry={euler_angles[1][0]:.2f}°, rz={euler_angles[2][0]:.2f}°")
 
