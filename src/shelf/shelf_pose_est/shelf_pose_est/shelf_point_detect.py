@@ -4,7 +4,7 @@ from rclpy.node import Node
 from sensor_msgs.msg import Image
 # from geometry_msgs.msg import Pose
 from interface.msg import ShelfState
-from interface.srv import Maincontroller
+# from interface.srv import Maincontroller
 from cv_bridge import CvBridge
 
 import numpy as np
@@ -18,18 +18,18 @@ max_depth_value = 6000
 def on_max_depth_change(val):
     global max_depth_value
     max_depth_value = val
-    cv2.setTrackbarPos('Max Depth', 'Depth Image', max_depth_value)
+    cv2.setTrackbarPos('Max Depth', 'Shelf State Image', max_depth_value)
 
 def create_control_panel():
     global max_depth_value
-    cv2.namedWindow('Depth Image', cv2.WINDOW_NORMAL)
-    cv2.createTrackbar('Max Depth', 'Depth Image', max_depth_value, 6000, on_max_depth_change)
+    cv2.namedWindow('Shelf State Image', cv2.WINDOW_NORMAL)
+    cv2.createTrackbar('Max Depth', 'Shelf State Image', max_depth_value, 6000, on_max_depth_change)
 
 def colorize_depth(depth_image: np.ndarray,
     min_depth=0, max_depth=6000,
     colormap = cv2.COLORMAP_OCEAN) -> np.ndarray:
     """
-    Colorize depth image using OpenCV colormaps
+    Colorize Shelf State Image using OpenCV colormaps
 
     Args:transformed_depth
         depth_image: Raw depth image (16-bit or float)
@@ -86,7 +86,7 @@ class ShelfPointDetector(Node):
         self.subscription = self.create_subscription(Image, '/camera/color/azure_image', self.shelf_point_detect_callback, 10)
         self.depth_subscription = self.create_subscription(Image, '/camera/depth/azure_depth', self.depth_frame_callback, 10)
         self.shelf_state_publisher = self.create_publisher(ShelfState, '/shelf/state', 10)
-        self.shelf_depth_publisher = self.create_publisher(Image, '/camera/depth/state_image', 10)
+        self.shelf_state_image_publisher = self.create_publisher(Image, '/camera/depth/state_image', 10)
         self.bridge = CvBridge()
 
         # Load YOLO model
@@ -106,8 +106,8 @@ class ShelfPointDetector(Node):
 
     def shelf_point_detect_callback(self, color_msg):
 
-        color_image = self.bridge.imgmsg_to_cv2(color_msg, 'bgr8')
-        results = self.tensorrt_model(color_image)
+        self.color_image = self.bridge.imgmsg_to_cv2(color_msg, 'bgr8')
+        results = self.tensorrt_model(self.color_image)
 
         for result in results:
             self.xy = result.keypoints.xy
@@ -127,23 +127,23 @@ class ShelfPointDetector(Node):
         depth_image = colorize_depth(self.depth)
         # make sure self.xy and not empty
         if hasattr(self, 'xy') and self.xy is not None and len(self.xy) > 0:
-            shelf_state = self.draw_shelf_polylines(depth_image, self.xy)
+            shelf_state = self.draw_shelf_polylines(depth_image, self.color_image, self.xy)
             # print("SHELF STATE: ",shelf_state)
             msg.shelf_state = shelf_state.astype(bool).tolist()
             self.shelf_state_publisher.publish(msg)
-            depth_state_msg = self.bridge.cv2_to_imgmsg(depth_image, 'passthrough')
-            self.shelf_depth_publisher.publish(depth_state_msg)
-        cv2.namedWindow('Depth Image', cv2.WINDOW_NORMAL)
-        cv2.imshow('Depth Image', depth_image)
+            color_image_state = self.bridge.cv2_to_imgmsg(self.color_image, 'passthrough')
+            self.shelf_state_image_publisher.publish(color_image_state)
+        cv2.namedWindow('Shelf State Image', cv2.WINDOW_NORMAL)
+        cv2.imshow('Shelf State Image', self.color_image)
 
 
-    def count_pixels_in_polygon(self, image, polygon_points, min_valid_depth=100, max_valid_depth=6000, detect_depth=5500):
+    def count_pixels_in_polygon(self, depth_image, polygon_points, min_valid_depth=100, max_valid_depth=6000, detect_depth=5500):
         # Create mask
-        mask = np.zeros(image.shape[:2], dtype=np.uint8)
+        mask = np.zeros(depth_image.shape[:2], dtype=np.uint8)
         cv2.fillPoly(mask, [polygon_points], 255)
 
-        roi_pixels = image[mask>0]
-        invalid_pixels = image[mask==0]
+        roi_pixels = depth_image[mask>0]
+        invalid_pixels = depth_image[mask==0]
         # Count valid pixels within the polygon
         valid_pixels = roi_pixels[(roi_pixels >= min_valid_depth) & (roi_pixels <= max_valid_depth)]
         # Count pixels that are within the detection depth range
@@ -159,7 +159,7 @@ class ShelfPointDetector(Node):
 
         return detect_ratio, invalid_ratio, detect_pixels_count
 
-    def draw_shelf_polylines(self, image, xy_tensor):
+    def draw_shelf_polylines(self, depth_image, color_image, xy_tensor):
 
         """Draw polylines from YOLO keypoint tensor"""
         # Convert tensor to numpy and move to CPU
@@ -209,19 +209,19 @@ class ShelfPointDetector(Node):
                 polygon_points = points.reshape((-1, 1, 2))
                 # Draw polygon outline
                 detected_ratio, invalid_ratio, detected_pixels_count = self.count_pixels_in_polygon(self.depth, polygon_points, detect_depth=self.detect_depth)
-                print("+++++++++++++++++++++++++++++++++++++++++++++++++++")
-                print(f"detected ratio {state_index}: ",detected_ratio)
-                print(f"invalid ratio {state_index}: ",invalid_ratio)
-                print(f"detected pixels {state_index}: ",detected_pixels_count)
+                # print("+++++++++++++++++++++++++++++++++++++++++++++++++++")
+                # print(f"detected ratio {state_index}: ",detected_ratio)
+                # print(f"invalid ratio {state_index}: ",invalid_ratio)
+                # print(f"detected pixels {state_index}: ",detected_pixels_count)
                 if state_index < 8:
                     # the blow magic ratio number is tested with specific angle
                     if detected_ratio >= 0.06 or detected_pixels_count >= 600:
                         # red: have stuff on shelf
-                        cv2.polylines(image, [polygon_points], True, (0, 0, 255), 3)
+                        cv2.polylines(color_image, [polygon_points], True, (0, 0, 255), 3)
                         shelf_state[state_index] = False
                     else:
                         # green: no stuff on shelf
-                        cv2.polylines(image, [polygon_points], True, (0, 255, 0), 3)
+                        cv2.polylines(color_image, [polygon_points], True, (0, 255, 0), 3)
                         shelf_state[state_index] = True
 
                         sorted_polygon_points.append(polygon_points)
@@ -231,12 +231,12 @@ class ShelfPointDetector(Node):
 
                 # Add shelf label
                 label_x, label_y = points[0][0], points[0][1] - 10
-                cv2.putText(image, f'Shelf {i+1}-{j+1}', (label_x, label_y),
+                cv2.putText(color_image, f'Shelf {i+1}-{j+1}', (label_x, label_y),
                         cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 0), 2)
 
                 # for adjusting parameters
                 label_x, label_y = points[0][0]+10, points[0][1] - 20
-                cv2.putText(image, f"{detected_pixels_count}", (label_x, label_y),
+                cv2.putText(color_image, f"{detected_pixels_count}", (label_x, label_y),
                         cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 0), 2)
 
         return shelf_state
