@@ -39,7 +39,7 @@ def read_camera_config(filepath):
     return camera_matrix, dist_coeffs
 
 # Load calibration from ini next to this script
-calib_file = os.path.join('src/shelf_pose_est/shelf_pose_est/azure_camera_calibration.ini')
+calib_file = os.path.join('src/shelf/shelf_pose_est/shelf_pose_est/azure_camera_calibration.ini')
 cam_mtx, dist = read_camera_config(calib_file)
 
 # Precompute OpenCV camera matrix and distortion coefficients once
@@ -92,7 +92,7 @@ class ArucoDetect(Node):
         # Activate publisher and subsciber
         if request.enable and not self.active:
             self.publisher_ = self.create_publisher(PoseArray, 'aruco_detect', 10)
-            self.subscription = self.create_subscription(Image, '/camera/color/azure_image', self.detect_aruco_callback, 10)
+            self.subscription = self.create_subscription(Image, '/camera/color/image_raw', self.detect_aruco_callback, 10)
             response.done = 0
             self.get_logger().info("ArUco detection activated")
             self.active = True
@@ -300,27 +300,37 @@ def estimate_pose_and_get_data(frame, corners, ids, marker_size=0.10):
             '''
             test draw spacial rectangle with opencv
             '''
-            rect_3d = np.array([
-                position + np.array([0., 2., 0.]), # Bottom-left
-                position + np.array([3., 2., 0.]), # Bottom-right
-                position + np.array([3., 0., 0.]), # Top-right
-                position + np.array([0., 0., 0.])  # Top-left
+            # offset to top left corner of the marker
+            offset_x = -marker_size/2
+            offset_y =  marker_size/2
+            rect_width = 1.44
+            rect_height = 0.68
+
+            rect_3d_points = np.array([
+                [0.0+offset_x, 0.0+offset_y, 0.0],                    # Top-left (anchor point)
+                [rect_width+offset_x, 0.0+offset_y, 0.0],             # Top-right
+                [rect_width+offset_x, -rect_height+offset_y, 0.0],     # Bottom-right
+                [0.0+offset_x, -rect_height+offset_y, 0.0]             # Bottom-left
             ], dtype=np.float32)
-            rotated_points_3d = []
-            for point in rect_3d:
-                rotated_point = np.dot(rotation_matrix, point)
-                rotated_points_3d.append(rotated_point)
 
-            points_2d = project_3d_to_2d(rotated_points_3d)
-            cv2.polylines(frame, [points_2d], True, (0, 255, 0), 2)  # Green outline
+            # Transform rectangle points to camera coordinate system
+            # Rotate the points using the marker's rotation matrix
+            rotated_points = np.dot(rect_3d_points, rotation_matrix.T)
+            # Translate by marker's position
+            transformed_points = rotated_points + position
 
-
-
+            # Project 3D points to 2D image coordinates
+            rect_2d_points, _ = cv2.projectPoints(
+                transformed_points,
+                np.zeros(3), np.zeros(3),  # No additional rotation/translation
+                camera_matrix, dist_coeffs
+            )
+            rect_2d_points = rect_2d_points.reshape(-1, 2).astype(np.int32)
+            cv2.polylines(frame, [rect_2d_points], True, (255, 0, 0), 2)  # Blue
 
             # Convert rotation matrix to Euler angles
             euler_angles = cv2.decomposeProjectionMatrix(np.hstack((rotation_matrix, np.zeros((3,1)))))[6]
 
-            # Print position (x,y,z) and rotation (rx,ry,rz) in degrees
             print(f"Marker 0 Position: x={position[0]:.5f}m, y={position[1]:.5f}m, z={position[2]:.5f}m")
             print(f"Marker 0 Rotation: rx={euler_angles[0][0]:.2f}°, ry={euler_angles[1][0]:.2f}°, rz={euler_angles[2][0]:.2f}°")
 
