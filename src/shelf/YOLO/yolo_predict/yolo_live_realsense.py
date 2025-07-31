@@ -2,11 +2,17 @@ import pyrealsense2 as rs
 from ultralytics import YOLO
 import numpy as np
 import cv2
+import os
 
 # # Load a pretrained YOLO11n model
-model = YOLO("yolo11s-pose.pt")
-model.export(format="engine")
-tensorrt_model = YOLO("yolo11s-pose.engine")
+if os.path.exists("last.engine"):
+    print("Model Exist, Loading Model")
+    tensorrt_model = YOLO("last.engine")
+else:
+    print("No .engine file, exporting")
+    model = YOLO("last.pt")
+    model.export(format="engine")
+    tensorrt_model = YOLO("last.engine")
 
 pipeline = rs.pipeline()
 config = rs.config()

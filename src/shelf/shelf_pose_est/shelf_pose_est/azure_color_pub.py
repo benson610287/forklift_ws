@@ -85,7 +85,7 @@ def get_azure_intrinsics():
         't2': f"{dist_coeffs[3]:.6f}",
         'k3': f"{dist_coeffs[4]:.6f}"
     }
-    output_file = "./src/shelf_pose_est/shelf_pose_est/azure_camera_calibration.ini"
+    output_file = "./src/shelf/shelf_pose_est/shelf_pose_est/azure_camera_calibration.ini"
     os.makedirs(os.path.dirname(output_file), exist_ok=True)
     with open(output_file, 'w') as f:
         config.write(f)
@@ -96,18 +96,20 @@ class ImagePublisher(Node):
     def __init__(self):
         super().__init__('image_publisher')  # Node name
         get_azure_intrinsics()
-        self.camera_matrix, self.dist_coeffs = read_camera_config("./src/shelf_pose_est/shelf_pose_est/azure_camera_calibration.ini")
+        self.camera_matrix, self.dist_coeffs = read_camera_config("./src/shelf/shelf_pose_est/shelf_pose_est/azure_camera_calibration.ini")
 
         # Create the publisher
-        self.publisher_ = self.create_publisher(Image, '/camera/color/azure_image', 10)
+        self.color_publisher = self.create_publisher(Image, '/camera/color/azure_image', 10)
+        self.depth_publisher = self.create_publisher(Image, '/camera/depth/azure_depth', 10)
         timer_period = 0.033  # Publish at 30Hz
         self.timer = self.create_timer(timer_period, self.timer_callback)
 
         # Configure azure kinect dk
         config = Config()
         config.color_resolution = pyk4a.ColorResolution.RES_1080P
+        config.depth_mode = pyk4a.DepthMode.NFOV_UNBINNED
         config.camera_fps = pyk4a.FPS.FPS_30
-        config.synchronized_images_only = False
+        config.synchronized_images_only = True
         # Start streaming
         self.k4a = PyK4A(config)
         self.k4a.start()
@@ -116,6 +118,7 @@ class ImagePublisher(Node):
         self.bridge = CvBridge()
 
         self.get_logger().info("Camera Node Initialized and Running")
+        self.get_logger().info("Publishing to: /camera/color/azure_image and /camera/depth/azure_depth")
         self.get_logger().info("Use \"ros2 topic list\" to see all topics")
 
 
@@ -124,7 +127,7 @@ class ImagePublisher(Node):
             # Get the frames
             capture = self.k4a.get_capture()
 
-            # Check if a frame is available
+            # Publish color image
             if capture.color is not None:
                 bgr = capture.color[:, :, :3]
                 color_image = np.array(bgr, dtype=np.uint8)
@@ -133,9 +136,19 @@ class ImagePublisher(Node):
                 # undistort = undistort_image(color_image, self.camera_matrix, self.dist_coeffs)
 
                 # Create and publish the image message
-                msg = self.bridge.cv2_to_imgmsg(color_image, encoding="bgr8")
-                msg.header.stamp = self.get_clock().now().to_msg()
-                self.publisher_.publish(msg)
+                color_msg = self.bridge.cv2_to_imgmsg(color_image, encoding="bgr8")
+                color_msg.header.stamp = self.get_clock().now().to_msg()
+                color_msg.header.frame_id = "azure_color_frame"
+                self.color_publisher.publish(color_msg)
+
+            # Publish depth image
+            if capture.transformed_depth is not None:
+                depth_image = capture.transformed_depth
+                # encoding="passthrough" same data type
+                depth_msg = self.bridge.cv2_to_imgmsg(depth_image, encoding="16UC1")
+                depth_msg.header.stamp = self.get_clock().now().to_msg()
+                depth_msg.header.frame_id = "azure_depth_frame"
+                self.depth_publisher.publish(depth_msg)
 
         except Exception as e:
             self.get_logger().error(f"Timer callback error:{str(e)}")

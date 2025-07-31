@@ -99,6 +99,14 @@ class ImagePublisher(Node):
         color_profile = rs.video_stream_profile(profile.get_stream(rs.stream.color))
         color_intrinsics = color_profile.get_intrinsics()
 
+        # self.camera_matrix = np.array([
+        #     [color_intrinsics.fx, 0.0, color_intrinsics.ppx],
+        #     [0.0, color_intrinsics.fy, color_intrinsics.ppy],
+        #     [0.0, 0.0, 1.0]
+        # ], dtype=np.float64)
+        # # Flatten distortion coefficients
+        # self.dist_coeffs = np.array(color_intrinsics.coeffs, dtype=np.float64).flatten()
+
         # Get RealSense color intrinsics and export to ini
         ini_path = os.path.join('src/shelf_pose_est/shelf_pose_est/camera_calibration.ini')
         save_realsense_intrinsics(ini_path, color_intrinsics)

@@ -14,11 +14,17 @@ from cv2 import aruco
 import time
 
 # Define the offset for marker ID 0 (in meters)
-MARKER_0_OFFSET = {
-    'x': 0.1,  # 10cm offset in x direction
-    'y': 0.1,  # no offset in y direction
-    'z': 0.0,  # 20cm offset in z direction
+MAKERS_OFFSET_0 = {
+    'x': 0.3,
+    'y': -0.6,
+    'z': 0.0,
 }
+MAKERS_OFFSET_1 = {
+    'x': 1.05,
+    'y': -0.6,
+    'z': 0.0,
+}
+
 
 # Add function to read calibration
 def read_camera_config(filepath):
@@ -39,7 +45,7 @@ def read_camera_config(filepath):
     return camera_matrix, dist_coeffs
 
 # Load calibration from ini next to this script
-calib_file = os.path.join('src/shelf_pose_est/shelf_pose_est/azure_camera_calibration.ini')
+calib_file = os.path.join('src/shelf/shelf_pose_est/shelf_pose_est/camera_calibration_1.ini')
 cam_mtx, dist = read_camera_config(calib_file)
 
 # Precompute OpenCV camera matrix and distortion coefficients once
@@ -74,7 +80,7 @@ class ArucoDetect(Node):
         # Activate publisher and subsciber
         if request.enable and not self.active:
             self.publisher_ = self.create_publisher(PoseArray, 'aruco_detect', 10)
-            self.subscription = self.create_subscription(Image, '/camera/color/azure_image', self.detect_aruco_callback, 10)
+            self.subscription = self.create_subscription(Image, '/camera/color/image_raw', self.detect_aruco_callback, 10)
             response.done = 0
             self.get_logger().info("ArUco detection activated")
             self.active = True
@@ -100,7 +106,7 @@ class ArucoDetect(Node):
         """Check if we've received camera messages recently"""
         if self.last_msg_time is None:
             self.get_logger().warn("\n" + "="*50 +
-                                  "\nNo images received yet on /camera/camera/color/image_raw" +
+                                  "\nNo images received yet on /camera/color/image_raw" +
                                   "\nPlease ensure camera is running" +
                                   "\nOr this node is not yet activated" +
                                   "\n" + "="*50)
@@ -204,7 +210,7 @@ class ArucoDetect(Node):
 
 
 # Get the intrinsics after starting the pipeline
-def detect_aruco_marker(frame, dictionary_type = aruco.DICT_6X6_50):
+def detect_aruco_marker(frame, dictionary_type = aruco.DICT_4X4_50):
     """
     Detect ArUco markers in camera frames
 
@@ -264,52 +270,66 @@ def estimate_pose_and_get_data(frame, corners, ids, marker_size=0.10):
         # Draw axis for each ArUco marker
         cv2.drawFrameAxes(frame, camera_matrix, dist_coeffs, rvec, tvec, marker_size/2)
 
+        position_text = f"ID:{marker_id} x:{position[0]:.4f} y:{position[1]:.4f} z:{position[2]:.4f}m"
+        cv2.putText(frame, position_text,
+                    (int(corners[i][0][0][0]), int(corners[i][0][0][1]) - 10),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+
         # If marker ID is 0, print its position and rotation to console
         # and draw the offset axis
-        if marker_id == 0:
-            # Position is already in tvec
-            position = tvec[0][0]
+        # if marker_id == 0:
+        # Position is already in tvec
+        position = tvec[0][0]
 
-            # Display marker position and orientation information
-            position_text = f"ID:{marker_id} x:{position[0]:.4f} y:{position[1]:.4f} z:{position[2]:.4f}m"
-            cv2.putText(frame, position_text,
-                        (int(corners[i][0][0][0]), int(corners[i][0][0][1]) - 10),
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+        # Convert rotation vector to rotation matrix
+        rotation_matrix, _ = cv2.Rodrigues(rvec[0][0])
 
-            # Convert rotation vector to rotation matrix
-            rotation_matrix, _ = cv2.Rodrigues(rvec[0][0])
+        # Convert rotation matrix to Euler angles
+        # euler_angles = cv2.decomposeProjectionMatrix(np.hstack((rotation_matrix, np.zeros((3,1)))))[6]
 
-            # Convert rotation matrix to Euler angles
-            euler_angles = cv2.decomposeProjectionMatrix(np.hstack((rotation_matrix, np.zeros((3,1)))))[6]
+        # # Print position (x,y,z) and rotation (rx,ry,rz) in degrees
+        # print(f"Marker 0 Position: x={position[0]:.5f}m, y={position[1]:.5f}m, z={position[2]:.5f}m")
+        # print(f"Marker 0 Rotation: rx={euler_angles[0][0]:.2f}°, ry={euler_angles[1][0]:.2f}°, rz={euler_angles[2][0]:.2f}°")
 
-            # Print position (x,y,z) and rotation (rx,ry,rz) in degrees
-            print(f"Marker 0 Position: x={position[0]:.5f}m, y={position[1]:.5f}m, z={position[2]:.5f}m")
-            print(f"Marker 0 Rotation: rx={euler_angles[0][0]:.2f}°, ry={euler_angles[1][0]:.2f}°, rz={euler_angles[2][0]:.2f}°")
-
-            # Calculate the offset position relative to marker 0
-            # Apply the rotation matrix to the offset vector
-            offset_vector = np.array([
-                [MARKER_0_OFFSET['x']],
-                [MARKER_0_OFFSET['y']],
-                [MARKER_0_OFFSET['z']]
-            ])
-
+        # Calculate the offset position relative to marker 0
+        # Apply the rotation matrix to the offset vector
+        for j in range(2):
+            if j == 0:
+                offset_vector = np.array([
+                    [MAKERS_OFFSET_0['x']],
+                    [MAKERS_OFFSET_0['y']],
+                    [MAKERS_OFFSET_0['z']]
+                ])
+            else:
+                offset_vector = np.array([
+                    [MAKERS_OFFSET_1['x']],
+                    [MAKERS_OFFSET_1['y']],
+                    [MAKERS_OFFSET_1['z']]
+                ])
             # Apply the rotation matrix to transform the offset to the marker's coordinate system
-            rotated_offset = np.dot(rotation_matrix, offset_vector)
+            identity = np.array([[1, 0, 0],
+                                 [0, -1, 0],
+                                 [0, 0, -1]])
+            rotated_offset = np.dot(identity, offset_vector)
+            # rotated_offset = np.dot(rotation_matrix, offset_vector)
 
             # Add the rotated offset to the marker's position
             offset_position = position + rotated_offset.flatten()
 
             # Create a new translation vector for the offset axis
             offset_tvec = np.array([[offset_position]], dtype=np.float32)
+            offset_position = offset_tvec[0][0]
+            # print(f"Offset Marker 0 Position: x={offset_position[0]:.5f}m, y={offset_position[1]:.5f}m, z={offset_position[2]:.5f}m")
+            # print(f"Marker 0 Rotation: rx={euler_angles[0][0]:.2f}°, ry={euler_angles[1][0]:.2f}°, rz={euler_angles[2][0]:.2f}°")
 
             # Draw the offset axis (using a larger axis size for visibility)
             cv2.drawFrameAxes(frame, camera_matrix, dist_coeffs, rvec, offset_tvec, marker_size/2)
 
-            # Display offset position information
-            offset_text = f"Offset: x:{offset_position[0]:.4f} y:{offset_position[1]:.4f} z:{offset_position[2]:.4f}m"
-            cv2.putText(frame, offset_text,
-                    (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 0), 2)
+            # # Display offset position information
+            if marker_id == 0:
+                offset_text = f"Marker 0 Offset: x:{offset_position[0]:.4f} y:{offset_position[1]:.4f} z:{offset_position[2]:.4f}m"
+                cv2.putText(frame, offset_text,
+                        (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 0), 2)
 
     return frame, marker_poses
 
