@@ -84,7 +84,7 @@ class ImagePublisher(Node):
         super().__init__('image_publisher')  # Node name
 
         # Create the publisher
-        self.publisher_ = self.create_publisher(Image, '/camera/color/image_raw', 10)
+        self.publisher_ = self.create_publisher(Image, '/camera/color/for_shelf', 10)
         timer_period = 0.03  # Publish at 30Hz
         self.timer = self.create_timer(timer_period, self.timer_callback)
 
