@@ -140,16 +140,6 @@ RUN apt-get install -y librealsense2-utils
 RUN apt-get install -y librealsense2-dev
 RUN apt install -y ros-humble-realsense2-camera
 
-#GUI require
-RUN pip install pyqt5-tools
-RUN sudo apt-get install pyqt5-dev-tools
-
-#GUI require
-
-
-
-
-
 #RUN sudo apt install -y python3-pip 
 #RUN sudo apt install -y python3-dev 
 #RUN sudo apt install -y python3-setuptools
@@ -164,9 +154,14 @@ RUN ./config/shell/bash_setup.sh "${USER}" "${GROUP}" \
     && ./config/shell/terminator/terminator_setup.sh "${USER}" "${GROUP}" \
     && ./config/shell/tmux/tmux_setup.sh "${USER}" "${GROUP}" \
     && sudo rm -rf /config
-    
-RUN echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
+
+# Configuration variables
+ARG ROS_DOMAIN_ID=42
+# Set ROS2 environment variables
+RUN echo "export ROS_DOMAIN_ID=$ROS_DOMAIN_ID" >> ~/.bashrc
 RUN echo "export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp" >> ~/.bashrc
+RUN echo "export CYCLONEDDS_URI=\"<CycloneDDS><Domain><General><NetworkInterfaceAddress>wlp0s20f3</NetworkInterfaceAddress></General></Domain></CycloneDDS>\"" >> ~/.bashrc
+RUN echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 
 # * Switch workspace to ~/work
 RUN sudo mkdir -p /home/"${USER}"/work

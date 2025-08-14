@@ -16,15 +16,16 @@ class BoxDetectorNode(Node):
         self.pallet_mode=0
         # --- 1. 訂閱 Topic ---
         self.color_sub = self.create_subscription(
-            Image, '/camera/camera/color/image_raw', self.color_callback, 10)
+            Image, '/camera/Armcamera/color/image_raw', self.color_callback, 10)
         self.depth_sub = self.create_subscription(
-            Image, '/camera/camera/aligned_depth_to_color/image_raw', self.depth_callback, 10)
+            Image, '/camera/Armcamera/aligned_depth_to_color/image_raw', self.depth_callback, 10)
         self.info_sub = self.create_subscription(
-            CameraInfo, '/camera/camera/color/camera_info', self.info_callback, 10)
+            CameraInfo, '/camera/Armcamera/color/camera_info', self.info_callback, 10)
         # --- 5. Boxinfo Publisher ---
         self.box_pub = self.create_publisher(Int64, '/Pallet/boxtype', 10)
         self.box_pubb = self.create_publisher(Int64, '/Pallet/SingBoxInfo', 10)
         self.pose_pub = self.create_publisher(Twist, '/Pallet/virtualstartpose', 10)
+        self.pose_pubb = self.create_publisher(Twist, '/Pallet/single/virtualstartpose', 10)
         # --- 2. YOLO 模型 ---
         self.model = YOLO('src/pallet/pallet_main/pallet_main/best.pt').to('cuda')  
 
@@ -203,7 +204,7 @@ class BoxDetectorNode(Node):
         angle_rad = float(angle)
         pose_msg.angular.z = angle_rad
 
-        self.pose_pub.publish(pose_msg)
+        
         self.get_logger().info(f'Pose published: x={x_m:.2f}, y={y_m:.2f}, z={z_nearest:.2f}, angle(deg)={angle_deg:.1f}')
 
         # 4. 計算實際長寬 (m) —— 使用 box 四點計算像素長寬
@@ -224,12 +225,26 @@ class BoxDetectorNode(Node):
         if 27.5>=width>=22.5 and 32.5>=length>=27.5:
             inner_msg.data=2 #mid
             pose_msg.linear.z = float(150.0)
-        elif 32.5>=width>=27.5 and 42.5>=length>=37.5:
+            if msg.data==0:
+                self.pose_pub.publish(pose_msg)
+            elif msg.data==1:
+
+                self.pose_pubb.publish(pose_msg)
+        elif 34>=width>=26 and 44>=length>=36:
             inner_msg.data=1 #big
             pose_msg.linear.z = float(200.0)
+            if msg.data==0:
+                self.pose_pub.publish(pose_msg)
+            elif msg.data==1:
+                pose_msg.linear.z = float(height)
+                self.pose_pubb.publish(pose_msg)
         elif 13.5>=width>=8.5 and 23>=length>=18:
             inner_msg.data=3 #small
             pose_msg.linear.z = float(140.0)
+            if msg.data==0:
+                self.pose_pub.publish(pose_msg)
+            elif msg.data==1:
+                self.pose_pubb.publish(pose_msg)
         else:
             self.get_logger().error('box type error')
             # 6. 視覺化 (除錯用)

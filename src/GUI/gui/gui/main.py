@@ -1,6 +1,7 @@
 
 import sys
-
+from interface.msg import ShelfState
+# from interface.srv import Maincontroller
 from gui_interface.srv import Taskcmd
 import rclpy
 from rclpy.node import Node
@@ -10,11 +11,13 @@ from gui.main_ui import Ui_MainWindow
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-
+from std_msgs.msg import Bool
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
 import cv2,time,queue
-from interface import ShelfStatus
+
+
+
 class MinimalClientAsync(Node):
 
     def __init__(self):
@@ -55,13 +58,13 @@ class MinimalClientAsync(Node):
         #call slam
         self.slam_pos_pub=self.create_publisher(Image, 'topic', 10)  #not done
         self.slam_status_sub=self.create_subscription(
-            bool,
-            'tmp/',
+            Bool,
+            '/tmp',
             self.pallet_camera_callback,
             10)
         
         self.shelf_status_sub=self.create_subscription(
-            ShelfStatus,
+            ShelfState,
             '/shelf/state',
             self.pallet_camera_callback,
             10)
@@ -363,7 +366,7 @@ class MinimalClientAsync(Node):
             # 轉換影像為 QImage，讓 PyQt5 可以讀取
             img = QtGui.QImage(shelf_pose_camera_tmp, width, height, bytesPerline, QtGui.QImage.Format_RGB888)
             self.ui.shelf_pose_camera.setPixmap(QtGui.QPixmap.fromImage(img))
-            print("done cmaera")
+            print("done camera")
     def shelf_pose_camera_callback(self,msg):
         self.shelf_pose_camera_tmp=self.bridge.imgmsg_to_cv2(msg,'bgr8')
         self.shelf_pose_camera_event.set()
@@ -417,7 +420,7 @@ class MinimalClientAsync(Node):
             # 轉換影像為 QImage，讓 PyQt5 可以讀取
             img = QtGui.QImage(pallet_camera_tmp, width, height, bytesPerline, QtGui.QImage.Format_RGB888)
             self.ui.pallet_camera.setPixmap(QtGui.QPixmap.fromImage(img))
-            print("done pallet_cmaera")
+            print("done pallet_camera")
     def pallet_camera_callback(self,msg):
         self.pallet_camera_tmp=self.bridge.imgmsg_to_cv2(msg,'bgr8')
         self.pallet_camera_event.set()

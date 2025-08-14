@@ -1,6 +1,5 @@
 from setuptools import find_packages, setup
-import os
-from glob import glob
+
 package_name = 'docking_pkg'
 
 setup(
@@ -11,8 +10,6 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
-
-        ('share/docking_pkg/launch', glob('launch/*.py')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -30,7 +27,7 @@ setup(
             'ransac = docking_pkg.ransac:main',
             'pid_mecanum_node = docking_pkg.pid_mecanum_node:main',
             'docking_processor_node = docking_pkg.docking_processor_node:main',
-
+            'aruco_parking_node = docking_pkg.aruco_parking_node:main',
         ],
     },
 )

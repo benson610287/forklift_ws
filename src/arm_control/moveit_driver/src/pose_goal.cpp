@@ -4,7 +4,7 @@
 #include <moveit/move_group_interface/move_group_interface.h>
 
 #include <geometry_msgs/msg/pose.hpp>
-#include "moveit_driver/srv/armcontrol.hpp"
+#include "interface/srv/armcontrol.hpp"
 #include <tf2/LinearMath/Quaternion.h>
 // Create a ROS logger
 auto const logger = rclcpp::get_logger("pose_goal");
@@ -12,8 +12,8 @@ auto const logger = rclcpp::get_logger("pose_goal");
 rclcpp::Node::SharedPtr node;
 
 
-void add(const std::shared_ptr<moveit_driver::srv::Armcontrol::Request>   request,
-          std::shared_ptr<moveit_driver::srv::Armcontrol::Response>      response)
+void add(const std::shared_ptr<interface::srv::Armcontrol::Request>   request,
+          std::shared_ptr<interface::srv::Armcontrol::Response>      response)
 {
   // response->sum = request->a + request->b;
   RCLCPP_INFO(logger, "Incoming request\n"
@@ -93,7 +93,7 @@ int main(int argc, char * argv[])
 
   geometry_msgs::msg::Pose target_pose;
 
-  rclcpp::Service<moveit_driver::srv::Armcontrol>::SharedPtr service = node->create_service<moveit_driver::srv::Armcontrol>("arm_cmd", &add);
+  rclcpp::Service<interface::srv::Armcontrol>::SharedPtr service = node->create_service<interface::srv::Armcontrol>("arm_cmd", &add);
 
   //ex pose
   target_pose.orientation.x=-0.707;

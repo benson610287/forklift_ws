@@ -5,7 +5,9 @@ from turtlesim.msg import Pose
 from geometry_msgs.msg import PoseStamped, Quaternion
 from std_msgs.msg import Int64
 from interface.srv import Maincontroller     # CHANGE
-from moveit_driver.srv import Armcontrol
+from interface.srv import Armcontrol
+from ur_msgs.srv import SetIO
+
 import math
 import random
 from rclpy.executors import MultiThreadedExecutor
@@ -18,30 +20,33 @@ class TurtlePControl(Node):
         server_group=client_group1
         self.mainsrv = self.create_service(Maincontroller, 'Pallet', self.actived_callback,callback_group=server_group)        # CHANGE
         self.maniclient = self.create_client(Armcontrol, 'arm_cmd', callback_group = client_group1)
+        self.iocli = self.create_client(SetIO, '/io_and_status_controller/set_io',callback_group = client_group1)
         
-        # while not self.maniclient.wait_for_service(timeout_sec=1.0):
-        #     self.get_logger().info('arm service not available, waiting again...')
+        while not self.maniclient.wait_for_service(timeout_sec=1.0):
+            self.get_logger().info('arm service not available, waiting again...')
         
         # # 移動平台命令
         self.mobile_position_publisher = self.create_publisher(PoseStamped, '/mobile_slam_topic', 10) #topic 名稱要改！！！
-        self.ready_get_endpose_publisher = self.create_publisher(Int64,'/Pallet/endposeready',10)
+        self.ready_get_endpose_publisher = self.create_publisher(Int64,'/Pallet/endposeready',10,callback_group = client_group1)
         # # 手臂命令
         # self.arm_pose_publisher = self.create_publisher(Twist, '/arm_control', 10)   #topic和msg 名稱要改！！！
-        self.real_startpose_subscriber = self.create_subscription(Twist, '/Pallet/realstartpose', self.startpose, 10)
-        self.real_endpose_subscriber = self.create_subscription(Twist, '/Pallet/realendpose', self.endpose, 10)
+        self.real_startpose_subscriber = self.create_subscription(Twist, '/Pallet/realstartpose', self.startpose, 10,callback_group = client_group1)
+        self.real_endpose_subscriber = self.create_subscription(Twist, '/Pallet/realendpose', self.endpose, 10,callback_group = client_group1)
 
         # # YOLO 命令
-        self.yolo_cmd_publisher = self.create_publisher(Int64, '/Pallet/yolo_cmd', 10)  
-        
+        self.yolo_cmd_publisher = self.create_publisher(Int64, '/Pallet/yolo_cmd', 10,callback_group = client_group1)  
+        self.stack_full_sub = self.create_subscription(Int64, '/Pallet/multistackfull',self.stack_full, 10,callback_group = client_group1)
         # self.timer = self.create_timer(0.1, self.state_machine_loop)  # 100ms 週期執行
         self.armstartpose=Twist()
         self.state = 'IDLE'  # 狀態機初始狀態
         self.currentstate = 'IDLE'
         self.startpose_received = False
         self.endpose_received = False
+        self.stackfull_flag = False
         self.homepose=[0.0,-550.0,500.0,180.0,0.0,0.0]
         self.photopose=[-618.53,-238.11,210.61,2.157*180/math.pi,2.289*180/math.pi,0.0]
-        self.photopose=[-618.53,-205.11,564.61,180.0,0.0,0.0]
+        self.photopose=[-618.53,-215.11,574.61,180.0,0.0,0.0]
+        self.convergetpose=[-618.53,-215.11,20.61,180.0,0.0,0.0]
     # def actived_callback(self, request, response):
     #     if request.enable==True:
     #         self.mobile_move_to_unpack()
@@ -76,7 +81,11 @@ class TurtlePControl(Node):
                     break
                 if self.state!=self.currentstate:
                     self.currentstate=self.state
+                    self.get_logger().info('{}'.format(self.state))
                     self.state_machine_loop()
+                elif self.stackfull_flag==True:
+                    self.state = 'FINAL_TO_HOME'
+                    self.stackfull_flag=False
                 else:
                     continue
             response.done = 1
@@ -88,30 +97,109 @@ class TurtlePControl(Node):
     def state_machine_loop(self):
         if self.state == 'IDLE':
             return
-
+        # elif self.stackfull_flag==True:
+        #     self.state = 'FINAL_TO_HOME'
         elif self.state == 'MOVE_TO_HOME_POSE':
             self.get_logger().info('Moving to HOME_POSE...')
+            self.closesuck()
             self.move_to_home_pose()
-
+            if self.state == 'MOVE_TO_HOME_POSE':
+                self.state = 'MOVE_TO_PHOTO_POSE'
         elif self.state == 'MOVE_TO_PHOTO_POSE':
             self.get_logger().info('Moving to PHOTO_POSE...')
             self.move_to_photo_pose()
             self.get_logger().info('Sending YOLO command...')
             
             self.state = 'WAIT_FOR_START_POSE'
-
+        elif self.state == 'GET_ITEM':
+            self.opensuck()
+            self.state = 'WAIT_FOR_START_POSE'
         elif self.state == 'WAIT_FOR_START_POSE':
-            self.yolo_cmd_publisher.publish(Int64(data=1))
+            time.sleep(2)
+            data=Int64()
+            data.data=int(0)
+            self.yolo_cmd_publisher.publish(data)
+            
             self.get_logger().info('Waiting for start pose...')
-
+            # if self.stackfull_flag==True:
+            #     self.state = 'FINAL_TO_HOME'
+            #     self.stackfull_flag=False
+        elif self.state == 'START_TO_END':
+            self.get_logger().info('Moving to HOME_POSE...')
+            self.move_to_home_pose()
+            self.state = 'WAIT_FOR_END_POSE'
         elif self.state == 'MOVE_TO_STACK':
             self.get_logger().info('Moving to stack...')
             self.mobile_move_to_stack()
             self.state = 'WAIT_FOR_END_POSE'  # <<< 這會讓 callback 放行
         elif self.state == 'WAIT_FOR_END_POSE':
             self.get_logger().info('Waiting for end pose...')
+            data=Int64()
+            data.data=int(1)
+            self.ready_get_endpose_publisher.publish(data)
+        elif self.state == 'FINAL_TO_HOME':
+            self.get_logger().info('final Moving to HOME_POSE...')
+            self.move_to_home_pose()
+            if self.state == 'FINAL_TO_HOME':
+                self.state = 'DONE'
         elif self.state == 'DONE':
             self.get_logger().info('Task completed.')
+    def get_IO_req(self,fun,pin,state):
+        req=SetIO.Request()
+        req.fun=fun
+        req.pin=pin
+        req.state=state
+        return req
+    def opensuck(self):
+        self.get_logger().info("get item...")
+        io_req=self.get_IO_req(1,2,1.0)
+        future=self.iocli.call_async(io_req)
+        while not future.done():
+            time.sleep(0.01)
+        try:
+            inner_res = future.result()
+            self.get_logger().info("io_res.done={}".format(inner_res.success))
+            aa=inner_res.success
+        except Exception as e:
+            self.get_logger().error(f"suck Inner service failed: {e}")
+            aa = inner_res.success
+
+        io_req=self.get_IO_req(1,7,1.0)
+        future=self.iocli.call_async(io_req)
+        while not future.done():
+            time.sleep(0.01)
+        try:
+            inner_res = future.result()
+            self.get_logger().info("io_res.done={}".format(inner_res.success))
+            aa=inner_res.success
+        except Exception as e:
+            self.get_logger().error(f"bon Inner service failed: {e}")
+            aa = inner_res.success
+    def closesuck(self):
+        self.get_logger().info("throw item...")
+        io_req=self.get_IO_req(1,2,0.0)
+        future=self.iocli.call_async(io_req)
+        while not future.done():
+            time.sleep(0.01)
+        try:
+            inner_res = future.result()
+            self.get_logger().info("io_res.done={}".format(inner_res.success))
+            aa=inner_res.success
+        except Exception as e:
+            self.get_logger().error(f"suck Inner service failed: {e}")
+            aa = inner_res.success
+
+        io_req=self.get_IO_req(1,7,0.0)
+        future=self.iocli.call_async(io_req)
+        while not future.done():
+            time.sleep(0.01)
+        try:
+            inner_res = future.result()
+            self.get_logger().info("io_res.done={}".format(inner_res.success))
+            aa=inner_res.success
+        except Exception as e:
+            self.get_logger().error(f"bon Inner service failed: {e}")
+            aa = inner_res.success
 
     def get_movepose_req(self,pose):
         inner_req = Armcontrol.Request()
@@ -120,7 +208,7 @@ class TurtlePControl(Node):
         inner_req.pose.position.z = pose[2]/1000
         inner_req.pose.orientation=self.get_quaternion_from_euler(pose[3],pose[4],pose[5])
         self.get_logger().info("send pose.pose={}".format(inner_req.pose))
-        input()
+        # input()
         return inner_req
     def move_to_home_pose(self):
         self.get_logger().info("starting home_pose...")
@@ -136,8 +224,7 @@ class TurtlePControl(Node):
         except Exception as e:
             self.get_logger().error(f"shelf_pose Inner service failed: {e}")
             aa = -1
-        if self.state == 'MOVE_TO_HOME_POSE':
-            self.state = 'MOVE_TO_PHOTO_POSE'
+        
     def move_to_photo_pose(self):
         self.get_logger().info("starting photo_pose...")
         inner_req=self.get_movepose_req(self.photopose)
@@ -151,8 +238,8 @@ class TurtlePControl(Node):
         except Exception as e:
             self.get_logger().error(f"shelf_pose Inner service failed: {e}")
             aa = -1
-        if self.state == 'MOVE_TO_PHOTO_POSE':
-            self.state = 'DONE'
+        # if self.state == 'MOVE_TO_PHOTO_POSE':
+        #     self.state = 'DONE'
     def mobile_move_to_unpack(self):
         # 發佈移動平台命令
         mobile_cmd = PoseStamped()
@@ -190,7 +277,7 @@ class TurtlePControl(Node):
         self.startpose_received = True
         self.get_logger().info('Received real pose, moving to pick...')
         startpose=[msg.linear.x,msg.linear.y,msg.linear.z,msg.angular.x,msg.angular.y,msg.angular.z]
-        inner_req=self.get_movepose_req(startpose+[0.0,0.0,50.0,0.0,0.0,0.0])
+        inner_req=self.get_movepose_req([a + b + c for a, b, c in zip(self.convergetpose, startpose, [0.0,0.0,50.0,0.0,0.0,0.0])])
         future = self.maniclient.call_async(inner_req)
         while not future.done():
             time.sleep(0.01)
@@ -202,7 +289,7 @@ class TurtlePControl(Node):
             self.get_logger().error(f"start_pose Inner service failed: {e}")
             aa = -1
         
-        inner_req=self.get_movepose_req(startpose)
+        inner_req=self.get_movepose_req([a + b + c for a, b, c in zip(self.convergetpose, startpose, [0.0,0.0,0.0,0.0,0.0,0.0])])
         future = self.maniclient.call_async(inner_req)
         while not future.done():
             time.sleep(0.01)
@@ -213,8 +300,24 @@ class TurtlePControl(Node):
         except Exception as e:
             self.get_logger().error(f"start_pose Inner service failed: {e}")
             aa = -1
+        
+        self.opensuck()
+
+        inner_req=self.get_movepose_req([a + b + c for a, b, c in zip(self.convergetpose, startpose, [0.0,0.0,200.0,0.0,0.0,0.0])])
+        future = self.maniclient.call_async(inner_req)
+        while not future.done():
+            time.sleep(0.01)
+        try:
+            inner_res = future.result()
+            self.get_logger().info("start_pose_inner_res.done={}".format(inner_res.status))
+            aa=inner_res.status
+        except Exception as e:
+            self.get_logger().error(f"start_pose Inner service failed: {e}")
+            aa = -1
+        self.startpose_received = False
         if self.state == 'WAIT_FOR_START_POSE':
-            self.state = 'DONE'
+                self.state = 'START_TO_END'
+        
 
     def endpose(self, msg):
         if self.endpose_received:
@@ -222,27 +325,76 @@ class TurtlePControl(Node):
             return
         self.endpose_received = True
         self.get_logger().info('Received real end pose, moving to stack...')
-        self.armendpose = msg
+        endpose = [msg.linear.x,msg.linear.y,msg.linear.z,msg.angular.x,msg.angular.y,msg.angular.z]
         # 發佈手臂命令
         # self.arm_pose_publisher.publish(self.armendpose)
-        inner_req = Armcontrol.Request()
-        inner_req.pose.position.x = msg.linear.x
-        inner_req.pose.position.y = msg.linear.y
-        inner_req.pose.position.z = msg.linear.z
-        inner_req.pose.theta=self.get_quaternion_from_euler(msg.angular.x,msg.angular.y,msg.angular.z)
+        inner_req=self.get_movepose_req([a + b for a, b in zip( endpose, [15.0,15.0,400.0,0.0,0.0,0.0])])
         future = self.maniclient.call_async(inner_req)
         while not future.done():
             time.sleep(0.01)
         try:
             inner_res = future.result()
-            print("shelf_pose_inner_res.done=",inner_res.status)
+            self.get_logger().info("start_pose_inner_res.done={}".format(inner_res.status))
             aa=inner_res.status
         except Exception as e:
-            self.get_logger().error(f"shelf_pose Inner service failed: {e}")
+            self.get_logger().error(f"start_pose Inner service failed: {e}")
+            aa = -1
+        inner_req=self.get_movepose_req([a + b for a, b in zip( endpose, [15.0,15.0,200.0,0.0,0.0,0.0])])
+        future = self.maniclient.call_async(inner_req)
+        while not future.done():
+            time.sleep(0.01)
+        try:
+            inner_res = future.result()
+            self.get_logger().info("start_pose_inner_res.done={}".format(inner_res.status))
+            aa=inner_res.status
+        except Exception as e:
+            self.get_logger().error(f"start_pose Inner service failed: {e}")
+            aa = -1
+        inner_req=self.get_movepose_req([a + b for a, b in zip( endpose, [15.0,15.0,50.0,0.0,0.0,0.0])])
+        future = self.maniclient.call_async(inner_req)
+        while not future.done():
+            time.sleep(0.01)
+        try:
+            inner_res = future.result()
+            self.get_logger().info("start_pose_inner_res.done={}".format(inner_res.status))
+            aa=inner_res.status
+        except Exception as e:
+            self.get_logger().error(f"start_pose Inner service failed: {e}")
+            aa = -1
+        inner_req=self.get_movepose_req([a + b for a, b in zip( endpose, [0.0,0.0,0.0,0.0,0.0,0.0])])
+        future = self.maniclient.call_async(inner_req)
+        while not future.done():
+            time.sleep(0.01)
+        try:
+            inner_res = future.result()
+            self.get_logger().info("start_pose_inner_res.done={}".format(inner_res.status))
+            aa=inner_res.status
+        except Exception as e:
+            self.get_logger().error(f"start_pose Inner service failed: {e}")
+            aa = -1
+        self.closesuck()
+        inner_req=self.get_movepose_req([a + b for a, b in zip( endpose, [0.0,0.0,200.0,0.0,0.0,0.0])])
+        future = self.maniclient.call_async(inner_req)
+        while not future.done():
+            time.sleep(0.01)
+        try:
+            inner_res = future.result()
+            self.get_logger().info("start_pose_inner_res.done={}".format(inner_res.status))
+            aa=inner_res.status
+        except Exception as e:
+            self.get_logger().error(f"start_pose Inner service failed: {e}")
             aa = -1
         if self.state == 'WAIT_FOR_END_POSE':
-            self.state = 'DONE'
-
+            self.state = 'MOVE_TO_HOME_POSE'
+        self.endpose_received = False
+    def stack_full(self,msg):
+        if msg.data==1:
+            self.stackfull_flag=True
+            self.state = 'FINAL_TO_HOME'
+            self.stackfull_flag=False
+            self.get_logger().info(f"Sub stackfull state: {msg}")
+        else:
+            pass
     def control_loop(self):
         pass
 
