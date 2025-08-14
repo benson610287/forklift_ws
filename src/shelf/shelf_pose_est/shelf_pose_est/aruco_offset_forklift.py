@@ -59,7 +59,7 @@ class ArucoDetect(Node):
         # self.subscription = self.create_subscription(Image, '/camera/camera/color/image_raw', self.detect_aruco_callback, 10)
         self.publisher_ = None
         self.subscription = None
-        self.srv = self.create_service(Maincontroller, '/toggle_aruco_detection', self.toggle_aruco_callback)
+        self.srv = self.create_service(Maincontroller, 'toggle_aruco_detection', self.toggle_aruco_callback)
 
         self.bridge = CvBridge()
 
@@ -80,7 +80,7 @@ class ArucoDetect(Node):
         # Activate publisher and subsciber
         if request.enable and not self.active:
             self.publisher_ = self.create_publisher(PoseArray, 'aruco_detect', 10)
-            self.subscription = self.create_subscription(Image, '/camera/color/image_raw', self.detect_aruco_callback, 10)
+            self.subscription = self.create_subscription(Image, '/camera/color/for_shelf', self.detect_aruco_callback, 10)
             response.done = 0
             self.get_logger().info("ArUco detection activated")
             self.active = True
@@ -106,7 +106,7 @@ class ArucoDetect(Node):
         """Check if we've received camera messages recently"""
         if self.last_msg_time is None:
             self.get_logger().warn("\n" + "="*50 +
-                                  "\nNo images received yet on /camera/color/image_raw" +
+                                  "\nNo images received yet on /camera/color/for_shelf" +
                                   "\nPlease ensure camera is running" +
                                   "\nOr this node is not yet activated" +
                                   "\n" + "="*50)
@@ -310,8 +310,8 @@ def estimate_pose_and_get_data(frame, corners, ids, marker_size=0.10):
             identity = np.array([[1, 0, 0],
                                  [0, -1, 0],
                                  [0, 0, -1]])
-            rotated_offset = np.dot(identity, offset_vector)
-            # rotated_offset = np.dot(rotation_matrix, offset_vector)
+            # rotated_offset = np.dot(identity, offset_vector)
+            rotated_offset = np.dot(rotation_matrix, offset_vector)
 
             # Add the rotated offset to the marker's position
             offset_position = position + rotated_offset.flatten()

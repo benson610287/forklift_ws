@@ -96,7 +96,7 @@ class ShelfPointDetector(Node):
             self.tensorrt_model = YOLO(model_file)
         else:
             model = YOLO("./src/shelf/shelf_pose_est/shelf_yolo_weights/last-pose.pt")
-            model.export(format="engine")
+            model.export(format="engine", conf=0.8)
             self.tensorrt_model = YOLO(model_file)
 
         # depth detection config
@@ -104,17 +104,22 @@ class ShelfPointDetector(Node):
 
         create_control_panel()
 
+        # Video recorder
+        # fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+        # self.record_output = cv2.VideoWriter('yolo_detections.mp4', fourcc, 20.0, (1920*2, 1080))
+
     def shelf_point_detect_callback(self, color_msg):
 
         self.color_image = self.bridge.imgmsg_to_cv2(color_msg, 'bgr8')
-        results = self.tensorrt_model(self.color_image)
+        results = self.tensorrt_model(self.color_image, conf=0.8)
 
         for result in results:
             self.xy = result.keypoints.xy
 
-        annotated_frame = results[0].plot()
+        sannotated_frame = results[0].plot()
+        # self.shelf_stacked_image = np.hstack((self.color_image, annotated_frame))
         cv2.namedWindow('YOLO Shelf Keypoint', cv2.WINDOW_NORMAL)
-        cv2.imshow('YOLO Shelf Keypoint', annotated_frame)
+        cv2.imshow('YOLO Shelf Keypoint', sannotated_frame)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             self.destroy_subscription(self.subscription)
@@ -133,8 +138,15 @@ class ShelfPointDetector(Node):
             self.shelf_state_publisher.publish(msg)
             color_image_state = self.bridge.cv2_to_imgmsg(self.color_image, 'passthrough')
             self.shelf_state_image_publisher.publish(color_image_state)
-        cv2.namedWindow('Shelf State Image', cv2.WINDOW_NORMAL)
-        cv2.imshow('Shelf State Image', self.color_image)
+            stacked_image = np.hstack((depth_image, self.color_image))
+
+            cv2.namedWindow('Shelf State Image', cv2.WINDOW_NORMAL)
+            cv2.imshow('Shelf State Image', stacked_image)
+
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            self.destroy_subscription(self.subscription)
+            self.destroy_subscription(self.depth_subscription)
+            cv2.destroyAllWindows()
 
 
     def count_pixels_in_polygon(self, depth_image, polygon_points, min_valid_depth=100, max_valid_depth=6000, detect_depth=5500):
@@ -218,10 +230,12 @@ class ShelfPointDetector(Node):
                     if detected_ratio >= 0.06 or detected_pixels_count >= 600:
                         # red: have stuff on shelf
                         cv2.polylines(color_image, [polygon_points], True, (0, 0, 255), 3)
+                        cv2.polylines(depth_image, [polygon_points], True, (0, 0, 255), 3)
                         shelf_state[state_index] = False
                     else:
                         # green: no stuff on shelf
                         cv2.polylines(color_image, [polygon_points], True, (0, 255, 0), 3)
+                        cv2.polylines(depth_image, [polygon_points], True, (0, 255, 0), 3)
                         shelf_state[state_index] = True
 
                         sorted_polygon_points.append(polygon_points)
