@@ -10,15 +10,17 @@ find_package(ament_cmake REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
+find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 
+ament_export_dependencies(rosidl_default_runtime)
 rosidl_generate_interfaces(${PROJECT_NAME}
-  "srv/Maincontroller.srv"
   "msg/ShelfState.msg"
+  "srv/Armcontrol.srv"
+  "srv/Maincontroller.srv"
   DEPENDENCIES geometry_msgs # Add packages that above messages depend on, in this case geometry_msgs for Sphere.msg
 )
-ament_export_dependencies(rosidl_default_runtime)
 
 
 if(BUILD_TESTING)

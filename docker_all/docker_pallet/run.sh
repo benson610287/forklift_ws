@@ -5,8 +5,8 @@ source "$(dirname "$(readlink -f "${0}")")/get_param.sh"
 
 docker run --rm \
     --privileged \
-    --ipc=host \
     --network=host \
+    --ipc=host \
     ${GPU_FLAG} \
     -v /tmp/.Xauthority:/home/"${user}"/.Xauthority \
     -e XAUTHORITY=/home/"${user}"/.Xauthority \
@@ -18,3 +18,4 @@ docker run --rm \
     -v /dev:/dev \
     -v "${WS_PATH}":/home/"${user}"/work \
     -it --name "${CONTAINER}" "${DOCKER_HUB_USER}"/"${IMAGE}"
+

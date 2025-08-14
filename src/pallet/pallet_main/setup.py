@@ -22,15 +22,18 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-        'handcamera=pallet_main.handcamera:main',
+        # 'handcamera=pallet_main.handcamera:main',
         # 'GetBox=pallet_main.GetBox:main',
         'PalletMain=pallet_main.PalletMain:main',
+        'SinglePalletMain=pallet_main.SinglePalletMain:main',
         # 'GetBoxv2=pallet_main.GetBoxv2:main',
         'get_box_from_yolo=pallet_main.get_box_from_yolo:main',
         # 'get_box_from_yolo_4points=pallet_main.get_box_from_yolo_4points:main',
         'yolo_cmd=pallet_main.yolo_cmd:main',
         'point_test=pallet_main.point_test:main',
-        'arm_start_end=pallet_main.arm_start_end:main'
+        'arm_start_end=pallet_main.arm_start_end:main',
+        'single_arm_start_end=pallet_main.single_arm_start_end:main',
+
         ],
     },
 )

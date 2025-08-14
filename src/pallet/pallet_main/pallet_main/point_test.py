@@ -19,7 +19,7 @@ class TurtlePControl(Node):
         server_group=client_group1
         self.mainsrv = self.create_service(Maincontroller, 'Pallet', self.actived_callback,callback_group=server_group)        # CHANGE
         self.maniclient = self.create_client(Armcontrol, 'arm_cmd', callback_group = client_group1)
-        self.iocli = self.create_client(SetIO, '/ur_hardware_interface/set_io',callback_group = client_group1)
+        self.iocli = self.create_client(SetIO, '/io_and_status_controller/set_io',callback_group = client_group1)
         while not self.maniclient.wait_for_service(timeout_sec=1.0):
             self.get_logger().info('service not available, waiting again...')
         
@@ -101,18 +101,57 @@ class TurtlePControl(Node):
         return req
     def opensuck(self):
         self.get_logger().info("get item...")
-        io_req=self.get_IO_req(1,0,1.0)
+        io_req=self.get_IO_req(1,2,1.0)
         future=self.iocli.call_async(io_req)
         while not future.done():
             time.sleep(0.01)
         try:
             inner_res = future.result()
-            self.get_logger().info("io_res.done={}".format(inner_res.message))
+            self.get_logger().info("io_res.done={}".format(inner_res.success))
             aa=inner_res.success
         except Exception as e:
-            self.get_logger().error(f"shelf_pose Inner service failed: {e}")
+            self.get_logger().error(f"suck Inner service failed: {e}")
+            aa = inner_res.success
+
+        io_req=self.get_IO_req(1,7,1.0)
+        future=self.iocli.call_async(io_req)
+        while not future.done():
+            time.sleep(0.01)
+        try:
+            inner_res = future.result()
+            self.get_logger().info("io_res.done={}".format(inner_res.success))
+            aa=inner_res.success
+        except Exception as e:
+            self.get_logger().error(f"bon Inner service failed: {e}")
             aa = inner_res.success
         if self.state == 'GET_ITEM':
+            self.state = 'DONE'
+    def closesuck(self):
+        self.get_logger().info("throw item...")
+        io_req=self.get_IO_req(1,2,0.0)
+        future=self.iocli.call_async(io_req)
+        while not future.done():
+            time.sleep(0.01)
+        try:
+            inner_res = future.result()
+            self.get_logger().info("io_res.done={}".format(inner_res.success))
+            aa=inner_res.success
+        except Exception as e:
+            self.get_logger().error(f"suck Inner service failed: {e}")
+            aa = inner_res.success
+
+        io_req=self.get_IO_req(1,7,0.0)
+        future=self.iocli.call_async(io_req)
+        while not future.done():
+            time.sleep(0.01)
+        try:
+            inner_res = future.result()
+            self.get_logger().info("io_res.done={}".format(inner_res.success))
+            aa=inner_res.success
+        except Exception as e:
+            self.get_logger().error(f"bon Inner service failed: {e}")
+            aa = inner_res.success
+        if self.state == 'THROW_ITEM':
             self.state = 'DONE'
     def get_movepose_req(self,pose):
         inner_req = Armcontrol.Request()

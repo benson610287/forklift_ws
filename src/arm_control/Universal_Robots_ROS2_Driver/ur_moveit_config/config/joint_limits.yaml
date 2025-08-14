@@ -46,7 +46,7 @@ joint_limits:
     has_acceleration_limits: true
     max_acceleration: 5.0
     has_position_limits: true
-    min_position: -2.617993878 # -150 deg
+    min_position: -3.490658504 # -200 deg
     max_position: 2.617993878 # 150 deg
 
   shoulder_lift_joint:
@@ -60,7 +60,7 @@ joint_limits:
     has_acceleration_limits: true
     max_acceleration: 5.0
     has_position_limits: true
-    min_position: -2.0943951024 # -120 deg
+    min_position: -2.617993878 # -150 deg
     max_position: 1.0472
     # max_position: 3.141592653589793
     
@@ -69,7 +69,7 @@ joint_limits:
     max_acceleration: 5.0
     has_position_limits: true
     min_position: -3.141592653589793
-    max_position: 0.0
+    max_position: 0.1745329252 # 10 deg
 
   wrist_2_joint:
     has_acceleration_limits: true

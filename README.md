@@ -29,11 +29,9 @@ $ git push -u origin $your_brenchname
 ```
 ### shelf_pose_est package
 ```base
-this node subscriber to '/camera/color/image_raw' topic for image.
+this node subscriber to '/camera/camera/color/image_raw' topic for image.
 Use "ros2 service call /toggle_aruco_detection interface/srv/Maincontroller '{enable: True}'" to activate aruco detection
 Use "ros2 service call /toggle_aruco_detection interface/srv/Maincontroller '{enable: False}'" to deactivate aruco detection
-# 將貨架狀態以bool array publish至 '/shelf/state' topic, true:empty false:occupied
-# 將貨架狀態的深度影像publish至 '/camera/depth/state_image'
 ```
 
 

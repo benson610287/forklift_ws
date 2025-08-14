@@ -1,4 +1,5 @@
 from interface.srv import Maincontroller
+from interface.msg import ShelfState
 from gui_interface.srv import Taskcmd
 import rclpy
 from rclpy.node import Node
@@ -16,19 +17,19 @@ class controller(Node):
 
 
 
-        self.srv = self.create_service(Taskcmd, 'taskcmd', self.aa,callback_group=server_group)
+        self.srv = self.create_service(Taskcmd, 'taskcmd', self.aa, callback_group=server_group)
 
-        self.cli_pallet = self.create_client(Maincontroller, 'Pallet',callback_group=client_group1)
-        while not self.cli_pallet.wait_for_service(timeout_sec=1.0):
-            self.get_logger().info('service not available, waiting again...')
+        # self.cli_pallet = self.create_client(Maincontroller, 'Pallet',callback_group=client_group1)
+        # while not self.cli_pallet.wait_for_service(timeout_sec=1.0):
+        #     self.get_logger().info('pallet service not available, waiting again...')
         
         self.cli_shelf_pose = self.create_client(Maincontroller, 'toggle_aruco_detection',callback_group=client_group1)
         while not self.cli_shelf_pose.wait_for_service(timeout_sec=1.0):
-            self.get_logger().info('service not available, waiting again...')
-        
-        self.cli_docking = self.create_client(Maincontroller, 'maincontroller',callback_group=client_group1)  #docking
-        while not self.cli_3.wait_for_service(timeout_sec=1.0):
-            self.get_logger().info('service not available, waiting again...')
+            self.get_logger().info('shelf_pose service not available, waiting again...')
+
+        self.cli_docking = self.create_client(Maincontroller, 'docking_status_server',callback_group=client_group1)  #docking
+        while not self.cli_docking.wait_for_service(timeout_sec=1.0):
+            self.get_logger().info('docking service not available, waiting again...')
         
         # self.cli_4 = self.create_client(Maincontroller, 'add_two_ints')
         # while not self.cli_4.wait_for_service(timeout_sec=1.0):

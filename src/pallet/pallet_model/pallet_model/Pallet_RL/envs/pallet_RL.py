@@ -310,7 +310,7 @@ class Pallet_env(gym.Env):
         self.count +=1
         # time.sleep(1)
         
-        return obs, reward, self.done, [self.stack_ep]
+        return obs, reward, self.done, [self.stack_ep,self.ori]
 
     def reset(self):
 

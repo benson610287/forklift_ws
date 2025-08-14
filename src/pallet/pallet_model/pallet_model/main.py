@@ -8,16 +8,43 @@ from .Pallet_RL.envs.src import box
 # import pallet_model.Pallet_RL.envs
 import os
 # from Pallet_RL.envs.argument import get_args 
-
+import math
 
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import Int64
 from geometry_msgs.msg import Twist
+class Box:
+    # 預先定義不同箱子的尺寸
+    box_dimensions = {
+        1: {'length': 40, 'width': 30, 'height': 20},
+        2: {'length': 30, 'width': 25, 'height': 16},
+        3: {'length': 21, 'width': 11, 'height': 14},
+    }
+
+    def __init__(self, box_id):
+        if box_id not in Box.box_dimensions:
+            raise ValueError(f"Box ID {box_id} is not defined.")
+        
+        dims = Box.box_dimensions[box_id]
+        self.length = dims['length']
+        self.width = dims['width']
+        self.height = dims['height']
+
+    def __str__(self):
+        return f"Box: {self.length} x {self.width} x {self.height}"
+# box1=box(1)
+# box2=box(2)
+# box3=box(3)
+# # 使用範例
+# box = Box(2)
+# print(box.length)  # 輸出: 40
+# print(box)         # 輸出: Box: 40 x 25 x 20
+
 class PalletModel(Node):
     def __init__(self):
         super().__init__('PalletModel')
-        models_dir = "src/pallet/BPP_ws/Pallet_RL/models"
+        models_dir = "src/pallet/pallet_model/pallet_model/Pallet_RL/models"
         logdir = "src/pallet/BPP_ws/Pallet_RL/logs"
 
         if not os.path.exists(models_dir):
@@ -30,7 +57,7 @@ class PalletModel(Node):
 
         # args.mode='test'
         self.episodes=1000
-        load_model="11_04_400000.0"
+        load_model="06_12_267000.0"
         self.model = PPO.load(f"{models_dir}/{load_model}")
         self.obs = self.env.reset()
         # self.srv = self.create_service(Maincontroller, 'Pallet', self.add_three_ints_callback)        # CHANGE
@@ -50,22 +77,42 @@ class PalletModel(Node):
         else:
             action = self.model.predict(self.obs)
             self.obs, reward, done, info = self.env.step((action[0],str(msg.data)))
-            self.get_logger().info(f'Action: {action[0]}, Box Type: {msg.data}, Stack EP: {info[0]}')
-            if info[0][3] == 0:
-                angz= info[0][3]
-            elif info[0][3] == -50:
-                angz = 1.57
-                self.get_logger().info('Box is not stackable, resetting environment.')
-            # 發布虛擬末端位姿
-            virtual_endpose = Twist()
-            virtual_endpose.linear.x = info[0][0]
-            virtual_endpose.linear.y = info[0][1]
-            virtual_endpose.linear.z = info[0][2]
-            virtual_endpose.angular.z = angz
-            self.get_logger().info(f'Virtual End Pose: {virtual_endpose}')
-            self.virtual_endpose_publisher.publish(virtual_endpose)
+            
+            if isinstance(info, list) and len(info) > 0 and isinstance(info[0], (list, tuple)) and len(info[0]) >= 4:
+                self.get_logger().info(f'xyz: {info[0]}, rxryrz: {info[1]}')
+                pose = info[0]  # [x, y, z, angz]
 
-            self.env.render()
+                if info[1][2] == 0:
+                    angz = float(info[1][2])
+                elif info[1][2] == -1.5707963267948966:
+                    angz = math.pi/2
+                    self.get_logger().info('Box is not stackable, resetting environment.')
+                else:
+                    angz = math.pi/2  # 預設轉角
+
+                # 發布虛擬末端位姿
+                whichbox=Box(int(msg.data))
+                virtual_endpose = Twist()
+                virtual_endpose.linear.x = (float(pose[0])+(whichbox.width / 2) * math.sin(angz) + (whichbox.length / 2) * math.cos(angz))*10
+                virtual_endpose.linear.y = (float(pose[1])+(whichbox.width / 2) * math.cos(angz) + (whichbox.length / 2) * math.sin(angz))*10
+                virtual_endpose.linear.z = (float(pose[2])+(whichbox.height))*10
+                virtual_endpose.angular.z = angz*180.0/math.pi
+                self.get_logger().info(f'Action: {action[0]}, Box Type: {msg.data}, Virtual End Pose: {virtual_endpose}')
+                self.virtual_endpose_publisher.publish(virtual_endpose)
+                self.env.render()
+            else:
+                self.get_logger().warn(f'Invalid or empty info returned from env.step(): {info}')
+                self.obs = self.env.reset()
+                
+                # 發布虛擬末端位姿
+                virtual_endpose = Twist()
+                virtual_endpose.linear.x = float(-1.0)
+                virtual_endpose.linear.y = float(-1.0)
+                virtual_endpose.linear.z = float(-1.0)
+                virtual_endpose.angular.z = float(-1.0)
+                self.get_logger().info(f'Action: {action[0]}, Box Type: {msg.data}, Virtual End Pose: {virtual_endpose}')
+                self.virtual_endpose_publisher.publish(virtual_endpose)
+                self.obs = self.env.reset()
 def main(args=None):
     rclpy.init(args=args)
     node = PalletModel()
