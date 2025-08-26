@@ -1,9 +1,11 @@
-
 # ur5 driver
 ros2 launch ur_robot_driver ur5e.launch.py  robot_ip:=192.168.56.10 use_fake_hardware:=false launch_rviz:=false initial_joint_controller:=joint_trajectory_controller
 
 #moveit 
 ros2 launch ur_moveit_config ur_moveit.launch.py ur_type:=ur5e use_fake_hardware:=false launch_rviz:=true use_sim_time:=false
+
+#moveit pose_goal layer for easy control on topic /arm_cmd
+ros2 run moveit_driver pose_goal 
 
 #check ros_controller
 ros2 control list_controllers

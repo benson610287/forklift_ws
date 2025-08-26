@@ -80,7 +80,7 @@ class ArucoDetect(Node):
         # Activate publisher and subsciber
         if request.enable and not self.active:
             self.publisher_ = self.create_publisher(PoseArray, 'aruco_detect', 10)
-            self.subscription = self.create_subscription(Image, '/camera/color/for_shelf', self.detect_aruco_callback, 10)
+            self.subscription = self.create_subscription(Image, '/camera/Armcamera/color/image_raw', self.detect_aruco_callback, 10)
             response.done = 0
             self.get_logger().info("ArUco detection activated")
             self.active = True

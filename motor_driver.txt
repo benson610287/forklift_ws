@@ -1,0 +1,8 @@
+# mecanum wheel driver
+ros2 run mecanum mobile_node 
+
+# linear motor driver for forklift
+ros2 run linear_move slide
+
+# keyboard control 
+ros2 run keyboard_control main
