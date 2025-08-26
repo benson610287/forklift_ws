@@ -3,4 +3,5 @@ rs-enumerate-devices
 
 #realsense open with align_depth
 ros2 launch realsense2_camera rs_launch.py align_depth.enable:=true serial_no:="'844212070148'" camera_name:=Armcamera
+ros2 launch realsense2_camera rs_launch.py align_depth.enable:=true serial_no:="'844212070148'" camera_name:=Armcamera rgb_camera.color_profile:=1920x1080x30
 

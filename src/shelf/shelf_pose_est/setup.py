@@ -25,7 +25,8 @@ setup(
         'aruco_detect = shelf_pose_est.aruco_detect:main',
         'shelf_state = shelf_pose_est.shelf_point_detect:main',
         'camera_sub = shelf_pose_est.camera_sub:main',
-        'shelf_pose = shelf_pose_est.aruco_offset_forklift:main'
+        'shelf_pose_offset = shelf_pose_est.aruco_offset_forklift:main',
+        'shelf_pose = shelf_pose_est.aruco_detect:main',
         ],
     },
 )

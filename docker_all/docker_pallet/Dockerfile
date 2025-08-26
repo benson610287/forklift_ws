@@ -121,8 +121,6 @@ RUN apt-get update && apt-get install -y \
 
 RUN pip install setuptools==58.2.0
 RUN pip install pip==22.0 \
-	matplotlib==3.5.1 \
-	numpy==1.22.3 \
 	pybullet==3.2.5 \
 	gym==0.21.0 \
 	stable-baselines3==1.7.0 \
@@ -130,7 +128,9 @@ RUN pip install pip==22.0 \
 	tensorboard==2.12.0 \
 	ultralytics \
 	numpy==1.22.3 \
-	matplotlib==3.5.1 
+	matplotlib==3.5.1 \
+    opencv-contrib-python==4.11.0.86
+     
 RUN mkdir -p /etc/apt/keyrings
 RUN curl -sSf https://librealsense.intel.com/Debian/librealsense.pgp | sudo tee /etc/apt/keyrings/librealsense.pgp > /dev/null
 RUN apt-get install apt-transport-https

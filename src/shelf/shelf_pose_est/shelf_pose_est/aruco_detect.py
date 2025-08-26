@@ -13,13 +13,6 @@ import cv2
 from cv2 import aruco
 import time
 
-# Define the offset for marker ID 0 (in meters)
-MARKER_0_OFFSET = {
-    'x': 0.1,  # 10cm offset in x direction
-    'y': 0.1,  # no offset in y direction
-    'z': 0.0,  # 20cm offset in z direction
-}
-
 # Add function to read calibration
 def read_camera_config(filepath):
     """Read camera intrinsics and distortion from an ini file."""
@@ -39,7 +32,7 @@ def read_camera_config(filepath):
     return camera_matrix, dist_coeffs
 
 # Load calibration from ini next to this script
-calib_file = os.path.join('src/shelf/shelf_pose_est/shelf_pose_est/azure_camera_calibration.ini')
+calib_file = os.path.join('src/shelf/shelf_pose_est/shelf_pose_est/camera_calibration_1.ini')
 cam_mtx, dist = read_camera_config(calib_file)
 
 # Precompute OpenCV camera matrix and distortion coefficients once
@@ -92,7 +85,7 @@ class ArucoDetect(Node):
         # Activate publisher and subsciber
         if request.enable and not self.active:
             self.publisher_ = self.create_publisher(PoseArray, 'aruco_detect', 10)
-            self.subscription = self.create_subscription(Image, '/camera/color/image_raw', self.detect_aruco_callback, 10)
+            self.subscription = self.create_subscription(Image, '/camera/Armcamera/color/image_raw', self.detect_aruco_callback, 10)
             response.done = 0
             self.get_logger().info("ArUco detection activated")
             self.active = True
@@ -128,7 +121,7 @@ class ArucoDetect(Node):
         self.last_msg_time = self.get_clock().now()
 
         color_image = self.bridge.imgmsg_to_cv2(msg, 'bgr8')
-        max_marker_id = 8
+        max_marker_id = 4
 
         # Calculate FPS
         self.frame_count += 1
@@ -188,14 +181,11 @@ class ArucoDetect(Node):
 
         # Publish the pose array
         self.publisher_.publish(self.pose_array)
-        # self.get_logger().info(f"Pose array[0]: {self.pose_array.poses[0]}")
-        # self.get_logger().info(f"Pose array[1]: {self.pose_array.poses[1]}")
-        # self.get_logger().info(f"Pose array[2]: {self.pose_array.poses[2]}")
-        # self.get_logger().info(f"Pose array[3]: {self.pose_array.poses[3]}")
-        # self.get_logger().info(f"Pose array[4]: {self.pose_array.poses[4]}")
-        # self.get_logger().info(f"Pose array[5]: {self.pose_array.poses[5]}")
-        # self.get_logger().info(f"Pose array[6]: {self.pose_array.poses[6]}")
-        # self.get_logger().info(f"Pose array[7]: {self.pose_array.poses[7]}")
+        self.get_logger().info(f"Pose array[0]: {self.pose_array.poses[0]}")
+        self.get_logger().info(f"Pose array[1]: {self.pose_array.poses[1]}")
+        self.get_logger().info(f"Pose array[2]: {self.pose_array.poses[2]}")
+        self.get_logger().info(f"Pose array[3]: {self.pose_array.poses[3]}")
+
 
         # Display FPS on the image
         fps_text = f"FPS: {self.fps:.1f}"
@@ -222,7 +212,7 @@ class ArucoDetect(Node):
 
 
 # Get the intrinsics after starting the pipeline
-def detect_aruco_marker(frame, dictionary_type = aruco.DICT_6X6_50):
+def detect_aruco_marker(frame, dictionary_type = aruco.DICT_4X4_50):
     """
     Detect ArUco markers in camera frames
 
@@ -266,7 +256,8 @@ def estimate_pose_and_get_data(frame, corners, ids, marker_size=0.10):
         )
 
         # Get marker ID and position
-        marker_id = ids[i][0]
+        # marker_id = ids[i][0]
+        marker_id = id[0]
         position = tvec[0][0]
 
         # Convert rotation vector to rotation matrix
@@ -291,48 +282,48 @@ def estimate_pose_and_get_data(frame, corners, ids, marker_size=0.10):
 
         # If marker ID is 0, print its position and rotation to console
         # and draw the offset axis
-        if marker_id == 3:
-            # Position is already in tvec
-            position = tvec[0][0]
-            # Convert rotation vector to rotation matrix
-            rotation_matrix, _ = cv2.Rodrigues(rvec[0][0])
+        # if marker_id == 3:
+        #     # Position is already in tvec
+        #     position = tvec[0][0]
+        #     # Convert rotation vector to rotation matrix
+        #     rotation_matrix, _ = cv2.Rodrigues(rvec[0][0])
 
-            '''
-            test draw spacial rectangle with opencv
-            '''
-            # offset to top left corner of the marker
-            offset_x = -marker_size/2
-            offset_y =  marker_size/2
-            rect_width = 1.44
-            rect_height = 0.68
+        #     '''
+        #     test draw spacial rectangle with opencv
+        #     '''
+        #     # offset to top left corner of the marker
+        #     offset_x = -marker_size/2
+        #     offset_y =  marker_size/2
+        #     rect_width = 1.44
+        #     rect_height = 0.68
 
-            rect_3d_points = np.array([
-                [0.0+offset_x, 0.0+offset_y, 0.0],                    # Top-left (anchor point)
-                [rect_width+offset_x, 0.0+offset_y, 0.0],             # Top-right
-                [rect_width+offset_x, -rect_height+offset_y, 0.0],     # Bottom-right
-                [0.0+offset_x, -rect_height+offset_y, 0.0]             # Bottom-left
-            ], dtype=np.float32)
+        #     rect_3d_points = np.array([
+        #         [0.0+offset_x, 0.0+offset_y, 0.0],                    # Top-left (anchor point)
+        #         [rect_width+offset_x, 0.0+offset_y, 0.0],             # Top-right
+        #         [rect_width+offset_x, -rect_height+offset_y, 0.0],     # Bottom-right
+        #         [0.0+offset_x, -rect_height+offset_y, 0.0]             # Bottom-left
+        #     ], dtype=np.float32)
 
-            # Transform rectangle points to camera coordinate system
-            # Rotate the points using the marker's rotation matrix
-            rotated_points = np.dot(rect_3d_points, rotation_matrix.T)
-            # Translate by marker's position
-            transformed_points = rotated_points + position
+        #     # Transform rectangle points to camera coordinate system
+        #     # Rotate the points using the marker's rotation matrix
+        #     rotated_points = np.dot(rect_3d_points, rotation_matrix.T)
+        #     # Translate by marker's position
+        #     transformed_points = rotated_points + position
 
-            # Project 3D points to 2D image coordinates
-            rect_2d_points, _ = cv2.projectPoints(
-                transformed_points,
-                np.zeros(3), np.zeros(3),  # No additional rotation/translation
-                camera_matrix, dist_coeffs
-            )
-            rect_2d_points = rect_2d_points.reshape(-1, 2).astype(np.int32)
-            cv2.polylines(frame, [rect_2d_points], True, (255, 0, 0), 2)  # Blue
+        #     # Project 3D points to 2D image coordinates
+        #     rect_2d_points, _ = cv2.projectPoints(
+        #         transformed_points,
+        #         np.zeros(3), np.zeros(3),  # No additional rotation/translation
+        #         camera_matrix, dist_coeffs
+        #     )
+        #     rect_2d_points = rect_2d_points.reshape(-1, 2).astype(np.int32)
+        #     cv2.polylines(frame, [rect_2d_points], True, (255, 0, 0), 2)  # Blue
 
-            # Convert rotation matrix to Euler angles
-            euler_angles = cv2.decomposeProjectionMatrix(np.hstack((rotation_matrix, np.zeros((3,1)))))[6]
+        #     # Convert rotation matrix to Euler angles
+        #     euler_angles = cv2.decomposeProjectionMatrix(np.hstack((rotation_matrix, np.zeros((3,1)))))[6]
 
-            print(f"Marker 0 Position: x={position[0]:.5f}m, y={position[1]:.5f}m, z={position[2]:.5f}m")
-            print(f"Marker 0 Rotation: rx={euler_angles[0][0]:.2f}°, ry={euler_angles[1][0]:.2f}°, rz={euler_angles[2][0]:.2f}°")
+        #     print(f"Marker 0 Position: x={position[0]:.5f}m, y={position[1]:.5f}m, z={position[2]:.5f}m")
+        #     print(f"Marker 0 Rotation: rx={euler_angles[0][0]:.2f}°, ry={euler_angles[1][0]:.2f}°, rz={euler_angles[2][0]:.2f}°")
 
     return frame, marker_poses
 
