@@ -29,7 +29,7 @@ class MinimalClientAsync(Node):
         self.tasklist=queue.Queue()
         self.res=Taskcmd.Response()
         self.bridge = CvBridge()
-        self.order=list()
+        # self.order=list()
         self.shelf_pose_camera_tmp=None
         self.pallet_monitor_camera_tmp=None
         self.docking_camera_tmp=None
@@ -69,15 +69,7 @@ class MinimalClientAsync(Node):
             self.pallet_camera_callback,
             10)
 
-        self.check_client_list=[
-            # self.pallet,
-            # self.shelf_pose,
-            # self.docking,
-        ]
-
-        for i in self.check_client_list:
-            while not i.wait_for_service(timeout_sec=1.0):
-                self.get_logger().info(str(i)+' service not available, waiting again...')
+        
 
 
 
@@ -89,22 +81,22 @@ class MinimalClientAsync(Node):
 
         self.auto_thread=Thread(target=self.send_auto)
         self.auto_event=Event()
-        self.auto_event.daemon = True 
+        self.auto_thread.daemon = True 
         self.auto_thread.start()
 
 
 
         self.palleting_thread=Thread(target=self.send_palleting)
         self.palleting_event=Event()
-        self.palleting_event.daemon = True 
+        self.palleting_thread.daemon = True 
         self.palleting_thread.start()
 
         self.task2_start_thread=Thread(target=self.send_start_positioning)
         self.task2_close_thread=Thread(target=self.send_close_positioning)
         self.task2_start_event=Event()
         self.task2_close_event=Event()
-        self.task2_start_event.daemon = True 
-        self.task2_close_event.daemon = True 
+        self.task2_start_thread.daemon = True 
+        self.task2_close_thread.daemon = True 
         self.task2_start_thread.start()
         self.task2_close_thread.start()
 
@@ -149,7 +141,7 @@ class MinimalClientAsync(Node):
         self.pallet_camera_thread.daemon = True 
         self.pallet_camera_thread.start()
 
-        app = QtWidgets.QApplication(sys.argv)
+        self.app = QtWidgets.QApplication(sys.argv)
         MainWindow = QtWidgets.QMainWindow()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(MainWindow)
@@ -164,13 +156,16 @@ class MinimalClientAsync(Node):
         self.ui.exit.clicked.connect(self.exit)
 
         MainWindow.show()
-        sys.exit(app.exec_())
+        sys.exit(self.app.exec_())
+        # sys.exit(0)
         
     
     def send_auto(self):
         while self.all_thread_flag:
             self.auto_event.wait()
             self.auto_event.clear()
+            if not self.all_thread_flag:
+                break
             print("doing auto")
             print()
             self.tasklist.put("palleting")
@@ -215,6 +210,8 @@ class MinimalClientAsync(Node):
         while self.all_thread_flag:
             self.palleting_event.wait()
             self.palleting_event.clear()
+            if not self.all_thread_flag:
+                break
             self.current_task=self.tasklist.get()
             print("doing " + self.current_task)
             self.ui.tasklist.addItem(self.current_task)
@@ -246,6 +243,8 @@ class MinimalClientAsync(Node):
         while self.all_thread_flag:
             self.task2_start_event.wait()
             self.task2_start_event.clear()
+            if not self.all_thread_flag:
+                break
             self.current_task=self.tasklist.get()
             print("doing " + self.current_task)
             self.ui.tasklist.addItem(self.current_task)
@@ -258,6 +257,8 @@ class MinimalClientAsync(Node):
         while self.all_thread_flag:
             self.task2_close_event.wait()
             self.task2_close_event.clear()
+            if not self.all_thread_flag:
+                break
             self.current_task=self.tasklist.get()
             print("doing " + self.current_task)
             self.ui.tasklist.addItem(self.current_task)
@@ -323,6 +324,8 @@ class MinimalClientAsync(Node):
         while self.all_thread_flag:
             self.docking_event.wait()
             self.docking_event.clear()
+            if not self.all_thread_flag:
+                break
             self.current_task=self.tasklist.get()
             print("doing " + self.current_task)
             self.ui.tasklist.addItem(self.current_task)
@@ -354,6 +357,8 @@ class MinimalClientAsync(Node):
         while self.all_thread_flag:
             self.shelf_docking_event.wait()
             self.shelf_docking_event.clear()
+            if not self.all_thread_flag:
+                break
             self.current_task=self.tasklist.get()
             print("doing " + self.current_task)
             self.ui.tasklist.addItem(self.current_task)
@@ -417,6 +422,8 @@ class MinimalClientAsync(Node):
         while self.all_thread_flag:
             self.shelf_pose_camera_event.wait()
             self.shelf_pose_camera_event.clear()
+            if not self.all_thread_flag:
+                break
             print("doing camera")
             # self.req.task="task2"
             # self.future = self.cli.call_async(self.req)
@@ -437,6 +444,8 @@ class MinimalClientAsync(Node):
         while self.all_thread_flag:
             self.pallet_monitor_camera_event.wait()
             self.pallet_monitor_camera_event.clear()
+            if not self.all_thread_flag:
+                break
             print("doing pallet_monitor_camera")
             pallet_monitor_camera_tmp = cv2.resize(self.pallet_monitor_camera_tmp, (300, 200))   # 改變尺寸和視窗相同
             pallet_monitor_camera_tmp = cv2.cvtColor(pallet_monitor_camera_tmp, cv2.COLOR_BGR2RGB)  # 轉換成 RGB
@@ -453,6 +462,8 @@ class MinimalClientAsync(Node):
         while self.all_thread_flag:
             self.docking_camera_event.wait()
             self.docking_camera_event.clear()
+            if not self.all_thread_flag:
+                break
             print("doing docking_camera")
             # self.req.task="task2"
             # self.future = self.cli.call_async(self.req)
@@ -474,6 +485,8 @@ class MinimalClientAsync(Node):
         while self.all_thread_flag:
             self.pallet_camera_event.wait()
             self.pallet_camera_event.clear()
+            if not self.all_thread_flag:
+                break
             print("doing pallet_camera")
             pallet_camera_tmp = cv2.resize(self.pallet_camera_tmp, (300, 200))   # 改變尺寸和視窗相同
             pallet_camera_tmp = cv2.cvtColor(pallet_camera_tmp, cv2.COLOR_BGR2RGB)  # 轉換成 RGB
@@ -502,30 +515,38 @@ class MinimalClientAsync(Node):
 
 
     def exit(self):
-        self.all_thread_flag=False
-        self.palleting_event.set()
-        self.task2_start_event.set()
-        self.task2_close_event.set()
-        self.docking_event.set()
-        self.shelf_docking_event.set()
+        self.all_thread_flag = False
 
-        self.shelf_pose_camera_event.set()
-        self.pallet_monitor_camera_event.set()
-        self.docking_camera_event.set()
-        self.pallet_camera_event.set()
+        # 釋放所有事件
+        events = [
+            self.palleting_event, self.task2_start_event, self.task2_close_event,
+            self.docking_event, self.shelf_docking_event,
+            self.shelf_pose_camera_event, self.pallet_monitor_camera_event,
+            self.docking_camera_event, self.pallet_camera_event,self.auto_event
+        ]
+        for e in events:
+            e.set()
 
-        self.palleting_thread.join()
-        self.task2_start_thread.join()
-        self.task2_close_thread.join()
-        self.docking_thread.join()
-        self.shelf_docking_thread.join()
-        self.shelf_pose_camera_thread.join()
-        self.pallet_monitor_camera_thread.join()
-        self.docking_camera_thread.join()
-        self.pallet_camera_thread.join()
+        # 結束所有子執行緒（加 timeout 避免阻塞）
+        threads = [
+            self.palleting_thread, self.task2_start_thread, self.task2_close_thread,
+            self.docking_thread, self.shelf_docking_thread, self.shelf_pose_camera_thread,
+            self.pallet_monitor_camera_thread, self.docking_camera_thread, self.pallet_camera_thread,self.auto_thread
+        ]
+        for t in threads:
+            t.join(timeout=2)
+        print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+        # 關閉 ROS
+        self.destroy_node()
         rclpy.shutdown()
-        self.ros_thread.join()
-        sys.exit()
+        self.ros_thread.join(timeout=2)
+        print("===============================================================")
+        # 關閉 PyQt 視窗與事件迴圈
+        self.app.quit()
+        # self.app.exec_()
+        print("________________________________________________________________")
+        # 最後退出程式
+        sys.exit(0)
 
 def main(args=None):
     
@@ -535,8 +556,8 @@ def main(args=None):
     rclpy.init(args=args)
 
     minimal_client = MinimalClientAsync()
-    minimal_client.destroy_node()
-    rclpy.shutdown()
+    # minimal_client.destroy_node()
+    # rclpy.shutdown()
 
 
 if __name__ == '__main__':
