@@ -10,8 +10,8 @@ ARG HARDWARE=x86_64
 ARG ENTRYPOINT_FILE=entrypint.sh
 
 # * Env vars for the nvidia-container-runtime.
-ENV NVIDIA_VISIBLE_DEVICES all
-ENV NVIDIA_DRIVER_CAPABILITIES all
+ENV NVIDIA_VISIBLE_DEVICES=all
+ENV NVIDIA_DRIVER_CAPABILITIES=all
 ENV ROS_DISTRO=humble
 # ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
 
@@ -129,7 +129,7 @@ RUN pip install pip==22.0 \
 	ultralytics \
 	numpy==1.22.3 \
 	matplotlib==3.5.1 \
-    opencv-contrib-python==4.11.0.86
+    opencv-contrib-python==4.10.0.84
      
 RUN mkdir -p /etc/apt/keyrings
 RUN curl -sSf https://librealsense.intel.com/Debian/librealsense.pgp | sudo tee /etc/apt/keyrings/librealsense.pgp > /dev/null
@@ -160,7 +160,7 @@ ARG ROS_DOMAIN_ID=42
 # Set ROS2 environment variables
 RUN echo "export ROS_DOMAIN_ID=$ROS_DOMAIN_ID" >> ~/.bashrc
 RUN echo "export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp" >> ~/.bashrc
-RUN echo "export CYCLONEDDS_URI=\"<CycloneDDS><Domain><General><NetworkInterfaceAddress>wlp0s20f3</NetworkInterfaceAddress></General></Domain></CycloneDDS>\"" >> ~/.bashrc
+RUN echo "export CYCLONEDDS_URI=\"<CycloneDDS><Domain><General><NetworkInterfaceAddress>wlp129s0f0</NetworkInterfaceAddress></General></Domain></CycloneDDS>\"" >> ~/.bashrc
 RUN echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 
 # * Switch workspace to ~/work

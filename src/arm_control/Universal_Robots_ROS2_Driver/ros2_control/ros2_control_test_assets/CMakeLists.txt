@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.10)
 project(ros2_control_test_assets)
 
 find_package(ament_cmake REQUIRED)

@@ -10,8 +10,8 @@ ARG HARDWARE=x86_64
 ARG ENTRYPOINT_FILE=entrypint.sh
 
 # * Env vars for the nvidia-container-runtime.
-ENV NVIDIA_VISIBLE_DEVICES all
-ENV NVIDIA_DRIVER_CAPABILITIES all
+ENV NVIDIA_VISIBLE_DEVICES=all
+ENV NVIDIA_DRIVER_CAPABILITIES=all
 ENV ROS_DISTRO=humble
 # ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
 
@@ -117,7 +117,7 @@ RUN apt-get update && apt-get install -y \
     ros-${ROS_DISTRO}-xacro \
     ros-${ROS_DISTRO}-test-msgs \
     ros-${ROS_DISTRO}-ackermann-msgs \
-    ros-${ROS_DISTRO}-librealsense2*
+    ros-${ROS_DISTRO}-librealsense2* \
     python3-ament-package \
     && rm -rf /var/lib/apt/lists/*
 	#ros-humble-urg-node
@@ -182,7 +182,7 @@ ARG ROS_DOMAIN_ID=42
 # Set ROS2 environment variables
 RUN echo "export ROS_DOMAIN_ID=$ROS_DOMAIN_ID" >> ~/.bashrc
 RUN echo "export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp" >> ~/.bashrc
-RUN echo "export CYCLONEDDS_URI=\"<CycloneDDS><Domain><General><NetworkInterfaceAddress>wlp0s20f3</NetworkInterfaceAddress></General></Domain></CycloneDDS>\"" >> ~/.bashrc
+RUN echo "export CYCLONEDDS_URI=\"<CycloneDDS><Domain><General><NetworkInterfaceAddress>wlp129s0f0</NetworkInterfaceAddress></General></Domain></CycloneDDS>\"" >> ~/.bashrc
 RUN echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 
 # * Switch workspace to ~/work

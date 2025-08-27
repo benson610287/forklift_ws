@@ -69,23 +69,38 @@ class MinimalClientAsync(Node):
             self.pallet_camera_callback,
             10)
 
+        self.check_client_list=[
+            # self.pallet,
+            # self.shelf_pose,
+            # self.docking,
+        ]
 
+        for i in self.check_client_list:
+            while not i.wait_for_service(timeout_sec=1.0):
+                self.get_logger().info(str(i)+' service not available, waiting again...')
+
+
+
+
+
+    
+        self.current_task=None
         self.all_thread_flag=True
 
-        self.auto_thread=Thread(target=self.start_auto)
+        self.auto_thread=Thread(target=self.send_auto)
         self.auto_event=Event()
         self.auto_event.daemon = True 
         self.auto_thread.start()
 
 
 
-        self.task1_thread=Thread(target=self.send_request1)
-        self.task1_event=Event()
-        self.task1_event.daemon = True 
-        self.task1_thread.start()
+        self.palleting_thread=Thread(target=self.send_palleting)
+        self.palleting_event=Event()
+        self.palleting_event.daemon = True 
+        self.palleting_thread.start()
 
-        self.task2_start_thread=Thread(target=self.send_start_request2)
-        self.task2_close_thread=Thread(target=self.send_close_request2)
+        self.task2_start_thread=Thread(target=self.send_start_positioning)
+        self.task2_close_thread=Thread(target=self.send_close_positioning)
         self.task2_start_event=Event()
         self.task2_close_event=Event()
         self.task2_start_event.daemon = True 
@@ -93,10 +108,21 @@ class MinimalClientAsync(Node):
         self.task2_start_thread.start()
         self.task2_close_thread.start()
 
-        self.docking_thread = Thread(target=self.start_docking)
+        self.docking_thread = Thread(target=self.send_start_docking)
         self.docking_event=Event()
         self.docking_thread.daemon = True 
         self.docking_thread.start()
+
+        self.shelf_docking_thread = Thread(target=self.send_shelf_docking)
+        self.shelf_docking_event=Event()
+        self.shelf_docking_thread.daemon = True 
+        self.shelf_docking_thread.start()
+
+
+
+
+
+
 
 
         self.ros_thread = Thread(target=rclpy.spin, args=(self,))
@@ -127,11 +153,11 @@ class MinimalClientAsync(Node):
         MainWindow = QtWidgets.QMainWindow()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(MainWindow)
-        self.ui.task1.clicked.connect(self.task1)
-        self.ui.task2_open.clicked.connect(self.task2_open)
-        self.ui.task2_close.clicked.connect(self.task2_close)
+        self.ui.task1.clicked.connect(self.palleting)
+        self.ui.task2_open.clicked.connect(self.positioning_open)
+        self.ui.task2_close.clicked.connect(self.positioning_close)
         self.ui.task3.clicked.connect(self.docking)
-        self.ui.task4.clicked.connect(self.task4)
+        self.ui.task4.clicked.connect(self.shelf_docking)
         self.ui.task5.clicked.connect(self.task5)
         self.ui.task6.clicked.connect(self.task6)
         self.ui.open_camera.clicked.connect(self.auto)
@@ -141,28 +167,35 @@ class MinimalClientAsync(Node):
         sys.exit(app.exec_())
         
     
-    def start_auto(self):
+    def send_auto(self):
         while self.all_thread_flag:
             self.auto_event.wait()
             self.auto_event.clear()
             print("doing auto")
-            self.tasklist.put("task1")
-            self.tasklist.put("task2")
+            print()
+            self.tasklist.put("palleting")
+            self.tasklist.put("positioning")
             self.tasklist.put("docking")
-            self.ui.tasklist.addItem("task1")
-            self.ui.tasklist.addItem("task2")
-            self.ui.tasklist.addItem("docking")
+            self.tasklist.put("shelf_docking")
+            # self.ui.tasklist.addItem("palleting")
+            # self.ui.tasklist.addItem("positioning")
+            # self.ui.tasklist.addItem("docking")
+            # self.ui.tasklist.addItem("shelf_docking")
             self.res.state=0
-            self.task1_event.set()
-            while self.res.state==1:
+            self.palleting_event.set()
+            while self.res.state!=1:
                 time.sleep(0.01)
             self.res.state=0
             self.task2_start_event.set()
-            while self.res.state==1:
+            while self.res.state!=1:
                 time.sleep(0.01)
             self.res.state=0
             self.docking_event.set()
-            while self.res.state==1:
+            while self.res.state!=1:
+                time.sleep(0.01)
+            self.res.state=0
+            self.shelf_docking_event.set()
+            while self.res.state!=1:
                 time.sleep(0.01)
             # self.req.task="task1"
             # self.future = self.cli.call_async(self.req)
@@ -178,78 +211,84 @@ class MinimalClientAsync(Node):
 
 
 
-    def send_request1(self):
+    def send_palleting(self):
         while self.all_thread_flag:
-            self.task1_event.wait()
-            self.task1_event.clear()
-            print("doing task1")
-            self.req.task="task1"
+            self.palleting_event.wait()
+            self.palleting_event.clear()
+            self.current_task=self.tasklist.get()
+            print("doing " + self.current_task)
+            self.ui.tasklist.addItem(self.current_task)
+            self.req.task=self.current_task
             self.future = self.cli.call_async(self.req)
-            self.future.add_done_callback(self.task1_response_callback)
-            print("done task1")
-        
-    def task1_response_callback(self, future):
+            self.future.add_done_callback(self.palleting_response_callback)
+            print("done " + self.current_task)
+            print()
+    def palleting_response_callback(self, future):
         try:
             self.res = future.result()
-            print("task1 res=",self.res.state)
+            print("pallet res=",self.res.state)
             if self.res.state==1:
-                self.ui.tasklist.addItem("task1 complete")
+                self.ui.tasklist.addItem(self.current_task+" complete")
             else:
-                self.ui.tasklist.addItem("task1 fail")
+                self.ui.tasklist.addItem(self.current_task+" fail")
         except Exception as e:
             print(f"[ERROR] 服務回應錯誤: {e}")
 
-    def task1(self):
+    def palleting(self):
         self.ui.tasklist.clear()
-        self.ui.tasklist.addItem("task1")
-        self.task1_event.set()
+        self.tasklist.put("palleting")
+        self.palleting_event.set()
 
 
 
 
-    def send_start_request2(self):
+    def send_start_positioning(self):
         while self.all_thread_flag:
             self.task2_start_event.wait()
             self.task2_start_event.clear()
-            print("starting task2")
-            self.req.task="task2_start"
+            self.current_task=self.tasklist.get()
+            print("doing " + self.current_task)
+            self.ui.tasklist.addItem(self.current_task)
+            self.req.task=self.current_task
             self.future = self.cli.call_async(self.req)
             self.future.add_done_callback(self.task2_response_callback)
-            print("start task2")
-
-    def send_close_request2(self):
+            print("done " + self.current_task)
+            print()
+    def send_close_positioning(self):
         while self.all_thread_flag:
             self.task2_close_event.wait()
             self.task2_close_event.clear()
-            print("closing task2")
-            self.req.task="task2_close"  #not yet
+            self.current_task=self.tasklist.get()
+            print("doing " + self.current_task)
+            self.ui.tasklist.addItem(self.current_task)
+            self.req.task=self.current_task 
             self.future = self.cli.call_async(self.req)
             self.future.add_done_callback(self.task2_response_callback)
-            print("close task2")
-        
+            print("done " + self.current_task)
+            print()
     def task2_response_callback(self, future):
         try:
             self.res = future.result()
-            print("task2 res=",self.res.state)
+            print("positioning res=",self.res.state)
             if self.res.state==0:
-                self.ui.tasklist.addItem("task2 activated")
+                self.ui.tasklist.addItem(self.current_task + " complete")   #open
             elif self.res.state==1:
-                self.ui.tasklist.addItem("task2 deactivate")
+                self.ui.tasklist.addItem(self.current_task + " complete")   #close
             elif self.res.state==2:
-                self.ui.tasklist.addItem("task2 command error")
+                self.ui.tasklist.addItem(self.current_task + " command error")
             else:
-                self.ui.tasklist.addItem("task2 fail")
+                self.ui.tasklist.addItem(self.current_task + " fail")
         except Exception as e:
             print(f"[ERROR] 服務回應錯誤: {e}")
 
-    def task2_open(self):
+    def positioning_open(self):
         self.ui.tasklist.clear()
-        self.ui.tasklist.addItem("task2_start")
+        self.tasklist.put("start_positioning")
         self.task2_start_event.set()
 
-    def task2_close(self):
+    def positioning_close(self):
         self.ui.tasklist.clear()
-        self.ui.tasklist.addItem("task2_close")
+        self.tasklist.put("close_positioning")
         self.task2_close_event.set()
 
 
@@ -280,48 +319,71 @@ class MinimalClientAsync(Node):
     #     else:
     #         self.ui.tasklist.addItem("task3 fail")
     
-    def start_docking(self):
+    def send_start_docking(self):
         while self.all_thread_flag:
             self.docking_event.wait()
             self.docking_event.clear()
-            print("doing task1")
-            self.req.task="docking"
+            self.current_task=self.tasklist.get()
+            print("doing " + self.current_task)
+            self.ui.tasklist.addItem(self.current_task)
+            self.req.task=self.current_task
             self.future = self.cli.call_async(self.req)
             self.future.add_done_callback(self.docking_response_callback)
-            print("done docking")
-        
+            print("done " + self.current_task)
+            print()
     def docking_response_callback(self, future):
         try:
             self.res = future.result()
             print("docking res=",self.res.state)
             if self.res.state==1:
-                self.ui.tasklist.addItem("docking complete")
+                self.ui.tasklist.addItem(self.current_task + " complete")
             else:
-                self.ui.tasklist.addItem("docking fail")
+                self.ui.tasklist.addItem(self.current_task + " fail")
         except Exception as e:
             print(f"[ERROR] 服務回應錯誤: {e}")
 
     def docking(self):
         self.ui.tasklist.clear()
-        self.ui.tasklist.addItem("docking")
+        self.tasklist.put("docking")
         self.docking_event.set()
 
 
 
 
-    def task4(self):
+    def send_shelf_docking(self):
+        while self.all_thread_flag:
+            self.shelf_docking_event.wait()
+            self.shelf_docking_event.clear()
+            self.current_task=self.tasklist.get()
+            print("doing " + self.current_task)
+            self.ui.tasklist.addItem(self.current_task)
+            self.req.task=self.current_task
+            self.future = self.cli.call_async(self.req)
+            self.future.add_done_callback(self.docking_response_callback)
+            print("done " + self.current_task)
+            print()
+    def shelf_docking_response_callback(self, future):
+        try:
+            self.res = future.result()
+            print("shelf_docking res=",self.res.state)
+            if self.res.state==1:
+                self.ui.tasklist.addItem(self.current_task + " complete")
+            else:
+                self.ui.tasklist.addItem(self.current_task + " fail")
+        except Exception as e:
+            print(f"[ERROR] 服務回應錯誤: {e}")
+
+    def shelf_docking(self):
         self.ui.tasklist.clear()
-        self.ui.tasklist.addItem("task4")
-        print("dd")
-        self.req.task="task4"
-        self.future = self.cli.call_async(self.req)
-        rclpy.spin_until_future_complete(self, self.future)
-        res=self.future.result()
-        print(res.state)
-        if res.state==1:
-            self.ui.tasklist.addItem("task4 complete")
-        else:
-            self.ui.tasklist.addItem("task4 fail")
+        self.tasklist.put("shelf_docking")
+        self.shelf_docking_event.set()
+
+
+
+
+
+
+
     def task5(self):
         self.ui.tasklist.clear()
         self.ui.tasklist.addItem("task5")
@@ -441,21 +503,29 @@ class MinimalClientAsync(Node):
 
     def exit(self):
         self.all_thread_flag=False
-        self.task1_event.set()
+        self.palleting_event.set()
         self.task2_start_event.set()
         self.task2_close_event.set()
-        self.camera_event.set()
+        self.docking_event.set()
+        self.shelf_docking_event.set()
 
-        self.task1_thread.join()
+        self.shelf_pose_camera_event.set()
+        self.pallet_monitor_camera_event.set()
+        self.docking_camera_event.set()
+        self.pallet_camera_event.set()
+
+        self.palleting_thread.join()
         self.task2_start_thread.join()
         self.task2_close_thread.join()
-        self.camera_thread.join()
+        self.docking_thread.join()
+        self.shelf_docking_thread.join()
+        self.shelf_pose_camera_thread.join()
+        self.pallet_monitor_camera_thread.join()
+        self.docking_camera_thread.join()
+        self.pallet_camera_thread.join()
         rclpy.shutdown()
         self.ros_thread.join()
         sys.exit()
-
-
-    
 
 def main(args=None):
     
