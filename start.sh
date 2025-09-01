@@ -7,7 +7,7 @@ sudo apt update
 
 
 sudo chmod 777 /dev/ttyUSB0 \
-    //dev/ttyUSB1 \
+    /dev/ttyUSB1 
     # /dev/sensors/hokuyo_H1625659 \
     # /dev/sensors/hokuyo_H1511069 \
     # /dev/video0 \

@@ -104,7 +104,7 @@ void chatterCallback(const std_msgs::msg::Int64 msg)
     
     // RCLCPP_INFO(node->get_logger(),"I heard: [%ld]", msg.data);
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "I heard: [%ld]", msg.data);
-    modbus_t *ctx=init_modbus_rtu(1,"/dev/ttyUSB1",9600);
+    modbus_t *ctx=init_modbus_rtu(1,"/dev/ttyUSB0",9600);
     int32_t PUU=conert_CM2PUU(msg.data);
     transformPUU2path(PUU);
     working(ctx);
