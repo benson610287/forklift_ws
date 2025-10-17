@@ -12,6 +12,7 @@
 #define path1_data_Address 0x606
 #define move_Address 0x50E
 #define jog_Adress 0x40A
+#define check_pos_Address 0x05C
 #define Registers_Lenth 2
 
 uint16_t servo_on[2] = {0001,0000};

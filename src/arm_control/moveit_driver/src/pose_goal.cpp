@@ -1,3 +1,5 @@
+
+
 #include <memory>
 
 #include <rclcpp/rclcpp.hpp>
@@ -7,10 +9,9 @@
 #include "interface/srv/armcontrol.hpp"
 #include <tf2/LinearMath/Quaternion.h>
 // Create a ROS logger
-auto const logger = rclcpp::get_logger("pose_goal");
+auto const logger = rclcpp::get_logger("line_goal");
 // Global node pointer (used in callback)
 rclcpp::Node::SharedPtr node;
-
 
 void add(const std::shared_ptr<interface::srv::Armcontrol::Request>   request,
           std::shared_ptr<interface::srv::Armcontrol::Response>      response)
@@ -56,20 +57,53 @@ void add(const std::shared_ptr<interface::srv::Armcontrol::Request>   request,
 
 
 
-  move_group_interface.setPoseTarget(target_pose);
+  // move_group_interface.setPoseTarget(target_pose);
 
-  // Create a plan to that target pose and check if that plan is successful
-  moveit::planning_interface::MoveGroupInterface::Plan my_plan;
-  bool success = (move_group_interface.plan(my_plan) == moveit::core::MoveItErrorCode::SUCCESS);
+  // // Create a plan to that target pose and check if that plan is successful
+  // moveit::planning_interface::MoveGroupInterface::Plan my_plan;
+  // bool success = (move_group_interface.plan(my_plan) == moveit::core::MoveItErrorCode::SUCCESS);
 
-  // If the plan is successful, execute the plan
-  if(success) {
-    move_group_interface.execute(my_plan);
-    response->status=1;
+  // // If the plan is successful, execute the plan
+  // if(success) {
+  //   move_group_interface.execute(my_plan);
+  //   response->status=1;
+  // } else {
+  //   RCLCPP_ERROR(logger, "Planing failed!");
+  //   response->status=-1;
+  // }
+
+  // Create waypoints for Cartesian path
+  std::vector<geometry_msgs::msg::Pose> waypoints;
+  waypoints.push_back(target_pose);  // Add your target pose
+
+  // Cartesian path parameters
+  moveit_msgs::msg::RobotTrajectory trajectory;
+  const double eef_step = 0.01;       // 1cm step size
+  const double jump_threshold = 0.0;  // Disable jump threshold
+
+  // Compute Cartesian path (straight line from current pose to target)
+  double fraction = move_group_interface.computeCartesianPath(
+      waypoints,
+      eef_step,
+      jump_threshold,
+      trajectory
+  );
+
+  RCLCPP_INFO(logger, "Cartesian path planned (%.2f%% achieved)", fraction * 100.0);
+
+  // Execute if path planning was successful
+  if (fraction >= 0.95) {  // 95% of path achieved
+    moveit::planning_interface::MoveGroupInterface::Plan cartesian_plan;
+    cartesian_plan.trajectory_ = trajectory;
+    
+    bool success = move_group_interface.execute(cartesian_plan) == moveit::core::MoveItErrorCode::SUCCESS;
+    response->status = success ? 1 : -1;
   } else {
-    RCLCPP_ERROR(logger, "Planing failed!");
-    response->status=-1;
+    RCLCPP_ERROR(logger, "Cartesian path planning failed! Only %.2f%% achieved", fraction * 100.0);
+    response->status = -1;
   }
+
+
   RCLCPP_INFO(logger, "sending back response: [%ld]", response->status);
 }
 
@@ -80,7 +114,7 @@ int main(int argc, char * argv[])
 {
   // Initialize ROS and create the Node
   rclcpp::init(argc, argv);
-  node = std::make_shared<rclcpp::Node>("pose_goal");
+  node = std::make_shared<rclcpp::Node>("line_goal");
 
   
 
@@ -93,7 +127,7 @@ int main(int argc, char * argv[])
 
   geometry_msgs::msg::Pose target_pose;
 
-  rclcpp::Service<interface::srv::Armcontrol>::SharedPtr service = node->create_service<interface::srv::Armcontrol>("arm_cmd", &add);
+  rclcpp::Service<interface::srv::Armcontrol>::SharedPtr service = node->create_service<interface::srv::Armcontrol>("line_arm_cmd", &add);
 
   //ex pose
   target_pose.orientation.x=-0.707;

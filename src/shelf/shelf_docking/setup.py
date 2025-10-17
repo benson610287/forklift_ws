@@ -21,6 +21,7 @@ setup(
     entry_points={
         'console_scripts': [
             'shelf_docking = shelf_docking.main:main',
+            'callback_control = shelf_docking.callback_control:main',
             'plot_live_orientation = shelf_docking.plot_live_oriention:main',
         ],
     },

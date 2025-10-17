@@ -6,6 +6,7 @@ from geometry_msgs.msg import PoseStamped, Quaternion
 from std_msgs.msg import Int64
 from interface.srv import Maincontroller     # CHANGE
 from interface.srv import Armcontrol
+from interface.srv import Armcontrolangle
 from ur_msgs.srv import SetIO
 
 import math
@@ -19,12 +20,17 @@ class TurtlePControl(Node):
         client_group1=ReentrantCallbackGroup()
         server_group=client_group1
         self.mainsrv = self.create_service(Maincontroller, 'Pallet', self.actived_callback,callback_group=server_group)        # CHANGE
-        self.maniclient = self.create_client(Armcontrol, 'arm_cmd', callback_group = client_group1)
+        self.maniclient = self.create_client(Armcontrol, 'ptop_arm_cmd', callback_group = client_group1)
+        self.lineclient = self.create_client(Armcontrol, 'line_arm_cmd', callback_group = client_group1)
+        self.jointclient = self.create_client(Armcontrolangle, 'joint_arm_cmd', callback_group = client_group1)
         self.iocli = self.create_client(SetIO, '/io_and_status_controller/set_io',callback_group = client_group1)
         
         while not self.maniclient.wait_for_service(timeout_sec=1.0):
             self.get_logger().info('arm service not available, waiting again...')
-        
+        while not self.lineclient.wait_for_service(timeout_sec=1.0):
+            self.get_logger().info('arm service not available, waiting again...')
+        while not self.jointclient.wait_for_service(timeout_sec=1.0):
+            self.get_logger().info('arm service not available, waiting again...')        
         # # 移動平台命令
         self.mobile_position_publisher = self.create_publisher(PoseStamped, '/mobile_slam_topic', 10) #topic 名稱要改！！！
         self.ready_get_endpose_publisher = self.create_publisher(Int64,'/Pallet/endposeready',10,callback_group = client_group1)
@@ -46,7 +52,9 @@ class TurtlePControl(Node):
         self.homepose=[0.0,-550.0,500.0,180.0,0.0,0.0]
         self.photopose=[-618.53,-238.11,210.61,2.157*180/math.pi,2.289*180/math.pi,0.0]
         self.photopose=[-618.53,-215.11,574.61,180.0,0.0,0.0]
-        self.convergetpose=[-618.53,-215.11,20.61,180.0,0.0,0.0]
+        self.convergetpose=[-618.53,-215.11,20.61+65.0,180.0,0.0,0.0]
+        #-------------------------joint-----------------------------
+        self.finalpose=[-180.0*3.14/180,-90.0*3.14/180,-90.0*3.14/180,-180.0*3.14/180,0.0,0.0]
     # def actived_callback(self, request, response):
     #     if request.enable==True:
     #         self.mobile_move_to_unpack()
@@ -69,7 +77,7 @@ class TurtlePControl(Node):
         if request.enable:
             self.get_logger().info('Service received, starting state machine...')
             self.state = 'MOVE_TO_HOME_POSE'
-
+            self.move_to_photo_pose()
             # # 等到整個流程跑完再回傳
             # while self.state != 'DONE':
             #     # rclpy.spin_once(self, timeout_sec=0.1)
@@ -100,18 +108,25 @@ class TurtlePControl(Node):
         # elif self.stackfull_flag==True:
         #     self.state = 'FINAL_TO_HOME'
         elif self.state == 'MOVE_TO_HOME_POSE':
+            # time.sleep(1.0)
             self.get_logger().info('Moving to HOME_POSE...')
             self.closesuck()
+            # time.sleep(1.5)
+            
             self.move_to_home_pose()
+            # self.move_to_photo_pose()
+            # self.move_to_final_pose()
             if self.state == 'MOVE_TO_HOME_POSE':
                 self.state = 'MOVE_TO_PHOTO_POSE'
         elif self.state == 'MOVE_TO_PHOTO_POSE':
+            # time.sleep(1)
             self.get_logger().info('Moving to PHOTO_POSE...')
             self.move_to_photo_pose()
             self.get_logger().info('Sending YOLO command...')
             
             self.state = 'WAIT_FOR_START_POSE'
         elif self.state == 'GET_ITEM':
+            # time.sleep(1)
             self.opensuck()
             self.state = 'WAIT_FOR_START_POSE'
         elif self.state == 'WAIT_FOR_START_POSE':
@@ -125,10 +140,12 @@ class TurtlePControl(Node):
             #     self.state = 'FINAL_TO_HOME'
             #     self.stackfull_flag=False
         elif self.state == 'START_TO_END':
+            # time.sleep(1)
             self.get_logger().info('Moving to HOME_POSE...')
             self.move_to_home_pose()
             self.state = 'WAIT_FOR_END_POSE'
         elif self.state == 'MOVE_TO_STACK':
+            # time.sleep(1.5)
             self.get_logger().info('Moving to stack...')
             self.mobile_move_to_stack()
             self.state = 'WAIT_FOR_END_POSE'  # <<< 這會讓 callback 放行
@@ -138,8 +155,11 @@ class TurtlePControl(Node):
             data.data=int(1)
             self.ready_get_endpose_publisher.publish(data)
         elif self.state == 'FINAL_TO_HOME':
+            # time.sleep(1.5)
             self.get_logger().info('final Moving to HOME_POSE...')
             self.move_to_home_pose()
+            self.move_to_photo_pose()
+            self.move_to_final_pose()
             if self.state == 'FINAL_TO_HOME':
                 self.state = 'DONE'
         elif self.state == 'DONE':
@@ -210,10 +230,18 @@ class TurtlePControl(Node):
         self.get_logger().info("send pose.pose={}".format(inner_req.pose))
         # input()
         return inner_req
+    def get_movejoint_req(self,joint):
+        self.get_logger().info("-------------------------------")
+        inner_req = Armcontrolangle.Request()
+        inner_req.joint.data = joint
+        self.get_logger().info("send pose.pose={}".format(inner_req.joint))
+        self.get_logger().info("-sgsfgsgsgdsgsdgdss---")
+        # input()
+        return inner_req
     def move_to_home_pose(self):
         self.get_logger().info("starting home_pose...")
         inner_req=self.get_movepose_req(self.homepose)
-        future = self.maniclient.call_async(inner_req)
+        future = self.lineclient.call_async(inner_req)
         while not future.done():
             time.sleep(0.01)
             # print('a')
@@ -224,11 +252,28 @@ class TurtlePControl(Node):
         except Exception as e:
             self.get_logger().error(f"shelf_pose Inner service failed: {e}")
             aa = -1
+            
+    def move_to_final_pose(self):
+        self.get_logger().info("===-=-=-=-=")
+        self.get_logger().info("starting final_pose...")
+        inner_req=self.get_movejoint_req(self.finalpose)
+        future = self.jointclient.call_async(inner_req)
+        while not future.done():
+            time.sleep(0.01)
+            # print('a')
+        try:
+            inner_res = future.result()
+            self.get_logger().info("final_pose_inner_res.done={}".format(inner_res.status))
+            aa=inner_res.status
+        except Exception as e:
+            self.get_logger().error(f"final_pose Inner service failed: {e}")
+            aa = -1
         
     def move_to_photo_pose(self):
         self.get_logger().info("starting photo_pose...")
         inner_req=self.get_movepose_req(self.photopose)
-        future = self.maniclient.call_async(inner_req)
+        # input()
+        future = self.lineclient.call_async(inner_req)
         while not future.done():
             time.sleep(0.01)
         try:
@@ -277,20 +322,20 @@ class TurtlePControl(Node):
         self.startpose_received = True
         self.get_logger().info('Received real pose, moving to pick...')
         startpose=[msg.linear.x,msg.linear.y,msg.linear.z,msg.angular.x,msg.angular.y,msg.angular.z]
-        inner_req=self.get_movepose_req([a + b + c for a, b, c in zip(self.convergetpose, startpose, [0.0,0.0,50.0,0.0,0.0,0.0])])
-        future = self.maniclient.call_async(inner_req)
-        while not future.done():
-            time.sleep(0.01)
-        try:
-            inner_res = future.result()
-            self.get_logger().info("start_pose_inner_res.done={}".format(inner_res.status))
-            aa=inner_res.status
-        except Exception as e:
-            self.get_logger().error(f"start_pose Inner service failed: {e}")
-            aa = -1
-        
+        # inner_req=self.get_movepose_req([a + b + c for a, b, c in zip(self.convergetpose, startpose, [0.0,0.0,50.0,0.0,0.0,0.0])])
+        # future = self.lineclient.call_async(inner_req)
+        # while not future.done():
+        #     time.sleep(0.01)
+        # try:
+        #     inner_res = future.result()
+        #     self.get_logger().info("start_pose_inner_res.done={}".format(inner_res.status))
+        #     aa=inner_res.status
+        # except Exception as e:
+        #     self.get_logger().error(f"start_pose Inner service failed: {e}")
+        #     aa = -1
+        # time.sleep(1)
         inner_req=self.get_movepose_req([a + b + c for a, b, c in zip(self.convergetpose, startpose, [0.0,0.0,0.0,0.0,0.0,0.0])])
-        future = self.maniclient.call_async(inner_req)
+        future = self.lineclient.call_async(inner_req)
         while not future.done():
             time.sleep(0.01)
         try:
@@ -300,11 +345,11 @@ class TurtlePControl(Node):
         except Exception as e:
             self.get_logger().error(f"start_pose Inner service failed: {e}")
             aa = -1
-        
+        # time.sleep(1)
         self.opensuck()
-
-        inner_req=self.get_movepose_req([a + b + c for a, b, c in zip(self.convergetpose, startpose, [0.0,0.0,200.0,0.0,0.0,0.0])])
-        future = self.maniclient.call_async(inner_req)
+        # time.sleep(1)
+        inner_req=self.get_movepose_req([a + b + c for a, b, c in zip(self.convergetpose, startpose, [0.0,0.0,170.0,0.0,0.0,0.0])])
+        future = self.lineclient.call_async(inner_req)
         while not future.done():
             time.sleep(0.01)
         try:
@@ -328,8 +373,20 @@ class TurtlePControl(Node):
         endpose = [msg.linear.x,msg.linear.y,msg.linear.z,msg.angular.x,msg.angular.y,msg.angular.z]
         # 發佈手臂命令
         # self.arm_pose_publisher.publish(self.armendpose)
-        inner_req=self.get_movepose_req([a + b for a, b in zip( endpose, [15.0,15.0,400.0,0.0,0.0,0.0])])
-        future = self.maniclient.call_async(inner_req)
+        # inner_req=self.get_movepose_req([a + b for a, b in zip( endpose, [15.0,15.0,500.0,0.0,0.0,0.0])])
+        # future = self.lineclient.call_async(inner_req)
+        # while not future.done():
+        #     time.sleep(0.01)
+        # try:
+        #     inner_res = future.result()
+        #     self.get_logger().info("start_pose_inner_res.done={}".format(inner_res.status))
+        #     aa=inner_res.status
+        # except Exception as e:
+        #     self.get_logger().error(f"start_pose Inner service failed: {e}")
+        #     aa = -1
+
+        inner_req=self.get_movepose_req([a + b for a, b in zip( endpose, [20.0,20.0,400.0,0.0,0.0,0.0])])
+        future = self.lineclient.call_async(inner_req)
         while not future.done():
             time.sleep(0.01)
         try:
@@ -339,19 +396,21 @@ class TurtlePControl(Node):
         except Exception as e:
             self.get_logger().error(f"start_pose Inner service failed: {e}")
             aa = -1
-        inner_req=self.get_movepose_req([a + b for a, b in zip( endpose, [15.0,15.0,200.0,0.0,0.0,0.0])])
-        future = self.maniclient.call_async(inner_req)
-        while not future.done():
-            time.sleep(0.01)
-        try:
-            inner_res = future.result()
-            self.get_logger().info("start_pose_inner_res.done={}".format(inner_res.status))
-            aa=inner_res.status
-        except Exception as e:
-            self.get_logger().error(f"start_pose Inner service failed: {e}")
-            aa = -1
-        inner_req=self.get_movepose_req([a + b for a, b in zip( endpose, [15.0,15.0,50.0,0.0,0.0,0.0])])
-        future = self.maniclient.call_async(inner_req)
+
+        # inner_req=self.get_movepose_req([a + b for a, b in zip( endpose, [15.0,15.0,200.0,0.0,0.0,0.0])])
+        # future = self.lineclient.call_async(inner_req)
+        # while not future.done():
+        #     time.sleep(0.01)
+        # try:
+        #     inner_res = future.result()
+        #     self.get_logger().info("start_pose_inner_res.done={}".format(inner_res.status))
+        #     aa=inner_res.status
+        # except Exception as e:
+        #     self.get_logger().error(f"start_pose Inner service failed: {e}")
+        #     aa = -1
+
+        inner_req=self.get_movepose_req([a + b for a, b in zip( endpose, [20.0,20.0,50.0,0.0,0.0,0.0])])
+        future = self.lineclient.call_async(inner_req)
         while not future.done():
             time.sleep(0.01)
         try:
@@ -362,7 +421,7 @@ class TurtlePControl(Node):
             self.get_logger().error(f"start_pose Inner service failed: {e}")
             aa = -1
         inner_req=self.get_movepose_req([a + b for a, b in zip( endpose, [0.0,0.0,0.0,0.0,0.0,0.0])])
-        future = self.maniclient.call_async(inner_req)
+        future = self.lineclient.call_async(inner_req)
         while not future.done():
             time.sleep(0.01)
         try:
@@ -372,9 +431,10 @@ class TurtlePControl(Node):
         except Exception as e:
             self.get_logger().error(f"start_pose Inner service failed: {e}")
             aa = -1
+        # time.sleep(1)
         self.closesuck()
         inner_req=self.get_movepose_req([a + b for a, b in zip( endpose, [0.0,0.0,200.0,0.0,0.0,0.0])])
-        future = self.maniclient.call_async(inner_req)
+        future = self.lineclient.call_async(inner_req)
         while not future.done():
             time.sleep(0.01)
         try:

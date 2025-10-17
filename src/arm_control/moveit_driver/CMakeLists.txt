@@ -21,20 +21,42 @@
     ${PROJECT_BINARY_DIR}/include
     ${PROJECT_SOURCE_DIR}/include
   )
-
-  add_executable(pose_goal src/pose_goal.cpp)
-  target_include_directories(pose_goal PUBLIC
+  add_executable(joint_goal src/joint_goal.cpp)
+  target_include_directories(joint_goal PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>)
-  target_compile_features(pose_goal PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+  target_compile_features(joint_goal PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
   ament_target_dependencies(
-    pose_goal
+    joint_goal
     "moveit_ros_planning_interface"
     "rclcpp"
     "interface"
     # "moveit_driver"
   )
-
+  add_executable(line_goal src/pose_goal.cpp)
+  target_include_directories(line_goal PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>)
+  target_compile_features(line_goal PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+  ament_target_dependencies(
+    line_goal
+    "moveit_ros_planning_interface"
+    "rclcpp"
+    "interface"
+    # "moveit_driver"
+  )
+  add_executable(ptop_goal src/Pose_pose_goal.cpp)
+  target_include_directories(ptop_goal PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>)
+  target_compile_features(ptop_goal PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+  ament_target_dependencies(
+    ptop_goal
+    "moveit_ros_planning_interface"
+    "rclcpp"
+    "interface"
+    # "moveit_driver"
+  )
   add_executable(home_pos src/home_pos.cpp)
   ament_target_dependencies(
     home_pos
@@ -83,8 +105,11 @@
     "moveit_ros_planning_interface"
     "rclcpp"
   )
-
-  install(TARGETS pose_goal
+  install(TARGETS joint_goal
+    DESTINATION lib/${PROJECT_NAME})
+  install(TARGETS line_goal
+    DESTINATION lib/${PROJECT_NAME})
+  install(TARGETS ptop_goal
     DESTINATION lib/${PROJECT_NAME})
   install(TARGETS home_pos
     DESTINATION lib/${PROJECT_NAME})

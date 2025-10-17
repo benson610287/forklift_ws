@@ -89,7 +89,7 @@ class ArucoDetect(Node):
             self.destroy_publisher(self.publisher_)
             self.destroy_subscription(self.subscription)
             cv2.destroyAllWindows()
-            response.done = True
+            response.done = 1
             self.get_logger().info("ArUco detection deactivated")
             self.active = False
         # Same state as requested

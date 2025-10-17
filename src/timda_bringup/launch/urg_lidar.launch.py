@@ -8,24 +8,24 @@ from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration
 from typing import List  # 匯入 List
 def generate_launch_description():
-    robot_description_content = ParameterValue(Command([
-        'xacro ',
-        PathJoinSubstitution([
-            FindPackageShare('forklift_urdf'),
-            'car_ur5_20250118_urdf.urdf'
-        ])
-    ]),
-    value_type=str
-    )
+    # robot_description_content = ParameterValue(Command([
+    #     'xacro ',
+    #     PathJoinSubstitution([
+    #         FindPackageShare('forklift_urdf'),
+    #         'car_ur5_20250118_urdf.urdf'
+    #     ])
+    # ]),
+    # value_type=str
+    # )
     # Robot State Publisher Node
-    robot_state_publisher_node = Node(
-        package='robot_state_publisher',
-        executable='robot_state_publisher',
-        name='robot_state_publisher',
-        output='screen',
-        parameters=[{'robot_description': robot_description_content,
-                     'publish_frequency': 30.0}]
-    )
+    # robot_state_publisher_node = Node(
+    #     package='robot_state_publisher',
+    #     executable='robot_state_publisher',
+    #     name='robot_state_publisher',
+    #     output='screen',
+    #     parameters=[{'robot_description': robot_description_content,
+    #                  'publish_frequency': 30.0}]
+    # )
      # Urg Node Front
     urg_node_front = Node(
         package='urg_node',
@@ -110,19 +110,19 @@ def generate_launch_description():
     package='tf2_ros',
     executable='static_transform_publisher',
     name='static_tf_map_to_front',
-    arguments=['0', '0', '0', '0.785', '3.14', '0', 'base_link', 'laser_front'],
+    arguments=['-0.40', '-0.28', '0', '0.785', '3.14', '0', 'base_link', 'laser_front'],
     output='screen'
     )
     static_tf_map_to_back = Node(
     package='tf2_ros',
     executable='static_transform_publisher',
     name='static_tf_map_to_back',
-    arguments=['0', '0', '0', '-2.355', '3.14', '0', 'base_link', 'laser_back'],
+    arguments=['0.40', '0.28', '0', '-2.355', '3.14', '0', 'base_link', 'laser_back'],
     output='screen'
     )
 
     return LaunchDescription([
-        robot_state_publisher_node,
+        # robot_state_publisher_node,
         urg_node_front,
         urg_node_back,
         laserscan_multi_merger,

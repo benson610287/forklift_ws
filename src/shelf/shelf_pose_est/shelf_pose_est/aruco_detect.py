@@ -181,10 +181,10 @@ class ArucoDetect(Node):
 
         # Publish the pose array
         self.publisher_.publish(self.pose_array)
-        self.get_logger().info(f"Pose array[0]: {self.pose_array.poses[0]}")
-        self.get_logger().info(f"Pose array[1]: {self.pose_array.poses[1]}")
-        self.get_logger().info(f"Pose array[2]: {self.pose_array.poses[2]}")
-        self.get_logger().info(f"Pose array[3]: {self.pose_array.poses[3]}")
+        # self.get_logger().info(f"Pose array[0]: {self.pose_array.poses[0]}")
+        # self.get_logger().info(f"Pose array[1]: {self.pose_array.poses[1]}")
+        # self.get_logger().info(f"Pose array[2]: {self.pose_array.poses[2]}")
+        # self.get_logger().info(f"Pose array[3]: {self.pose_array.poses[3]}")
 
 
         # Display FPS on the image
@@ -279,51 +279,6 @@ def estimate_pose_and_get_data(frame, corners, ids, marker_size=0.10):
         cv2.putText(frame, position_text,
                     (int(corners[i][0][0][0]), int(corners[i][0][0][1]) - 10),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
-
-        # If marker ID is 0, print its position and rotation to console
-        # and draw the offset axis
-        # if marker_id == 3:
-        #     # Position is already in tvec
-        #     position = tvec[0][0]
-        #     # Convert rotation vector to rotation matrix
-        #     rotation_matrix, _ = cv2.Rodrigues(rvec[0][0])
-
-        #     '''
-        #     test draw spacial rectangle with opencv
-        #     '''
-        #     # offset to top left corner of the marker
-        #     offset_x = -marker_size/2
-        #     offset_y =  marker_size/2
-        #     rect_width = 1.44
-        #     rect_height = 0.68
-
-        #     rect_3d_points = np.array([
-        #         [0.0+offset_x, 0.0+offset_y, 0.0],                    # Top-left (anchor point)
-        #         [rect_width+offset_x, 0.0+offset_y, 0.0],             # Top-right
-        #         [rect_width+offset_x, -rect_height+offset_y, 0.0],     # Bottom-right
-        #         [0.0+offset_x, -rect_height+offset_y, 0.0]             # Bottom-left
-        #     ], dtype=np.float32)
-
-        #     # Transform rectangle points to camera coordinate system
-        #     # Rotate the points using the marker's rotation matrix
-        #     rotated_points = np.dot(rect_3d_points, rotation_matrix.T)
-        #     # Translate by marker's position
-        #     transformed_points = rotated_points + position
-
-        #     # Project 3D points to 2D image coordinates
-        #     rect_2d_points, _ = cv2.projectPoints(
-        #         transformed_points,
-        #         np.zeros(3), np.zeros(3),  # No additional rotation/translation
-        #         camera_matrix, dist_coeffs
-        #     )
-        #     rect_2d_points = rect_2d_points.reshape(-1, 2).astype(np.int32)
-        #     cv2.polylines(frame, [rect_2d_points], True, (255, 0, 0), 2)  # Blue
-
-        #     # Convert rotation matrix to Euler angles
-        #     euler_angles = cv2.decomposeProjectionMatrix(np.hstack((rotation_matrix, np.zeros((3,1)))))[6]
-
-        #     print(f"Marker 0 Position: x={position[0]:.5f}m, y={position[1]:.5f}m, z={position[2]:.5f}m")
-        #     print(f"Marker 0 Rotation: rx={euler_angles[0][0]:.2f}°, ry={euler_angles[1][0]:.2f}°, rz={euler_angles[2][0]:.2f}°")
 
     return frame, marker_poses
 

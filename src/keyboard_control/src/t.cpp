@@ -5,6 +5,7 @@
 #include<iostream>
 #include "std_msgs/msg/int64.hpp"
 
+#include "interface/srv/slidecmd.hpp"
 
 #include <conio.h>
 
@@ -30,12 +31,22 @@ int main(int argc, char **argv)
   auto node = rclcpp::Node::make_shared("talker");  
   rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr mobile_pub;
   rclcpp::Publisher<std_msgs::msg::Int64>::SharedPtr slide_pub;
+
+  rclcpp::Client<interface::srv::Slidecmd>::SharedPtr client =
+    node->create_client<interface::srv::Slidecmd>("linear/move_cmd");
+  
+  
+
+
   mobile_pub = node->create_publisher<geometry_msgs::msg::Twist>("cmd_vel", 1000);
-  slide_pub = node->create_publisher<std_msgs::msg::Int64>("topic", 1000);
+  slide_pub = node->create_publisher<std_msgs::msg::Int64>("linear/move_cmd", 1000);
 
   std::shared_ptr<rclcpp::Rate> loop_rate = std::make_shared<rclcpp::Rate>(10);
   geometry_msgs::msg::Twist msg_mobile;
   std_msgs::msg::Int64 msg_slide;
+
+  auto slide_request = std::make_shared<interface::srv::Slidecmd::Request>();
+
   msg_mobile.linear.x=0;
   msg_mobile.linear.y=0;
   msg_mobile.linear.z=0;
@@ -43,6 +54,7 @@ int main(int argc, char **argv)
   msg_mobile.angular.y=0;
   msg_mobile.angular.z=0;
   msg_slide.data=0;
+  slide_request->pos=0;
 
     while(rclcpp::ok())
     {
@@ -97,14 +109,42 @@ int main(int argc, char **argv)
         mobile_pub->publish(msg_mobile);
         // ros::spinOnce();
       }else if(c=='q'){  //up
-        msg_slide.data+=5;
-        std::cout<<std::endl<<"slide_pos:"<<msg_slide.data<<std::endl;
-        slide_pub->publish(msg_slide);
+        slide_request->pos+=5;
+        // msg_slide.data+=5;
+        std::cout<<std::endl<<"slide_pos:"<<slide_request->pos<<std::endl;
+        auto result = client->async_send_request(slide_request);
+        if (rclcpp::spin_until_future_complete(node, result) ==
+          rclcpp::FutureReturnCode::SUCCESS)
+        {
+          if (result.get()->done){
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "SUCCESS");
+          }else{
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "SUCCESS but fail");
+          }
+          
+
+        } else {
+          RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call service add_two_ints");
+        }
+        // slide_pub->publish(msg_slide);
         // ros::spinOnce();
       }else if(c=='e'){  //down
-        msg_slide.data-=5;
-        std::cout<<std::endl<<"slide_pos:"<<msg_slide.data<<std::endl;
-        slide_pub->publish(msg_slide);
+        slide_request->pos-=5;
+        // msg_slide.data-=5;
+        std::cout<<std::endl<<"slide_pos:"<<slide_request->pos<<std::endl;
+        auto result = client->async_send_request(slide_request);
+        if (rclcpp::spin_until_future_complete(node, result) ==
+          rclcpp::FutureReturnCode::SUCCESS)
+        {
+          if (result.get()->done){
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "SUCCESS");
+          }else{
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "SUCCESS but fail");
+          }
+        } else {
+          RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call service add_two_ints");
+        }
+        // slide_pub->publish(msg_slide);
         // ros::spinOnce();
       }
 

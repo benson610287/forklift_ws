@@ -226,6 +226,7 @@ class BoxDetectorNode(Node):
             inner_msg.data=2 #mid
             pose_msg.linear.z = float(150.0)
             if msg.data==0:
+                pose_msg.linear.x = float(x_m*1000)-10.0
                 self.pose_pub.publish(pose_msg)
             elif msg.data==1:
 

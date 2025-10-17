@@ -18,7 +18,7 @@ class YoloCmdNode(Node):
         self.startflag=False
         self.endflag=False
 
-        self.base_pose = [409.0-800.0,-856.0,-341.0,180.0,0.0,0.0]  # 預設基座位姿
+        self.base_pose = [409.0-800.0,-856.0,-341.0+65.0+10.0,180.0,0.0,0.0]  # 預設基座位姿
         self.eyetohand=[-20.0,-100.0,0.0,0.0,0.0,0.0]
     def loop(self):
         if self.startflag and self.endflag:

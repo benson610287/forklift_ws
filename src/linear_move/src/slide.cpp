@@ -11,6 +11,14 @@
 // #include "ros/ros.h"
 #include "std_msgs/msg/string.hpp"
 
+#include "interface/srv/slidecmd.hpp"
+
+int64_t state;
+
+
+
+
+
 uint32_t read_feedback(modbus_t* ct,int ADDRESS_FDB,int FDB_LENGTH,uint16_t fdb_val[2])
 {
     int rc = modbus_read_registers(ct, ADDRESS_FDB, FDB_LENGTH, fdb_val);
@@ -91,44 +99,138 @@ void working(modbus_t *ctx){
     std::cout<<"writing_move_point"<<std::endl;
     write_command(ctx,move_Address,Registers_Lenth,move_point);
     std::cout<<"writing_servo_on"<<std::endl;
+
+
+
     while(read_feedback(ctx,move_Address,Registers_Lenth,dest)<20000){
         continue;
     }
-    std::cout<<"writing_servo_off"<<std::endl;
-    write_command(ctx,Servo_on_Adress,Registers_Lenth,servo_off);
+
+
+    uint32_t tmp_a=read_feedback(ctx,check_pos_Address,Registers_Lenth,dest); //check reached
+    
+    
+    
+
+    // std::cout<<"writing_servo_off"<<std::endl;
+    // write_command(ctx,Servo_on_Adress,Registers_Lenth,servo_off);
+
+    state=(tmp_a && 0x10);
 }
 
 
-void chatterCallback(const std_msgs::msg::Int64 msg)
-{
+// void chatterCallback(const std_msgs::msg::Int64 msg)
+// {
     
-    // RCLCPP_INFO(node->get_logger(),"I heard: [%ld]", msg.data);
-    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "I heard: [%ld]", msg.data);
-    modbus_t *ctx=init_modbus_rtu(1,"/dev/ttyUSB0",9600);
-    int32_t PUU=conert_CM2PUU(msg.data);
-    transformPUU2path(PUU);
-    working(ctx);
-    modbus_close(ctx);
-    modbus_free(ctx);
-}
+//     // RCLCPP_INFO(node->get_logger(),"I heard: [%ld]", msg.data);
+//     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "I heard: [%ld]", msg.data);
+//     modbus_t *ctx=init_modbus_rtu(1,"/dev/ttyUSB0",9600);
+//     int32_t PUU=conert_CM2PUU(msg.data);
+//     transformPUU2path(PUU);
+//     working(ctx);
+//     modbus_close(ctx);
+//     modbus_free(ctx);
+// }
 
-int main(int argc, char **argv)
-{
+
+// Wrap everything inside a Node class
+class LinearMoveNode : public rclcpp::Node {
+public:
+    LinearMoveNode() : Node("linear_move") {
+        pub_ = this->create_publisher<std_msgs::msg::Int64>("linear/move_state", 10);
+        // sub_ = this->create_subscription<std_msgs::msg::Int64>(
+        //     "linear/move_cmd", 10,
+            // std::bind(&LinearMoveNode::chatterCallback, this, std::placeholders::_1));
+        service =
+            this->create_service<interface::srv::Slidecmd>("linear/move_cmd",  std::bind(&LinearMoveNode::slideCallback, this, 
+                     std::placeholders::_1, std::placeholders::_2));
+        
+    }
+
+private:
+    // void chatterCallback(const std_msgs::msg::Int64::SharedPtr msg) {
+    //     RCLCPP_INFO(this->get_logger(), "I heard: [%ld]", msg->data);
+    //     // Publish state here
+    //     auto msg_out = std_msgs::msg::Int64();
+    //     msg_out.data = 0;
+    //     pub_->publish(msg_out);   //check_reached 1=reached  0=start 
+    //     RCLCPP_INFO(this->get_logger(), "Published move_state: %ld", msg_out.data);
+
+    //     modbus_t *ctx = init_modbus_rtu(1, "/dev/ttyUSB1", 9600);
+    //     int32_t PUU = conert_CM2PUU(msg->data);
+    //     transformPUU2path(PUU);
+    //     working(ctx);
+    //     modbus_close(ctx);
+    //     modbus_free(ctx);
+
+    //     // Publish state here
+    //     msg_out.data = state;
+    //     pub_->publish(msg_out);   //check_reached 1=reached  0=start
+    //     RCLCPP_INFO(this->get_logger(), "Published move_state: %ld", msg_out.data);
+    // }
+
+    void slideCallback(const std::shared_ptr<interface::srv::Slidecmd::Request> request,
+        std::shared_ptr<interface::srv::Slidecmd::Response>      response) {
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Incoming request\npos: %ld",
+                request->pos);
+        
+        modbus_t *ctx = init_modbus_rtu(1, "/dev/ttyUSB0", 9600);
+        int32_t PUU = conert_CM2PUU(request->pos);
+        transformPUU2path(PUU);
+        working(ctx);
+        modbus_close(ctx);
+        modbus_free(ctx);
+        if (state){
+            response->done=true;
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "sending back response: TRUE");
+        }else{
+            response->done=false;
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "sending back response: False");
+        }
+        
+        
+    }
+
+
+    rclcpp::Publisher<std_msgs::msg::Int64>::SharedPtr pub_;
+    rclcpp::Subscription<std_msgs::msg::Int64>::SharedPtr sub_;
+    rclcpp::Service<interface::srv::Slidecmd>::SharedPtr service;
+};
     
 
-//   ros::init(argc, argv, "listener");
+int main(int argc, char **argv) {
     rclcpp::init(argc, argv);
-
-    std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("add_two_ints_server");
-
-    // ros::NodeHandle n;
-    rclcpp::Subscription<std_msgs::msg::Int64>::SharedPtr sub = node->create_subscription<std_msgs::msg::Int64>("topic", 1000, chatterCallback);
-    // ros::Subscriber sub = n.subscribe("topic", 1000, chatterCallback);
-
+    auto node = std::make_shared<LinearMoveNode>();
     rclcpp::spin(node);
-
-
-
-
-  return 0;
+    rclcpp::shutdown();
+    return 0;
 }
+
+
+
+
+
+
+// int main(int argc, char **argv)
+// {
+    
+
+// //   ros::init(argc, argv, "listener");
+//     rclcpp::init(argc, argv);
+
+//     std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("linear_move");
+
+//     // ros::NodeHandle n;
+//     rclcpp::Publisher<std_msgs::msg::Int64>::SharedPtr pub = this->create_publisher<std_msgs::msg::Int64>("linear/move_state", 10);
+
+
+//     rclcpp::Subscription<std_msgs::msg::Int64>::SharedPtr sub = node->create_subscription<std_msgs::msg::Int64>("linear/move_cmd", 1000, chatterCallback);
+//     // ros::Subscriber sub = n.subscribe("topic", 1000, chatterCallback);
+
+//     rclcpp::spin(node);
+
+
+
+
+//   return 0;
+// }

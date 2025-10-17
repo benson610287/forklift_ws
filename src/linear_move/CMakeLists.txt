@@ -9,11 +9,13 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(interface REQUIRED)
 
 
 set(dependencies
   rclcpp
   std_msgs
+  interface
 )
 # uncomment the following section in order to fill in
 # further dependencies manually.
