@@ -1,0 +1,5 @@
+*.pt filter=lfs diff=lfs merge=lfs -text
+forkliftslam_ws/core filter=lfs diff=lfs merge=lfs -text
+*.0 filter=lfs diff=lfs merge=lfs -text
+**/*.pt filter=lfs diff=lfs merge=lfs -text
+**/models/* filter=lfs diff=lfs merge=lfs -text
