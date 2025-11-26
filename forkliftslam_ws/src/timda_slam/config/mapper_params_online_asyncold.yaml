@@ -1,0 +1,75 @@
+slam_toolbox:
+  ros__parameters:
+
+    # Plugin params - 優化求解器配置
+    solver_plugin: solver_plugins::CeresSolver
+    ceres_linear_solver: SPARSE_NORMAL_CHOLESKY
+    ceres_preconditioner: SCHUR_JACOBI
+    ceres_trust_strategy: LEVENBERG_MARQUARDT
+    ceres_dogleg_type: TRADITIONAL_DOGLEG
+    ceres_loss_function: None  
+
+    # ROS Parameters
+    odom_frame: odom
+    map_frame: map
+    base_frame: base_link
+    scan_topic: /scan_multi
+    use_map_saver: true
+    mode: mapping #localization
+
+    # 地圖繼續選項
+    #map_file_name: forklift_warehouse_map
+    # map_start_pose: [0.0, 0.0, 0.0]
+    #map_start_at_dock: true
+
+    debug_logging: false
+    throttle_scans: 1
+    transform_publish_period: 0.01 #if 0 never publishes odometry
+    map_update_interval: 1.0  # 固定時間間隔更新地圖
+    resolution: 0.03  # 提高解析度，適合室內精確導航（從0.05改為0.03）
+    min_laser_range: 0.3  # 設置最小範圍，避免噪音（從0.0改為0.3）
+    max_laser_range: 25.0  # 適合倉庫環境（從20.0改為25.0）
+    minimum_time_interval: 0.0  # 設為0，取消時間間隔限制
+    transform_timeout: 0.3  # 增加超時時間，提高穩定性（從0.2改為0.3）
+    tf_buffer_duration: 30.0
+    stack_size_to_use: 40000000 #// program needs a larger stack size to serialize large maps
+    enable_interactive_mode: true
+
+    # General Parameters - 針對叉車運動特性優化
+    use_scan_matching: true
+    use_scan_barycenter: true
+    minimum_travel_distance: 0.0  # 設為0，取消最小移動距離限制
+    minimum_travel_heading: 0.0  # 設為0，取消最小旋轉角度限制
+    scan_buffer_size: 15  # 增加掃描緩存，提高匹配質量（從10改為15）
+    scan_buffer_maximum_scan_distance: 15.0  # 增加掃描距離（從10.0改為15.0）
+    link_match_minimum_response_fine: 0.15  # 稍微提高精細匹配閾值（從0.1改為0.15）
+    link_scan_maximum_distance: 2.0  # 增加連結距離，適合倉庫環境（從1.5改為2.0）
+    loop_search_maximum_distance: 5.0  # 增加循環檢測距離（從3.0改為5.0）
+    do_loop_closing: true 
+    loop_match_minimum_chain_size: 8  # 減少最小鏈長度，更靈敏的循環檢測（從10改為8）
+    loop_match_maximum_variance_coarse: 2.5  # 稍微減少方差閾值（從3.0改為2.5）
+    loop_match_minimum_response_coarse: 0.4  # 提高粗略匹配閾值（從0.35改為0.4）
+    loop_match_minimum_response_fine: 0.5  # 提高精細匹配閾值（從0.45改為0.5）
+
+    # Correlation Parameters - 優化相關性參數
+    correlation_search_space_dimension: 0.6  # 稍微增加搜索空間（從0.5改為0.6）
+    correlation_search_space_resolution: 0.008  # 提高解析度（從0.01改為0.008）
+    correlation_search_space_smear_deviation: 0.08  # 稍微減少塗抹偏差（從0.1改為0.08）
+
+    # Correlation Parameters - Loop Closure Parameters
+    loop_search_space_dimension: 10.0  # 增加循環檢測搜索空間（從8.0改為10.0）
+    loop_search_space_resolution: 0.04  # 稍微提高解析度（從0.05改為0.04）
+    loop_search_space_smear_deviation: 0.025  # 稍微減少塗抹偏差（從0.03改為0.025）
+
+    # Scan Matcher Parameters - 針對雙雷達系統優化
+    distance_variance_penalty: 0.3  # 減少距離方差懲罰，適合雙雷達（從0.5改為0.3）
+    angle_variance_penalty: 0.8  # 稍微減少角度方差懲罰（從1.0改為0.8）
+
+    fine_search_angle_offset: 0.00349  # 保持精細搜索角度偏移
+    coarse_search_angle_offset: 0.262  # 稍微減少粗略搜索角度（從0.349改為0.262）
+    coarse_angle_resolution: 0.0262  # 提高粗略角度解析度（從0.0349改為0.0262）
+    minimum_angle_penalty: 0.85  # 稍微減少最小角度懲罰（從0.9改為0.85）
+    minimum_distance_penalty: 0.4  # 減少最小距離懲罰（從0.5改為0.4）
+    use_response_expansion: true
+    min_pass_through: 3  # 增加最小通過數，提高穩定性（從2改為3）
+    occupancy_threshold: 0.08  # 稍微降低占用閾值，增加敏感度（從0.1改為0.08）

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="camera">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="1.12668414492187E-05 -0.000136108204999518 0.0115559807600837"
+        rpy="0 0 0" />
+      <mass
+        value="0.107910407442366" />
+      <inertia
+        ixx="9.69265790322773E-06"
+        ixy="3.52929068673869E-10"
+        ixz="-2.13828877157619E-08"
+        iyy="7.2404336692081E-05"
+        iyz="2.13384371255571E-08"
+        izz="7.14207935121939E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://camera/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://camera/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

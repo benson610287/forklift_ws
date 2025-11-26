@@ -1,0 +1,1 @@
+ros2 launch timda_slam navigation.launch.py map:=/home/flash/work/map.yaml

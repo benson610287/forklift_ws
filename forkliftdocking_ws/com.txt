@@ -1,0 +1,29 @@
+
+ros2 launch realsense2_camera rs_launch.py
+ros2 launch realsense2_camera rs_launch.py serial_no:="'844212070219'" rgb_camera.color_profile:=640x480x30
+
+
+新視窗
+ros2 run docking_pkg docking_status_server 
+
+
+ros2 service call /docking_status_server interface/srv/Maincontroller "{enable: true}"
+
+新視窗
+ros2 run docking_pkg YoloDepthProcessor
+
+新視窗
+ros2 run docking_pkg ransac 
+
+新視窗
+ros2 run docking_pkg pid_mecanum_node 
+
+新視窗
+ros2 run mecanum mobile_node 
+
+
+
+pip install "numpy<2.0"
+
+pip install opencv-contrib-python
+

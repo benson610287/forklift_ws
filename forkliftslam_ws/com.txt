@@ -1,0 +1,29 @@
+sudo apt-get update
+colcon build
+source install/setup.bash
+
+cd src
+pip3 install -r yolov8_ros/requirements.txt
+
+rosdep install --from-paths src --ignore-src -r -y
+
+
+
+
+
+1  sudo apt-get update
+    2  colcon build
+    3  sudo apt install ros-humble-ros2-control
+    4  colcon build
+    5  sudo apt install ros-humble-joint-trajectory-controller
+    6  colcon build
+    7  sudo apt install ros-humble-ur-msg
+    8  sudo apt install ros-humble-ur_msg
+    9  sudo apt install ros-humble-ur_msgs
+   10  sudo apt install ros-humble-ur-msgs
+   11  colcon build
+   12  sudo apt install ros-humble-ur-client-library
+   13  colcon build
+   14  sudo apt install ros-humble-ur-description
+   15  colcon build
+   16  history

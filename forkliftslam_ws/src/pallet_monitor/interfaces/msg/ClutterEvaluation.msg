@@ -1,0 +1,4 @@
+int32 pallet_id
+float32 clutter_score
+bool needs_sorting
+float32 confidence

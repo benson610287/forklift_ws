@@ -1,0 +1,4339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="forkift_urdf">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.0267051530758777 0.00057897747115605 0.361994545605187"
+        rpy="0 0 0" />
+      <mass
+        value="59.3494779696085" />
+      <inertia
+        ixx="0.72814863795425"
+        ixy="-0.00129973486431549"
+        ixz="-0.0107784183327306"
+        iyy="0.762273142298015"
+        iyz="0.000181191941791207"
+        izz="0.95928368894642" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="wheel_link1">
+    <inertial>
+      <origin
+        xyz="-3.30345174174296E-05 -0.0130777544107548 5.45469211589295E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.148553951159096" />
+      <inertia
+        ixx="8.67971001047738E-05"
+        ixy="4.04307803700313E-08"
+        ixz="2.02914696536619E-08"
+        iyy="0.000156842610469163"
+        iyz="4.85158234038196E-09"
+        izz="8.69051454091505E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/wheel_link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/wheel_link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_joint1"
+    type="continuous">
+    <origin
+      xyz="-0.25300000000005 -0.246749999999921 0.0350000000000004"
+      rpy="0 0 3.14159265358979" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_link1" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link1">
+    <inertial>
+      <origin
+        xyz="-5.61772850460329E-14 2.87547763377916E-14 0.024284997884833"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382159038" />
+      <inertia
+        ixx="1.02890722005186E-06"
+        ixy="2.84550130718242E-21"
+        ixz="1.5458351287391E-20"
+        iyy="1.02890722005172E-06"
+        iyz="-3.93605622677233E-20"
+        izz="3.09954382579114E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint1"
+    type="continuous">
+    <origin
+      xyz="0.0529999656713817 0.0131730501588231 0.0441007049149809"
+      rpy="1.13839473507683 0 -0.680684896011105" />
+    <parent
+      link="wheel_link1" />
+    <child
+      link="step_link1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link2">
+    <inertial>
+      <origin
+        xyz="6.2005955925315E-14 5.6621374255883E-15 0.0242849978848347"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382158968" />
+      <inertia
+        ixx="1.02890722003417E-06"
+        ixy="-8.37900873291715E-20"
+        ixz="1.70227152618513E-19"
+        iyy="1.02890722003424E-06"
+        iyz="1.63756945867123E-19"
+        izz="3.09954382543544E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint2"
+    type="continuous">
+    <origin
+      xyz="-0.00629272762839572 0.0131730501588297 -0.0686605426293779"
+      rpy="1.46285843305827 0 0.781659111674193" />
+    <parent
+      link="wheel_link1" />
+    <child
+      link="step_link2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link3">
+    <inertial>
+      <origin
+        xyz="-4.03843625207401E-14 4.79616346638068E-14 0.0242849978848315"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382158996" />
+      <inertia
+        ixx="1.02890722004401E-06"
+        ixy="1.73377056391115E-20"
+        ixz="-6.9898746994201E-19"
+        iyy="1.02890722004405E-06"
+        iyz="2.27196735766265E-19"
+        izz="3.09954382564084E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint3"
+    type="continuous">
+    <origin
+      xyz="0.0658421926341758 0.0131730501588216 0.020461529861914"
+      rpy="0.919999238164992 0 -0.480214746799319" />
+    <parent
+      link="wheel_link1" />
+    <child
+      link="step_link3" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link4">
+    <inertial>
+      <origin
+        xyz="4.15223411209809E-14 -4.86416462663897E-14 0.0242849978848329"
+        rpy="0 0 0" />
+      <mass
+        value="0.0079209538215904" />
+      <inertia
+        ixx="1.02890722004789E-06"
+        ixy="4.15310841950624E-20"
+        ixz="2.90380099675515E-19"
+        iyy="1.02890722004798E-06"
+        iyz="-6.90000979767234E-20"
+        izz="3.09954382570344E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint4"
+    type="continuous">
+    <origin
+      xyz="-0.0658421926341724 0.0131730501588364 -0.0204615298619159"
+      rpy="2.2215934154248 0 0.4802147467991" />
+    <parent
+      link="wheel_link1" />
+    <child
+      link="step_link4" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link5">
+    <inertial>
+      <origin
+        xyz="-5.68989300120393E-14 1.31561428418081E-14 0.0242849978848317"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382158966" />
+      <inertia
+        ixx="1.02890722003722E-06"
+        ixy="-8.56959114604937E-21"
+        ixz="-5.18265049711424E-19"
+        iyy="1.02890722003724E-06"
+        iyz="-2.14658332041186E-19"
+        izz="3.09954382552389E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint5"
+    type="continuous">
+    <origin
+      xyz="0.0320889743810058 0.0131730501588254 0.0610259474186262"
+      rpy="1.40150138868674 0 -0.772956810179616" />
+    <parent
+      link="wheel_link1" />
+    <child
+      link="step_link5" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link6">
+    <inertial>
+      <origin
+        xyz="-2.06501482580279E-14 -6.36712904622527E-14 0.024284997884836"
+        rpy="0 0 0" />
+      <mass
+        value="0.0079209538215898" />
+      <inertia
+        ixx="1.02890722004174E-06"
+        ixy="4.97631856511901E-21"
+        ixz="6.94600103973028E-20"
+        iyy="1.0289072200417E-06"
+        iyz="-1.80907708687797E-19"
+        izz="3.09954382557337E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint6"
+    type="continuous">
+    <origin
+      xyz="-0.0610259474186257 0.0131730501588359 0.0320889743810041"
+      rpy="2.32990144975846 0 -0.234391902035157" />
+    <parent
+      link="wheel_link1" />
+    <child
+      link="step_link6" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link7">
+    <inertial>
+      <origin
+        xyz="4.57966997657877E-14 4.12725409404402E-14 0.0242849978848337"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382159009" />
+      <inertia
+        ixx="1.02890722004802E-06"
+        ixy="-2.61521422464765E-20"
+        ixz="2.19765345143088E-19"
+        iyy="1.02890722004795E-06"
+        iyz="7.86450239190917E-19"
+        izz="3.09954382570754E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link7.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link7.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint7"
+    type="continuous">
+    <origin
+      xyz="0.0441007049149816 0.0131730501588241 -0.0529999656713815"
+      rpy="0.962581220723548 0 0.535909194955449" />
+    <parent
+      link="wheel_link1" />
+    <child
+      link="step_link7" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link8">
+    <inertial>
+      <origin
+        xyz="6.51700915454967E-14 -1.05748743095546E-14 0.024284997884837"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382158996" />
+      <inertia
+        ixx="1.02890722004126E-06"
+        ixy="4.21134193462997E-20"
+        ixz="1.14567823561045E-18"
+        iyy="1.02890722004114E-06"
+        iyz="4.23822530453795E-19"
+        izz="3.09954382559091E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link8.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link8.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint8"
+    type="continuous">
+    <origin
+      xyz="-0.0320889743810027 0.0131730501588326 -0.0610259474186271"
+      rpy="1.74009126490305 0 0.772956810179394" />
+    <parent
+      link="wheel_link1" />
+    <child
+      link="step_link8" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link9">
+    <inertial>
+      <origin
+        xyz="2.07056594092592E-14 6.38517017037543E-14 0.0242849978848351"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382158997" />
+      <inertia
+        ixx="1.02890722004114E-06"
+        ixy="1.02702744854584E-20"
+        ixz="-8.25592425776926E-20"
+        iyy="1.02890722004108E-06"
+        iyz="2.61111140880939E-19"
+        izz="3.09954382555392E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link9.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link9.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint9"
+    type="continuous">
+    <origin
+      xyz="0.0610259474186278 0.0131730501588221 -0.0320889743810054"
+      rpy="0.811691203831331 0 0.234391902034939" />
+    <parent
+      link="wheel_link1" />
+    <child
+      link="step_link9" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link10">
+    <inertial>
+      <origin
+        xyz="-4.6823656063566E-14 -4.62130334000221E-14 0.0242849978848363"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382158997" />
+      <inertia
+        ixx="1.02890722004395E-06"
+        ixy="2.22346148654254E-21"
+        ixz="-1.26757157067626E-19"
+        iyy="1.02890722004396E-06"
+        iyz="-5.21500980267732E-19"
+        izz="3.09954382560738E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link10.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link10.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint10"
+    type="continuous">
+    <origin
+      xyz="-0.0441007049149795 0.013173050158834 0.0529999656713803"
+      rpy="2.17901143286625 0 -0.535909194955667" />
+    <parent
+      link="wheel_link1" />
+    <child
+      link="step_link10" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link11">
+    <inertial>
+      <origin
+        xyz="5.57331958361829E-14 2.09554595897998E-14 0.0242849978848338"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382158981" />
+      <inertia
+        ixx="1.0289072200384E-06"
+        ixy="-2.74756312265614E-20"
+        ixz="4.96930407352456E-19"
+        iyy="1.02890722003839E-06"
+        iyz="6.85911398818771E-19"
+        izz="3.09954382552174E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link11.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link11.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint11"
+    type="continuous">
+    <origin
+      xyz="0.0204615298619167 0.0131730501588267 -0.065842192634175"
+      rpy="1.19442997867902 0 0.709448932918237" />
+    <parent
+      link="wheel_link1" />
+    <child
+      link="step_link11" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link12">
+    <inertial>
+      <origin
+        xyz="1.4960255256824E-14 -6.43651798526435E-14 0.0242849978848337"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382158982" />
+      <inertia
+        ixx="1.02890722003989E-06"
+        ixy="-5.912025274039E-20"
+        ixz="9.64823466481851E-19"
+        iyy="1.02890722003991E-06"
+        iyz="-1.06912763300234E-18"
+        izz="3.09954382552283E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link12.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link12.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint12"
+    type="continuous">
+    <origin
+      xyz="-0.0686605426293765 0.0131730501588367 0.00629272762839714"
+      rpy="2.34669558791951 0 0.151503132271036" />
+    <parent
+      link="wheel_link1" />
+    <child
+      link="step_link12" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link13">
+    <inertial>
+      <origin
+        xyz="-5.7814864007355E-14 -2.3932245074576E-14 0.024284997884835"
+        rpy="0 0 0" />
+      <mass
+        value="0.0079209538215901" />
+      <inertia
+        ixx="1.02890722004872E-06"
+        ixy="7.24213169902427E-20"
+        ixz="-4.37492517256846E-19"
+        iyy="1.02890722004876E-06"
+        iyz="-6.11266620341986E-19"
+        izz="3.09954382572643E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link13.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link13.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint13"
+    type="continuous">
+    <origin
+      xyz="-0.0204615298619135 0.0131730501588314 0.0658421926341741"
+      rpy="1.94716267491077 0 -0.709448932918464" />
+    <parent
+      link="wheel_link1" />
+    <child
+      link="step_link13" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link14">
+    <inertial>
+      <origin
+        xyz="-6.47260023356466E-14 -7.85482789922298E-15 0.0242849978848351"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382158996" />
+      <inertia
+        ixx="1.02890722004322E-06"
+        ixy="2.46036601397773E-20"
+        ixz="-1.00210615105084E-18"
+        iyy="1.0289072200432E-06"
+        iyz="-7.33454431705869E-19"
+        izz="3.09954382562435E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link14.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link14.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint14"
+    type="continuous">
+    <origin
+      xyz="0.00629272762839878 0.0131730501588284 0.068660542629377"
+      rpy="1.67873422053152 0 -0.781659111674418" />
+    <parent
+      link="wheel_link1" />
+    <child
+      link="step_link14" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link15">
+    <inertial>
+      <origin
+        xyz="-1.4210854715202E-14 6.34492458573277E-14 0.024284997884835"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382159025" />
+      <inertia
+        ixx="1.02890722005078E-06"
+        ixy="-1.41150099726049E-20"
+        ixz="-6.3145313601073E-19"
+        iyy="1.02890722005079E-06"
+        iyz="6.79439537706157E-19"
+        izz="3.09954382575808E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link15.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link15.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint15"
+    type="continuous">
+    <origin
+      xyz="0.0686605426293786 0.0131730501588214 -0.00629272762839836"
+      rpy="0.794897065670283 0 -0.151503132271253" />
+    <parent
+      link="wheel_link1" />
+    <child
+      link="step_link15" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link16">
+    <inertial>
+      <origin
+        xyz="6.0507154842071E-14 -2.82204815071907E-14 0.0242849978848347"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382158997" />
+      <inertia
+        ixx="1.02890722004129E-06"
+        ixy="1.12496563307212E-21"
+        ixz="1.48416054226714E-19"
+        iyy="1.0289072200412E-06"
+        iyz="4.1259768954145E-20"
+        izz="3.09954382555708E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link16.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link16.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint16"
+    type="continuous">
+    <origin
+      xyz="-0.0529999656713796 0.013173050158835 -0.0441007049149821"
+      rpy="2.00319791851296 0 0.680684896010884" />
+    <parent
+      link="wheel_link1" />
+    <child
+      link="step_link16" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="wheel_link2">
+    <inertial>
+      <origin
+        xyz="-3.30355159163243E-05 -0.0130776771651438 5.45246043638994E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.148553954695454" />
+      <inertia
+        ixx="8.6793969631387E-05"
+        ixy="4.04421979819476E-08"
+        ixz="-2.43488885127422E-08"
+        iyy="0.000156842679481226"
+        iyz="4.85174921179496E-09"
+        izz="8.69083489747097E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/wheel_link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/wheel_link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_joint2"
+    type="continuous">
+    <origin
+      xyz="0.252999999999952 -0.246750000000072 0.0350000000000789"
+      rpy="0 0 -3.14159265358979" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_link2" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link17">
+    <inertial>
+      <origin
+        xyz="0.000166958205189971 0.000119145481014798 0.0247398027806744"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382159012" />
+      <inertia
+        ixx="1.02890721154538E-06"
+        ixy="-3.56227671067758E-13"
+        ixz="-7.81693379198768E-11"
+        iyy="1.02889228956395E-06"
+        iyz="-3.27629187472821E-09"
+        izz="3.09969321544067E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link17.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link17.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint17"
+    type="continuous">
+    <origin
+      xyz="0.0148208725461585 0.0131730501588304 -0.0673365448485171"
+      rpy="1.55140310174059 0 -0.787317947857844" />
+    <parent
+      link="wheel_link2" />
+    <child
+      link="step_link17" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link18">
+    <inertial>
+      <origin
+        xyz="0.000193789162282798 6.72045274561009E-05 0.0247398027806751"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382159025" />
+      <inertia
+        ixx="1.02890583109911E-06"
+        ixy="-4.33823789050004E-12"
+        ixz="-9.99283956342154E-10"
+        iyy="1.02889367001801E-06"
+        iyz="-3.12115851392932E-09"
+        izz="3.09969321550859E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link18.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link18.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint18"
+    type="continuous">
+    <origin
+      xyz="-0.0120758793068814 0.0131730501588334 -0.0678825579521826"
+      rpy="1.27763309169923 0 -0.742083061519126" />
+    <parent
+      link="wheel_link2" />
+    <child
+      link="step_link18" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link19">
+    <inertial>
+      <origin
+        xyz="-0.000193789162283048 -6.72045274567531E-05 0.0247398027806747"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382159025" />
+      <inertia
+        ixx="1.02890583109918E-06"
+        ixy="-4.338237886159E-12"
+        ixz="9.9928395602719E-10"
+        iyy="1.02889367001812E-06"
+        iyz="3.12115851396963E-09"
+        izz="3.0996932154916E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link19.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link19.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint19"
+    type="continuous">
+    <origin
+      xyz="0.0120758793068844 0.0131730501588306 0.0678825579521828"
+      rpy="1.86395956189056 0 0.742083061518894" />
+    <parent
+      link="wheel_link2" />
+    <child
+      link="step_link19" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link20">
+    <inertial>
+      <origin
+        xyz="6.89311613296106E-05 0.000193181735496831 0.0247398027806749"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382158982" />
+      <inertia
+        ixx="1.02890267314505E-06"
+        ixy="6.87399061511403E-12"
+        ixz="1.80802064576665E-09"
+        iyy="1.02889682796483E-06"
+        iyz="-2.73336061314491E-09"
+        izz="3.09969321542499E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link20.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link20.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint20"
+    type="continuous">
+    <origin
+      xyz="0.0580940669645491 0.0131730501588254 -0.037134188003569"
+      rpy="2.07962259993955 0 -0.630094836458705" />
+    <parent
+      link="wheel_link2" />
+    <child
+      link="step_link20" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link21">
+    <inertial>
+      <origin
+        xyz="0.000205111207271846 -2.8386985466422E-07 0.0247398027806726"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382159024" />
+      <inertia
+        ixx="1.02890181979307E-06"
+        ixy="-7.17715540252905E-12"
+        ixz="-1.97039336791787E-09"
+        iyy="1.02889768132869E-06"
+        iyz="-2.61873039284331E-09"
+        izz="3.0996932155601E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link21.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link21.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint21"
+    type="continuous">
+    <origin
+      xyz="-0.0371341880035681 0.0131730501588363 -0.0580940669645483"
+      rpy="1.03028208890298 0 -0.604249843495929" />
+    <parent
+      link="wheel_link2" />
+    <child
+      link="step_link21" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link22">
+    <inertial>
+      <origin
+        xyz="-0.000166958205197798 -0.000119145481016589 0.0247398027806726"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382159025" />
+      <inertia
+        ixx="1.02890721154755E-06"
+        ixy="-3.562276435061E-13"
+        ixz="7.81693398425622E-11"
+        iyy="1.02889228956593E-06"
+        iyz="3.27629187508451E-09"
+        izz="3.09969321545849E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link22.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link22.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint22"
+    type="continuous">
+    <origin
+      xyz="-0.0148208725461563 0.0131730501588337 0.0673365448485178"
+      rpy="1.59018955184921 0 0.787317947857613" />
+    <parent
+      link="wheel_link2" />
+    <child
+      link="step_link22" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link23">
+    <inertial>
+      <origin
+        xyz="0.000186015587463062 -8.64227351462521E-05 0.0247398027806731"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382159025" />
+      <inertia
+        ixx="1.02889561724127E-06"
+        ixy="-6.22165456043419E-12"
+        ixz="-2.88819952381471E-09"
+        iyy="1.02890388387195E-06"
+        iyz="-1.54870991713781E-09"
+        izz="3.09969321547466E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link23.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link23.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint23"
+    type="continuous">
+    <origin
+      xyz="-0.0565391531989632 0.0131730501588386 -0.0394612809055899"
+      rpy="0.847535916878401 0 -0.344461986893614" />
+    <parent
+      link="wheel_link2" />
+    <child
+      link="step_link23" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link24">
+    <inertial>
+      <origin
+        xyz="1.53268356569702E-05 -0.000204537957449069 0.0247398027806724"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382158983" />
+      <inertia
+        ixx="1.02889661602579E-06"
+        ixy="6.77997453791566E-12"
+        ixz="-2.76109144447597E-09"
+        iyy="1.02890288506951E-06"
+        iyz="1.76538180929945E-09"
+        izz="3.09969321530685E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link24.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link24.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint24"
+    type="continuous">
+    <origin
+      xyz="-0.0678825579521812 0.0131730501588398 0.012075879306883"
+      rpy="0.867165615447626 0 0.388708535835704" />
+    <parent
+      link="wheel_link2" />
+    <child
+      link="step_link24" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link25">
+    <inertial>
+      <origin
+        xyz="0.000115873417825318 -0.000169245499121423 0.0247398027806745"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382158981" />
+      <inertia
+        ixx="1.02889230907679E-06"
+        ixy="6.46328130654928E-13"
+        ixz="-3.2741498740588E-09"
+        iyy="1.02890719202561E-06"
+        iyz="1.41920747147331E-10"
+        izz="3.09969321539205E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link25.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link25.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint25"
+    type="continuous">
+    <origin
+      xyz="-0.0673365448485162 0.0131730501588398 -0.0148208725461577"
+      rpy="0.783667127144721 0 0.0274754957612584" />
+    <parent
+      link="wheel_link2" />
+    <child
+      link="step_link25" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link26">
+    <inertial>
+      <origin
+        xyz="-6.89311613299159E-05 -0.000193181735498205 0.0247398027806729"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382158995" />
+      <inertia
+        ixx="1.02890267314312E-06"
+        ixy="6.87399066707421E-12"
+        ixz="-1.80802064693547E-09"
+        iyy="1.02889682796291E-06"
+        iyz="2.73336061195223E-09"
+        izz="3.09969321542194E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link26.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link26.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint26"
+    type="continuous">
+    <origin
+      xyz="-0.0580940669645469 0.0131730501588387 0.0371341880035697"
+      rpy="1.06197005365024 0 0.630094836458478" />
+    <parent
+      link="wheel_link2" />
+    <child
+      link="step_link26" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link27">
+    <inertial>
+      <origin
+        xyz="-1.53268356541392E-05 0.000204537957455619 0.0247398027806742"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382158981" />
+      <inertia
+        ixx="1.02889661602989E-06"
+        ixy="6.77997453353491E-12"
+        ixz="2.76109144489328E-09"
+        iyy="1.02890288507361E-06"
+        iyz="-1.76538180814105E-09"
+        izz="3.09969321539408E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link27.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link27.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint27"
+    type="continuous">
+    <origin
+      xyz="0.0678825579521837 0.0131730501588242 -0.0120758793068837"
+      rpy="2.27442703814216 0 -0.38870853583594" />
+    <parent
+      link="wheel_link2" />
+    <child
+      link="step_link27" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link28">
+    <inertial>
+      <origin
+        xyz="-0.000127058131397517 -0.000161018381489048 0.0247398027806733"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382158998" />
+      <inertia
+        ixx="1.02890623956059E-06"
+        ixy="3.69946427631901E-12"
+        ixz="-8.395859499994E-10"
+        iyy="1.02889326154156E-06"
+        iyz="3.16785326822945E-09"
+        izz="3.09969321537264E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link28.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link28.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint28"
+    type="continuous">
+    <origin
+      xyz="-0.0394612809055884 0.0131730501588366 0.0565391531989648"
+      rpy="1.3148612075108 0 0.753391112744457" />
+    <parent
+      link="wheel_link2" />
+    <child
+      link="step_link28" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link29">
+    <inertial>
+      <origin
+        xyz="-0.000115873417824652 0.000169245499119092 0.0247398027806722"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382159011" />
+      <inertia
+        ixx="1.02889230908004E-06"
+        ixy="6.46328139530576E-13"
+        ixz="3.27414987413071E-09"
+        iyy="1.02890719202882E-06"
+        iyz="-1.41920747582389E-10"
+        izz="3.09969321542336E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link29.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link29.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint29"
+    type="continuous">
+    <origin
+      xyz="0.0673365448485187 0.0131730501588243 0.014820872546157"
+      rpy="2.35792552644507 0 -0.027475495761496" />
+    <parent
+      link="wheel_link2" />
+    <child
+      link="step_link29" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link30">
+    <inertial>
+      <origin
+        xyz="-0.000186015587466073 8.64227351499713E-05 0.0247398027806734"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382158983" />
+      <inertia
+        ixx="1.02889561723578E-06"
+        ixy="-6.22165458188795E-12"
+        ixz="2.88819952291261E-09"
+        iyy="1.02890388386645E-06"
+        iyz="1.54870991823014E-09"
+        izz="3.09969321539328E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link30.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link30.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint30"
+    type="continuous">
+    <origin
+      xyz="0.0565391531989658 0.0131730501588255 0.0394612809055892"
+      rpy="2.29405673671139 0 0.344461986893377" />
+    <parent
+      link="wheel_link2" />
+    <child
+      link="step_link30" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link31">
+    <inertial>
+      <origin
+        xyz="0.000127058131396074 0.000161018381487979 0.0247398027806751"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382158996" />
+      <inertia
+        ixx="1.02890623956362E-06"
+        ixy="3.69946437421749E-12"
+        ixz="8.39585950626535E-10"
+        iyy="1.02889326154446E-06"
+        iyz="-3.16785326791134E-09"
+        izz="3.09969321540934E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link31.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link31.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint31"
+    type="continuous">
+    <origin
+      xyz="0.0394612809055915 0.0131730501588275 -0.0565391531989647"
+      rpy="1.826731446079 0 -0.753391112744687" />
+    <parent
+      link="wheel_link2" />
+    <child
+      link="step_link31" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link32">
+    <inertial>
+      <origin
+        xyz="-0.000205111207274983 2.83869856398944E-07 0.0247398027806713"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382158981" />
+      <inertia
+        ixx="1.02890181977966E-06"
+        ixy="-7.17715538341787E-12"
+        ixz="1.97039336796343E-09"
+        iyy="1.02889768131531E-06"
+        iyz="2.61873039288165E-09"
+        izz="3.09969321530548E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link32.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link32.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint32"
+    type="continuous">
+    <origin
+      xyz="0.0371341880035706 0.0131730501588277 0.0580940669645476"
+      rpy="2.11131056468682 0 0.604249843495696" />
+    <parent
+      link="wheel_link2" />
+    <child
+      link="step_link32" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="wheel_link3">
+    <inertial>
+      <origin
+        xyz="3.30353468432909E-05 0.0130776772124332 5.45245968967337E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.148553954757077" />
+      <inertia
+        ixx="8.67939704650582E-05"
+        ixy="4.04421311775939E-08"
+        ixz="2.43484026786064E-08"
+        iyy="0.000156842679899221"
+        iyz="-4.85191902899268E-09"
+        izz="8.690834864732E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/wheel_link3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/wheel_link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_joint3"
+    type="continuous">
+    <origin
+      xyz="-0.252999999999995 0.246750000000078 0.035"
+      rpy="0 0 3.14159265358979" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_link3" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link33">
+    <inertial>
+      <origin
+        xyz="0.000166958205250145 0.000119145481013404 0.0247398027807306"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382158996" />
+      <inertia
+        ixx="1.02890721154529E-06"
+        ixy="-3.56227667682108E-13"
+        ixz="-7.81693391951908E-11"
+        iyy="1.02889228956381E-06"
+        iyz="-3.27629187496256E-09"
+        izz="3.09969321544158E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link33.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link33.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint33"
+    type="continuous">
+    <origin
+      xyz="-0.0148208725461587 -0.0131730501588308 -0.0673365448485171"
+      rpy="1.55140310174059 0 2.35427470573196" />
+    <parent
+      link="wheel_link3" />
+    <child
+      link="step_link33" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link34">
+    <inertial>
+      <origin
+        xyz="0.000193789162336366 6.72045274380528E-05 0.0247398027807332"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382158997" />
+      <inertia
+        ixx="1.0289058310927E-06"
+        ixy="-4.33823790496577E-12"
+        ixz="-9.99283957227423E-10"
+        iyy="1.02889367001153E-06"
+        iyz="-3.12115851385308E-09"
+        izz="3.0996932154086E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link34.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link34.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint34"
+    type="continuous">
+    <origin
+      xyz="0.0120758793068812 -0.0131730501588338 -0.0678825579521826"
+      rpy="1.27763309169924 0 2.39950959207067" />
+    <parent
+      link="wheel_link3" />
+    <child
+      link="step_link34" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link35">
+    <inertial>
+      <origin
+        xyz="-0.000193789162338365 -6.72045274386079E-05 0.0247398027807347"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382158982" />
+      <inertia
+        ixx="1.02890583109256E-06"
+        ixy="-4.33823788328702E-12"
+        ixz="9.99283957033862E-10"
+        iyy="1.02889367001158E-06"
+        iyz="3.12115851387993E-09"
+        izz="3.09969321539257E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link35.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link35.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint35"
+    type="continuous">
+    <origin
+      xyz="-0.0120758793068846 -0.013173050158831 0.0678825579521828"
+      rpy="1.86395956189057 0 -2.39950959207089" />
+    <parent
+      link="wheel_link3" />
+    <child
+      link="step_link35" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link36">
+    <inertial>
+      <origin
+        xyz="6.89311613771837E-05 0.000193181735527695 0.0247398027807315"
+        rpy="0 0 0" />
+      <mass
+        value="0.0079209538215901" />
+      <inertia
+        ixx="1.02890267314369E-06"
+        ixy="6.87399066037736E-12"
+        ixz="1.80802064616747E-09"
+        iyy="1.02889682796347E-06"
+        iyz="-2.73336061272156E-09"
+        izz="3.0996932154397E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link36.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link36.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint36"
+    type="continuous">
+    <origin
+      xyz="-0.0580940669645492 -0.0131730501588261 -0.037134188003569"
+      rpy="2.07962259993955 0 2.51149781713109" />
+    <parent
+      link="wheel_link3" />
+    <child
+      link="step_link36" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link37">
+    <inertial>
+      <origin
+        xyz="0.000205111207319808 -2.8386989092688E-07 0.0247398027807353"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382159039" />
+      <inertia
+        ixx="1.02890181979275E-06"
+        ixy="-7.17715540403783E-12"
+        ixz="-1.97039336704432E-09"
+        iyy="1.02889768132835E-06"
+        iyz="-2.61873039326127E-09"
+        izz="3.09969321554055E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link37.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link37.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint37"
+    type="continuous">
+    <origin
+      xyz="0.0371341880035679 -0.0131730501588365 -0.0580940669645483"
+      rpy="1.03028208890298 0 2.53734281009387" />
+    <parent
+      link="wheel_link3" />
+    <child
+      link="step_link37" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link38">
+    <inertial>
+      <origin
+        xyz="-0.000166958205254752 -0.000119145481014479 0.0247398027807345"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382158983" />
+      <inertia
+        ixx="1.0289072115429E-06"
+        ixy="-3.56227639591881E-13"
+        ixz="7.81693391525877E-11"
+        iyy="1.02889228956128E-06"
+        iyz="3.27629187496587E-09"
+        izz="3.09969321539295E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link38.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link38.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint38"
+    type="continuous">
+    <origin
+      xyz="0.0148208725461561 -0.0131730501588339 0.0673365448485178"
+      rpy="1.59018955184921 0 -2.35427470573217" />
+    <parent
+      link="wheel_link3" />
+    <child
+      link="step_link38" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link39">
+    <inertial>
+      <origin
+        xyz="0.000186015587494703 -8.64227352032065E-05 0.0247398027807352"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382158995" />
+      <inertia
+        ixx="1.02889561723789E-06"
+        ixy="-6.22165455090507E-12"
+        ixz="-2.88819952268804E-09"
+        iyy="1.02890388386855E-06"
+        iyz="-1.54870991849045E-09"
+        izz="3.09969321542473E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link39.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link39.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint39"
+    type="continuous">
+    <origin
+      xyz="0.0565391531989631 -0.0131730501588386 -0.0394612809055898"
+      rpy="0.847535916878401 0 2.79713066669619" />
+    <parent
+      link="wheel_link3" />
+    <child
+      link="step_link39" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link40">
+    <inertial>
+      <origin
+        xyz="6.72045274385247E-05 -0.000193789162338143 0.0247398027807349"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382158983" />
+      <inertia
+        ixx="1.02889367001149E-06"
+        ixy="4.33823789615134E-12"
+        ixz="-3.12115851388023E-09"
+        iyy="1.0289058310926E-06"
+        iyz="9.9928395703373E-10"
+        izz="3.09969321539194E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link40.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link40.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint40"
+    type="continuous">
+    <origin
+      xyz="0.067882557952181 -0.0131730501588398 0.012075879306883"
+      rpy="0.850384981028339 0.196564493209343 -2.92266819622131" />
+    <parent
+      link="wheel_link3" />
+    <child
+      link="step_link40" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link41">
+    <inertial>
+      <origin
+        xyz="0.000115873417821932 -0.0001692454991781 0.0247398027807336"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382158968" />
+      <inertia
+        ixx="1.02889230906895E-06"
+        ixy="6.46328131458948E-13"
+        ixz="-3.27414987393351E-09"
+        iyy="1.02890719201774E-06"
+        iyz="1.41920746128642E-10"
+        izz="3.09969321522052E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link41.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link41.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint41"
+    type="continuous">
+    <origin
+      xyz="0.067336544848516 -0.0131730501588398 -0.0148208725461577"
+      rpy="0.783667127144722 0 -3.11411715782853" />
+    <parent
+      link="wheel_link3" />
+    <child
+      link="step_link41" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link42">
+    <inertial>
+      <origin
+        xyz="-6.89311613796539E-05 -0.000193181735530568 0.0247398027807351"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382158981" />
+      <inertia
+        ixx="1.02890267314193E-06"
+        ixy="6.87399076768584E-12"
+        ixz="-1.80802064632539E-09"
+        iyy="1.02889682796172E-06"
+        iyz="2.73336061259085E-09"
+        izz="3.09969321537568E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link42.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link42.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint42"
+    type="continuous">
+    <origin
+      xyz="0.0580940669645467 -0.0131730501588387 0.0371341880035697"
+      rpy="1.06197005365025 0 -2.51149781713131" />
+    <parent
+      link="wheel_link3" />
+    <child
+      link="step_link42" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link43">
+    <inertial>
+      <origin
+        xyz="-1.53268356227754E-05 0.00020453795750433 0.0247398027807343"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382159011" />
+      <inertia
+        ixx="1.02889661603455E-06"
+        ixy="6.77997446515023E-12"
+        ixz="2.76109144475266E-09"
+        iyy="1.02890288507812E-06"
+        iyz="-1.76538180849023E-09"
+        izz="3.0996932154591E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link43.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link43.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint43"
+    type="continuous">
+    <origin
+      xyz="-0.0678825579521839 -0.013173050158825 -0.0120758793068837"
+      rpy="2.27442703814216 0 2.75288411775386" />
+    <parent
+      link="wheel_link3" />
+    <child
+      link="step_link43" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link44">
+    <inertial>
+      <origin
+        xyz="-0.000127058131453778 -0.000161018381503314 0.024739802780735"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382159039" />
+      <inertia
+        ixx="1.02890623956953E-06"
+        ixy="3.69946431988827E-12"
+        ixz="-8.39585951934182E-10"
+        iyy="1.02889326155046E-06"
+        iyz="3.16785326721832E-09"
+        izz="3.0996932155397E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link44.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link44.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint44"
+    type="continuous">
+    <origin
+      xyz="0.0394612809055882 -0.0131730501588367 0.0565391531989649"
+      rpy="1.3148612075108 0 -2.38820154084533" />
+    <parent
+      link="wheel_link3" />
+    <child
+      link="step_link44" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link45">
+    <inertial>
+      <origin
+        xyz="-0.000115873417822154 0.000169245499178267 0.0247398027807338"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382159025" />
+      <inertia
+        ixx="1.02889230908232E-06"
+        ixy="6.46328127774685E-13"
+        ixz="3.27414987407726E-09"
+        iyy="1.02890719203117E-06"
+        iyz="-1.4192074729187E-10"
+        izz="3.09969321545858E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link45.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link45.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint45"
+    type="continuous">
+    <origin
+      xyz="-0.0673365448485189 -0.0131730501588251 0.014820872546157"
+      rpy="2.35792552644507 0 3.1141171578283" />
+    <parent
+      link="wheel_link3" />
+    <child
+      link="step_link45" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link46">
+    <inertial>
+      <origin
+        xyz="-0.000186015587496452 8.64227352050662E-05 0.024739802780734"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382158982" />
+      <inertia
+        ixx="1.02889561723358E-06"
+        ixy="-6.22165447881463E-12"
+        ixz="2.8881995235238E-09"
+        iyy="1.02890388386422E-06"
+        iyz="1.54870991753777E-09"
+        izz="3.09969321532108E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link46.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link46.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint46"
+    type="continuous">
+    <origin
+      xyz="-0.056539153198966 -0.0131730501588262 0.0394612809055892"
+      rpy="2.2940567367114 0 -2.79713066669641" />
+    <parent
+      link="wheel_link3" />
+    <child
+      link="step_link46" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link47">
+    <inertial>
+      <origin
+        xyz="0.000127058131448921 0.000161018381500878 0.024439802780734"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382159039" />
+      <inertia
+        ixx="1.02890623957249E-06"
+        ixy="3.69946430955182E-12"
+        ixz="8.39585949555965E-10"
+        iyy="1.02889326155341E-06"
+        iyz="-3.16785326840154E-09"
+        izz="3.0996932155942E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link47.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link47.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint47"
+    type="continuous">
+    <origin
+      xyz="-0.0392627311982616 -0.0129613655761451 -0.0566150982526116"
+      rpy="1.826731446079 0 2.38820154084511" />
+    <parent
+      link="wheel_link3" />
+    <child
+      link="step_link47" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link48">
+    <inertial>
+      <origin
+        xyz="-0.000205111207322334 2.83869892092614E-07 0.024739802780732"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382159022" />
+      <inertia
+        ixx="1.02890181978918E-06"
+        ixy="-7.17715538500606E-12"
+        ixz="1.97039336927354E-09"
+        iyy="1.02889768132484E-06"
+        iyz="2.61873039221479E-09"
+        izz="3.09969321550669E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link48.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link48.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint48"
+    type="continuous">
+    <origin
+      xyz="-0.0371341880035708 -0.0131730501588283 0.0580940669645476"
+      rpy="2.11131056468682 0 -2.53734281009409" />
+    <parent
+      link="wheel_link3" />
+    <child
+      link="step_link48" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="wheel_link4">
+    <inertial>
+      <origin
+        xyz="3.30345374268681E-05 0.0130777543501222 5.45468794278178E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.148553951985214" />
+      <inertia
+        ixx="8.67971009529423E-05"
+        ixy="4.04306347500557E-08"
+        ixz="-2.02911783347322E-08"
+        iyy="0.000156842611099774"
+        iyz="-4.85135161997258E-09"
+        izz="8.69051451059194E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/wheel_link4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/wheel_link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wheel_joint4"
+    type="continuous">
+    <origin
+      xyz="0.25299999999995 0.246750000000234 0.0350000000000175"
+      rpy="0 0 -3.14159265358979" />
+    <parent
+      link="base_link" />
+    <child
+      link="wheel_link4" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link49">
+    <inertial>
+      <origin
+        xyz="1.02695629777827E-15 4.16333634234434E-16 0.0239849978848975"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382159025" />
+      <inertia
+        ixx="1.02890722004854E-06"
+        ixy="1.32348898008484E-21"
+        ixz="-5.03044926440448E-19"
+        iyy="1.02890722004842E-06"
+        iyz="-4.77514824014612E-20"
+        izz="3.09954382572599E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link49.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link49.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint49"
+    type="continuous">
+    <origin
+      xyz="-0.0528285446023071 -0.0129613655761519 0.044226420683811"
+      rpy="1.13839473507683 0 2.46090775757892" />
+    <parent
+      link="wheel_link4" />
+    <child
+      link="step_link49" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link50">
+    <inertial>
+      <origin
+        xyz="-1.11022302462516E-16 -1.76247905159244E-15 0.023984997884898"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382159025" />
+      <inertia
+        ixx="1.02890722004838E-06"
+        ixy="4.42045319348338E-21"
+        ixz="3.92454187264559E-19"
+        iyy="1.02890722004838E-06"
+        iyz="3.15782816287019E-19"
+        izz="3.09954382572399E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link50.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link50.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint50"
+    type="continuous">
+    <origin
+      xyz="0.00608262015537769 -0.0129613655761448 -0.0686282241016407"
+      rpy="1.46285843305827 0 -2.35993354191537" />
+    <parent
+      link="wheel_link4" />
+    <child
+      link="step_link50" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link51">
+    <inertial>
+      <origin
+        xyz="-3.44169137633799E-15 2.60902410786912E-15 0.0239849978848948"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382158981" />
+      <inertia
+        ixx="1.0289072200394E-06"
+        ixy="-4.01017160965708E-20"
+        ixz="-1.41079293065614E-18"
+        iyy="1.02890722003931E-06"
+        iyz="5.01794229354268E-19"
+        izz="3.09954382552235E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link51.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link51.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint51"
+    type="continuous">
+    <origin
+      xyz="-0.0657319295589345 -0.0129613655761534 0.0206432760907422"
+      rpy="0.919999238164992 0 2.66137790679071" />
+    <parent
+      link="wheel_link4" />
+    <child
+      link="step_link51" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link52">
+    <inertial>
+      <origin
+        xyz="3.83026943495679E-15 -2.83106871279415E-15 0.0242849978848959"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382158996" />
+      <inertia
+        ixx="1.02890722004121E-06"
+        ixy="-6.01393392550553E-20"
+        ixz="-3.22865136691698E-20"
+        iyy="1.02890722004108E-06"
+        iyz="5.52688998083431E-20"
+        izz="3.09954382557336E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link52.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link52.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint52"
+    type="continuous">
+    <origin
+      xyz="0.0658421926341752 -0.0131730501588207 -0.0204615298619159"
+      rpy="2.2215934154248 0 -2.66137790679046" />
+    <parent
+      link="wheel_link4" />
+    <child
+      link="step_link52" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link53">
+    <inertial>
+      <origin
+        xyz="-6.57807142090405E-15 -7.7715611723761E-16 0.0242849978848971"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382159011" />
+      <inertia
+        ixx="1.02890722004321E-06"
+        ixy="3.86326433286766E-20"
+        ixz="-1.81933412647363E-18"
+        iyy="1.02890722004311E-06"
+        iyz="-6.48511254602799E-19"
+        izz="3.09954382562231E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link53.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link53.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint53"
+    type="continuous">
+    <origin
+      xyz="-0.032088974381003 -0.0131730501588324 0.0610259474186262"
+      rpy="1.40150138868674 0 2.36863584341041" />
+    <parent
+      link="wheel_link4" />
+    <child
+      link="step_link53" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link54">
+    <inertial>
+      <origin
+        xyz="-1.66533453693773E-16 -6.74460487459783E-15 0.0242849978848956"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382158981" />
+      <inertia
+        ixx="1.02890722003878E-06"
+        ixy="-1.83567921537768E-20"
+        ixz="6.98107349770253E-20"
+        iyy="1.0289072200389E-06"
+        iyz="-1.82522365243501E-19"
+        izz="3.09954382553994E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link54.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link54.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint54"
+    type="continuous">
+    <origin
+      xyz="0.0610259474186285 -0.0131730501588213 0.0320889743810042"
+      rpy="2.32990144975846 0 2.90720075155487" />
+    <parent
+      link="wheel_link4" />
+    <child
+      link="step_link54" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link55">
+    <inertial>
+      <origin
+        xyz="3.21964677141295E-15 4.12170297892089E-15 0.0242849978848965"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382159025" />
+      <inertia
+        ixx="1.02890722004823E-06"
+        ixy="2.61521422464765E-20"
+        ixz="1.15580292630809E-19"
+        iyy="1.0289072200483E-06"
+        iyz="4.64637276238386E-19"
+        izz="3.09954382570844E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link55.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link55.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint55"
+    type="continuous">
+    <origin
+      xyz="-0.0441007049149788 -0.0131730501588339 -0.0529999656713815"
+      rpy="0.962581220723549 0 -2.60568345863411" />
+    <parent
+      link="wheel_link4" />
+    <child
+      link="step_link55" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link56">
+    <inertial>
+      <origin
+        xyz="6.77236045021345E-15 6.38378239159465E-16 0.0242849978848971"
+        rpy="0 0 0" />
+      <mass
+        value="0.0079209538215898" />
+      <inertia
+        ixx="1.02890722003915E-06"
+        ixy="3.03409848684451E-20"
+        ixz="-8.3906554359419E-19"
+        iyy="1.02890722003907E-06"
+        iyz="-2.37869020029424E-19"
+        izz="3.09954382552234E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link56.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link56.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint56"
+    type="continuous">
+    <origin
+      xyz="0.0320889743810055 -0.0131730501588248 -0.0610259474186271"
+      rpy="1.74009126490305 0 -2.36863584341017" />
+    <parent
+      link="wheel_link4" />
+    <child
+      link="step_link56" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link57">
+    <inertial>
+      <origin
+        xyz="1.33226762955019E-15 6.93889390390723E-16 0.0239849978848968"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382158953" />
+      <inertia
+        ixx="1.02890722003431E-06"
+        ixy="-1.83964968231793E-21"
+        ixz="-1.41034294440291E-19"
+        iyy="1.02890722003432E-06"
+        iyz="6.2739995100922E-19"
+        izz="3.09954382545628E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link57.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link57.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint57"
+    type="continuous">
+    <origin
+      xyz="-0.0610764936412689 -0.0129613655761528 -0.0318824926219303"
+      rpy="0.811691203831332 0 -2.90720075155462" />
+    <parent
+      link="wheel_link4" />
+    <child
+      link="step_link57" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link58">
+    <inertial>
+      <origin
+        xyz="-8.46545056276682E-16 1.0547118733939E-15 0.0242849978848986"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382159025" />
+      <inertia
+        ixx="1.02890722004876E-06"
+        ixy="3.48342299558331E-20"
+        ixz="-1.63490593709881E-19"
+        iyy="1.02890722004886E-06"
+        iyz="-6.37795956947787E-19"
+        izz="3.09954382569192E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link58.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link58.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint58"
+    type="continuous">
+    <origin
+      xyz="0.0441007049149823 -0.0131730501588233 0.0529999656713803"
+      rpy="2.17901143286625 0 2.60568345863436" />
+    <parent
+      link="wheel_link4" />
+    <child
+      link="step_link58" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link59">
+    <inertial>
+      <origin
+        xyz="3.71924713249427E-15 2.34534613952064E-15 0.0242849978848985"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382158997" />
+      <inertia
+        ixx="1.02890722004171E-06"
+        ixy="-2.92623413496759E-20"
+        ixz="6.25414717539093E-19"
+        iyy="1.0289072200417E-06"
+        iyz="8.46371202764258E-19"
+        izz="3.09954382557072E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link59.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link59.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint59"
+    type="continuous">
+    <origin
+      xyz="-0.0204615298619139 -0.0131730501588311 -0.065842192634175"
+      rpy="1.19442997867902 0 -2.43214372067132" />
+    <parent
+      link="wheel_link4" />
+    <child
+      link="step_link59" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link60">
+    <inertial>
+      <origin
+        xyz="1.99840144432528E-15 -4.30211422042248E-15 0.024284997884898"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382158997" />
+      <inertia
+        ixx="1.02890722004388E-06"
+        ixy="7.4704335480889E-20"
+        ixz="3.76218286201368E-19"
+        iyy="1.02890722004385E-06"
+        iyz="-3.80675135341804E-19"
+        izz="3.09954382560566E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link60.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link60.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint60"
+    type="continuous">
+    <origin
+      xyz="0.0686605426293793 -0.0131730501588204 0.0062927276283972"
+      rpy="2.34669558791951 0 -2.99008952131853" />
+    <parent
+      link="wheel_link4" />
+    <child
+      link="step_link60" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link61">
+    <inertial>
+      <origin
+        xyz="-4.13558076672871E-15 -3.62904151174348E-15 0.0242849978848961"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382158997" />
+      <inertia
+        ixx="1.0289072200411E-06"
+        ixy="-2.80579663777987E-20"
+        ixz="-1.38251658859663E-19"
+        iyy="1.02890722004109E-06"
+        iyz="-2.35772944357215E-19"
+        izz="3.09954382555367E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link61.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link61.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint61"
+    type="continuous">
+    <origin
+      xyz="0.0204615298619164 -0.0131730501588262 0.0658421926341741"
+      rpy="1.94716267491077 0 2.43214372067156" />
+    <parent
+      link="wheel_link4" />
+    <child
+      link="step_link61" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link62">
+    <inertial>
+      <origin
+        xyz="3.60822483003176E-16 1.45716771982052E-15 0.0242849978848975"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382159026" />
+      <inertia
+        ixx="1.02890722004843E-06"
+        ixy="-1.09419451428515E-20"
+        ixz="-9.56472251017516E-19"
+        iyy="1.02890722004844E-06"
+        iyz="-7.0250298754536E-19"
+        izz="3.09954382570578E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link62.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link62.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint62"
+    type="continuous">
+    <origin
+      xyz="-0.006292727628396 -0.0131730501588294 0.068660542629377"
+      rpy="1.67873422053152 0 2.35993354191561" />
+    <parent
+      link="wheel_link4" />
+    <child
+      link="step_link62" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link63">
+    <inertial>
+      <origin
+        xyz="6.10622663543836E-16 1.4432899320127E-15 0.0239849978848961"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382158953" />
+      <inertia
+        ixx="1.02890722003337E-06"
+        ixy="-5.97025878916273E-20"
+        ixz="-9.29473075823785E-19"
+        iyy="1.02890722003339E-06"
+        iyz="1.02849652131373E-18"
+        izz="3.09954382543972E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link63.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link63.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint63"
+    type="continuous">
+    <origin
+      xyz="-0.0686282241016387 -0.0129613655761538 -0.00608262015537751"
+      rpy="0.794897065670284 0 2.99008952131877" />
+    <parent
+      link="wheel_link4" />
+    <child
+      link="step_link63" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="step_link64">
+    <inertial>
+      <origin
+        xyz="9.6034291630076E-15 6.93889390390723E-17 0.0242849978848953"
+        rpy="0 0 0" />
+      <mass
+        value="0.00792095382158996" />
+      <inertia
+        ixx="1.02890722004097E-06"
+        ixy="1.94552880072472E-21"
+        ixz="3.6626234034868E-19"
+        iyy="1.02890722004085E-06"
+        iyz="4.44096727267469E-20"
+        izz="3.09954382557204E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link64.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/step_link64.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="step_joint64"
+    type="continuous">
+    <origin
+      xyz="0.0529999656713824 -0.0131730501588223 -0.0441007049149821"
+      rpy="2.00319791851296 0 -2.46090775757868" />
+    <parent
+      link="wheel_link4" />
+    <child
+      link="step_link64" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="UR5e_link1">
+    <inertial>
+      <origin
+        xyz="0.00049093 -0.0109 0.16262"
+        rpy="0 0 0" />
+      <mass
+        value="1.6078" />
+      <inertia
+        ixx="0.0039235"
+        ixy="2.1359E-05"
+        ixz="-4.3102E-06"
+        iyy="0.0034487"
+        iyz="9.4705E-05"
+        izz="0.0033425" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/UR5e_link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/UR5e_link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="UR5e_joint1"
+    type="revolute">
+    <origin
+      xyz="-0.19345 0.0021481 0.59677"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="UR5e_link1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="UR5e_link2">
+    <inertial>
+      <origin
+        xyz="-2.71804361262618E-06 0.212491602045572 0.0635096228098317"
+        rpy="0 0 0" />
+      <mass
+        value="3.48191824239309" />
+      <inertia
+        ixx="0.141429610792252"
+        ixy="-4.30290327961939E-06"
+        ixz="1.85877064019704E-07"
+        iyy="0.00741838122468609"
+        iyz="-8.00141955332013E-07"
+        izz="0.1402651588556" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/UR5e_link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/UR5e_link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="UR5e_joint2"
+    type="revolute">
+    <origin
+      xyz="0.0033491 -0.074325 0.1625"
+      rpy="1.5708 0 0.04503" />
+    <parent
+      link="UR5e_link1" />
+    <child
+      link="UR5e_link2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="UR5e_link3">
+    <inertial>
+      <origin
+        xyz="2.16467506075624E-06 0.148140173882458 0.0574094024188689"
+        rpy="0 0 0" />
+      <mass
+        value="1.78720049048693" />
+      <inertia
+        ixx="0.00975642179957606"
+        ixy="-2.03936931615504E-07"
+        ixz="-1.09175116141079E-07"
+        iyy="0.00255793348242599"
+        iyz="-0.000972881825284729"
+        izz="0.00937974579119019" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/UR5e_link3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/UR5e_link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="UR5e_joint3"
+    type="revolute">
+    <origin
+      xyz="0 0.425 0"
+      rpy="-3.1416 0 -3.1416" />
+    <parent
+      link="UR5e_link2" />
+    <child
+      link="UR5e_link3" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="UR5e_link4">
+    <inertial>
+      <origin
+        xyz="8.04751685801186E-06 -0.0025476671303255 0.0620937032265104"
+        rpy="0 0 0" />
+      <mass
+        value="0.658207410932686" />
+      <inertia
+        ixx="0.00109191744252754"
+        ixy="1.19375830488791E-07"
+        ixz="-2.6989242457619E-07"
+        iyy="0.000884746564196789"
+        iyz="2.58944731651359E-05"
+        izz="0.000686113222062589" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/UR5e_link4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/UR5e_link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="UR5e_joint4"
+    type="revolute">
+    <origin
+      xyz="0 0.3922 0.0215"
+      rpy="3.1416 0 3.1416" />
+    <parent
+      link="UR5e_link3" />
+    <child
+      link="UR5e_link4" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="UR5e_link5">
+    <inertial>
+      <origin
+        xyz="-0.000166877073989352 0.00310078349274995 0.0458480923357971"
+        rpy="0 0 0" />
+      <mass
+        value="0.538719240263959" />
+      <inertia
+        ixx="0.000697695290251416"
+        ixy="9.3852290634382E-06"
+        ixz="5.53866458657394E-07"
+        iyy="0.000492185678243873"
+        iyz="-7.54104439320769E-06"
+        izz="0.000601202090580825" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/UR5e_link5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/UR5e_link5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="UR5e_joint5"
+    type="revolute">
+    <origin
+      xyz="1.8616E-05 0.0463 0.080394"
+      rpy="-1.5708 -0.04503 0" />
+    <parent
+      link="UR5e_link4" />
+    <child
+      link="UR5e_link5" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="1" />
+  </joint>
+  <link
+    name="UR5e_link6">
+    <inertial>
+      <origin
+        xyz="-6.08435329896295E-10 -1.80007560230955E-05 0.0250238164718846"
+        rpy="0 0 0" />
+      <mass
+        value="0.218934457574384" />
+      <inertia
+        ixx="0.000120675770796062"
+        ixy="2.15133013384227E-09"
+        ixz="-9.44397430817338E-12"
+        iyy="0.000121384717772398"
+        iyz="-1.61067881209091E-07"
+        izz="0.000150863876739781" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/UR5e_link6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://forkift_urdf/meshes/UR5e_link6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="UR5e_joint6"
+    type="revolute">
+    <origin
+      xyz="0.0020658 -0.046259 0.0534"
+      rpy="1.5708 0 0.04503" />
+    <parent
+      link="UR5e_link5" />
+    <child
+      link="UR5e_link6" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="100"
+      velocity="1" />
+  </joint>
+</robot>

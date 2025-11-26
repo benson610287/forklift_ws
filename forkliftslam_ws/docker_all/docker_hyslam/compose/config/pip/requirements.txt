@@ -1,0 +1,5 @@
+# install python dep
+pyrealsense2
+# opencv-python
+# this already include opencv-python
+opencv-contrib-python==4.11.0.86

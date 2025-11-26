@@ -1,0 +1,5 @@
+ros2 launch timda_bringup urg_lidar.launch.py 
+ros2 run mecanum mobile_node 
+ros2 launch timda_slam navigation.launch.py 
+source install/setup.bash 
+
