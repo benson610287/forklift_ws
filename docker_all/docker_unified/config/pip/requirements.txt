@@ -1,0 +1,14 @@
+# Union of pip deps for all subsystems (shelf + pallet + docking + gui)
+pyrealsense2
+ultralytics
+# one opencv only: contrib includes aruco (shelf/docking need it)
+opencv-contrib-python==4.11.0.86
+pyk4a
+open3d
+onnx==1.17.0
+onnxslim==0.1.58
+onnxruntime-gpu
+tensorrt==10.12.0.36
+# docking requires numpy<2.0; sb3/gym work with 1.26
+numpy==1.26.4
+python-lsp-server
