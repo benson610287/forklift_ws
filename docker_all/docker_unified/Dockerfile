@@ -65,6 +65,7 @@ RUN apt update \
     python3-setuptools \
     software-properties-common \
     lsb-release \
+    gnupg \
     libmodbus-dev \
     libcap-dev \
     && apt clean \
@@ -74,8 +75,11 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # * ROS 2 Humble
 RUN sudo add-apt-repository universe
-RUN sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
-RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+# ROS signing key rotated in 2025 — use the official ros2-apt-source package instead of a raw key fetch
+RUN ROS_APT_SOURCE_VERSION=$(curl -s https://api.github.com/repos/ros-infrastructure/ros-apt-source/releases/latest | grep -F '"tag_name"' | awk -F'"' '{print $4}') \
+    && curl -L -o /tmp/ros2-apt-source.deb "https://github.com/ros-infrastructure/ros-apt-source/releases/download/${ROS_APT_SOURCE_VERSION}/ros2-apt-source_${ROS_APT_SOURCE_VERSION}.$(. /etc/os-release && echo ${VERSION_CODENAME})_all.deb" \
+    && apt update && apt install -y /tmp/ros2-apt-source.deb \
+    && rm /tmp/ros2-apt-source.deb
 RUN sudo apt update && sudo DEBIAN_FRONTEND=noninteractive apt install -y ros-humble-desktop
 RUN sudo apt install -y ros-humble-rmw-cyclonedds-cpp python3-colcon-common-extensions python3-rosdep
 
@@ -111,11 +115,16 @@ RUN apt update && apt install -y \
     && rm -rf /var/lib/apt/lists/*
 
 ###################### RealSense #############################
-RUN mkdir -p /etc/apt/keyrings
-RUN curl -sSf https://librealsense.intel.com/Debian/librealsense.pgp | sudo tee /etc/apt/keyrings/librealsense.pgp > /dev/null
-RUN echo "deb [signed-by=/etc/apt/keyrings/librealsense.pgp] https://librealsense.intel.com/Debian/apt-repo `lsb_release -cs` main" \
-    | tee /etc/apt/sources.list.d/librealsense.list
-RUN apt update && apt install -y \
+# fetch keys + install in ONE layer so the signing keys are never a stale cached layer.
+# The repo moved to a new signing key (RealSense spin-out, Nov 2025, FB0B24895113F120)
+# but the .pgp URL still serves the old 2018 key — install both.
+RUN mkdir -p /etc/apt/keyrings \
+    && curl -sSf https://librealsense.intel.com/Debian/librealsense.pgp -o /etc/apt/keyrings/librealsense.pgp \
+    && curl -sSf "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xFB0B24895113F120" \
+    | gpg --dearmor >> /etc/apt/keyrings/librealsense.pgp \
+    && echo "deb [signed-by=/etc/apt/keyrings/librealsense.pgp] https://librealsense.intel.com/Debian/apt-repo `lsb_release -cs` main" \
+    | tee /etc/apt/sources.list.d/librealsense.list \
+    && apt update && apt install -y \
     librealsense2-utils \
     librealsense2-dev \
     ros-humble-realsense2-camera \
@@ -154,7 +163,7 @@ RUN pip install setuptools==58.2.0 pyqt5-tools
 #################### RL stack for pallet_model (from docker_pallet) ######################
 # gym==0.21.0 (required by stable-baselines3 1.7.0) only installs with pip 22 + setuptools 58
 RUN pip install pip==22.0 && \
-    pip install \
+    pip install --ignore-installed \
     pybullet==3.2.5 \
     gym==0.21.0 \
     stable-baselines3==1.7.0 \
@@ -166,6 +175,11 @@ RUN ./config/pip/pip_setup.sh
 
 #################### PyTorch cu128 (installed LAST so it wins over RL layer's torch) ####
 RUN pip3 install --ignore-installed torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128
+# clean up matplotlib mixed-version install (3.5.1 pin overwritten by ultralytics' newer pull)
+RUN pip3 uninstall -y matplotlib || true
+RUN rm -rf /usr/local/lib/python3.10/dist-packages/matplotlib* \
+    && pip3 install matplotlib \
+    && python3 -c "import matplotlib.pyplot"
 
 ############################## USER CONFIG ####################################
 #* Switch user to ${USER}
