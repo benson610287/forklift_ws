@@ -16,20 +16,23 @@ slam_toolbox:
     scan_topic: /scan_multi
     use_map_saver: true
     mode: mapping #localization
+    
+    # 初始位置設定 - 確保建圖從 (0,0) 開始
+    map_start_pose_x: 0.0
+    map_start_pose_y: 0.0
+    map_start_pose_yaw: 0.0
+    # Initial pose settings - 設定起始位置為 (0,0)
+    map_start_at_dock: true
+    first_map_point_only: true
+    first_map_only: true
 
-    # if you'd like to immediately start continuing a map at a given pose
-    # or at the dock, but they are mutually exclusive, if pose is given
-    # will use pose
-    #map_file_name: test_steve
-    # map_start_pose: [0.0, 0.0, 0.0]
-    #map_start_at_dock: true
 
     debug_logging: false
     throttle_scans: 1
     transform_publish_period: 0.01 #if 0 never publishes odometry
     map_update_interval: 10.0
     resolution: 0.02
-    min_laser_range: 0.3 #for rastering images
+    min_laser_range: 0.5 #for rastering images
     max_laser_range: 10.0 #for rastering images
     minimum_time_interval: 0.5
     transform_timeout: 0.01
@@ -42,6 +45,8 @@ slam_toolbox:
     use_scan_barycenter: true
     minimum_travel_distance: 0.0
     minimum_travel_heading: 0.0
+    
+
     scan_buffer_size: 20
     scan_buffer_maximum_scan_distance: 15.0
     link_match_minimum_response_fine: 0.12  

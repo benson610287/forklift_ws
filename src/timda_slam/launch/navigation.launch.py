@@ -48,6 +48,8 @@ def generate_launch_description() -> LaunchDescription:
     log_level = LaunchConfiguration('log_level')
     use_localization = LaunchConfiguration('use_localization')
     pose_navigation = LaunchConfiguration('pose_navigation')
+    change_map = LaunchConfiguration('change_map')
+
 
     # Map fully qualified names to relative ones so the node's namespace can be prepended.
     remappings = [('/tf', 'tf'), ('/tf_static', 'tf_static')]
@@ -91,7 +93,7 @@ def generate_launch_description() -> LaunchDescription:
 
     declare_params_file_cmd = DeclareLaunchArgument(
         'params_file',
-        default_value=os.path.join(config_dir, 'config', 'nav2_params.yaml'),
+        default_value=os.path.join(config_dir, 'config', 'nav2_params_new.yaml'),
         description='Full path to the ROS2 parameters file to use for all launched nodes',
     )
 
@@ -121,6 +123,11 @@ def generate_launch_description() -> LaunchDescription:
         'pose_navigation',
         default_value='True',
         description='Whether to run pose navigation node',
+    )
+    declare_change_map_cmd = DeclareLaunchArgument(
+        'change_map',
+        default_value='True',
+        description='Whether to run map changer node',
     )
 
     # Specify the actions
@@ -182,7 +189,16 @@ def generate_launch_description() -> LaunchDescription:
                 output='screen',
                 condition=IfCondition(pose_navigation),
             ),
+             Node(
+                package='timda_slam',
+                executable='change_map',
+                name='change_map_node',
+                output='screen',
+                condition=IfCondition(change_map),
+            ),
         ]
+        
+        
     )
 
     # Create the launch description and populate
@@ -203,6 +219,7 @@ def generate_launch_description() -> LaunchDescription:
     ld.add_action(declare_log_level_cmd)
     ld.add_action(declare_use_localization_cmd)
     ld.add_action(declare_pose_navigation_cmd)
+    ld.add_action(declare_change_map_cmd)
     
 
     # Add the actions to launch all of the navigation nodes

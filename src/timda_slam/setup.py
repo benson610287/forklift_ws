@@ -26,6 +26,8 @@ setup(
     entry_points={
         'console_scripts': [
             'pose_navigation_node = timda_slam.pose_navigation_node:main',
+            'change_map = timda_slam.change_map:main',
+            'test_goal_publisher = timda_slam.test_goal_publisher:main',
         ],
     },
 )

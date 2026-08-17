@@ -7,9 +7,14 @@ Panels:
         - /Global Options1
         - /Status1
         - /Map1
+        - /Map1/Topic1
         - /Map2
         - /TF1
         - /LaserScan1
+        - /Path1
+        - /Path1/Topic1
+        - /Polygon1
+        - /Polygon1/Topic1
       Splitter Ratio: 0.5
     Tree Height: 239
   - Class: rviz_common/Selection
@@ -191,6 +196,19 @@ Visualization Manager:
         Reliability Policy: Reliable
         Value: /plan
       Value: true
+    - Alpha: 1
+      Class: rviz_default_plugins/Polygon
+      Color: 25; 255; 0
+      Enabled: true
+      Name: Polygon
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /local_costmap/published_footprint
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -237,16 +255,16 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 10.67540168762207
+      Distance: 14.0447416305542
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0
-        Y: 0
-        Z: 0
+        X: 4.8978254199028015e-06
+        Y: -0.016286855563521385
+        Z: -4.8275061999447644e-05
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
@@ -255,7 +273,7 @@ Visualization Manager:
       Pitch: 1.5697963237762451
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 1.605397343635559
+      Yaw: 1.6385751962661743
     Saved: ~
 Window Geometry:
   Displays:
