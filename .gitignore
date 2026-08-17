@@ -1,0 +1,15 @@
+# colcon / ROS 2 build artifacts
+build/
+install/
+log/
+
+# Python
+__pycache__/
+*.pyc
+
+# Core dumps
+core
+
+# Editor
+.vscode/
+*.code-workspace
