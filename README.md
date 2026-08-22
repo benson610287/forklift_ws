@@ -68,9 +68,10 @@ ros2 launch pallet_main start.launch.py
 # ④ RL bin-packing planner — REQUIRED, not included in ③
 ros2 run pallet_model main
 
-# ⑤ Pallet docking chain
+# ⑤ Pallet docking chain + ArUco parking
 ros2 launch docking_pkg docking_nodes.launch.py        # YoloDepthProcessor + ransac + pid
 ros2 run docking_pkg docking_status_server             # separate terminal
+ros2 run docking_pkg aruco_parking_node                # separate terminal — serves /parking
 
 # ⑥ Orchestrator (serves /taskcmd; waits for services from ③⑤)
 ros2 run main_control main
@@ -88,6 +89,7 @@ Ordering rules 順序限制:
 4. `linear_move slide` (in ①) before `shelf_docking`.
 5. `docking_status_server` before commanding docking.
 6. `main_control main` after ③⑤; GUI last.
+7. `aruco_parking_node` before the `parking` task, and the RealSense (`/camera/camera/color/image_raw`) must be publishing before `/parking` is called. `parking` runs **after** `slam_parking`/`slam1` has coarse-parked the robot with ArUco marker id 5 in camera view (fine alignment: stops at 1.35 m, ±2 cm, ±3°).
 
 ### Mapping instead of navigation 建圖模式
 
@@ -117,7 +119,7 @@ Full SLAM/nav details (Chinese): [src/timda_slam/README.md](src/timda_slam/READM
 | docking_pkg | `ros2 launch docking_pkg docking_nodes.launch.py` | Yolo depth → ransac → pid chain |
 | | `ros2 run docking_pkg docking_status_server` | docking service entry (`docking_status_server`) |
 | | `ros2 run docking_pkg docking_processor_node` | all-in-one alternative |
-| | `ros2 run docking_pkg aruco_parking_node` | ArUco parking control |
+| | `ros2 run docking_pkg aruco_parking_node` | fine parking vs ArUco id 5, serves `/parking` |
 | shelf_pose_est | `ros2 run shelf_pose_est shelf_pose` | ArUco shelf pose, service `/toggle_aruco_detection` |
 | | `ros2 run shelf_pose_est shelf_pose_offset` | forklift-offset variant — ⚠ same service name, don't run both |
 | | `ros2 run shelf_pose_est shelf_state` | shelf state from Azure Kinect depth |
@@ -147,6 +149,10 @@ ros2 service call /toggle_aruco_detection interface/srv/Maincontroller "{enable:
 # Trigger pallet docking directly 直接觸發對接
 ros2 service call /docking_status_server interface/srv/Maincontroller "{enable: true}"
 
+# ArUco fine parking (marker id 5, stops at 1.35 m) — coarse-park with Nav2 first 先導航到停車點附近
+ros2 service call /parking interface/srv/Maincontroller "{enable: true}"
+# cancel: "{enable: false}"   ⚠ cannot interrupt a running parking (see Known Issues)
+
 # Send a nav goal directly 直接下導航目標 [x, y, yaw°]
 ros2 topic pub /timda_nav_pose std_msgs/msg/Float32MultiArray "{data: [2.0, 1.0, 0.0]}" --once
 
@@ -156,7 +162,9 @@ ros2 service call linear/move_cmd interface/srv/Slidecmd "{pos: 1000}"
 
 ## 6. Known Issues 已知問題
 
-- **`parking` task doesn't work**: `main_control` calls a `parking` service but no node serves it (`aruco_parking_node` only publishes `/cmd_vel`).
+- **`aruco_parking_node` is in no launch file** — must `ros2 run` manually (step ⑤); forget it and the `parking` task hangs silently.
+- **`/parking` has no timeout** — if marker id 5 never aligns (occluded, robot parked facing wrong way), the service blocks forever and the `enable: false` cancel cannot get through (single MutuallyExclusive callback group). Only recovery: kill the node.
+- **Repeat parking unreliable** — `success_count` is not reset between runs; a second `/parking` call can report arrival after one good frame instead of 13 consecutive.
 - **`pallet_model` not in `start.launch.py`** — must be run manually (step ④) or `arm_start_end` never receives an end pose.
 - **Don't run `shelf_pose` and `shelf_pose_offset` together** — both serve `/toggle_aruco_detection`.
 - `urg_lidar.launch.py` now starts `robot_state_publisher` with `forklift_urdf` — if URDF errors appear on a machine without the arm, comment that node out.
