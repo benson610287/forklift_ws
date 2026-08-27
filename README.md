@@ -2,6 +2,14 @@
 
 ROS 2 Humble autonomous forklift: mecanum-wheel base, linear fork lift, dual Hokuyo lidar (SLAM + Nav2), UR5e arm (MoveIt), RealSense + Azure Kinect cameras, YOLOv8 pallet detection, ArUco shelf docking.
 
+> ## ⚠️ 尚未實機測試 NOT FIELD-TESTED
+> This `integration` branch merges all branches + one unified Docker image. Verified so far: image builds, all pip/ROS deps import, **`colcon build` passes for all 76 packages**, key launch files pass `--print` checks. **NOT yet verified on the real robot** — no hardware test of lidar, mecanum base, UR5e arm, cameras, docking, or navigation on this branch. 尚未在實體堆高機上測試過，第一次使用請逐項小心驗證：
+> 1. Serial/裝置權限與 `/dev/ttyUSB*`、`/dev/ttyACM*` 對應
+> 2. Lidar + SLAM (`start_hardware` → `navigation`) 先於一切
+> 3. 手臂低速模式先測 MoveIt 軌跡
+> 4. Docking/parking 第一次跑建議清空場地並隨時準備急停 — 對接 PID 在感知中斷時**不會自動停** (見 Known Issues)
+> Torch 已從 cu117 升到 cu128、numpy 為 2.x（原本 pin 1.26）— GPU 相關節點 (YOLO、RL model load) 需實測確認。
+
 | Subsystem | Package(s) | Hardware |
 |---|---|---|
 | Mobile base 底盤 | `mecanum` | Orientalmotor BLV over Modbus (`/dev/ttyUSB*`) |
